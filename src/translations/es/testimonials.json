@@ -1,0 +1,33 @@
+{
+  "title": "Lo Que Dicen Nuestros Clientes",
+  "items": [
+    {
+      "quote": "La implementación del agente de ventas con IA de Antigua Digital aumentó nuestra tasa de conversión en un 35% en solo dos meses.",
+      "name": "Sarah Johnson",
+      "title": "VP de Ventas",
+      "company": "TechCorp Inc.",
+      "avatar": "/avatars/sarah.jpg"
+    },
+    {
+      "quote": "El agente de IA maneja perfectamente las consultas rutinarias, permitiendo a nuestro equipo centrarse en las necesidades complejas de los clientes.",
+      "name": "Michael Chen",
+      "title": "Gerente de Éxito del Cliente",
+      "company": "Innovate Solutions",
+      "avatar": "/avatars/michael.jpg"
+    },
+    {
+      "quote": "Hemos visto una reducción del 40% en el tiempo de respuesta y una mejora significativa en la satisfacción del cliente.",
+      "name": "Elena Rodriguez",
+      "title": "Directora de Marketing",
+      "company": "Global Retail",
+      "avatar": "/avatars/elena.jpg"
+    },
+    {
+      "quote": "La integración perfecta con nuestros sistemas existentes hizo que la adopción fuera increíblemente sencilla para nuestro equipo.",
+      "name": "David Kim",
+      "title": "CTO",
+      "company": "StartUp Ventures",
+      "avatar": "/avatars/david.jpg"
+    }
+  ]
+}

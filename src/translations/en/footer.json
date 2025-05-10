@@ -1,0 +1,32 @@
+{
+  "companyName": "Antigua Digital",
+  "companyDescription": "AI-powered solutions for modern businesses.",
+  "sections": {
+    "product": {
+      "title": "Product",
+      "links": [
+        "Features",
+        "Pricing",
+        "Case Studies",
+        "Documentation"
+      ]
+    },
+    "company": {
+      "title": "Company",
+      "links": [
+        "About",
+        "Team",
+        "Careers",
+        "Contact"
+      ]
+    },
+    "legal": {
+      "title": "Legal",
+      "links": [
+        "Privacy Policy",
+        "Terms of Service"
+      ]
+    }
+  },
+  "copyright": "© {year} Antigua Digital. All rights reserved."
+}

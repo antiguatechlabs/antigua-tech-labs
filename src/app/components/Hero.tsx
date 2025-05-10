@@ -1,7 +1,9 @@
 "use client";
 import { Button, Container, Heading, Text, VStack, Box } from '@chakra-ui/react';
 import { motion } from 'framer-motion';
-import { getHeroContent } from '@/lib/data';
+import { useEffect, useState } from 'react';
+import { getHeroContent, HeroContent } from '@/lib/data';
+import { useLanguage } from '@/lib/languageContext';
 import { fadeIn, slideUp, staggerContainer, buttonHover } from '@/lib/animations';
 
 // Create motion components
@@ -13,7 +15,13 @@ const MotionText = motion(Text);
 const MotionButton = motion(Button);
 
 export default function Hero() {
-    const content = getHeroContent();
+    const { language } = useLanguage();
+    const [content, setContent] = useState<HeroContent>(getHeroContent(language));
+
+    // Update content when language changes
+    useEffect(() => {
+        setContent(getHeroContent(language));
+    }, [language]);
 
     return (
         <MotionBox

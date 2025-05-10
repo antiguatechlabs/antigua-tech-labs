@@ -1,9 +1,10 @@
 "use client";
 import { Box, Container, Heading, Text, VStack, HStack, SimpleGrid } from '@chakra-ui/react';
 import { motion, useInView } from 'framer-motion';
-import { useRef } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import { Avatar } from '@mui/material';
-import { getTestimonialsContent } from '@/lib/data';
+import { getTestimonialsContent, TestimonialsContent, TestimonialItem } from '@/lib/data';
+import { useLanguage } from '@/lib/languageContext';
 import { fadeIn, slideInLeft, slideInRight } from '@/lib/animations';
 
 // Create motion components
@@ -15,18 +16,16 @@ const MotionVStack = motion(VStack);
 const MotionHStack = motion(HStack);
 const MotionSimpleGrid = motion(SimpleGrid);
 
-interface TestimonialItem {
-    quote: string;
-    name: string;
-    title: string;
-    company: string;
-    avatar: string;
-}
-
 export default function Testimonials() {
-    const testimonials = getTestimonialsContent();
+    const { language } = useLanguage();
+    const [testimonials, setTestimonials] = useState<TestimonialsContent>(getTestimonialsContent(language));
     const ref = useRef(null);
     const isInView = useInView(ref, { once: true, amount: 0.2 });
+
+    // Update content when language changes
+    useEffect(() => {
+        setTestimonials(getTestimonialsContent(language));
+    }, [language]);
 
     // Generate avatar URLs using UI Avatars service
     const getAvatarUrl = (name: string) => {

@@ -1,0 +1,35 @@
+{
+  "title": "Características Principales",
+  "items": [
+    {
+      "title": "Conversaciones Impulsadas por IA",
+      "description": "Nuestra IA avanzada comprende la intención del cliente y responde de manera natural.",
+      "icon": "ChatIcon"
+    },
+    {
+      "title": "Disponibilidad 24/7",
+      "description": "Nunca pierdas un cliente potencial con respuestas automatizadas las 24 horas.",
+      "icon": "TimeIcon"
+    },
+    {
+      "title": "Integración Perfecta",
+      "description": "Integra fácilmente con tu CRM existente y herramientas de ventas.",
+      "icon": "LinkIcon"
+    },
+    {
+      "title": "Análisis de Datos",
+      "description": "Obtén información valiosa de las interacciones con clientes y mejora tu proceso de ventas.",
+      "icon": "StarIcon"
+    },
+    {
+      "title": "Soporte Multilingüe",
+      "description": "Comunícate con los clientes en su idioma preferido.",
+      "icon": "GlobeIcon"
+    },
+    {
+      "title": "Flujos de Trabajo Personalizables",
+      "description": "Adapta el flujo de conversación para que coincida con tu proceso de ventas.",
+      "icon": "SettingsIcon"
+    }
+  ]
+}

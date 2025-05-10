@@ -1,0 +1,32 @@
+{
+  "companyName": "Antigua Digital",
+  "companyDescription": "Soluciones impulsadas por IA para empresas modernas.",
+  "sections": {
+    "product": {
+      "title": "Producto",
+      "links": [
+        "Características",
+        "Precios",
+        "Casos de Estudio",
+        "Documentación"
+      ]
+    },
+    "company": {
+      "title": "Empresa",
+      "links": [
+        "Acerca de",
+        "Equipo",
+        "Carreras",
+        "Contacto"
+      ]
+    },
+    "legal": {
+      "title": "Legal",
+      "links": [
+        "Política de Privacidad",
+        "Términos de Servicio"
+      ]
+    }
+  },
+  "copyright": "© {year} Antigua Digital. Todos los derechos reservados."
+}

@@ -1,7 +1,9 @@
 "use client";
 import { Box, Container, Link, Text, SimpleGrid, Stack, Heading } from '@chakra-ui/react';
 import { motion, useInView } from 'framer-motion';
-import { useRef } from 'react';
+import { useRef, useState, useEffect } from 'react';
+import { useLanguage } from '@/lib/languageContext';
+import { getFooterContent } from '@/lib/data';
 import { fadeIn } from '@/lib/animations';
 
 // Create motion components
@@ -13,9 +15,37 @@ const MotionHeading = motion(Heading);
 const MotionText = motion(Text);
 const MotionLink = motion(Link);
 
+// Define the footer content interface
+interface FooterContent {
+    companyName: string;
+    companyDescription: string;
+    sections: {
+        product: {
+            title: string;
+            links: string[];
+        };
+        company: {
+            title: string;
+            links: string[];
+        };
+        legal: {
+            title: string;
+            links: string[];
+        };
+    };
+    copyright: string;
+}
+
 export default function Footer() {
+    const { language } = useLanguage();
+    const [content, setContent] = useState<FooterContent>(getFooterContent(language));
     const ref = useRef(null);
     const isInView = useInView(ref, { once: true, amount: 0.1 });
+
+    // Update content when language changes
+    useEffect(() => {
+        setContent(getFooterContent(language));
+    }, [language]);
 
     // Animation variants
     const containerVariants = {
@@ -42,9 +72,9 @@ export default function Footer() {
     };
 
     const linkVariants = {
-        hidden: { opacity: 0, x: -5 },
         visible: {
             opacity: 1,
+            color: "white",
             x: 0,
             transition: {
                 duration: 0.3,
@@ -84,110 +114,65 @@ export default function Footer() {
                         variants={itemVariants}
                     >
                         <MotionHeading size={{ base: "sm", md: "md" }}>
-                            Antigua Digital
+                            {content.companyName}
                         </MotionHeading>
                         <MotionText fontSize={{ base: "sm", md: "md" }}>
-                            AI-powered solutions for modern businesses.
+                            {content.companyDescription}
                         </MotionText>
                     </MotionStack>
 
-                    {/* Links - 2 columns on mobile, 3 columns on desktop */}
+                    {/* Product Links */}
                     <MotionStack gap={2} variants={itemVariants}>
                         <MotionHeading size="sm" mb={{ base: 2, md: 4 }}>
-                            Product
+                            {content.sections.product.title}
                         </MotionHeading>
-                        <MotionLink
-                            fontSize={{ base: "sm", md: "md" }}
-                            py={1}
-                            variants={linkVariants}
-                            whileHover="hover"
-                        >
-                            Features
-                        </MotionLink>
-                        <MotionLink
-                            fontSize={{ base: "sm", md: "md" }}
-                            py={1}
-                            variants={linkVariants}
-                            whileHover="hover"
-                        >
-                            Pricing
-                        </MotionLink>
-                        <MotionLink
-                            fontSize={{ base: "sm", md: "md" }}
-                            py={1}
-                            variants={linkVariants}
-                            whileHover="hover"
-                        >
-                            Case Studies
-                        </MotionLink>
-                        <MotionLink
-                            fontSize={{ base: "sm", md: "md" }}
-                            py={1}
-                            variants={linkVariants}
-                            whileHover="hover"
-                        >
-                            Documentation
-                        </MotionLink>
+                        {content.sections.product.links.map((link: string, index: number) => (
+                            <MotionLink
+                                key={index}
+                                fontSize={{ base: "sm", md: "md" }}
+                                py={1}
+                                variants={linkVariants}
+                                whileHover="hover"
+                            >
+                                {link}
+                            </MotionLink>
+                        ))}
                     </MotionStack>
 
+                    {/* Company Links */}
                     <MotionStack gap={2} variants={itemVariants}>
                         <MotionHeading size="sm" mb={{ base: 2, md: 4 }}>
-                            Company
+                            {content.sections.company.title}
                         </MotionHeading>
-                        <MotionLink
-                            fontSize={{ base: "sm", md: "md" }}
-                            py={1}
-                            variants={linkVariants}
-                            whileHover="hover"
-                        >
-                            About
-                        </MotionLink>
-                        <MotionLink
-                            fontSize={{ base: "sm", md: "md" }}
-                            py={1}
-                            variants={linkVariants}
-                            whileHover="hover"
-                        >
-                            Team
-                        </MotionLink>
-                        <MotionLink
-                            fontSize={{ base: "sm", md: "md" }}
-                            py={1}
-                            variants={linkVariants}
-                            whileHover="hover"
-                        >
-                            Careers
-                        </MotionLink>
-                        <MotionLink
-                            fontSize={{ base: "sm", md: "md" }}
-                            py={1}
-                            variants={linkVariants}
-                            whileHover="hover"
-                        >
-                            Contact
-                        </MotionLink>
+                        {content.sections.company.links.map((link: string, index: number) => (
+                            <MotionLink
+                                key={index}
+                                fontSize={{ base: "sm", md: "md" }}
+                                py={1}
+                                variants={linkVariants}
+                                whileHover="hover"
+                            >
+                                {link}
+                            </MotionLink>
+                        ))}
                     </MotionStack>
 
+                    {/* Legal Links */}
                     <MotionStack gap={2} variants={itemVariants}>
                         <MotionHeading size="sm" mb={{ base: 2, md: 4 }}>
-                            Legal
+                            {content.sections.legal.title}
                         </MotionHeading>
-                        <MotionLink
-                            fontSize={{ base: "sm", md: "md" }}
-                            py={1}
-                            variants={linkVariants}
-                            whileHover="hover"
-                        >
-                            Privacy Policy
-                        </MotionLink>
-                        <MotionLink
-                            fontSize={{ base: "sm", md: "md" }}
-                            py={1}
-                            variants={linkVariants}
-                            whileHover="hover"
-                        >
-                            Terms of Service
-                        </MotionLink>
+                        {content.sections.legal.links.map((link: string, index: number) => (
+                            <MotionLink
+                                key={index}
+                                fontSize={{ base: "sm", md: "md" }}
+                                py={1}
+                                variants={linkVariants}
+                                whileHover="hover"
+                            >
+                                {link}
+                            </MotionLink>
+                        ))}
                     </MotionStack>
                 </MotionSimpleGrid>
 
@@ -208,7 +193,7 @@ export default function Footer() {
                     animate={isInView ? { opacity: 1 } : { opacity: 0 }}
                     transition={{ duration: 0.5, delay: 0.7 }}
                 >
-                    © {new Date().getFullYear()} Antigua Digital. All rights reserved.
+                    {content.copyright.replace('{year}', new Date().getFullYear().toString())}
                 </MotionText>
             </MotionContainer>
         </MotionBox>

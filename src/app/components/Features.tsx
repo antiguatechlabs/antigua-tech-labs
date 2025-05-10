@@ -1,14 +1,15 @@
 "use client";
 import { Box, Container, Heading, SimpleGrid, Text, VStack } from '@chakra-ui/react';
 import { motion, useInView } from 'framer-motion';
-import { useRef } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import ChatIcon from '@mui/icons-material/Chat';
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
 import LinkIcon from '@mui/icons-material/Link';
 import StarIcon from '@mui/icons-material/Star';
 import LanguageIcon from '@mui/icons-material/Language';
 import SettingsIcon from '@mui/icons-material/Settings';
-import { getFeaturesContent } from '@/lib/data';
+import { getFeaturesContent, FeaturesContent, FeatureItem } from '@/lib/data';
+import { useLanguage } from '@/lib/languageContext';
 import { fadeIn, slideUp } from '@/lib/animations';
 
 // Create motion components
@@ -19,16 +20,16 @@ const MotionSimpleGrid = motion(SimpleGrid);
 const MotionVStack = motion(VStack);
 const MotionText = motion(Text);
 
-interface FeatureItem {
-    title: string;
-    description: string;
-    icon: string;
-}
-
 export default function Features() {
-    const features = getFeaturesContent();
+    const { language } = useLanguage();
+    const [features, setFeatures] = useState<FeaturesContent>(getFeaturesContent(language));
     const ref = useRef(null);
     const isInView = useInView(ref, { once: true, amount: 0.2 });
+
+    // Update content when language changes
+    useEffect(() => {
+        setFeatures(getFeaturesContent(language));
+    }, [language]);
 
     // Map icon names to actual icon components
     const iconMap: Record<string, React.ElementType> = {

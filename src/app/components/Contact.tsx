@@ -1,9 +1,10 @@
 "use client";
 import { Box, Button, Container, Heading, VStack, Text } from '@chakra-ui/react';
 import { motion, useInView } from 'framer-motion';
-import { useRef } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import { TextField, FormControl, FormLabel, TextareaAutosize } from '@mui/material';
-import { getContactContent } from '@/lib/data';
+import { getContactContent, ContactContent } from '@/lib/data';
+import { useLanguage } from '@/lib/languageContext';
 import { fadeIn, slideUp, buttonHover } from '@/lib/animations';
 
 // Create motion components
@@ -15,9 +16,15 @@ const MotionVStack = motion(VStack);
 const MotionButton = motion(Button);
 
 export default function Contact() {
-    const content = getContactContent();
+    const { language } = useLanguage();
+    const [content, setContent] = useState<ContactContent>(getContactContent(language));
     const ref = useRef(null);
     const isInView = useInView(ref, { once: true, amount: 0.2 });
+
+    // Update content when language changes
+    useEffect(() => {
+        setContent(getContactContent(language));
+    }, [language]);
 
     // Animation variants
     const containerVariants = {
@@ -92,10 +99,10 @@ export default function Contact() {
                         <MotionBox variants={itemVariants} width="100%">
                             <FormControl fullWidth required>
                                 <FormLabel sx={{ fontSize: { xs: '0.875rem', md: '1rem' } }}>
-                                    Name
+                                    {content.formLabels.name}
                                 </FormLabel>
                                 <TextField
-                                    placeholder="Your name"
+                                    placeholder={content.placeholders.name}
                                     variant="outlined"
                                     fullWidth
                                     size="medium"
@@ -118,11 +125,11 @@ export default function Contact() {
                         <MotionBox variants={itemVariants} width="100%">
                             <FormControl fullWidth required>
                                 <FormLabel sx={{ fontSize: { xs: '0.875rem', md: '1rem' } }}>
-                                    Email
+                                    {content.formLabels.email}
                                 </FormLabel>
                                 <TextField
                                     type="email"
-                                    placeholder="your.email@example.com"
+                                    placeholder={content.placeholders.email}
                                     variant="outlined"
                                     fullWidth
                                     size="medium"
@@ -145,11 +152,11 @@ export default function Contact() {
                         <MotionBox variants={itemVariants} width="100%">
                             <FormControl fullWidth required>
                                 <FormLabel sx={{ fontSize: { xs: '0.875rem', md: '1rem' } }}>
-                                    Message
+                                    {content.formLabels.message}
                                 </FormLabel>
                                 <TextareaAutosize
                                     minRows={4}
-                                    placeholder="How can we help you?"
+                                    placeholder={content.placeholders.message}
                                     style={{
                                         width: '100%',
                                         padding: '10px',

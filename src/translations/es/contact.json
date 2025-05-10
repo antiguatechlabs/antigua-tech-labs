@@ -1,0 +1,15 @@
+{
+  "title": "Contáctanos",
+  "subtitle": "¿Tienes preguntas? Estamos aquí para ayudarte.",
+  "buttonText": "Enviar Mensaje",
+  "formLabels": {
+    "name": "Nombre",
+    "email": "Correo Electrónico",
+    "message": "Mensaje"
+  },
+  "placeholders": {
+    "name": "Tu nombre",
+    "email": "tu.correo@ejemplo.com",
+    "message": "¿Cómo podemos ayudarte?"
+  }
+}
