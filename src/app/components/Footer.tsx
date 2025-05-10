@@ -1,35 +1,55 @@
+"use client";
 import { Box, Container, Link, Text, SimpleGrid, Stack, Heading } from '@chakra-ui/react';
 
 export default function Footer() {
     return (
-        <Box bg="gray.800" color="white" py={10}>
-            <Container maxW="container.xl">
-                <SimpleGrid columns={{ base: 1, md: 4 }} gap={8}>
-                    <Stack gap={6}>
-                        <Heading size="md">Antigua Digital</Heading>
-                        <Text>AI-powered solutions for modern businesses.</Text>
+        <Box bg="gray.800" color="white" py={{ base: 8, md: 10 }}>
+            <Container maxW="container.xl" px={{ base: 4, md: 6 }}>
+                <SimpleGrid
+                    columns={{ base: 2, md: 4 }}
+                    gap={{ base: 6, md: 8 }}
+                    mb={{ base: 8, md: 10 }}
+                >
+                    {/* Company info - full width on mobile */}
+                    <Stack gap={3} gridColumn={{ base: "span 2", md: "span 1" }}>
+                        <Heading size={{ base: "sm", md: "md" }}>Antigua Digital</Heading>
+                        <Text fontSize={{ base: "sm", md: "md" }}>
+                            AI-powered solutions for modern businesses.
+                        </Text>
                     </Stack>
-                    <Stack>
-                        <Heading size="sm" mb={4}>Product</Heading>
-                        <Link>Features</Link>
-                        <Link>Pricing</Link>
-                        <Link>Case Studies</Link>
-                        <Link>Documentation</Link>
+
+                    {/* Links - 2 columns on mobile, 3 columns on desktop */}
+                    <Stack gap={2}>
+                        <Heading size="sm" mb={{ base: 2, md: 4 }}>Product</Heading>
+                        <Link fontSize={{ base: "sm", md: "md" }} py={1}>Features</Link>
+                        <Link fontSize={{ base: "sm", md: "md" }} py={1}>Pricing</Link>
+                        <Link fontSize={{ base: "sm", md: "md" }} py={1}>Case Studies</Link>
+                        <Link fontSize={{ base: "sm", md: "md" }} py={1}>Documentation</Link>
                     </Stack>
-                    <Stack>
-                        <Heading size="sm" mb={4}>Company</Heading>
-                        <Link>About</Link>
-                        <Link>Team</Link>
-                        <Link>Careers</Link>
-                        <Link>Contact</Link>
+
+                    <Stack gap={2}>
+                        <Heading size="sm" mb={{ base: 2, md: 4 }}>Company</Heading>
+                        <Link fontSize={{ base: "sm", md: "md" }} py={1}>About</Link>
+                        <Link fontSize={{ base: "sm", md: "md" }} py={1}>Team</Link>
+                        <Link fontSize={{ base: "sm", md: "md" }} py={1}>Careers</Link>
+                        <Link fontSize={{ base: "sm", md: "md" }} py={1}>Contact</Link>
                     </Stack>
-                    <Stack>
-                        <Heading size="sm" mb={4}>Legal</Heading>
-                        <Link>Privacy Policy</Link>
-                        <Link>Terms of Service</Link>
+
+                    <Stack gap={2}>
+                        <Heading size="sm" mb={{ base: 2, md: 4 }}>Legal</Heading>
+                        <Link fontSize={{ base: "sm", md: "md" }} py={1}>Privacy Policy</Link>
+                        <Link fontSize={{ base: "sm", md: "md" }} py={1}>Terms of Service</Link>
                     </Stack>
                 </SimpleGrid>
-                <Text mt={10} pt={6} borderTop="1px" borderColor="gray.700" textAlign="center">
+
+                {/* Divider line */}
+                <Box borderTopWidth="1px" borderColor="gray.700" />
+
+                <Text
+                    mt={{ base: 6, md: 8 }}
+                    fontSize={{ base: "xs", md: "sm" }}
+                    textAlign="center"
+                >
                     © {new Date().getFullYear()} Antigua Digital. All rights reserved.
                 </Text>
             </Container>

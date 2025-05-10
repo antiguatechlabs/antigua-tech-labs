@@ -1,27 +1,22 @@
-
-import { readFileSync } from 'fs';
-import path from 'path';
-
-// Helper function to read JSON files
-function readJsonFile(filePath: string) {
-    const fullPath = path.join(process.cwd(), filePath);
-    const jsonData = readFileSync(fullPath, 'utf-8');
-    return JSON.parse(jsonData);
-}
+// Import JSON files directly
+import heroData from '../app/data/hero.json';
+import featuresData from '../app/data/features.json';
+import testimonialsData from '../app/data/testimonials.json';
+import contactData from '../app/data/contact.json';
 
 // Content loading functions
 export function getHeroContent() {
-    return readJsonFile('src/app/data/hero.json');
+    return heroData;
 }
 
 export function getFeaturesContent() {
-    return readJsonFile('src/app/data/features.json');
+    return featuresData;
 }
 
 export function getTestimonialsContent() {
-    return readJsonFile('src/app/data/testimonials.json');
+    return testimonialsData;
 }
 
 export function getContactContent() {
-    return readJsonFile('src/app/data/contact.json');
+    return contactData;
 }
