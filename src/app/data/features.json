@@ -1,0 +1,35 @@
+{
+  "title": "Key Features",
+  "items": [
+    {
+      "title": "AI-Powered Conversations",
+      "description": "Our advanced AI understands customer intent and responds naturally.",
+      "icon": "ChatIcon"
+    },
+    {
+      "title": "24/7 Availability",
+      "description": "Never miss a lead with round-the-clock automated responses.",
+      "icon": "TimeIcon"
+    },
+    {
+      "title": "Seamless Integration",
+      "description": "Easily integrate with your existing CRM and sales tools.",
+      "icon": "LinkIcon"
+    },
+    {
+      "title": "Data Insights",
+      "description": "Gain valuable insights from customer interactions and improve your sales process.",
+      "icon": "StarIcon"
+    },
+    {
+      "title": "Multilingual Support",
+      "description": "Communicate with customers in their preferred language.",
+      "icon": "GlobeIcon"
+    },
+    {
+      "title": "Customizable Workflows",
+      "description": "Tailor the conversation flow to match your sales process.",
+      "icon": "SettingsIcon"
+    }
+  ]
+}

@@ -1,0 +1,101 @@
+# Cline Rules for Antigua Digital Landing Page
+
+## Project Patterns
+
+### Content Management
+- Content is stored in JSON files in the `/content` directory
+- Data loading utilities in `/src/lib/data.ts` handle content retrieval
+- Always use the data loading utilities rather than importing JSON directly
+
+### Component Structure
+- Use Chakra UI as the primary component library
+- Use Material UI for specific components and icons when Chakra doesn't provide suitable options
+- Client components should be marked with "use client" directive at the top
+- Server components are the default and don't need special marking
+
+### Styling Approach
+- Prefer Chakra UI's prop-based styling for component-specific styling
+- Use global CSS variables for theme properties and fundamental styling
+- Follow the existing color scheme using CSS variables (--background, --foreground)
+- Support both light and dark modes using CSS media queries
+
+### File Organization
+- Page components go in the `/src/app` directory following Next.js App Router conventions
+- Reusable components should be placed in `/src/components` (to be created)
+- Utility functions should be placed in `/src/lib`
+- Content files should be placed in `/content`
+
+### Naming Conventions
+- Use PascalCase for component files and function names
+- Use camelCase for variables, props, and utility functions
+- Use kebab-case for CSS class names and file names
+- Use descriptive, semantic names that reflect purpose
+
+## Development Workflow
+
+### Local Development
+- Use `pnpm dev` to start the development server
+- Make changes incrementally and test in the browser
+- Ensure responsive design works on various viewport sizes
+
+### Code Quality
+- Follow TypeScript best practices with proper typing
+- Use ESLint to maintain code quality standards
+- Keep components focused on a single responsibility
+- Document complex logic with comments
+
+### Deployment
+- Changes to the main branch automatically deploy via GitHub Actions
+- Verify builds locally before pushing to main
+- Check Vercel deployment logs if issues occur
+
+## User Preferences
+
+### Design Aesthetics
+- Clean, modern interface with ample whitespace
+- Consistent spacing and typography
+- Professional appearance suitable for business customers
+- Subtle animations that enhance rather than distract
+
+### Content Tone
+- Professional but approachable
+- Clear and concise messaging
+- Focus on benefits rather than technical details
+- Action-oriented calls to action
+
+## Technical Decisions
+
+### Performance Considerations
+- Use Next.js server components for content-heavy sections
+- Optimize images and assets for fast loading
+- Minimize client-side JavaScript where possible
+- Implement code splitting for optimal bundle sizes
+
+### Accessibility Standards
+- Ensure all interactive elements are keyboard accessible
+- Maintain proper contrast ratios for text
+- Use semantic HTML elements
+- Include proper ARIA attributes where needed
+
+### Browser Support
+- Target modern browsers with good CSS Variable support
+- Ensure responsive design works across devices
+- Test on Chrome, Firefox, Safari, and Edge
+
+## Implementation Notes
+
+### Theme Integration
+- The project uses both Chakra UI and Material UI themes
+- Chakra theme is defined but currently commented out in providers.tsx
+- Material UI theme is created with default settings
+- Global CSS variables provide fundamental styling properties
+
+### Content Loading
+- Server components load content during rendering using utilities in data.ts
+- This approach allows for easy content updates without code changes
+- Future expansion could include connecting to a headless CMS
+
+### Animation Strategy
+- Framer Motion is used for animations
+- AnimatePresence in providers.tsx enables page transition animations
+- Use subtle animations that enhance user experience without being distracting
