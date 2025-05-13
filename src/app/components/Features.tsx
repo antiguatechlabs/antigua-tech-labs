@@ -1,5 +1,5 @@
 "use client";
-import { Box, Container, Heading, SimpleGrid, Text, VStack } from '@chakra-ui/react';
+import { Box, Container, Typography, Paper } from '@mui/material';
 import { motion, useInView } from 'framer-motion';
 import { useRef, useState, useEffect } from 'react';
 import ChatIcon from '@mui/icons-material/Chat';
@@ -15,10 +15,8 @@ import { fadeIn, slideUp } from '@/lib/animations';
 // Create motion components
 const MotionBox = motion(Box);
 const MotionContainer = motion(Container);
-const MotionHeading = motion(Heading);
-const MotionSimpleGrid = motion(SimpleGrid);
-const MotionVStack = motion(VStack);
-const MotionText = motion(Text);
+const MotionTypography = motion(Typography);
+const MotionPaper = motion(Paper);
 
 export default function Features() {
     const { language } = useLanguage();
@@ -76,62 +74,83 @@ export default function Features() {
     return (
         <MotionBox
             ref={ref}
-            py={{ base: 10, md: 16 }}
-            bg="gray.50"
+            sx={{
+                py: { xs: 5, md: 8 },
+                bgcolor: 'grey.50'
+            }}
             initial="hidden"
             animate={isInView ? "visible" : "hidden"}
             variants={fadeIn}
         >
-            <MotionContainer maxW="container.xl" px={{ base: 4, md: 6 }}>
-                <MotionHeading
-                    textAlign="center"
-                    mb={{ base: 8, md: 12 }}
-                    fontSize={{ base: "2xl", md: "3xl" }}
+            <MotionContainer maxWidth="xl" sx={{ px: { xs: 2, md: 3 } }}>
+                <MotionTypography
+                    variant="h2"
+                    sx={{
+                        textAlign: "center",
+                        mb: { xs: 4, md: 6 },
+                        fontSize: { xs: '1.75rem', md: '2.25rem' }
+                    }}
                     variants={slideUp}
                 >
                     {features.title}
-                </MotionHeading>
-                <MotionSimpleGrid
-                    columns={{ base: 1, md: 2, lg: 3 }}
-                    gap={{ base: 6, md: 10 }}
-                    mx="auto"
-                    variants={containerVariants}
-                >
+                </MotionTypography>
+
+                <Box sx={{ display: 'flex', flexWrap: 'wrap', mx: -2 }} component={motion.div} variants={containerVariants}>
                     {features.items.map((feature: FeatureItem, index: number) => {
                         const IconComponent = iconMap[feature.icon] || StarIcon; // Fallback to StarIcon
 
                         return (
-                            <MotionVStack
+                            <Box
                                 key={index}
-                                align="start"
-                                p={{ base: 5, md: 6 }}
-                                bg="white"
-                                borderRadius="md"
-                                boxShadow="sm"
-                                gap={3}
-                                height="100%"
-                                variants={itemVariants}
-                                whileHover="hover"
-                                initial="initial"
-                                custom={index}
+                                sx={{
+                                    width: { xs: '100%', md: '50%', lg: '33.333%' },
+                                    px: 2,
+                                    mb: 4
+                                }}
                             >
-                                <IconComponent sx={{
-                                    fontSize: { xs: 32, md: 40 },
-                                    color: 'teal.500'
-                                }} />
-                                <MotionHeading
-                                    size={{ base: "sm", md: "md" }}
-                                    fontWeight="600"
+                                <MotionPaper
+                                    sx={{
+                                        p: { xs: 2.5, md: 3 },
+                                        borderRadius: 1,
+                                        boxShadow: 1,
+                                        height: '100%',
+                                        display: 'flex',
+                                        flexDirection: 'column',
+                                        alignItems: 'flex-start',
+                                        gap: 1.5
+                                    }}
+                                    variants={itemVariants}
+                                    whileHover="hover"
+                                    initial="initial"
+                                    custom={index}
                                 >
-                                    {feature.title}
-                                </MotionHeading>
-                                <MotionText fontSize={{ base: "sm", md: "md" }}>
-                                    {feature.description}
-                                </MotionText>
-                            </MotionVStack>
+                                    <IconComponent sx={{
+                                        fontSize: { xs: 32, md: 40 },
+                                        color: 'secondary.main'
+                                    }} />
+                                    <Typography
+                                        variant="h6"
+                                        sx={{
+                                            fontWeight: 600,
+                                            fontSize: { xs: '1rem', md: '1.25rem' }
+                                        }}
+                                    >
+                                        {feature.title}
+                                    </Typography>
+                                    <Typography
+                                        variant="body2"
+                                        sx={{
+                                            fontSize: { xs: '0.875rem', md: '1rem' },
+                                            color: 'text.secondary'
+                                        }}
+                                    >
+                                        {feature.description}
+                                    </Typography>
+                                </MotionPaper>
+                            </Box>
                         );
                     })}
-                </MotionSimpleGrid>
+                </Box>
             </MotionContainer>
         </MotionBox>
     );

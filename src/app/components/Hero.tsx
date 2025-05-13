@@ -1,5 +1,5 @@
 "use client";
-import { Button, Container, Heading, Text, VStack, Box } from '@chakra-ui/react';
+import { Button, Container, Typography, Box, Stack } from '@mui/material';
 import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import { getHeroContent, HeroContent } from '@/lib/data';
@@ -9,9 +9,8 @@ import { fadeIn, slideUp, staggerContainer, buttonHover } from '@/lib/animations
 // Create motion components
 const MotionBox = motion(Box);
 const MotionContainer = motion(Container);
-const MotionVStack = motion(VStack);
-const MotionHeading = motion(Heading);
-const MotionText = motion(Text);
+const MotionStack = motion(Stack);
+const MotionTypography = motion(Typography);
 const MotionButton = motion(Button);
 
 export default function Hero() {
@@ -25,41 +24,56 @@ export default function Hero() {
 
     return (
         <MotionBox
-            w="100%"
-            py={{ base: 12, md: 20 }}
+            sx={{
+                width: "100%",
+                py: { xs: 6, md: 10 }
+            }}
             initial="hidden"
             animate="visible"
             variants={fadeIn}
         >
             <MotionContainer
-                maxW={{ base: "100%", md: "container.md" }}
-                px={4}
+                maxWidth="md"
+                sx={{
+                    px: 2
+                }}
             >
-                <MotionVStack
-                    gap={{ base: 4, md: 6 }}
-                    align="center"
-                    textAlign="center"
+                <MotionStack
+                    spacing={{ xs: 2, md: 3 }}
+                    alignItems="center"
+                    sx={{ textAlign: "center" }}
                     variants={staggerContainer}
                 >
-                    <MotionHeading
-                        size={{ base: "xl", md: "2xl" }}
-                        lineHeight="1.2"
+                    <MotionTypography
+                        variant="h1"
+                        sx={{
+                            fontSize: { xs: '2.25rem', md: '3rem' },
+                            lineHeight: 1.2
+                        }}
                         variants={slideUp}
                     >
                         {content.title}
-                    </MotionHeading>
-                    <MotionText
-                        fontSize={{ base: "md", md: "xl" }}
-                        maxW="container.sm"
+                    </MotionTypography>
+                    <MotionTypography
+                        variant="h5"
+                        sx={{
+                            fontSize: { xs: '1rem', md: '1.25rem' },
+                            maxWidth: 'sm',
+                            color: 'text.secondary'
+                        }}
                         variants={slideUp}
                     >
                         {content.subtitle}
-                    </MotionText>
+                    </MotionTypography>
                     <MotionButton
-                        colorScheme="teal"
-                        size={{ base: "md", md: "lg" }}
-                        width={{ base: "100%", md: "auto" }}
-                        mt={{ base: 2, md: 4 }}
+                        variant="contained"
+                        color="primary"
+                        size="large"
+                        sx={{
+                            width: { xs: '100%', md: 'auto' },
+                            mt: { xs: 1, md: 2 },
+                            px: 4
+                        }}
                         variants={{
                             ...slideUp,
                             initial: buttonHover.initial,
@@ -71,7 +85,7 @@ export default function Hero() {
                     >
                         {content.cta}
                     </MotionButton>
-                </MotionVStack>
+                </MotionStack>
             </MotionContainer>
         </MotionBox>
     );

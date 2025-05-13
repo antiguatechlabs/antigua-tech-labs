@@ -2,15 +2,17 @@
 import {
     Box,
     Button,
-    Heading,
-    HStack,
-    Flex,
+    Typography,
+    Stack,
+    AppBar,
+    Toolbar,
     Drawer,
-    CloseButton,
-    Portal,
-    VStack
-} from '@chakra-ui/react';
+    IconButton,
+    Divider,
+    Container
+} from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
+import CloseIcon from '@mui/icons-material/Close';
 import { useEffect, useState } from 'react';
 import { useLanguage } from '@/lib/languageContext';
 import { getNavbarContent, NavbarContent } from '@/lib/data';
@@ -29,98 +31,125 @@ export default function Navbar() {
     const onClose = () => setIsOpen(false);
 
     return (
-        <Box as="header" boxShadow="sm">
-            <Flex
-                maxW="container.xl"
-                mx="auto"
-                p={4}
-                alignItems="center"
-                justifyContent="space-between"
-            >
-                <Heading size="md">{content.companyName}</Heading>
+        <AppBar position="static" color="default" elevation={1} sx={{ bgcolor: 'background.paper' }}>
+            <Container maxWidth="xl">
+                <Toolbar disableGutters sx={{ py: 1 }}>
+                    <Typography variant="h6" component="h1" sx={{ flexGrow: { xs: 1, md: 0 } }}>
+                        {content.companyName}
+                    </Typography>
 
-                <Flex alignItems="center">
-                    {/* Language toggle button - visible on all screens */}
-                    <Button
-                        variant="ghost"
-                        size="sm"
-                        onClick={toggleLanguage}
-                        mr={{ base: 2, md: 4 }}
-                        px={2}
-                    >
-                        {language === 'en' ? (
-                            <span>{content.languageToggle.en} | <span style={{ opacity: 0.5 }}>{content.languageToggle.es}</span></span>
-                        ) : (
-                            <span><span style={{ opacity: 0.5 }}>{content.languageToggle.en}</span> | {content.languageToggle.es}</span>
-                        )}
-                    </Button>
-
-                    {/* Mobile menu button - only visible on small screens */}
-                    <Box display={{ base: 'flex', md: 'none' }}>
+                    <Box sx={{ display: 'flex', alignItems: 'center', ml: 'auto' }}>
+                        {/* Language toggle button - visible on all screens */}
                         <Button
-                            aria-label="Open menu"
-                            variant="ghost"
-                            onClick={onOpen}
+                            variant="text"
+                            size="small"
+                            onClick={toggleLanguage}
+                            sx={{ mr: { xs: 1, md: 2 }, px: 1 }}
                         >
-                            <MenuIcon />
+                            {language === 'en' ? (
+                                <span>{content.languageToggle.en} | <span style={{ opacity: 0.5 }}>{content.languageToggle.es}</span></span>
+                            ) : (
+                                <span><span style={{ opacity: 0.5 }}>{content.languageToggle.en}</span> | {content.languageToggle.es}</span>
+                            )}
                         </Button>
+
+                        {/* Mobile menu button - only visible on small screens */}
+                        <Box sx={{ display: { xs: 'flex', md: 'none' } }}>
+                            <IconButton
+                                aria-label="Open menu"
+                                onClick={onOpen}
+                                size="medium"
+                            >
+                                <MenuIcon />
+                            </IconButton>
+                        </Box>
+
+                        {/* Desktop navigation - hidden on mobile */}
+                        <Stack
+                            direction="row"
+                            spacing={1}
+                            sx={{
+                                display: { xs: 'none', md: 'flex' }
+                            }}
+                        >
+                            <Button variant="text">{content.navItems.features}</Button>
+                            <Button variant="text">{content.navItems.testimonials}</Button>
+                            <Button variant="text">{content.navItems.pricing}</Button>
+                            <Button variant="contained" color="secondary">{content.navItems.contact}</Button>
+                        </Stack>
                     </Box>
 
-                    {/* Desktop navigation - hidden on mobile */}
-                    <HStack gap={2} display={{ base: 'none', md: 'flex' }}>
-                        <Button variant="ghost">{content.navItems.features}</Button>
-                        <Button variant="ghost">{content.navItems.testimonials}</Button>
-                        <Button variant="ghost">{content.navItems.pricing}</Button>
-                        <Button colorScheme="teal">{content.navItems.contact}</Button>
-                    </HStack>
-                </Flex>
+                    {/* Mobile drawer menu */}
+                    <Drawer
+                        anchor="right"
+                        open={isOpen}
+                        onClose={onClose}
+                        sx={{
+                            '& .MuiDrawer-paper': {
+                                width: { xs: '100%', sm: 300 },
+                                boxSizing: 'border-box',
+                                p: 2
+                            }
+                        }}
+                    >
+                        <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 2 }}>
+                            <Typography variant="h6">{content.menuTitle}</Typography>
+                            <IconButton onClick={onClose} aria-label="Close menu">
+                                <CloseIcon />
+                            </IconButton>
+                        </Box>
 
-                {/* Mobile drawer menu */}
-                <Drawer.Root open={isOpen}>
-                    <Portal>
-                        <Drawer.Backdrop />
-                        <Drawer.Positioner>
-                            <Drawer.Content>
-                                <Drawer.Header>
-                                    <Drawer.Title>{content.menuTitle}</Drawer.Title>
-                                    <Drawer.CloseTrigger asChild onClick={onClose}>
-                                        <CloseButton size="sm" />
-                                    </Drawer.CloseTrigger>
-                                </Drawer.Header>
-                                <Drawer.Body>
-                                    <VStack align="stretch" gap={4}>
-                                        <Button variant="ghost" justifyContent="flex-start" onClick={onClose}>
-                                            {content.navItems.features}
-                                        </Button>
-                                        <Button variant="ghost" justifyContent="flex-start" onClick={onClose}>
-                                            {content.navItems.testimonials}
-                                        </Button>
-                                        <Button variant="ghost" justifyContent="flex-start" onClick={onClose}>
-                                            {content.navItems.pricing}
-                                        </Button>
-                                        <Button colorScheme="teal" onClick={onClose}>
-                                            {content.navItems.contact}
-                                        </Button>
+                        <Stack spacing={2} sx={{ mt: 2 }}>
+                            <Button
+                                variant="text"
+                                fullWidth
+                                sx={{ justifyContent: 'flex-start' }}
+                                onClick={onClose}
+                            >
+                                {content.navItems.features}
+                            </Button>
+                            <Button
+                                variant="text"
+                                fullWidth
+                                sx={{ justifyContent: 'flex-start' }}
+                                onClick={onClose}
+                            >
+                                {content.navItems.testimonials}
+                            </Button>
+                            <Button
+                                variant="text"
+                                fullWidth
+                                sx={{ justifyContent: 'flex-start' }}
+                                onClick={onClose}
+                            >
+                                {content.navItems.pricing}
+                            </Button>
+                            <Button
+                                variant="contained"
+                                color="secondary"
+                                fullWidth
+                                onClick={onClose}
+                            >
+                                {content.navItems.contact}
+                            </Button>
 
-                                        {/* Divider line */}
-                                        <Box borderTopWidth="1px" borderColor="gray.200" my={2} />
+                            {/* Divider line */}
+                            <Divider sx={{ my: 1 }} />
 
-                                        <Button
-                                            variant="outline"
-                                            onClick={() => {
-                                                toggleLanguage();
-                                                onClose();
-                                            }}
-                                        >
-                                            {language === 'en' ? 'Switch to Spanish' : 'Cambiar a Inglés'}
-                                        </Button>
-                                    </VStack>
-                                </Drawer.Body>
-                            </Drawer.Content>
-                        </Drawer.Positioner>
-                    </Portal>
-                </Drawer.Root>
-            </Flex>
-        </Box>
+                            <Button
+                                variant="outlined"
+                                fullWidth
+                                onClick={() => {
+                                    toggleLanguage();
+                                    onClose();
+                                }}
+                            >
+                                {language === 'en' ? 'Switch to Spanish' : 'Cambiar a Inglés'}
+                            </Button>
+                        </Stack>
+                    </Drawer>
+                </Toolbar>
+            </Container>
+        </AppBar>
     );
 }

@@ -8,17 +8,17 @@
 - **TypeScript**: Used throughout the project for type safety and improved developer experience.
 
 ### UI Libraries
-- **Chakra UI 3.17.0**: A component library focused on accessibility, customization, and developer experience. Used as the primary UI framework.
-- **Material UI 7.1.0**: Provides additional components and icons to complement Chakra UI.
+- **Material UI 7.1.0**: A comprehensive component library with a rich set of components, icons, and theming capabilities. Used as the primary UI framework.
 - **Framer Motion 12.10.4**: Powers animations and transitions throughout the site.
 
 ### Form Handling
 - **React Hook Form 7.56.3**: Manages form state, validation, and submission with minimal re-renders.
 
 ### Styling
-- **Emotion**: Powers the styling system for Chakra UI components.
+- **Emotion**: Powers the styling system for Material UI components.
 - **CSS Variables**: Used for theme switching and global styling properties.
 - **Global CSS**: Provides baseline styling and custom properties.
+- **Material UI sx prop**: Used for component-specific styling.
 
 ### Development Tools
 - **ESLint 9**: Ensures code quality and consistency.
@@ -91,7 +91,7 @@ antigua-digital-landing-page/
 - Images and assets are optimized for fast loading.
 
 ### Accessibility Requirements
-- Chakra UI provides accessible components by default.
+- Material UI provides accessible components by default.
 - Proper semantic HTML is used throughout the application.
 - Color contrast meets WCAG guidelines.
 - Keyboard navigation is supported for all interactive elements.
@@ -99,9 +99,8 @@ antigua-digital-landing-page/
 ## Dependencies and Integrations
 
 ### Key Dependencies
-- **@chakra-ui/react**: UI component library
 - **@emotion/react** and **@emotion/styled**: Styling solution
-- **@mui/icons-material** and **@mui/material**: Additional UI components and icons
+- **@mui/icons-material** and **@mui/material**: UI components and icons
 - **framer-motion**: Animation library
 - **next**: Core framework
 - **react** and **react-dom**: UI library

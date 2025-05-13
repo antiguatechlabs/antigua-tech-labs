@@ -1,8 +1,7 @@
 "use client";
-import { Box, Container, Heading, Text, VStack, HStack, SimpleGrid } from '@chakra-ui/react';
+import { Box, Container, Typography, Stack, Avatar, Paper } from '@mui/material';
 import { motion, useInView } from 'framer-motion';
 import { useRef, useState, useEffect } from 'react';
-import { Avatar } from '@mui/material';
 import { getTestimonialsContent, TestimonialsContent, TestimonialItem } from '@/lib/data';
 import { useLanguage } from '@/lib/languageContext';
 import { fadeIn, slideInLeft, slideInRight } from '@/lib/animations';
@@ -10,11 +9,9 @@ import { fadeIn, slideInLeft, slideInRight } from '@/lib/animations';
 // Create motion components
 const MotionBox = motion(Box);
 const MotionContainer = motion(Container);
-const MotionHeading = motion(Heading);
-const MotionText = motion(Text);
-const MotionVStack = motion(VStack);
-const MotionHStack = motion(HStack);
-const MotionSimpleGrid = motion(SimpleGrid);
+const MotionTypography = motion(Typography);
+const MotionPaper = motion(Paper);
+const MotionStack = motion(Stack);
 
 export default function Testimonials() {
     const { language } = useLanguage();
@@ -67,75 +64,101 @@ export default function Testimonials() {
     return (
         <MotionBox
             ref={ref}
-            py={{ base: 10, md: 16 }}
+            sx={{
+                py: { xs: 5, md: 8 }
+            }}
             initial="hidden"
             animate={isInView ? "visible" : "hidden"}
             variants={fadeIn}
         >
-            <MotionContainer maxW="container.xl" px={{ base: 4, md: 6 }}>
-                <MotionHeading
-                    textAlign="center"
-                    mb={{ base: 8, md: 12 }}
-                    fontSize={{ base: "2xl", md: "3xl" }}
+            <MotionContainer maxWidth="xl" sx={{ px: { xs: 2, md: 3 } }}>
+                <MotionTypography
+                    variant="h2"
+                    sx={{
+                        textAlign: "center",
+                        mb: { xs: 4, md: 6 },
+                        fontSize: { xs: '1.75rem', md: '2.25rem' }
+                    }}
                     variants={slideInLeft}
                 >
                     {testimonials.title}
-                </MotionHeading>
-                <MotionSimpleGrid
-                    columns={{ base: 1, md: 2 }}
-                    gap={{ base: 6, md: 10 }}
-                    mx="auto"
-                    variants={containerVariants}
-                >
+                </MotionTypography>
+
+                <Box sx={{ display: 'flex', flexWrap: 'wrap', mx: -2 }} component={motion.div} variants={containerVariants}>
                     {testimonials.items.map((testimonial: TestimonialItem, index: number) => (
-                        <MotionBox
+                        <Box
                             key={index}
-                            p={{ base: 5, md: 6 }}
-                            bg="gray.50"
-                            borderRadius="md"
-                            height="100%"
-                            display="flex"
-                            flexDirection="column"
-                            justifyContent="space-between"
-                            variants={cardVariants}
-                            whileHover="hover"
-                            custom={index}
+                            sx={{
+                                width: { xs: '100%', md: '50%' },
+                                px: 2,
+                                mb: 4
+                            }}
                         >
-                            <MotionText
-                                fontSize={{ base: "md", md: "lg" }}
-                                fontStyle="italic"
-                                mb={4}
-                                variants={slideInRight}
+                            <MotionPaper
+                                sx={{
+                                    p: { xs: 2.5, md: 3 },
+                                    bgcolor: 'grey.50',
+                                    borderRadius: 1,
+                                    height: '100%',
+                                    display: 'flex',
+                                    flexDirection: 'column',
+                                    justifyContent: 'space-between'
+                                }}
+                                variants={cardVariants}
+                                whileHover="hover"
+                                custom={index}
                             >
-                                &ldquo;{testimonial.quote}&rdquo;
-                            </MotionText>
-                            <MotionHStack gap={3} mt="auto">
-                                <Avatar
-                                    alt={testimonial.name}
-                                    src={getAvatarUrl(testimonial.name)}
-                                    sx={{
-                                        width: { xs: 40, md: 48 },
-                                        height: { xs: 40, md: 48 }
-                                    }}
-                                />
-                                <MotionVStack align="start" gap={0}>
-                                    <MotionText
-                                        fontWeight="bold"
-                                        fontSize={{ base: "sm", md: "md" }}
+                                <Box component={motion.div} variants={slideInRight}>
+                                    <Typography
+                                        variant="body1"
+                                        sx={{
+                                            fontSize: { xs: '1rem', md: '1.125rem' },
+                                            fontStyle: "italic",
+                                            mb: 2
+                                        }}
                                     >
-                                        {testimonial.name}
-                                    </MotionText>
-                                    <MotionText
-                                        fontSize={{ base: "xs", md: "sm" }}
-                                        color="gray.600"
-                                    >
-                                        {testimonial.title}, {testimonial.company}
-                                    </MotionText>
-                                </MotionVStack>
-                            </MotionHStack>
-                        </MotionBox>
+                                        &ldquo;{testimonial.quote}&rdquo;
+                                    </Typography>
+                                </Box>
+
+                                <MotionStack
+                                    direction="row"
+                                    spacing={2}
+                                    sx={{ mt: 'auto' }}
+                                >
+                                    <Avatar
+                                        alt={testimonial.name}
+                                        src={getAvatarUrl(testimonial.name)}
+                                        sx={{
+                                            width: { xs: 40, md: 48 },
+                                            height: { xs: 40, md: 48 }
+                                        }}
+                                    />
+                                    <Stack spacing={0}>
+                                        <Typography
+                                            variant="subtitle1"
+                                            sx={{
+                                                fontWeight: 'bold',
+                                                fontSize: { xs: '0.875rem', md: '1rem' }
+                                            }}
+                                        >
+                                            {testimonial.name}
+                                        </Typography>
+                                        <Typography
+                                            variant="body2"
+                                            sx={{
+                                                fontSize: { xs: '0.75rem', md: '0.875rem' },
+                                                color: 'text.secondary'
+                                            }}
+                                        >
+                                            {testimonial.title}, {testimonial.company}
+                                        </Typography>
+                                    </Stack>
+                                </MotionStack>
+                            </MotionPaper>
+                        </Box>
                     ))}
-                </MotionSimpleGrid>
+                </Box>
             </MotionContainer>
         </MotionBox>
     );

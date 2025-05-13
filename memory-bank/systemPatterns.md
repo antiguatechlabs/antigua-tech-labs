@@ -31,15 +31,13 @@ flowchart LR
 
 ### UI Component Structure
 The UI follows a component-based architecture with:
-- Chakra UI as the primary component library
-- Material UI for specific components and icons
+- Material UI as the primary component library
 - Framer Motion for animations
 - Custom styling through a combination of component props and global CSS
 
 ### Theme Management
-The project implements a dual theming system:
-- Chakra UI theme for primary component styling
-- Material UI theme for MUI-specific components
+The project implements a theming system:
+- Material UI theme for component styling
 - Global CSS variables for fundamental styling properties
 - Dark/light mode support through CSS variables and media queries
 
@@ -55,7 +53,6 @@ The application uses Next.js App Router with:
 ### Provider Pattern
 The application uses a Provider pattern to manage global state and theming:
 - `Providers` component wraps the application to provide context
-- ChakraProvider supplies Chakra UI theming
 - ThemeProvider supplies Material UI theming
 - AnimatePresence enables page transition animations
 
@@ -73,12 +70,11 @@ Data flows through the application in a unidirectional pattern:
 - **React 19**: Utilized for its latest performance improvements and features
 
 ### UI Library Choices
-- **Chakra UI**: Selected for its accessibility, component flexibility, and theming capabilities
-- **Material UI**: Incorporated for its comprehensive icon system and specific UI components
+- **Material UI**: Selected for its comprehensive component system, icon library, and theming capabilities
 - **Framer Motion**: Implemented for high-quality animations and transitions
 
 ### Styling Approach
-- Component-based styling through Chakra UI and Material UI props
+- Component-based styling through Material UI props and the sx prop
 - Global CSS for fundamental styling and variables
 - CSS variables for theme switching and responsive design
 

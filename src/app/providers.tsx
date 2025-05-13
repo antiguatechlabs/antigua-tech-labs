@@ -1,21 +1,17 @@
 "use client";
-import { ChakraProvider, defaultSystem } from "@chakra-ui/react";
-import { ThemeProvider, createTheme } from "@mui/material/styles";
 import { ReactNode } from "react";
 import { AnimatePresence } from "framer-motion";
 import { LanguageProvider } from "@/lib/languageContext";
-// import { chakraTheme } from "@/theme";
-
-const muiTheme = createTheme();
+import { ThemeProvider } from "@/lib/themeContext";
+import { CssBaseline } from "@mui/material";
 
 export function Providers({ children }: { children: ReactNode }) {
     return (
         <LanguageProvider>
-            <ChakraProvider value={defaultSystem}>
-                <ThemeProvider theme={muiTheme}>
-                    <AnimatePresence>{children}</AnimatePresence>
-                </ThemeProvider>
-            </ChakraProvider>
+            <ThemeProvider>
+                <CssBaseline />
+                <AnimatePresence>{children}</AnimatePresence>
+            </ThemeProvider>
         </LanguageProvider>
     );
 }

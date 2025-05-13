@@ -1,5 +1,11 @@
 "use client";
-import { Box, Container, Link, Text, SimpleGrid, Stack, Heading } from '@chakra-ui/react';
+import {
+    Box,
+    Container,
+    Typography,
+    Link as MuiLink,
+    Divider
+} from '@mui/material';
 import { motion, useInView } from 'framer-motion';
 import { useRef, useState, useEffect } from 'react';
 import { useLanguage } from '@/lib/languageContext';
@@ -9,11 +15,8 @@ import { fadeIn } from '@/lib/animations';
 // Create motion components
 const MotionBox = motion(Box);
 const MotionContainer = motion(Container);
-const MotionSimpleGrid = motion(SimpleGrid);
-const MotionStack = motion(Stack);
-const MotionHeading = motion(Heading);
-const MotionText = motion(Text);
-const MotionLink = motion(Link);
+const MotionDivider = motion(Divider);
+const MotionTypography = motion(Typography);
 
 // Define the footer content interface
 interface FooterContent {
@@ -48,17 +51,6 @@ export default function Footer() {
     }, [language]);
 
     // Animation variants
-    const containerVariants = {
-        hidden: { opacity: 0 },
-        visible: {
-            opacity: 1,
-            transition: {
-                staggerChildren: 0.1,
-                delayChildren: 0.1
-            }
-        }
-    };
-
     const itemVariants = {
         hidden: { opacity: 0, y: 10 },
         visible: {
@@ -93,108 +85,183 @@ export default function Footer() {
     return (
         <MotionBox
             ref={ref}
-            bg="gray.800"
-            color="white"
-            py={{ base: 8, md: 10 }}
+            sx={{
+                bgcolor: 'grey.900',
+                color: 'white',
+                py: { xs: 4, md: 5 }
+            }}
             initial="hidden"
             animate={isInView ? "visible" : "hidden"}
             variants={fadeIn}
         >
-            <MotionContainer maxW="container.xl" px={{ base: 4, md: 6 }}>
-                <MotionSimpleGrid
-                    columns={{ base: 2, md: 4 }}
-                    gap={{ base: 6, md: 8 }}
-                    mb={{ base: 8, md: 10 }}
-                    variants={containerVariants}
-                >
+            <MotionContainer maxWidth="xl" sx={{ px: { xs: 2, md: 3 } }}>
+                <Box sx={{
+                    display: 'grid',
+                    gridTemplateColumns: {
+                        xs: 'repeat(2, 1fr)',
+                        md: 'repeat(4, 1fr)'
+                    },
+                    gap: { xs: 3, md: 4 },
+                    mb: { xs: 4, md: 5 }
+                }}>
                     {/* Company info - full width on mobile */}
-                    <MotionStack
-                        gap={3}
-                        gridColumn={{ base: "span 2", md: "span 1" }}
-                        variants={itemVariants}
-                    >
-                        <MotionHeading size={{ base: "sm", md: "md" }}>
-                            {content.companyName}
-                        </MotionHeading>
-                        <MotionText fontSize={{ base: "sm", md: "md" }}>
-                            {content.companyDescription}
-                        </MotionText>
-                    </MotionStack>
+                    <Box sx={{ gridColumn: { xs: '1 / span 2', md: '1 / span 1' } }}>
+                        <Box
+                            component={motion.div}
+                            variants={itemVariants}
+                            sx={{ display: 'flex', flexDirection: 'column', gap: 1.5 }}
+                        >
+                            <Typography
+                                variant="h6"
+                                sx={{ fontSize: { xs: '1rem', md: '1.25rem' } }}
+                            >
+                                {content.companyName}
+                            </Typography>
+                            <Typography
+                                variant="body2"
+                                sx={{ fontSize: { xs: '0.875rem', md: '1rem' } }}
+                            >
+                                {content.companyDescription}
+                            </Typography>
+                        </Box>
+                    </Box>
 
                     {/* Product Links */}
-                    <MotionStack gap={2} variants={itemVariants}>
-                        <MotionHeading size="sm" mb={{ base: 2, md: 4 }}>
-                            {content.sections.product.title}
-                        </MotionHeading>
-                        {content.sections.product.links.map((link: string, index: number) => (
-                            <MotionLink
-                                key={index}
-                                fontSize={{ base: "sm", md: "md" }}
-                                py={1}
-                                variants={linkVariants}
-                                whileHover="hover"
+                    <Box>
+                        <Box
+                            component={motion.div}
+                            variants={itemVariants}
+                            sx={{ display: 'flex', flexDirection: 'column', gap: 1 }}
+                        >
+                            <Typography
+                                variant="subtitle1"
+                                sx={{
+                                    fontSize: { xs: '0.875rem', md: '1rem' },
+                                    fontWeight: 'bold',
+                                    mb: { xs: 1, md: 2 }
+                                }}
                             >
-                                {link}
-                            </MotionLink>
-                        ))}
-                    </MotionStack>
+                                {content.sections.product.title}
+                            </Typography>
+                            {content.sections.product.links.map((link: string, index: number) => (
+                                <MuiLink
+                                    key={index}
+                                    component={motion.a}
+                                    href="#"
+                                    underline="hover"
+                                    sx={{
+                                        fontSize: { xs: '0.875rem', md: '1rem' },
+                                        py: 0.5,
+                                        color: 'white',
+                                        display: 'block'
+                                    }}
+                                    variants={linkVariants}
+                                    whileHover="hover"
+                                >
+                                    {link}
+                                </MuiLink>
+                            ))}
+                        </Box>
+                    </Box>
 
                     {/* Company Links */}
-                    <MotionStack gap={2} variants={itemVariants}>
-                        <MotionHeading size="sm" mb={{ base: 2, md: 4 }}>
-                            {content.sections.company.title}
-                        </MotionHeading>
-                        {content.sections.company.links.map((link: string, index: number) => (
-                            <MotionLink
-                                key={index}
-                                fontSize={{ base: "sm", md: "md" }}
-                                py={1}
-                                variants={linkVariants}
-                                whileHover="hover"
+                    <Box>
+                        <Box
+                            component={motion.div}
+                            variants={itemVariants}
+                            sx={{ display: 'flex', flexDirection: 'column', gap: 1 }}
+                        >
+                            <Typography
+                                variant="subtitle1"
+                                sx={{
+                                    fontSize: { xs: '0.875rem', md: '1rem' },
+                                    fontWeight: 'bold',
+                                    mb: { xs: 1, md: 2 }
+                                }}
                             >
-                                {link}
-                            </MotionLink>
-                        ))}
-                    </MotionStack>
+                                {content.sections.company.title}
+                            </Typography>
+                            {content.sections.company.links.map((link: string, index: number) => (
+                                <MuiLink
+                                    key={index}
+                                    component={motion.a}
+                                    href="#"
+                                    underline="hover"
+                                    sx={{
+                                        fontSize: { xs: '0.875rem', md: '1rem' },
+                                        py: 0.5,
+                                        color: 'white',
+                                        display: 'block'
+                                    }}
+                                    variants={linkVariants}
+                                    whileHover="hover"
+                                >
+                                    {link}
+                                </MuiLink>
+                            ))}
+                        </Box>
+                    </Box>
 
                     {/* Legal Links */}
-                    <MotionStack gap={2} variants={itemVariants}>
-                        <MotionHeading size="sm" mb={{ base: 2, md: 4 }}>
-                            {content.sections.legal.title}
-                        </MotionHeading>
-                        {content.sections.legal.links.map((link: string, index: number) => (
-                            <MotionLink
-                                key={index}
-                                fontSize={{ base: "sm", md: "md" }}
-                                py={1}
-                                variants={linkVariants}
-                                whileHover="hover"
+                    <Box>
+                        <Box
+                            component={motion.div}
+                            variants={itemVariants}
+                            sx={{ display: 'flex', flexDirection: 'column', gap: 1 }}
+                        >
+                            <Typography
+                                variant="subtitle1"
+                                sx={{
+                                    fontSize: { xs: '0.875rem', md: '1rem' },
+                                    fontWeight: 'bold',
+                                    mb: { xs: 1, md: 2 }
+                                }}
                             >
-                                {link}
-                            </MotionLink>
-                        ))}
-                    </MotionStack>
-                </MotionSimpleGrid>
+                                {content.sections.legal.title}
+                            </Typography>
+                            {content.sections.legal.links.map((link: string, index: number) => (
+                                <MuiLink
+                                    key={index}
+                                    component={motion.a}
+                                    href="#"
+                                    underline="hover"
+                                    sx={{
+                                        fontSize: { xs: '0.875rem', md: '1rem' },
+                                        py: 0.5,
+                                        color: 'white',
+                                        display: 'block'
+                                    }}
+                                    variants={linkVariants}
+                                    whileHover="hover"
+                                >
+                                    {link}
+                                </MuiLink>
+                            ))}
+                        </Box>
+                    </Box>
+                </Box>
 
                 {/* Divider line */}
-                <MotionBox
-                    borderTopWidth="1px"
-                    borderColor="gray.700"
+                <MotionDivider
+                    sx={{ borderColor: 'grey.800' }}
                     initial={{ opacity: 0, scaleX: 0 }}
                     animate={isInView ? { opacity: 1, scaleX: 1 } : { opacity: 0, scaleX: 0 }}
                     transition={{ duration: 0.7, delay: 0.5 }}
                 />
 
-                <MotionText
-                    mt={{ base: 6, md: 8 }}
-                    fontSize={{ base: "xs", md: "sm" }}
-                    textAlign="center"
+                <MotionTypography
+                    variant="body2"
+                    sx={{
+                        mt: { xs: 3, md: 4 },
+                        fontSize: { xs: '0.75rem', md: '0.875rem' },
+                        textAlign: 'center'
+                    }}
                     initial={{ opacity: 0 }}
                     animate={isInView ? { opacity: 1 } : { opacity: 0 }}
                     transition={{ duration: 0.5, delay: 0.7 }}
                 >
                     {content.copyright.replace('{year}', new Date().getFullYear().toString())}
-                </MotionText>
+                </MotionTypography>
             </MotionContainer>
         </MotionBox>
     );
