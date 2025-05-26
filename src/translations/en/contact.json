@@ -1,6 +1,6 @@
 {
-  "title": "Get in Touch",
-  "subtitle": "Have questions? We're here to help.",
+  "title": "Start Your Project",
+  "subtitle": "Ready to build a modern web application that scales with your business? Let's talk.",
   "buttonText": "Send Message",
   "formLabels": {
     "name": "Name",
@@ -10,6 +10,6 @@
   "placeholders": {
     "name": "Your name",
     "email": "your.email@example.com",
-    "message": "How can we help you?"
+    "message": "Tell us about your project requirements"
   }
 }

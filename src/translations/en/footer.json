@@ -1,14 +1,14 @@
 {
   "companyName": "Antigua Digital",
-  "companyDescription": "AI-powered solutions for modern businesses.",
+  "companyDescription": "Modern web applications that scale with your business.",
   "sections": {
     "product": {
-      "title": "Product",
+      "title": "Services",
       "links": [
-        "Features",
-        "Pricing",
-        "Case Studies",
-        "Documentation"
+        "Web Development",
+        "API Development",
+        "UX Design",
+        "Maintenance"
       ]
     },
     "company": {

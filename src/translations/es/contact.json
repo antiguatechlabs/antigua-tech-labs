@@ -1,6 +1,6 @@
 {
-  "title": "Contáctanos",
-  "subtitle": "¿Tienes preguntas? Estamos aquí para ayudarte.",
+  "title": "Inicia Tu Proyecto",
+  "subtitle": "¿Listo para construir una aplicación web moderna que escale con tu negocio? Hablemos.",
   "buttonText": "Enviar Mensaje",
   "formLabels": {
     "name": "Nombre",
@@ -10,6 +10,6 @@
   "placeholders": {
     "name": "Tu nombre",
     "email": "tu.correo@ejemplo.com",
-    "message": "¿Cómo podemos ayudarte?"
+    "message": "Cuéntanos sobre los requisitos de tu proyecto"
   }
 }

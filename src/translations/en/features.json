@@ -1,34 +1,34 @@
 {
-  "title": "Key Features",
+  "title": "Our Services",
   "items": [
     {
-      "title": "AI-Powered Conversations",
-      "description": "Our advanced AI understands customer intent and responds naturally.",
+      "title": "Modern Web Development",
+      "description": "We build responsive, fast-loading web applications using the latest technologies and frameworks.",
       "icon": "ChatIcon"
     },
     {
-      "title": "24/7 Availability",
-      "description": "Never miss a lead with round-the-clock automated responses.",
+      "title": "Scalable Architecture",
+      "description": "Our solutions are designed to grow with your business, from startup to enterprise scale.",
       "icon": "TimeIcon"
     },
     {
-      "title": "Seamless Integration",
-      "description": "Easily integrate with your existing CRM and sales tools.",
+      "title": "API Development",
+      "description": "We create robust, well-documented APIs that connect your systems and enable seamless integration.",
       "icon": "LinkIcon"
     },
     {
-      "title": "Data Insights",
-      "description": "Gain valuable insights from customer interactions and improve your sales process.",
+      "title": "Code Quality",
+      "description": "We follow industry best practices to deliver clean, maintainable, and well-tested code.",
       "icon": "StarIcon"
     },
     {
-      "title": "Multilingual Support",
-      "description": "Communicate with customers in their preferred language.",
+      "title": "User Experience Design",
+      "description": "We create intuitive, accessible interfaces that provide exceptional user experiences.",
       "icon": "GlobeIcon"
     },
     {
-      "title": "Customizable Workflows",
-      "description": "Tailor the conversation flow to match your sales process.",
+      "title": "Ongoing Maintenance",
+      "description": "We provide continuous support and updates to keep your applications secure and up-to-date.",
       "icon": "SettingsIcon"
     }
   ]

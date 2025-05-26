@@ -39,19 +39,7 @@ export default function Navbar() {
                     </Typography>
 
                     <Box sx={{ display: 'flex', alignItems: 'center', ml: 'auto' }}>
-                        {/* Language toggle button - visible on all screens */}
-                        <Button
-                            variant="text"
-                            size="small"
-                            onClick={toggleLanguage}
-                            sx={{ mr: { xs: 1, md: 2 }, px: 1 }}
-                        >
-                            {language === 'en' ? (
-                                <span>{content.languageToggle.en} | <span style={{ opacity: 0.5 }}>{content.languageToggle.es}</span></span>
-                            ) : (
-                                <span><span style={{ opacity: 0.5 }}>{content.languageToggle.en}</span> | {content.languageToggle.es}</span>
-                            )}
-                        </Button>
+                        {/* Language toggle moved to sidebar */}
 
                         {/* Mobile menu button - only visible on small screens */}
                         <Box sx={{ display: { xs: 'flex', md: 'none' } }}>

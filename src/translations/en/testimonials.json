@@ -1,31 +1,31 @@
 {
-  "title": "What Our Customers Say",
+  "title": "What Our Clients Say",
   "items": [
     {
-      "quote": "Implementing Antigua Digital's AI sales agent increased our conversion rate by 35% in just two months.",
+      "quote": "Antigua Digital transformed our outdated platform into a modern, scalable web application that has significantly improved our user engagement.",
       "name": "Sarah Johnson",
-      "title": "VP of Sales",
+      "title": "CTO",
       "company": "TechCorp Inc.",
       "avatar": "/avatars/sarah.jpg"
     },
     {
-      "quote": "The AI agent handles routine inquiries perfectly, allowing our team to focus on complex customer needs.",
+      "quote": "Their team's attention to code quality and best practices has made our application much easier to maintain and extend as our business grows.",
       "name": "Michael Chen",
-      "title": "Customer Success Manager",
+      "title": "Product Manager",
       "company": "Innovate Solutions",
       "avatar": "/avatars/michael.jpg"
     },
     {
-      "quote": "We've seen a 40% reduction in response time and a significant improvement in customer satisfaction.",
+      "quote": "We've seen a 40% improvement in page load times and a significant boost in conversion rates since launching our new web application.",
       "name": "Elena Rodriguez",
-      "title": "Director of Marketing",
+      "title": "Director of Digital",
       "company": "Global Retail",
       "avatar": "/avatars/elena.jpg"
     },
     {
-      "quote": "The seamless integration with our existing systems made adoption incredibly smooth for our team.",
+      "quote": "As a startup, we needed a platform that could scale with our rapid growth. Antigua Digital delivered exactly what we needed, on time and on budget.",
       "name": "David Kim",
-      "title": "CTO",
+      "title": "Founder & CEO",
       "company": "StartUp Ventures",
       "avatar": "/avatars/david.jpg"
     }

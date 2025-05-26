@@ -12,49 +12,21 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { slideInLeft, slideInRight } from "@/lib/animations";
 import { useEffect, useState } from "react";
+import { getWhyChooseContent, WhyChooseContent } from "@/lib/data";
+import { useLanguage } from "@/lib/languageContext";
 
 // Create motion components
 const MotionBox = motion(Box);
 const MotionPaper = motion(Paper);
 
-// Define WhyChooseContent interface
-interface WhyChooseContent {
-    title: string;
-    subtitle: string;
-    description: string;
-    buttonText: string;
-    buttonLink: string;
-    imageSrc: string;
-    yearEstablished: string;
-    tagline: string;
-}
-
 const WhyChoose = () => {
-    const [whyChooseContent, setWhyChooseContent] = useState<WhyChooseContent>({
-        title: "Why Choose Antigua Digital",
-        subtitle: "Your Partner in Digital Transformation",
-        description: "At Antigua Digital, we combine technical expertise with creative thinking to deliver solutions that drive business growth. Our team of experienced developers and designers work collaboratively to create scalable, user-friendly applications that meet your specific business needs.",
-        buttonText: "Learn More",
-        buttonLink: "/about",
-        imageSrc: "/images/why-choose.jpg",
-        yearEstablished: "2020",
-        tagline: "Delivering excellence in digital solutions"
-    });
+    const { language } = useLanguage();
+    const [whyChooseContent, setWhyChooseContent] = useState<WhyChooseContent>(getWhyChooseContent(language));
 
+    // Update content when language changes
     useEffect(() => {
-        // Load content from JSON file
-        const loadContent = async () => {
-            try {
-                const response = await fetch('/content/whyChoose.json');
-                const data = await response.json();
-                setWhyChooseContent(data);
-            } catch (error) {
-                console.error("Failed to load WhyChoose content:", error);
-            }
-        };
-
-        loadContent();
-    }, []);
+        setWhyChooseContent(getWhyChooseContent(language));
+    }, [language]);
     return (
         <Box component="section" sx={{ py: 10, bgcolor: 'background.paper' }}>
             <Container maxWidth="xl">
@@ -164,13 +136,49 @@ const WhyChoose = () => {
                                 elevation={4}
                                 sx={{
                                     position: "absolute",
-                                    bottom: "-20px",
-                                    right: { xs: "10%", md: "5%" },
+                                    // Responsive bottom positioning
+                                    bottom: {
+                                        xs: "-15px", // Closer to image on mobile
+                                        sm: "-18px",
+                                        md: "-20px",
+                                        lg: "-25px"
+                                    },
+                                    // Responsive right positioning
+                                    right: {
+                                        xs: "50%", // Center on mobile
+                                        sm: "30%",
+                                        md: "15%",
+                                        lg: "10%",
+                                        xl: "5%"
+                                    },
+                                    // Transform to adjust horizontal centering on mobile
+                                    transform: {
+                                        xs: "translateX(50%)", // Center on mobile
+                                        sm: "translateX(0)" // No transform on larger screens
+                                    },
+                                    // Responsive width
+                                    width: {
+                                        // xs: "80%", // Wider on mobile
+                                        sm: "auto"
+                                    },
+                                    maxWidth: {
+                                        // xs: "180px",
+                                        // sm: "190px",
+                                        // md: "200px",
+                                        lg: "220px"
+                                    },
+                                    // Responsive padding
+                                    p: {
+                                        xs: 2,
+                                        sm: 2.25,
+                                        md: 2.5,
+                                        lg: 3
+                                    },
                                     bgcolor: "secondary.main",
                                     color: "white",
-                                    p: 2.5,
                                     borderRadius: 2,
-                                    maxWidth: "200px"
+                                    // Add z-index to ensure it appears above other elements
+                                    zIndex: 1
                                 }}
                                 initial={{ y: 50, opacity: 0 }}
                                 animate={{

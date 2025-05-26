@@ -5,10 +5,7 @@ import {
     Container,
     Typography,
     Link as MuiLink,
-    TextField,
-    Stack,
-    InputAdornment,
-    IconButton
+    Stack
 } from "@mui/material";
 import Link from "next/link";
 import Image from "next/image";
@@ -16,7 +13,6 @@ import { motion } from "framer-motion";
 import EmailIcon from '@mui/icons-material/Email';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import PhoneIcon from '@mui/icons-material/Phone';
-import SendIcon from '@mui/icons-material/Send';
 
 // Create motion components
 const MotionBox = motion(Box);
@@ -41,12 +37,58 @@ const Footer = ({
     return (
         <Box component="footer" sx={{ bgcolor: 'grey.900', color: 'white', position: 'relative', overflow: 'hidden' }}>
             {/* Floating shape */}
+            {/* For mobile and small tablets - bottom right position */}
             <MotionBox
                 sx={{
                     position: 'absolute',
-                    top: '50px',
-                    right: '50px',
-                    zIndex: 1
+                    bottom: { xs: '0', sm: '10px' },
+                    right: { xs: '0', sm: '10px' },
+                    zIndex: 1,
+                    display: { xs: 'block', md: 'none' } // Only show on xs and sm screens
+                }}
+                animate={{
+                    y: [0, -10, 0],
+                    transition: {
+                        duration: 4,
+                        repeat: Infinity,
+                        repeatType: "loop"
+                    }
+                }}
+            >
+                <Box
+                    sx={{
+                        width: {
+                            xs: '150px',
+                            sm: '200px'
+                        },
+                        height: {
+                            xs: '150px',
+                            sm: '200px'
+                        },
+                        position: 'relative'
+                    }}
+                >
+                    <Image
+                        src="/components/footer-shape-1.png"
+                        alt=""
+                        fill
+                        style={{
+                            objectFit: 'contain',
+                            opacity: '0.5'
+                        }}
+                        sizes="(max-width: 600px) 150px, 200px"
+                    />
+                </Box>
+            </MotionBox>
+
+            {/* For medium and large screens - original top right position */}
+            <MotionBox
+                sx={{
+                    position: 'absolute',
+                    top: { md: '40px', lg: '50px' },
+                    right: { md: '30px', lg: '50px' },
+                    zIndex: 1,
+                    display: { xs: 'none', md: 'block' } // Only show on md and lg screens
                 }}
                 animate={{
                     y: [0, -20, 0],
@@ -57,8 +99,29 @@ const Footer = ({
                     }
                 }}
             >
-                <Box sx={{ width: '120px', height: '120px', position: 'relative' }}>
-                    <Image src="/shapes/footer-shape.png" alt="" fill style={{ objectFit: 'contain' }} />
+                <Box
+                    sx={{
+                        width: {
+                            sm: '350px',
+                            lg: '400px'
+                        },
+                        height: {
+                            sm: '350px',
+                            lg: '400px'
+                        },
+                        position: 'relative'
+                    }}
+                >
+                    <Image
+                        src="/components/footer-shape-1.png"
+                        alt=""
+                        fill
+                        style={{
+                            objectFit: 'contain',
+                            opacity: '0.5'
+                        }}
+                        sizes="(min-width: 960px) 350px, 400px"
+                    />
                 </Box>
             </MotionBox>
 
@@ -174,61 +237,6 @@ const Footer = ({
                                         </MuiLink>
                                     ))}
                                 </Stack>
-                            </Stack>
-                        </Box>
-
-                        {/* Newsletter */}
-                        <Box>
-                            <Stack spacing={3} alignItems="flex-start">
-                                <Typography variant="h6" sx={{ mb: 1 }}>
-                                    Newsletter
-                                </Typography>
-                                <Typography variant="body2" sx={{ color: 'grey.400' }}>
-                                    Subscribe to our newsletter to receive updates on our latest services and offers.
-                                </Typography>
-                                <Box component="form" sx={{ width: '100%' }}>
-                                    <TextField
-                                        placeholder="Your email"
-                                        fullWidth
-                                        variant="outlined"
-                                        size="small"
-                                        sx={{
-                                            bgcolor: 'rgba(255, 255, 255, 0.05)',
-                                            '& .MuiOutlinedInput-root': {
-                                                '& fieldset': {
-                                                    borderColor: 'grey.700',
-                                                },
-                                                '&:hover fieldset': {
-                                                    borderColor: 'secondary.light',
-                                                },
-                                                '&.Mui-focused fieldset': {
-                                                    borderColor: 'secondary.light',
-                                                },
-                                            },
-                                            '& .MuiInputBase-input': {
-                                                color: 'white',
-                                            }
-                                        }}
-                                        InputProps={{
-                                            endAdornment: (
-                                                <InputAdornment position="end">
-                                                    <IconButton
-                                                        edge="end"
-                                                        sx={{
-                                                            color: 'white',
-                                                            bgcolor: 'secondary.main',
-                                                            '&:hover': {
-                                                                bgcolor: 'secondary.dark',
-                                                            }
-                                                        }}
-                                                    >
-                                                        <SendIcon fontSize="small" />
-                                                    </IconButton>
-                                                </InputAdornment>
-                                            ),
-                                        }}
-                                    />
-                                </Box>
                             </Stack>
                         </Box>
                     </Box>

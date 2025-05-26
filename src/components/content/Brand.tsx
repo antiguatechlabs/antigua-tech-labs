@@ -10,45 +10,21 @@ import { fadeIn, staggerContainer } from "@/lib/animations";
 import CounterUp from "../utility/CounterUp";
 import BrandSlider from "./BrandSlider";
 import { useEffect, useState } from "react";
+import { getBrandContent, BrandContent } from "@/lib/data";
+import { useLanguage } from "@/lib/languageContext";
 
 // Create motion components
 const MotionBox = motion(Box);
 const MotionPaper = motion(Paper);
 
-// Define BrandContent interface
-interface BrandContent {
-    counterValue: number;
-    counterTitle: string;
-    brands: { name: string; logo: string }[];
-}
-
 const Brand = () => {
-    const [content, setContent] = useState<BrandContent>({
-        counterValue: 150,
-        counterTitle: "Successful Projects Delivered",
-        brands: [
-            { name: "TechCorp", logo: "/brand/brand-1-1.png" },
-            { name: "InnovateLabs", logo: "/brand/brand-1-2.png" },
-            { name: "DataSphere", logo: "/brand/brand-1-3.png" },
-            { name: "CloudNine", logo: "/brand/brand-1-4.png" },
-            { name: "WebFusion", logo: "/brand/brand-1-5.png" }
-        ]
-    });
+    const { language } = useLanguage();
+    const [content, setContent] = useState<BrandContent>(getBrandContent(language));
 
+    // Update content when language changes
     useEffect(() => {
-        // Load content from JSON file
-        const loadContent = async () => {
-            try {
-                const response = await fetch('/content/brand.json');
-                const data = await response.json();
-                setContent(data);
-            } catch (error) {
-                console.error("Failed to load Brand content:", error);
-            }
-        };
-
-        loadContent();
-    }, []);
+        setContent(getBrandContent(language));
+    }, [language]);
     return (
         <Box
             component="section"

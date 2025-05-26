@@ -59,16 +59,20 @@ const Menu = () => {
             href: "#",
             children: [
                 {
-                    label: "Web Development",
-                    href: "/services/web-development",
+                    label: "Modern Web Applications",
+                    href: "/services/web-applications",
                 },
                 {
-                    label: "Mobile Apps",
-                    href: "/services/mobile-apps",
+                    label: "API Development",
+                    href: "/services/api-development",
                 },
                 {
-                    label: "Digital Marketing",
-                    href: "/services/digital-marketing",
+                    label: "Code Maintenance",
+                    href: "/services/code-maintenance",
+                },
+                {
+                    label: "UX Design",
+                    href: "/services/ux-design",
                 },
             ],
         },

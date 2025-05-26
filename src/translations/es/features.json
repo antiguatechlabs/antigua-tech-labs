@@ -1,34 +1,34 @@
 {
-  "title": "Características Principales",
+  "title": "Nuestros Servicios",
   "items": [
     {
-      "title": "Conversaciones Impulsadas por IA",
-      "description": "Nuestra IA avanzada comprende la intención del cliente y responde de manera natural.",
+      "title": "Desarrollo Web Moderno",
+      "description": "Construimos aplicaciones web responsivas y de carga rápida utilizando las últimas tecnologías y frameworks.",
       "icon": "ChatIcon"
     },
     {
-      "title": "Disponibilidad 24/7",
-      "description": "Nunca pierdas un cliente potencial con respuestas automatizadas las 24 horas.",
+      "title": "Arquitectura Escalable",
+      "description": "Nuestras soluciones están diseñadas para crecer con tu negocio, desde startup hasta escala empresarial.",
       "icon": "TimeIcon"
     },
     {
-      "title": "Integración Perfecta",
-      "description": "Integra fácilmente con tu CRM existente y herramientas de ventas.",
+      "title": "Desarrollo de APIs",
+      "description": "Creamos APIs robustas y bien documentadas que conectan tus sistemas y permiten una integración perfecta.",
       "icon": "LinkIcon"
     },
     {
-      "title": "Análisis de Datos",
-      "description": "Obtén información valiosa de las interacciones con clientes y mejora tu proceso de ventas.",
+      "title": "Calidad de Código",
+      "description": "Seguimos las mejores prácticas de la industria para entregar código limpio, mantenible y bien probado.",
       "icon": "StarIcon"
     },
     {
-      "title": "Soporte Multilingüe",
-      "description": "Comunícate con los clientes en su idioma preferido.",
+      "title": "Diseño de Experiencia de Usuario",
+      "description": "Creamos interfaces intuitivas y accesibles que proporcionan experiencias de usuario excepcionales.",
       "icon": "GlobeIcon"
     },
     {
-      "title": "Flujos de Trabajo Personalizables",
-      "description": "Adapta el flujo de conversación para que coincida con tu proceso de ventas.",
+      "title": "Mantenimiento Continuo",
+      "description": "Proporcionamos soporte continuo y actualizaciones para mantener tus aplicaciones seguras y al día.",
       "icon": "SettingsIcon"
     }
   ]

@@ -26,7 +26,8 @@ export default function Hero() {
         <MotionBox
             sx={{
                 width: "100%",
-                py: { xs: 6, md: 10 }
+                py: { xs: 6, md: 10 },
+                mt: { xs: '72px', md: '72px' } // Exact height of the main header
             }}
             initial="hidden"
             animate="visible"

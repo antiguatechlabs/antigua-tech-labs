@@ -1,14 +1,14 @@
 {
   "companyName": "Antigua Digital",
-  "companyDescription": "Soluciones impulsadas por IA para empresas modernas.",
+  "companyDescription": "Aplicaciones web modernas que escalan con tu negocio.",
   "sections": {
     "product": {
-      "title": "Producto",
+      "title": "Servicios",
       "links": [
-        "Características",
-        "Precios",
-        "Casos de Estudio",
-        "Documentación"
+        "Desarrollo Web",
+        "Desarrollo de APIs",
+        "Diseño UX",
+        "Mantenimiento"
       ]
     },
     "company": {

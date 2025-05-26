@@ -11,6 +11,14 @@ import enFooter from '../translations/en/footer.json';
 import esFooter from '../translations/es/footer.json';
 import enNavbar from '../translations/en/navbar.json';
 import esNavbar from '../translations/es/navbar.json';
+import enWhyChoose from '../translations/en/whyChoose.json';
+import esWhyChoose from '../translations/es/whyChoose.json';
+import enWhyChooseTwo from '../translations/en/whyChooseTwo.json';
+import esWhyChooseTwo from '../translations/es/whyChooseTwo.json';
+import enBrand from '../translations/en/brand.json';
+import esBrand from '../translations/es/brand.json';
+import enBrandSlider from '../translations/en/brandSlider.json';
+import esBrandSlider from '../translations/es/brandSlider.json';
 
 // Define content types
 export interface HeroContent {
@@ -94,6 +102,40 @@ export interface NavbarContent {
     };
 }
 
+// Define additional content types
+export interface WhyChooseContent {
+    title: string;
+    subtitle: string;
+    description: string;
+    buttonText: string;
+    buttonLink: string;
+    imageSrc: string;
+    yearEstablished: string;
+    tagline: string;
+}
+
+export interface WhyChooseTwoContent {
+    title: string;
+    subtitle: string;
+    description: string;
+    buttonText: string;
+    buttonLink: string;
+    backgroundImage: string;
+    phoneNumber: string;
+    yearEstablished: string;
+}
+
+export interface BrandContent {
+    counterValue: number;
+    counterTitle: string;
+    brands: { name: string; logo: string }[];
+}
+
+export interface BrandSliderContent {
+    title: string;
+    brands: { name: string; logo: string }[];
+}
+
 // Content mapping
 const contentMap = {
     en: {
@@ -102,7 +144,11 @@ const contentMap = {
         testimonials: enTestimonials as TestimonialsContent,
         contact: enContact as ContactContent,
         footer: enFooter as FooterContent,
-        navbar: enNavbar as NavbarContent
+        navbar: enNavbar as NavbarContent,
+        whyChoose: enWhyChoose as WhyChooseContent,
+        whyChooseTwo: enWhyChooseTwo as WhyChooseTwoContent,
+        brand: enBrand as BrandContent,
+        brandSlider: enBrandSlider as BrandSliderContent
     },
     es: {
         hero: esHero as HeroContent,
@@ -110,7 +156,11 @@ const contentMap = {
         testimonials: esTestimonials as TestimonialsContent,
         contact: esContact as ContactContent,
         footer: esFooter as FooterContent,
-        navbar: esNavbar as NavbarContent
+        navbar: esNavbar as NavbarContent,
+        whyChoose: esWhyChoose as WhyChooseContent,
+        whyChooseTwo: esWhyChooseTwo as WhyChooseTwoContent,
+        brand: esBrand as BrandContent,
+        brandSlider: esBrandSlider as BrandSliderContent
     }
 };
 
@@ -149,4 +199,20 @@ export function getFooterContent(language: string = 'en'): FooterContent {
 
 export function getNavbarContent(language: string = 'en'): NavbarContent {
     return getContent<NavbarContent>('navbar', language);
+}
+
+export function getWhyChooseContent(language: string = 'en'): WhyChooseContent {
+    return getContent<WhyChooseContent>('whyChoose', language);
+}
+
+export function getWhyChooseTwoContent(language: string = 'en'): WhyChooseTwoContent {
+    return getContent<WhyChooseTwoContent>('whyChooseTwo', language);
+}
+
+export function getBrandContent(language: string = 'en'): BrandContent {
+    return getContent<BrandContent>('brand', language);
+}
+
+export function getBrandSliderContent(language: string = 'en'): BrandSliderContent {
+    return getContent<BrandSliderContent>('brandSlider', language);
 }

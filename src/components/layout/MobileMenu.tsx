@@ -72,16 +72,20 @@ const MobileMenu = ({ isOpen, onClose, handleSidebar }: MobileMenuProps) => {
             href: "#",
             children: [
                 {
-                    label: "Web Development",
-                    href: "/services/web-development",
+                    label: "Modern Web Applications",
+                    href: "/services/web-applications",
                 },
                 {
-                    label: "Mobile Apps",
-                    href: "/services/mobile-apps",
+                    label: "API Development",
+                    href: "/services/api-development",
                 },
                 {
-                    label: "Digital Marketing",
-                    href: "/services/digital-marketing",
+                    label: "Code Maintenance",
+                    href: "/services/code-maintenance",
+                },
+                {
+                    label: "UX Design",
+                    href: "/services/ux-design",
                 },
             ],
         },
@@ -186,10 +190,10 @@ const MobileMenu = ({ isOpen, onClose, handleSidebar }: MobileMenuProps) => {
                                 <PhoneIcon />
                             </IconButton>
                             <MuiLink
-                                href="tel:+1234567890"
+                                href="tel:+15025557890"
                                 sx={{ textDecoration: 'none' }}
                             >
-                                (123) 456-7890
+                                (502) 555-7890
                             </MuiLink>
                         </Box>
                         <Box sx={{ display: 'flex', alignItems: 'center' }}>
@@ -197,10 +201,10 @@ const MobileMenu = ({ isOpen, onClose, handleSidebar }: MobileMenuProps) => {
                                 <EmailIcon />
                             </IconButton>
                             <MuiLink
-                                href="mailto:info@antiguadigital.com"
+                                href="mailto:contact@antiguadigital.com"
                                 sx={{ textDecoration: 'none' }}
                             >
-                                info@antiguadigital.com
+                                contact@antiguadigital.com
                             </MuiLink>
                         </Box>
                     </Stack>

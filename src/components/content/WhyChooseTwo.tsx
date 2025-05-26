@@ -14,48 +14,20 @@ import { motion } from "framer-motion";
 import { fadeIn } from "@/lib/animations";
 import PhoneIcon from '@mui/icons-material/Phone';
 import { useEffect, useState } from "react";
+import { getWhyChooseTwoContent, WhyChooseTwoContent } from "@/lib/data";
+import { useLanguage } from "@/lib/languageContext";
 
 // Create motion components
 const MotionBox = motion(Box);
 
-// Define WhyChooseTwoContent interface
-interface WhyChooseTwoContent {
-    title: string;
-    subtitle: string;
-    description: string;
-    buttonText: string;
-    buttonLink: string;
-    backgroundImage: string;
-    phoneNumber: string;
-    yearEstablished: string;
-}
-
 const WhyChooseTwo = () => {
-    const [content, setContent] = useState<WhyChooseTwoContent>({
-        title: "Building Modern Web Applications That Scale",
-        subtitle: "Why Choose Us",
-        description: "Our development approach focuses on creating clean, maintainable code that can grow with your business. We leverage the latest technologies and follow industry best practices to ensure your applications are not only powerful and feature-rich but also secure, efficient, and future-proof.",
-        buttonText: "Our Process",
-        buttonLink: "/process",
-        backgroundImage: "/images/backgrounds/why-choose-two-bg.jpg",
-        phoneNumber: "+1 (502) 555-7890",
-        yearEstablished: "2020"
-    });
+    const { language } = useLanguage();
+    const [content, setContent] = useState<WhyChooseTwoContent>(getWhyChooseTwoContent(language));
 
+    // Update content when language changes
     useEffect(() => {
-        // Load content from JSON file
-        const loadContent = async () => {
-            try {
-                const response = await fetch('/content/whyChooseTwo.json');
-                const data = await response.json();
-                setContent(data);
-            } catch (error) {
-                console.error("Failed to load WhyChooseTwo content:", error);
-            }
-        };
-
-        loadContent();
-    }, []);
+        setContent(getWhyChooseTwoContent(language));
+    }, [language]);
     return (
         <Box
             component="section"

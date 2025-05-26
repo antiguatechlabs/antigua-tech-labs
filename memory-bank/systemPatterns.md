@@ -16,17 +16,18 @@ flowchart TD
 ## Key Design Patterns
 
 ### Content Management
-The project uses a file-based content management approach:
-- JSON files in the `/content` directory store structured content
-- Data loading utilities in `/src/lib/data.ts` handle content retrieval
-- Server components load content during rendering
-- This approach allows for easy content updates without code changes
+The project uses a translation-based content management approach:
+- JSON files in the `/src/translations/en` and `/src/translations/es` directories store structured content
+- Data loading utilities in `/src/lib/data.ts` handle content retrieval based on the selected language
+- Components use the language context to load the appropriate translations
+- This approach allows for easy content updates and multilingual support without code changes
 
 ```mermaid
 flowchart LR
-    A[JSON Content Files] --> B[Data Loading Utilities]
-    B --> C[Server Components]
-    C --> D[Rendered UI]
+    A[Translation JSON Files] --> B[Data Loading Utilities]
+    C[Language Context] --> B
+    B --> D[Components]
+    D --> E[Rendered UI]
 ```
 
 ### UI Component Structure

@@ -7,6 +7,8 @@ import { motion } from "framer-motion";
 import { fadeIn } from "@/lib/animations";
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import { getBrandSliderContent, BrandSliderContent } from "@/lib/data";
+import { useLanguage } from "@/lib/languageContext";
 
 // Import Swiper styles
 import "swiper/css";
@@ -16,12 +18,6 @@ import "swiper/css/pagination";
 // Create motion components
 const MotionBox = motion(Box);
 
-// Define BrandSliderContent interface
-interface BrandSliderContent {
-    title: string;
-    brands: { name: string; logo: string }[];
-}
-
 interface BrandSliderProps {
     brands?: { name: string; logo: string }[];
 }
@@ -29,35 +25,17 @@ interface BrandSliderProps {
 const BrandSlider = ({
     brands
 }: BrandSliderProps) => {
-    const [content, setContent] = useState<BrandSliderContent>({
-        title: "Our Trusted Partners",
-        brands: [
-            { name: "TechCorp", logo: "/brand/brand-1-1.png" },
-            { name: "InnovateLabs", logo: "/brand/brand-1-2.png" },
-            { name: "DataSphere", logo: "/brand/brand-1-3.png" },
-            { name: "CloudNine", logo: "/brand/brand-1-4.png" },
-            { name: "WebFusion", logo: "/brand/brand-1-5.png" }
-        ]
-    });
+    const { language } = useLanguage();
+    const [content, setContent] = useState<BrandSliderContent>(getBrandSliderContent(language));
 
+    // Update content when language changes
     useEffect(() => {
-        // Load content from JSON file if no props are provided
         if (!brands) {
-            const loadContent = async () => {
-                try {
-                    const response = await fetch('/content/brandSlider.json');
-                    const data = await response.json();
-                    setContent(data);
-                } catch (error) {
-                    console.error("Failed to load BrandSlider content:", error);
-                }
-            };
-
-            loadContent();
+            setContent(getBrandSliderContent(language));
         }
-    }, [brands]);
+    }, [language, brands]);
 
-    // Use props if provided, otherwise use content from JSON
+    // Use props if provided, otherwise use content from translations
     const displayBrands = brands || content.brands;
     // Duplicate brands for infinite loop effect
     const extendedBrands = [...displayBrands, ...displayBrands];

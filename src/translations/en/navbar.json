@@ -2,9 +2,9 @@
   "companyName": "Antigua Digital",
   "menuTitle": "Menu",
   "navItems": {
-    "features": "Features",
+    "features": "Services",
     "testimonials": "Testimonials",
-    "pricing": "Pricing",
+    "pricing": "Projects",
     "contact": "Contact"
   },
   "languageToggle": {

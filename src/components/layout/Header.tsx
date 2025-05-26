@@ -33,7 +33,7 @@ const Header = ({ handleSidebar }: HeaderProps) => {
     const isSmall = useMediaQuery(theme.breakpoints.down('sm'));
     const isMedium = useMediaQuery(theme.breakpoints.down('md'));
 
-    const { language, toggleLanguage } = useLanguage();
+    const { language } = useLanguage();
     const [content, setContent] = useState(getNavbarContent(language));
 
     // Update content when language changes
@@ -69,16 +69,14 @@ const Header = ({ handleSidebar }: HeaderProps) => {
     };
 
     return (
-        <Box component="header" sx={{ position: "relative", zIndex: 999 }}>
-            {/* Main Header */}
-            <Box
+        <Box component="header" sx={{ position: "fixed", top: 0, left: 0, right: 0, zIndex: 999 }}>
+            {/* Single Header that changes appearance on scroll */}
+            <Paper
+                elevation={isSticky ? 3 : 0}
                 sx={{
-                    bgcolor: 'secondary.main',
+                    bgcolor: isSticky ? 'background.paper' : 'secondary.main',
                     transition: 'all 0.3s ease',
-                    position: 'absolute',
-                    width: '100%',
-                    top: 0,
-                    left: 0,
+                    borderRadius: 0
                 }}
             >
                 <Container maxWidth="xl" sx={{ py: 2 }}>
@@ -86,7 +84,11 @@ const Header = ({ handleSidebar }: HeaderProps) => {
                         {/* Left Side - Logo and Menu */}
                         <Box sx={{ display: 'flex', alignItems: 'center' }}>
                             <Link href="/" passHref>
-                                <MuiLink sx={{ display: 'block', textDecoration: 'none', color: 'white' }}>
+                                <MuiLink sx={{
+                                    display: 'block',
+                                    textDecoration: 'none',
+                                    color: isSticky ? 'text.primary' : 'white'
+                                }}>
                                     <Typography variant="h6" component="h1">
                                         {content.companyName}
                                     </Typography>
@@ -95,22 +97,34 @@ const Header = ({ handleSidebar }: HeaderProps) => {
 
                             {/* Desktop Menu - Hidden on mobile */}
                             {!isMobile && (
-                                <Stack direction="row" spacing={2} sx={{ ml: 5 }}>
+                                <Stack direction="row" spacing={2} sx={{ ml: isSticky ? 4 : 5 }}>
                                     <Button
                                         color="inherit"
-                                        sx={{ '&:hover': { bgcolor: 'rgba(255, 255, 255, 0.1)' } }}
+                                        sx={{
+                                            '&:hover': isSticky
+                                                ? { color: 'primary.main' }
+                                                : { bgcolor: 'rgba(255, 255, 255, 0.1)' }
+                                        }}
                                     >
                                         {content.navItems.features}
                                     </Button>
                                     <Button
                                         color="inherit"
-                                        sx={{ '&:hover': { bgcolor: 'rgba(255, 255, 255, 0.1)' } }}
+                                        sx={{
+                                            '&:hover': isSticky
+                                                ? { color: 'primary.main' }
+                                                : { bgcolor: 'rgba(255, 255, 255, 0.1)' }
+                                        }}
                                     >
                                         {content.navItems.testimonials}
                                     </Button>
                                     <Button
                                         color="inherit"
-                                        sx={{ '&:hover': { bgcolor: 'rgba(255, 255, 255, 0.1)' } }}
+                                        sx={{
+                                            '&:hover': isSticky
+                                                ? { color: 'primary.main' }
+                                                : { bgcolor: 'rgba(255, 255, 255, 0.1)' }
+                                        }}
                                     >
                                         {content.navItems.pricing}
                                     </Button>
@@ -120,52 +134,44 @@ const Header = ({ handleSidebar }: HeaderProps) => {
 
                         {/* Right Side - Contact and CTA */}
                         <Box sx={{ display: 'flex', alignItems: 'center' }}>
-                            {/* Language toggle button */}
-                            <Button
-                                variant="text"
-                                size="small"
-                                onClick={toggleLanguage}
-                                color="inherit"
-                                sx={{
-                                    '&:hover': { bgcolor: 'rgba(255, 255, 255, 0.1)' },
-                                    mr: 1
-                                }}
-                            >
-                                {language === 'en' ? (
-                                    <span>{content.languageToggle.en} | <span style={{ opacity: 0.5 }}>{content.languageToggle.es}</span></span>
-                                ) : (
-                                    <span><span style={{ opacity: 0.5 }}>{content.languageToggle.en}</span> | {content.languageToggle.es}</span>
-                                )}
-                            </Button>
+                            {/* Language toggle moved to sidebar */}
 
                             {/* Contact Info - Hidden on mobile */}
                             {!isMedium && (
                                 <Box sx={{ display: 'flex', alignItems: 'center', gap: 1.5, ml: 2 }}>
                                     <Avatar
                                         sx={{
-                                            bgcolor: 'secondary.light',
-                                            width: 32,
-                                            height: 32
+                                            bgcolor: isSticky ? 'secondary.main' : 'secondary.light',
+                                            width: isSticky ? 28 : 32,
+                                            height: isSticky ? 28 : 32
                                         }}
                                     >
                                         <PhoneIcon fontSize="small" />
                                     </Avatar>
                                     <Box>
-                                        <Typography variant="caption" sx={{ color: 'white', fontWeight: 500 }}>
+                                        <Typography
+                                            variant="caption"
+                                            sx={{
+                                                color: isSticky ? 'text.primary' : 'white',
+                                                fontWeight: 500
+                                            }}
+                                        >
                                             Need help?
                                         </Typography>
                                         <MuiLink
-                                            href="tel:+1234567890"
+                                            href="tel:+15025557890"
                                             sx={{
-                                                fontSize: '0.875rem',
+                                                fontSize: isSticky ? '0.75rem' : '0.875rem',
                                                 fontWeight: 700,
-                                                color: 'white',
+                                                color: isSticky ? 'text.primary' : 'white',
                                                 textDecoration: 'none',
                                                 display: 'block',
-                                                '&:hover': { color: 'secondary.light' }
+                                                '&:hover': {
+                                                    color: isSticky ? 'primary.main' : 'secondary.light'
+                                                }
                                             }}
                                         >
-                                            (123) 456-7890
+                                            (502) 555-7890
                                         </MuiLink>
                                     </Box>
                                 </Box>
@@ -176,7 +182,7 @@ const Header = ({ handleSidebar }: HeaderProps) => {
                                 <Button
                                     variant="contained"
                                     color="primary"
-                                    size="medium"
+                                    size={isSticky ? "small" : "medium"}
                                     sx={{
                                         ml: { xs: 0, md: 3 },
                                         fontWeight: 'bold',
@@ -184,145 +190,7 @@ const Header = ({ handleSidebar }: HeaderProps) => {
                                         letterSpacing: 1
                                     }}
                                 >
-                                    Get Started
-                                </Button>
-                            )}
-
-                            {/* Mobile Menu Toggle */}
-                            {isMobile && (
-                                <IconButton
-                                    aria-label="Open menu"
-                                    color="inherit"
-                                    onClick={toggleMobileMenu}
-                                    sx={{ ml: { xs: 0, sm: 2 } }}
-                                >
-                                    <MenuIcon />
-                                </IconButton>
-                            )}
-                        </Box>
-                    </Box>
-                </Container>
-            </Box>
-
-            {/* Sticky Header - Shows on scroll */}
-            <Paper
-                elevation={3}
-                sx={{
-                    position: 'fixed',
-                    width: '100%',
-                    top: 0,
-                    left: 0,
-                    transform: isSticky ? 'translateY(0)' : 'translateY(-100%)',
-                    transition: 'transform 0.3s ease',
-                    visibility: isSticky ? 'visible' : 'hidden',
-                    zIndex: 'appBar',
-                    borderRadius: 0
-                }}
-            >
-                <Container maxWidth="xl" sx={{ py: 1.5 }}>
-                    <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-                        {/* Left Side - Logo and Menu */}
-                        <Box sx={{ display: 'flex', alignItems: 'center' }}>
-                            <Link href="/" passHref>
-                                <MuiLink sx={{ display: 'block', textDecoration: 'none', color: 'text.primary' }}>
-                                    <Typography variant="h6" component="h1">
-                                        {content.companyName}
-                                    </Typography>
-                                </MuiLink>
-                            </Link>
-
-                            {/* Desktop Menu - Hidden on mobile */}
-                            {!isMobile && (
-                                <Stack direction="row" spacing={2} sx={{ ml: 4 }}>
-                                    <Button
-                                        color="inherit"
-                                        sx={{ '&:hover': { color: 'primary.main' } }}
-                                    >
-                                        {content.navItems.features}
-                                    </Button>
-                                    <Button
-                                        color="inherit"
-                                        sx={{ '&:hover': { color: 'primary.main' } }}
-                                    >
-                                        {content.navItems.testimonials}
-                                    </Button>
-                                    <Button
-                                        color="inherit"
-                                        sx={{ '&:hover': { color: 'primary.main' } }}
-                                    >
-                                        {content.navItems.pricing}
-                                    </Button>
-                                </Stack>
-                            )}
-                        </Box>
-
-                        {/* Right Side - Contact and CTA */}
-                        <Box sx={{ display: 'flex', alignItems: 'center' }}>
-                            {/* Language toggle button */}
-                            <Button
-                                variant="text"
-                                size="small"
-                                onClick={toggleLanguage}
-                                color="inherit"
-                                sx={{
-                                    '&:hover': { color: 'primary.main' },
-                                    mr: 1
-                                }}
-                            >
-                                {language === 'en' ? (
-                                    <span>{content.languageToggle.en} | <span style={{ opacity: 0.5 }}>{content.languageToggle.es}</span></span>
-                                ) : (
-                                    <span><span style={{ opacity: 0.5 }}>{content.languageToggle.en}</span> | {content.languageToggle.es}</span>
-                                )}
-                            </Button>
-
-                            {/* Contact Info - Hidden on mobile */}
-                            {!isMedium && (
-                                <Box sx={{ display: 'flex', alignItems: 'center', gap: 1.5, ml: 2 }}>
-                                    <Avatar
-                                        sx={{
-                                            bgcolor: 'secondary.main',
-                                            width: 28,
-                                            height: 28
-                                        }}
-                                    >
-                                        <PhoneIcon fontSize="small" />
-                                    </Avatar>
-                                    <Box>
-                                        <Typography variant="caption" sx={{ color: 'text.primary', fontWeight: 500 }}>
-                                            Need help?
-                                        </Typography>
-                                        <MuiLink
-                                            href="tel:+1234567890"
-                                            sx={{
-                                                fontSize: '0.75rem',
-                                                fontWeight: 700,
-                                                color: 'text.primary',
-                                                textDecoration: 'none',
-                                                display: 'block',
-                                                '&:hover': { color: 'primary.main' }
-                                            }}
-                                        >
-                                            (123) 456-7890
-                                        </MuiLink>
-                                    </Box>
-                                </Box>
-                            )}
-
-                            {/* CTA Button */}
-                            {!isSmall && (
-                                <Button
-                                    variant="contained"
-                                    color="primary"
-                                    size="small"
-                                    sx={{
-                                        ml: { xs: 0, md: 3 },
-                                        fontWeight: 'bold',
-                                        textTransform: 'uppercase',
-                                        letterSpacing: 1
-                                    }}
-                                >
-                                    Get Started
+                                    Start Your Project
                                 </Button>
                             )}
 

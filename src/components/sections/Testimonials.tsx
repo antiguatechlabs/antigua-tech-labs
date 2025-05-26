@@ -128,7 +128,7 @@ export default function Testimonials() {
                                 >
                                     <Avatar
                                         alt={testimonial.name}
-                                        src={getAvatarUrl(testimonial.name)}
+                                        src={testimonial.avatar || getAvatarUrl(testimonial.name)}
                                         sx={{
                                             width: { xs: 40, md: 48 },
                                             height: { xs: 40, md: 48 }

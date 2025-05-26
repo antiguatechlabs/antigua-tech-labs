@@ -1,8 +1,5 @@
 "use client";
-import Hero from './components/Hero';
-import Features from './components/Features';
-import Contact from './components/Contact';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Box, Container, Typography } from '@mui/material';
 import {
   Header,
@@ -10,12 +7,23 @@ import {
   Sidebar,
   WhyChoose,
   WhyChooseTwo,
-  Brand,
-  BrandSlider
+  BrandSlider,
+  Hero,
+  Features,
+  Contact
 } from '@/components';
+import { getBrandSliderContent } from '@/lib/data';
+import { useLanguage } from '@/lib/languageContext';
 
 export default function Home() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const { language } = useLanguage();
+  const [brandSliderTitle, setBrandSliderTitle] = useState('Our Trusted Partners');
+
+  useEffect(() => {
+    const content = getBrandSliderContent(language);
+    setBrandSliderTitle(content.title);
+  }, [language]);
 
   const handleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
@@ -25,12 +33,10 @@ export default function Home() {
     <>
       <Header handleSidebar={handleSidebar} />
       <Hero />
-      <Features />
       <WhyChoose />
       <WhyChooseTwo />
-      <Brand />
-
-      {/* Standalone BrandSlider Section */}
+      <Features />
+      {/* <Brand /> */}
       <Box component="section" sx={{ py: 6, bgcolor: 'background.paper' }}>
         <Container maxWidth="xl">
           <Typography
@@ -42,7 +48,7 @@ export default function Home() {
               fontSize: { xs: '1.75rem', md: '2.25rem' }
             }}
           >
-            Our Trusted Partners
+            {brandSliderTitle}
           </Typography>
           <BrandSlider />
         </Container>

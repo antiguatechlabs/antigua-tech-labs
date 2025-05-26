@@ -2,16 +2,16 @@ import { createTheme } from '@mui/material/styles';
 
 // Define the brand colors
 export const brandColors = {
-    50: '#ffe5e8',
-    100: '#fbbbc1',
-    200: '#f5919a',
-    300: '#ef6673',
-    400: '#ea3c4c',
-    500: '#d12333', // Primary brand color
-    600: '#a31a28',
-    700: '#75121d',
-    800: '#470a12',
-    900: '#1d0307',
+    50: '#f0e7ff',
+    100: '#d1c2ff',
+    200: '#b39dff',
+    300: '#9579ff',
+    400: '#7654ff',
+    500: '#5a30ff', // Primary brand color (purple)
+    600: '#4826cc',
+    700: '#361c99',
+    800: '#241366',
+    900: '#120933',
 };
 
 // Create a base theme function that can be used with light mode
@@ -26,9 +26,9 @@ export const createAppTheme = (mode: 'light') => {
                 contrastText: '#ffffff',
             },
             secondary: {
-                main: '#19857b',
-                light: '#2cb5a5',
-                dark: '#106e66',
+                main: '#2d05a5',
+                light: '#5a30ff',
+                dark: '#2d05e9',
                 contrastText: '#ffffff',
             },
             background: {

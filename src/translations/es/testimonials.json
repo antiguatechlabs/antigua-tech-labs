@@ -2,30 +2,30 @@
   "title": "Lo Que Dicen Nuestros Clientes",
   "items": [
     {
-      "quote": "La implementación del agente de ventas con IA de Antigua Digital aumentó nuestra tasa de conversión en un 35% en solo dos meses.",
+      "quote": "Antigua Digital transformó nuestra plataforma obsoleta en una aplicación web moderna y escalable que ha mejorado significativamente la participación de nuestros usuarios.",
       "name": "Sarah Johnson",
-      "title": "VP de Ventas",
+      "title": "CTO",
       "company": "TechCorp Inc.",
       "avatar": "/avatars/sarah.jpg"
     },
     {
-      "quote": "El agente de IA maneja perfectamente las consultas rutinarias, permitiendo a nuestro equipo centrarse en las necesidades complejas de los clientes.",
+      "quote": "La atención del equipo a la calidad del código y las mejores prácticas ha hecho que nuestra aplicación sea mucho más fácil de mantener y ampliar a medida que crece nuestro negocio.",
       "name": "Michael Chen",
-      "title": "Gerente de Éxito del Cliente",
+      "title": "Gerente de Producto",
       "company": "Innovate Solutions",
       "avatar": "/avatars/michael.jpg"
     },
     {
-      "quote": "Hemos visto una reducción del 40% en el tiempo de respuesta y una mejora significativa en la satisfacción del cliente.",
+      "quote": "Hemos visto una mejora del 40% en los tiempos de carga de páginas y un aumento significativo en las tasas de conversión desde el lanzamiento de nuestra nueva aplicación web.",
       "name": "Elena Rodriguez",
-      "title": "Directora de Marketing",
+      "title": "Directora Digital",
       "company": "Global Retail",
       "avatar": "/avatars/elena.jpg"
     },
     {
-      "quote": "La integración perfecta con nuestros sistemas existentes hizo que la adopción fuera increíblemente sencilla para nuestro equipo.",
+      "quote": "Como startup, necesitábamos una plataforma que pudiera escalar con nuestro rápido crecimiento. Antigua Digital entregó exactamente lo que necesitábamos, a tiempo y dentro del presupuesto.",
       "name": "David Kim",
-      "title": "CTO",
+      "title": "Fundador y CEO",
       "company": "StartUp Ventures",
       "avatar": "/avatars/david.jpg"
     }

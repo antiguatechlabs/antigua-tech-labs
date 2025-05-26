@@ -11,8 +11,8 @@ import {
 } from "@mui/material";
 import CloseIcon from '@mui/icons-material/Close';
 import { useLanguage } from "@/lib/languageContext";
-import { getContactContent } from "@/lib/data";
-import { useState } from "react";
+import { getContactContent, getNavbarContent } from "@/lib/data";
+import { useState, useEffect } from "react";
 
 interface SidebarProps {
     isOpen: boolean;
@@ -20,8 +20,14 @@ interface SidebarProps {
 }
 
 const Sidebar = ({ isOpen, onClose }: SidebarProps) => {
-    const { language } = useLanguage();
+    const { language, toggleLanguage } = useLanguage();
     const content = getContactContent(language);
+    const navContent = getNavbarContent(language);
+
+    // Update content when language changes
+    useEffect(() => {
+        // Re-fetch content when language changes
+    }, [language]);
 
     // Form state
     const [formData, setFormData] = useState({
@@ -76,15 +82,35 @@ const Sidebar = ({ isOpen, onClose }: SidebarProps) => {
                 </IconButton>
             </Box>
 
+            {/* Language Toggle */}
+            <Box sx={{ mb: 3, display: 'flex', justifyContent: 'flex-start' }}>
+                <Button
+                    variant="outlined"
+                    size="small"
+                    onClick={toggleLanguage}
+                    sx={{
+                        borderRadius: 2,
+                        px: 2,
+                        textTransform: 'none'
+                    }}
+                >
+                    {language === 'en' ? (
+                        <span>{navContent.languageToggle.en} | <span style={{ opacity: 0.5 }}>{navContent.languageToggle.es}</span></span>
+                    ) : (
+                        <span><span style={{ opacity: 0.5 }}>{navContent.languageToggle.en}</span> | {navContent.languageToggle.es}</span>
+                    )}
+                </Button>
+            </Box>
+
             {/* About Section */}
             <Box sx={{ mb: 4 }}>
                 <Typography variant="subtitle1" sx={{ mb: 2, fontWeight: 600 }}>
                     About Us
                 </Typography>
                 <Typography variant="body2">
-                    Antigua Digital is a leading digital agency specializing in web development,
-                    mobile applications, and digital marketing solutions. We help businesses
-                    transform their digital presence and achieve their goals.
+                    Antigua Digital is a software company specializing in the development and maintenance
+                    of modern web applications. We leverage the latest technologies and follow industry
+                    best practices to deliver clean, sustainable code and high-quality digital solutions.
                 </Typography>
             </Box>
 
