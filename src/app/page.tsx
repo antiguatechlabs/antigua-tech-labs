@@ -13,7 +13,7 @@ import {
   Contact
 } from '@/components';
 import { getBrandSliderContent } from '@/lib/data';
-import { useLanguage } from '@/lib/languageContext';
+import { useLanguage } from '@/context/languageContext';
 
 export default function Home() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);

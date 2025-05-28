@@ -1,0 +1,14 @@
+{
+  "companyName": "Antigua Digital",
+  "menuTitle": "Menú",
+  "navItems": {
+    "features": "Servicios",
+    "testimonials": "Testimonios",
+    "pricing": "Proyectos",
+    "contact": "Contacto"
+  },
+  "languageToggle": {
+    "en": "EN",
+    "es": "ES"
+  }
+}

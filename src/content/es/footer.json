@@ -1,0 +1,32 @@
+{
+  "companyName": "Antigua Digital",
+  "companyDescription": "Aplicaciones web modernas que escalan con tu negocio.",
+  "sections": {
+    "product": {
+      "title": "Servicios",
+      "links": [
+        "Desarrollo Web",
+        "Desarrollo de APIs",
+        "Diseño UX",
+        "Mantenimiento"
+      ]
+    },
+    "company": {
+      "title": "Empresa",
+      "links": [
+        "Acerca de",
+        "Equipo",
+        "Carreras",
+        "Contacto"
+      ]
+    },
+    "legal": {
+      "title": "Legal",
+      "links": [
+        "Política de Privacidad",
+        "Términos de Servicio"
+      ]
+    }
+  },
+  "copyright": "© {year} Antigua Digital. Todos los derechos reservados."
+}

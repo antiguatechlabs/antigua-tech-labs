@@ -7,7 +7,7 @@ import {
 } from "@mui/material";
 import { motion } from "framer-motion";
 import { fadeIn, staggerContainer } from "@/lib/animations";
-import CounterUp from "../utility/CounterUp";
+import { CounterUp } from "@/components/ui";
 import BrandSlider from "./BrandSlider";
 import { useEffect, useState } from "react";
 import { getBrandContent, BrandContent } from "@/lib/data";
