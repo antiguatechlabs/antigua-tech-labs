@@ -1,6 +1,6 @@
 // import "@/styles/globals.css";
-import { Providers } from "./providers";
-import type { Metadata, Viewport } from "next";
+import { Providers } from './providers';
+import type { Metadata, Viewport } from 'next';
 import { Inter } from 'next/font/google';
 
 // Initialize the Inter font with Latin subset
@@ -11,12 +11,12 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Landing Page",
-  description: "Landing page using Next.js 15, Chakra, MUI, Framer Motion",
+  title: 'Landing Page',
+  description: 'Landing page using Next.js 15, Chakra, MUI, Framer Motion',
 };
 
 export const viewport: Viewport = {
-  width: "device-width",
+  width: 'device-width',
   initialScale: 1,
   maximumScale: 1,
   userScalable: false,

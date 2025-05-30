@@ -2,7 +2,7 @@
   /* Base colors */
   --background: #ffffff;
   --foreground: #171717;
-  
+
   /* Brand colors */
   --brand-50: #ffe5e8;
   --brand-100: #fbbbc1;
@@ -14,7 +14,7 @@
   --brand-700: #75121d;
   --brand-800: #470a12;
   --brand-900: #1d0307;
-  
+
   /* UI colors */
   --card-bg: #ffffff;
   --card-border: #e2e8f0;
@@ -23,7 +23,7 @@
   --button-bg: #d12333;
   --button-text: #ffffff;
   --button-hover: #a31a28;
-  
+
   /* Text colors */
   --text-primary: #171717;
   --text-secondary: #4a5568;
@@ -54,7 +54,14 @@ body {
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: var(--font-inter), 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family:
+    var(--font-inter),
+    'Inter',
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    Roboto,
+    sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   margin: 0;

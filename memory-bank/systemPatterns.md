@@ -1,6 +1,7 @@
 # System Patterns: Antigua Digital Landing Page
 
 ## Architecture Overview
+
 The Antigua Digital Landing Page follows a modern Next.js 15 architecture with the App Router pattern, leveraging React 19's latest features. The system is designed with a clear separation of concerns and a component-based approach.
 
 ```mermaid
@@ -16,7 +17,9 @@ flowchart TD
 ## Key Design Patterns
 
 ### Content Management
+
 The project uses a translation-based content management approach:
+
 - JSON files in the `/src/translations/en` and `/src/translations/es` directories store structured content
 - Data loading utilities in `/src/lib/data.ts` handle content retrieval based on the selected language
 - Components use the language context to load the appropriate translations
@@ -31,19 +34,25 @@ flowchart LR
 ```
 
 ### UI Component Structure
+
 The UI follows a component-based architecture with:
+
 - Material UI as the primary component library
 - Framer Motion for animations
 - Custom styling through a combination of component props and global CSS
 
 ### Theme Management
+
 The project implements a theming system:
+
 - Material UI theme for component styling
 - Global CSS variables for fundamental styling properties
 - Dark/light mode support through CSS variables and media queries
 
 ### Rendering Strategy
+
 The application uses Next.js App Router with:
+
 - Server components for content-heavy sections
 - Client components for interactive elements
 - Static rendering for performance optimization
@@ -52,13 +61,17 @@ The application uses Next.js App Router with:
 ## Component Relationships
 
 ### Provider Pattern
+
 The application uses a Provider pattern to manage global state and theming:
+
 - `Providers` component wraps the application to provide context
 - ThemeProvider supplies Material UI theming
 - AnimatePresence enables page transition animations
 
 ### Data Flow
+
 Data flows through the application in a unidirectional pattern:
+
 - Content is loaded from JSON files using data utilities
 - Page components receive content through props
 - UI components render based on the provided content
@@ -67,19 +80,23 @@ Data flows through the application in a unidirectional pattern:
 ## Technical Decisions
 
 ### Framework Selection
+
 - **Next.js 15**: Chosen for its server component support, rendering optimizations, and simplified routing
 - **React 19**: Utilized for its latest performance improvements and features
 
 ### UI Library Choices
+
 - **Material UI**: Selected for its comprehensive component system, icon library, and theming capabilities
 - **Framer Motion**: Implemented for high-quality animations and transitions
 
 ### Styling Approach
+
 - Component-based styling through Material UI props and the sx prop
 - Global CSS for fundamental styling and variables
 - CSS variables for theme switching and responsive design
 
 ### Deployment Strategy
+
 - GitHub Actions for CI/CD pipeline
 - Vercel for hosting and edge network distribution
 - Automated builds and deployments on main branch changes

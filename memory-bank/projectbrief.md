@@ -1,9 +1,11 @@
 # Project Brief: Antigua Digital Landing Page
 
 ## Project Overview
+
 The Antigua Digital Landing Page is a modern, responsive web application designed to showcase an AI-powered sales agent solution. The landing page serves as the entry point for potential customers to learn about the product and initiate the onboarding process.
 
 ## Core Requirements
+
 1. Create a visually appealing landing page that effectively communicates the value proposition of the AI-powered sales agent
 2. Implement responsive design to ensure optimal viewing experience across all devices
 3. Provide clear call-to-action elements to guide users toward conversion
@@ -11,6 +13,7 @@ The Antigua Digital Landing Page is a modern, responsive web application designe
 5. Ensure accessibility compliance
 
 ## Technical Stack
+
 - **Framework**: Next.js 15 (React 19)
 - **UI Libraries**: Chakra UI, Material UI
 - **Animation**: Framer Motion
@@ -19,12 +22,14 @@ The Antigua Digital Landing Page is a modern, responsive web application designe
 - **Deployment**: Vercel (via GitHub Actions)
 
 ## Project Goals
+
 - Create a professional, modern landing page that effectively communicates the product's value
 - Implement a clean, maintainable codebase with clear separation of concerns
 - Establish a content management approach using JSON files for easy updates
 - Set up a streamlined deployment process via GitHub Actions to Vercel
 
 ## Success Metrics
+
 - Visual fidelity to design specifications
 - Responsive behavior across device sizes
 - Performance metrics (load time, Core Web Vitals)

@@ -1,5 +1,5 @@
 // Common Components
-export { default as Header } from './Header';
+export { Header } from './Header';
 export { default as Footer } from './Footer';
 export { default as Navbar } from './Navbar';
 export { default as Sidebar } from './Sidebar';

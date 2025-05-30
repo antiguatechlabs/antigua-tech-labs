@@ -4,28 +4,15 @@
   "sections": {
     "product": {
       "title": "Services",
-      "links": [
-        "Web Development",
-        "API Development",
-        "UX Design",
-        "Maintenance"
-      ]
+      "links": ["Web Development", "API Development", "UX Design", "Maintenance"]
     },
     "company": {
       "title": "Company",
-      "links": [
-        "About",
-        "Team",
-        "Careers",
-        "Contact"
-      ]
+      "links": ["About", "Team", "Careers", "Contact"]
     },
     "legal": {
       "title": "Legal",
-      "links": [
-        "Privacy Policy",
-        "Terms of Service"
-      ]
+      "links": ["Privacy Policy", "Terms of Service"]
     }
   },
   "copyright": "© {year} Antigua Digital. All rights reserved."
