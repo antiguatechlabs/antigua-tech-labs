@@ -1,7 +1,6 @@
-import { dirname } from "path";
-import { fileURLToPath } from "url";
-import { FlatCompat } from "@eslint/eslintrc";
-import prettierConfig from "eslint-config-prettier";
+import { dirname } from 'path';
+import { fileURLToPath } from 'url';
+import { FlatCompat } from '@eslint/eslintrc';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -10,17 +9,71 @@ const compat = new FlatCompat({
   baseDirectory: __dirname,
 });
 
+// Files to ignore
+const ignorePatterns = [
+  '.next/**',
+  'node_modules/**',
+  'public/**',
+  '**/*.min.js',
+  '**/dist/**',
+  '**/build/**',
+  'components-to-migrate/**',
+  'extracted-components/**',
+  'memory-bank/**',
+  '**/*.css',
+  '**/*.md',
+];
+
 const eslintConfig = [
-  ...compat.extends("next/core-web-vitals", "next/typescript"),
-  ...compat.plugins("prettier"),
+  {
+    ignores: ignorePatterns,
+  },
+  ...compat.extends('next/core-web-vitals', 'next/typescript'),
+  ...compat.plugins('json', 'markdown', 'css'),
   {
     rules: {
-      "prettier/prettier": "error",
-      "arrow-body-style": ["error", "as-needed"],
-      "prefer-arrow-callback": "error",
+      // Formatting rules
+      indent: ['error', 2, { SwitchCase: 1 }],
+      'linebreak-style': ['error', 'unix'],
+      quotes: ['error', 'single', { avoidEscape: true }],
+      semi: ['error', 'always'],
+      'comma-dangle': ['error', 'always-multiline'],
+      'arrow-parens': ['error', 'as-needed'],
+      'max-len': ['error', { code: 100, ignoreUrls: true, ignoreStrings: true }],
+      'object-curly-spacing': ['error', 'always'],
+      'array-bracket-spacing': ['error', 'never'],
+      'arrow-spacing': ['error', { before: true, after: true }],
+      'key-spacing': ['error', { beforeColon: false, afterColon: true }],
+      'no-trailing-spaces': 'error',
+      'eol-last': ['error', 'always'],
+
+      // Best practices
+      'arrow-body-style': ['error', 'as-needed'],
+      'prefer-arrow-callback': 'error',
+      '@typescript-eslint/no-unused-vars': ['error', {
+        argsIgnorePattern: '^_',
+        varsIgnorePattern: '^_',
+        caughtErrorsIgnorePattern: '^_'
+      }],
+      'no-unused-vars': 'off', // Turn off the base rule as it can report incorrect errors
+      'no-console': ['warn', { allow: ['warn', 'error'] }],
     },
   },
-  prettierConfig,
+  // JSON files configuration
+  {
+    files: ['**/*.json'],
+    rules: {},
+  },
+  // Markdown files configuration
+  {
+    files: ['**/*.md'],
+    processor: 'markdown/markdown',
+  },
+  // CSS files configuration
+  {
+    files: ['**/*.css'],
+    rules: {},
+  },
 ];
 
 export default eslintConfig;

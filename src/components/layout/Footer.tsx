@@ -205,7 +205,7 @@ const Footer = ({
                     >
                       {item}
                     </MuiLink>
-                  )
+                  ),
                 )}
               </Stack>
             </Stack>

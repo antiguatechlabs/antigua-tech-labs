@@ -17,9 +17,7 @@ interface ThemeToggleProps {
   variant?: string;
 }
 
-export default function ThemeToggle(props: ThemeToggleProps) {
+export default function ThemeToggle(_props: ThemeToggleProps) {
   // This component is now a no-op
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const { size, color, ariaLabel, variant } = props;
   return null;
 }

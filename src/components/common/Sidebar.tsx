@@ -41,7 +41,8 @@ const Sidebar = ({ isOpen, onClose }: SidebarProps) => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     // Here you would typically send the form data to your backend
-    console.log('Form submitted:', formData);
+    // Using console.warn for development purposes
+    console.warn('Form submitted:', formData);
 
     // Reset form
     setFormData({

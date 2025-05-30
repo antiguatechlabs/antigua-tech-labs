@@ -12,7 +12,7 @@ import { MotionBox, MotionPaper } from '@/lib/motionComponents';
 const WhyChoose = () => {
   const { language } = useLanguage();
   const [whyChooseContent, setWhyChooseContent] = useState<WhyChooseContent>(
-    getWhyChooseContent(language)
+    getWhyChooseContent(language),
   );
 
   // Update content when language changes

@@ -123,7 +123,12 @@ const BrandSlider = ({ brands }: BrandSliderProps) => {
                       const target = e.target as HTMLImageElement;
                       const parent = target.parentNode as HTMLElement;
                       if (parent) {
-                        parent.innerHTML = `<div style="width:150px;height:60px;background:#f1f1f1;display:flex;align-items:center;justify-content:center">${brand.name}</div>`;
+                        parent.innerHTML = `
+                          <div style="width:150px;height:60px;background:#f1f1f1;
+                                      display:flex;align-items:center;justify-content:center">
+                            ${brand.name}
+                          </div>
+                        `;
                       }
                     }}
                   />

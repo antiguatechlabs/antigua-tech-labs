@@ -49,17 +49,55 @@ The landing page is organized into these major sections:
 
 ## Getting Started
 
-First, run the development server:
+### Quick Setup
+
+The easiest way to set up the project is to use the initialization script:
 
 ```bash
+# Make the script executable if needed
+chmod +x init.sh
+
+# Run the initialization script
+./init.sh
+```
+
+This script will:
+1. Install all dependencies
+2. Set up Git hooks with Husky
+3. Run initial code formatting and linting
+4. Start the development server
+
+### Manual Setup
+
+If you prefer to set up manually:
+
+```bash
+# Install dependencies
+npm install
+
+# Start the development server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+## Development Workflow
+
+### Code Quality Tools
+
+This project uses several tools to maintain code quality:
+
+- **ESLint**: Lints and formats JavaScript and TypeScript files
+- **Husky**: Runs linting and formatting before commits
+
+### Available Scripts
+
+- `npm run dev`: Start development server
+- `npm run build`: Build for production
+- `npm run start`: Start production server
+- `npm run lint`: Check for linting issues
+- `npm run lint:fix`: Fix linting issues and format code automatically
+- `npm run format`: Alias for lint:fix
 
 ## Content Management
 

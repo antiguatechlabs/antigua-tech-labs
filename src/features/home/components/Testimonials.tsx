@@ -16,7 +16,7 @@ import {
 export default function Testimonials() {
   const { language } = useLanguage();
   const [testimonials, setTestimonials] = useState<TestimonialsContent>(
-    getTestimonialsContent(language)
+    getTestimonialsContent(language),
   );
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.2 });

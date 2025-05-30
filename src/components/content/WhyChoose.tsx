@@ -16,7 +16,7 @@ const MotionPaper = motion(Paper);
 const WhyChoose = () => {
   const { language } = useLanguage();
   const [whyChooseContent, setWhyChooseContent] = useState<WhyChooseContent>(
-    getWhyChooseContent(language)
+    getWhyChooseContent(language),
   );
 
   // Update content when language changes
