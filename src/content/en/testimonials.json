@@ -1,5 +1,5 @@
 {
-  "title": "What Our Clients Say",
+  "title": "What Our {{gradient:Clients Say}}",
   "items": [
     {
       "quote": "Antigua Digital transformed our outdated platform into a modern, scalable web application that has significantly improved our user engagement.",

@@ -1,4 +1,5 @@
 'use client';
+import { usePathname, useRouter } from 'next/navigation';
 import { createContext, useContext, useState, useEffect, ReactNode } from 'react';
 
 type Language = 'en' | 'es';
@@ -11,49 +12,44 @@ interface LanguageContextType {
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
-export function LanguageProvider({ children }: { children: ReactNode }) {
-  // Initialize with default English, will be updated after hydration
-  const [language, setLanguage] = useState<Language>('en');
-  const [isClient, setIsClient] = useState(false);
+export function LanguageProvider({
+  children,
+  initialLanguage = 'en',
+}: {
+  children: ReactNode;
+  initialLanguage: Language;
+}) {
+  const [language, setLanguageState] = useState<Language>(initialLanguage);
+  const router = useRouter();
+  const pathname = usePathname();
 
-  // Effect to handle client-side initialization
-  useEffect(() => {
-    setIsClient(true);
+  // Function to set language and update URL
+  const setLanguage = (newLanguage: Language) => {
+    setLanguageState(newLanguage);
 
-    try {
-      // Safe localStorage access only on client
-      const savedLanguage = localStorage.getItem('language') as Language;
-      if (savedLanguage && (savedLanguage === 'en' || savedLanguage === 'es')) {
-        setLanguage(savedLanguage);
-      } else {
-        // Check browser language
-        const browserLang = navigator.language.split('-')[0];
-        if (browserLang === 'es') {
-          setLanguage('es');
-        }
-      }
-    } catch (error) {
-      console.warn('Error accessing localStorage:', error);
+    // Update URL to reflect language change
+    if (pathname) {
+      const segments = pathname.split('/');
+      segments[1] = newLanguage; // Replace language segment
+      router.replace(segments.join('/'));
     }
-  }, []);
-
-  // Effect to save language preference to localStorage
-  useEffect(() => {
-    if (isClient) {
-      try {
-        localStorage.setItem('language', language);
-        // Also update the html lang attribute
-        document.documentElement.lang = language;
-      } catch (error) {
-        console.warn('Error setting localStorage:', error);
-      }
-    }
-  }, [language, isClient]);
+  };
 
   // Function to toggle between languages
   const toggleLanguage = () => {
-    setLanguage(prevLang => (prevLang === 'en' ? 'es' : 'en'));
+    const newLanguage = language === 'en' ? 'es' : 'en';
+    setLanguage(newLanguage);
   };
+
+  // Effect to save language preference to localStorage
+  useEffect(() => {
+    try {
+      localStorage.setItem('language', language);
+      document.documentElement.lang = language;
+    } catch (error) {
+      console.warn('Error setting localStorage:', error);
+    }
+  }, [language]);
 
   return (
     <LanguageContext.Provider value={{ language, setLanguage, toggleLanguage }}>

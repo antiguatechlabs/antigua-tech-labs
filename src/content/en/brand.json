@@ -1,6 +1,6 @@
 {
   "counterValue": 150,
-  "counterTitle": "Successful Projects Delivered",
+  "counterTitle": "{{gradient:Successful Projects}} Delivered",
   "brands": [
     { "name": "TechCorp", "logo": "/brand/brand-1-1.png" },
     { "name": "InnovateLabs", "logo": "/brand/brand-1-2.png" },

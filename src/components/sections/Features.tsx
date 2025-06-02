@@ -1,23 +1,26 @@
 'use client';
-import { Box, Typography } from '@mui/material';
-import { motion, useInView } from 'framer-motion';
-import { useRef, useState, useEffect } from 'react';
-import ChatIcon from '@mui/icons-material/Chat';
-import AccessTimeIcon from '@mui/icons-material/AccessTime';
-import LinkIcon from '@mui/icons-material/Link';
+import BarChartIcon from '@mui/icons-material/BarChart';
+import LayoutIcon from '@mui/icons-material/Dashboard';
+import RefreshIcon from '@mui/icons-material/Refresh';
+import SecurityIcon from '@mui/icons-material/Security';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import SmartphoneIcon from '@mui/icons-material/Smartphone';
 import StarIcon from '@mui/icons-material/Star';
-import LanguageIcon from '@mui/icons-material/Language';
-import SettingsIcon from '@mui/icons-material/Settings';
-import { getFeaturesContent, FeaturesContent, FeatureItem } from '@/lib/data';
-import { useLanguage } from '@/context/languageContext';
-import { fadeIn, slideUp } from '@/lib/animations';
-import { MotionBox, MotionContainer, MotionTypography, MotionPaper } from '@/lib/motionComponents';
+import { Box, Typography, Card, CardContent } from '@mui/material';
+import { motion } from 'framer-motion';
+import { useEffect, useState } from 'react';
 
-export default function Features() {
+import { Section } from '@/components/common';
+import { useLanguage } from '@/context/languageContext';
+import { getFeaturesContent, FeaturesContent, FeatureItem } from '@/lib/data';
+import { textWithGradient } from '@/lib/textFormatters';
+
+// Create motion components
+const MotionCard = motion(Card);
+
+export function Features() {
   const { language } = useLanguage();
   const [features, setFeatures] = useState<FeaturesContent>(getFeaturesContent(language));
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, amount: 0.2 });
 
   // Update content when language changes
   useEffect(() => {
@@ -25,134 +28,136 @@ export default function Features() {
   }, [language]);
 
   // Map icon names to actual icon components
-  const iconMap: Record<string, React.ElementType> = {
-    ChatIcon: ChatIcon,
-    TimeIcon: AccessTimeIcon,
-    LinkIcon: LinkIcon,
-    StarIcon: StarIcon,
-    GlobeIcon: LanguageIcon,
-    SettingsIcon: SettingsIcon,
+  const iconMap: Record<string, React.ReactNode> = {
+    LayoutIcon: <LayoutIcon fontSize="large" />,
+    SmartphoneIcon: <SmartphoneIcon fontSize="large" />,
+    ShoppingCartIcon: <ShoppingCartIcon fontSize="large" />,
+    BarChartIcon: <BarChartIcon fontSize="large" />,
+    RefreshIcon: <RefreshIcon fontSize="large" />,
+    SecurityIcon: <SecurityIcon fontSize="large" />,
+    StarIcon: <StarIcon fontSize="large" />,
   };
 
-  // Animation variants for staggered children
-  const containerVariants = {
+  const container = {
     hidden: { opacity: 0 },
-    visible: {
+    show: {
       opacity: 1,
       transition: {
         staggerChildren: 0.1,
-        delayChildren: 0.2,
       },
     },
   };
 
-  const itemVariants = {
-    hidden: { y: 20, opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1,
-      transition: {
-        duration: 0.5,
-        ease: 'easeOut',
-      },
-    },
-    hover: {
-      y: -5,
-      boxShadow: '0px 8px 16px rgba(0, 0, 0, 0.15)',
-      transition: {
-        duration: 0.3,
-        ease: 'easeInOut',
-      },
-    },
+  const item = {
+    hidden: { opacity: 0, y: 20 },
+    show: { opacity: 1, y: 0, transition: { duration: 0.5 } },
   };
 
   return (
-    <MotionBox
-      ref={ref}
-      sx={{
-        py: { xs: 5, md: 8 },
-        bgcolor: 'grey.50',
-      }}
-      initial="hidden"
-      animate={isInView ? 'visible' : 'hidden'}
-      variants={fadeIn}
-    >
-      <MotionContainer maxWidth="xl" sx={{ px: { xs: 2, md: 3 } }}>
-        <MotionTypography
+    <Section id="services" maxWidth="lg">
+      <Box sx={{ textAlign: 'center', mb: 8 }}>
+        <Typography
           variant="h2"
           sx={{
-            textAlign: 'center',
-            mb: { xs: 4, md: 6 },
-            fontSize: { xs: '1.75rem', md: '2.25rem' },
+            fontWeight: 'bold',
+            mb: 2,
+            fontSize: { xs: '1.875rem', md: '2.25rem' },
           }}
-          variants={slideUp}
         >
-          {features.title}
-        </MotionTypography>
+          {textWithGradient(features.title)}
+        </Typography>
+        {features.subtitle && (
+          <Typography
+            variant="body1"
+            sx={{
+              fontSize: '1.125rem',
+              color: 'text.secondary',
+              maxWidth: '42rem',
+              mx: 'auto',
+            }}
+          >
+            {features.subtitle}
+          </Typography>
+        )}
+      </Box>
 
+      <Box
+        component={motion.div}
+        variants={container}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, margin: '-100px' }}
+      >
         <Box
-          sx={{ display: 'flex', flexWrap: 'wrap', mx: -2 }}
-          component={motion.div}
-          variants={containerVariants}
+          sx={{
+            display: 'grid',
+            gridTemplateColumns: {
+              xs: '1fr',
+              md: 'repeat(2, 1fr)',
+              lg: 'repeat(3, 1fr)',
+            },
+            gap: 4,
+          }}
         >
-          {features.items.map((feature: FeatureItem, index: number) => {
-            const IconComponent = iconMap[feature.icon] || StarIcon; // Fallback to StarIcon
-
-            return (
-              <Box
-                key={index}
-                sx={{
-                  width: { xs: '100%', md: '50%', lg: '33.333%' },
-                  px: 2,
-                  mb: 4,
-                }}
-              >
-                <MotionPaper
+          {features.items.map((feature: FeatureItem, index: number) => (
+            <Box key={index}>
+              <Box component={motion.div} variants={item}>
+                <MotionCard
                   sx={{
-                    p: { xs: 2.5, md: 3 },
-                    borderRadius: 1,
-                    boxShadow: 1,
                     height: '100%',
+                    border: '1px solid',
+                    borderColor: 'divider',
+                    transition: 'all 0.3s ease',
+                    background:
+                        'linear-gradient(145deg, rgba(255,255,255,0.9), rgba(240,240,245,0.4))',
+                    '&:hover': {
+                      boxShadow: '0 8px 16px rgba(0,0,0,0.1)',
+                      transform: 'translateY(-5px)',
+                    },
+                    minHeight: { xs: '280px', md: '320px' },
                     display: 'flex',
                     flexDirection: 'column',
-                    alignItems: 'flex-start',
-                    gap: 1.5,
                   }}
-                  variants={itemVariants}
-                  whileHover="hover"
-                  initial="initial"
-                  custom={index}
                 >
-                  <IconComponent
-                    sx={{
-                      fontSize: { xs: 32, md: 40 },
-                      color: 'secondary.main',
-                    }}
-                  />
-                  <Typography
-                    variant="h6"
-                    sx={{
-                      fontWeight: 600,
-                      fontSize: { xs: '1rem', md: '1.25rem' },
-                    }}
-                  >
-                    {feature.title}
-                  </Typography>
-                  <Typography
-                    variant="body2"
-                    sx={{
-                      fontSize: { xs: '0.875rem', md: '1rem' },
-                      color: 'text.secondary',
-                    }}
-                  >
-                    {feature.description}
-                  </Typography>
-                </MotionPaper>
+                  <CardContent sx={{ p: 4, display: 'flex', flexDirection: 'column', height: '100%' }}>
+                    <Box
+                      sx={{
+                        width: 48,
+                        height: 48,
+                        borderRadius: 2,
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        mb: 3,
+                        background: 'linear-gradient(135deg, #9c43f8 0%, #26c5f3 100%)',
+                        color: 'white',
+                      }}
+                    >
+                      {iconMap[feature.icon] || <StarIcon fontSize="large" />}
+                    </Box>
+                    <Typography variant="h5" sx={{ fontWeight: 600, mb: 1.5 }}>
+                      {feature.title}
+                    </Typography>
+                    <Typography
+                      variant="body1"
+                      sx={{
+                        color: 'text.secondary',
+                        overflow: 'hidden',
+                        display: '-webkit-box',
+                        WebkitLineClamp: 3,
+                        WebkitBoxOrient: 'vertical',
+                        flex: 1,
+                      }}
+                    >
+                      {feature.description}
+                    </Typography>
+                  </CardContent>
+                </MotionCard>
               </Box>
-            );
-          })}
+            </Box>
+          ))}
         </Box>
-      </MotionContainer>
-    </MotionBox>
+      </Box>
+    </Section>
   );
 }

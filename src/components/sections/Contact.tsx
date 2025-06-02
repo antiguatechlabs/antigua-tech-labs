@@ -9,18 +9,19 @@ import {
 } from '@mui/material';
 import { motion, useInView } from 'framer-motion';
 import { useRef, useState, useEffect } from 'react';
-import { getContactContent, ContactContent } from '@/lib/data';
+
+import { Section } from '@/components/common';
 import { useLanguage } from '@/context/languageContext';
-import { fadeIn, slideUp, buttonHover } from '@/lib/animations';
+import { slideUp, buttonHover } from '@/lib/animations';
+import { getContactContent, ContactContent } from '@/lib/data';
 import {
-  MotionBox,
-  MotionContainer,
   MotionStack,
   MotionPaper,
   MotionButton,
 } from '@/lib/motionComponents';
+import { textWithGradient } from '@/lib/textFormatters';
 
-export default function Contact() {
+export function Contact() {
   const { language } = useLanguage();
   const [content, setContent] = useState<ContactContent>(getContactContent(language));
   const ref = useRef(null);
@@ -56,164 +57,161 @@ export default function Contact() {
   };
 
   return (
-    <MotionBox
+    <Section
+      id="contact"
       ref={ref}
+      maxWidth="md"
       sx={{
         py: { xs: 5, md: 8 },
         bgcolor: 'grey.50',
       }}
-      initial="hidden"
-      animate={isInView ? 'visible' : 'hidden'}
-      variants={fadeIn}
     >
-      <MotionContainer maxWidth="md" sx={{ px: { xs: 2, md: 3 } }}>
-        <MotionStack spacing={{ xs: 3, md: 4 }} sx={{ mb: { xs: 3, md: 4 } }}>
-          <Box component={motion.div} variants={slideUp}>
-            <Typography
-              variant="h2"
-              sx={{
-                textAlign: 'center',
-                fontSize: { xs: '1.75rem', md: '2.25rem' },
-              }}
-            >
-              {content.title}
-            </Typography>
-          </Box>
-
-          {content.subtitle && (
-            <Box component={motion.div} variants={slideUp}>
-              <Typography
-                variant="body1"
-                sx={{
-                  textAlign: 'center',
-                  fontSize: { xs: '1rem', md: '1.125rem' },
-                  color: 'text.secondary',
-                  maxWidth: '600px',
-                  mx: 'auto',
-                }}
-              >
-                {content.subtitle}
-              </Typography>
-            </Box>
-          )}
-        </MotionStack>
-
-        <Box
-          component="form"
-          sx={{
-            borderRadius: 1,
-            overflow: 'hidden',
-          }}
-        >
-          <MotionPaper
+      <MotionStack spacing={{ xs: 3, md: 4 }} sx={{ mb: { xs: 3, md: 4 } }}>
+        <Box component={motion.div} variants={slideUp}>
+          <Typography
+            variant="h2"
             sx={{
-              p: { xs: 2.5, md: 4 },
-              borderRadius: 1,
-              boxShadow: 1,
-              bgcolor: 'background.paper',
-            }}
-            variants={containerVariants}
-            initial="hidden"
-            animate={isInView ? 'visible' : 'hidden'}
-            elevation={2}
-            whileHover={{
-              boxShadow: '0px 8px 30px rgba(0, 0, 0, 0.1)',
-              transition: { duration: 0.3 },
+              textAlign: 'center',
+              fontSize: { xs: '1.75rem', md: '2.25rem' },
             }}
           >
-            <MotionStack spacing={{ xs: 2, md: 3 }}>
-              <Box component={motion.div} variants={itemVariants} sx={{ width: '100%' }}>
-                <FormControl fullWidth required>
-                  <FormLabel sx={{ fontSize: { xs: '0.875rem', md: '1rem' } }}>
-                    {content.formLabels.name}
-                  </FormLabel>
-                  <TextField
-                    placeholder={content.placeholders.name}
-                    variant="outlined"
-                    fullWidth
-                    size="medium"
-                    sx={{
-                      mt: 1,
-                      '& .MuiOutlinedInput-root': {
-                        '&:hover fieldset': {
-                          borderColor: 'secondary.main',
-                        },
-                        '&.Mui-focused fieldset': {
-                          borderColor: 'secondary.main',
-                          borderWidth: 2,
-                        },
-                      },
-                    }}
-                  />
-                </FormControl>
-              </Box>
-
-              <Box component={motion.div} variants={itemVariants} sx={{ width: '100%' }}>
-                <FormControl fullWidth required>
-                  <FormLabel sx={{ fontSize: { xs: '0.875rem', md: '1rem' } }}>
-                    {content.formLabels.email}
-                  </FormLabel>
-                  <TextField
-                    type="email"
-                    placeholder={content.placeholders.email}
-                    variant="outlined"
-                    fullWidth
-                    size="medium"
-                    sx={{
-                      mt: 1,
-                      '& .MuiOutlinedInput-root': {
-                        '&:hover fieldset': {
-                          borderColor: 'secondary.main',
-                        },
-                        '&.Mui-focused fieldset': {
-                          borderColor: 'secondary.main',
-                          borderWidth: 2,
-                        },
-                      },
-                    }}
-                  />
-                </FormControl>
-              </Box>
-
-              <Box component={motion.div} variants={itemVariants} sx={{ width: '100%' }}>
-                <FormControl fullWidth required>
-                  <FormLabel sx={{ fontSize: { xs: '0.875rem', md: '1rem' } }}>
-                    {content.formLabels.message}
-                  </FormLabel>
-                  <TextareaAutosize
-                    minRows={4}
-                    placeholder={content.placeholders.message}
-                    style={{
-                      width: '100%',
-                      padding: '10px',
-                      borderRadius: '4px',
-                      borderColor: '#E2E8F0',
-                      marginTop: '8px',
-                      fontSize: '1rem',
-                      minHeight: '6rem',
-                      transition: 'border-color 0.2s ease-in-out',
-                    }}
-                  />
-                </FormControl>
-              </Box>
-
-              <MotionButton
-                variant="contained"
-                color="secondary"
-                size="large"
-                fullWidth
-                sx={{ mt: { xs: 1, md: 2 } }}
-                variants={buttonHover}
-                whileHover="hover"
-                whileTap="tap"
-                initial="initial"
-              >
-                {content.buttonText}
-              </MotionButton>
-            </MotionStack>
-          </MotionPaper>
+            {textWithGradient(content.title)}
+          </Typography>
         </Box>
-      </MotionContainer>
-    </MotionBox>
+
+        {content.subtitle && (
+          <Box component={motion.div} variants={slideUp}>
+            <Typography
+              variant="body1"
+              sx={{
+                textAlign: 'center',
+                fontSize: { xs: '1rem', md: '1.125rem' },
+                color: 'text.secondary',
+                maxWidth: '600px',
+                mx: 'auto',
+              }}
+            >
+              {content.subtitle}
+            </Typography>
+          </Box>
+        )}
+      </MotionStack>
+
+      <Box
+        component="form"
+        sx={{
+          borderRadius: 1,
+          overflow: 'hidden',
+        }}
+      >
+        <MotionPaper
+          sx={{
+            p: { xs: 2.5, md: 4 },
+            borderRadius: 1,
+            boxShadow: 1,
+            bgcolor: 'background.paper',
+          }}
+          variants={containerVariants}
+          initial="hidden"
+          animate={isInView ? 'visible' : 'hidden'}
+          elevation={2}
+          whileHover={{
+            boxShadow: '0px 8px 30px rgba(0, 0, 0, 0.1)',
+            transition: { duration: 0.3 },
+          }}
+        >
+          <MotionStack spacing={{ xs: 2, md: 3 }}>
+            <Box component={motion.div} variants={itemVariants} sx={{ width: '100%' }}>
+              <FormControl fullWidth required>
+                <FormLabel sx={{ fontSize: { xs: '0.875rem', md: '1rem' } }}>
+                  {content.formLabels.name}
+                </FormLabel>
+                <TextField
+                  placeholder={content.placeholders.name}
+                  variant="outlined"
+                  fullWidth
+                  size="medium"
+                  sx={{
+                    mt: 1,
+                    '& .MuiOutlinedInput-root': {
+                      '&:hover fieldset': {
+                        borderColor: 'secondary.main',
+                      },
+                      '&.Mui-focused fieldset': {
+                        borderColor: 'secondary.main',
+                        borderWidth: 2,
+                      },
+                    },
+                  }}
+                />
+              </FormControl>
+            </Box>
+
+            <Box component={motion.div} variants={itemVariants} sx={{ width: '100%' }}>
+              <FormControl fullWidth required>
+                <FormLabel sx={{ fontSize: { xs: '0.875rem', md: '1rem' } }}>
+                  {content.formLabels.email}
+                </FormLabel>
+                <TextField
+                  type="email"
+                  placeholder={content.placeholders.email}
+                  variant="outlined"
+                  fullWidth
+                  size="medium"
+                  sx={{
+                    mt: 1,
+                    '& .MuiOutlinedInput-root': {
+                      '&:hover fieldset': {
+                        borderColor: 'secondary.main',
+                      },
+                      '&.Mui-focused fieldset': {
+                        borderColor: 'secondary.main',
+                        borderWidth: 2,
+                      },
+                    },
+                  }}
+                />
+              </FormControl>
+            </Box>
+
+            <Box component={motion.div} variants={itemVariants} sx={{ width: '100%' }}>
+              <FormControl fullWidth required>
+                <FormLabel sx={{ fontSize: { xs: '0.875rem', md: '1rem' } }}>
+                  {content.formLabels.message}
+                </FormLabel>
+                <TextareaAutosize
+                  minRows={4}
+                  placeholder={content.placeholders.message}
+                  style={{
+                    width: '100%',
+                    padding: '10px',
+                    borderRadius: '4px',
+                    borderColor: '#E2E8F0',
+                    marginTop: '8px',
+                    fontSize: '1rem',
+                    minHeight: '6rem',
+                    transition: 'border-color 0.2s ease-in-out',
+                  }}
+                />
+              </FormControl>
+            </Box>
+
+            <MotionButton
+              variant="contained"
+              color="secondary"
+              size="large"
+              fullWidth
+              sx={{ mt: { xs: 1, md: 2 } }}
+              variants={buttonHover}
+              whileHover="hover"
+              whileTap="tap"
+              initial="initial"
+            >
+              {content.buttonText}
+            </MotionButton>
+          </MotionStack>
+        </MotionPaper>
+      </Box>
+    </Section>
   );
 }

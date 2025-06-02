@@ -1,11 +1,12 @@
 'use client';
 
+import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import { Box, Stack, Button, Popover, Paper, Link as MuiLink } from '@mui/material';
 import Link from 'next/link';
+import { useState } from 'react';
+
 import { useLanguage } from '@/context/languageContext';
 import { getNavbarContent } from '@/lib/data';
-import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
-import { useState } from 'react';
 
 interface MenuItem {
   label: string;
@@ -29,51 +30,34 @@ const Menu = () => {
     setOpenPopoverIndex(null);
   };
 
-  // Define menu items
-  const menuItems: MenuItem[] = [
-    {
-      label: 'Home',
-      href: '/',
-    },
-    {
-      label: content.navItems.features,
-      href: '/#features',
-    },
-    {
-      label: content.navItems.testimonials,
-      href: '/#testimonials',
-    },
-    {
-      label: content.navItems.pricing,
-      href: '/#pricing',
-    },
-    {
-      label: 'Services',
-      href: '#',
-      children: [
-        {
-          label: 'Modern Web Applications',
-          href: '/services/web-applications',
-        },
-        {
-          label: 'API Development',
-          href: '/services/api-development',
-        },
-        {
-          label: 'Code Maintenance',
-          href: '/services/code-maintenance',
-        },
-        {
-          label: 'UX Design',
-          href: '/services/ux-design',
-        },
-      ],
-    },
-    {
-      label: content.navItems.contact,
-      href: '/#contact',
-    },
-  ];
+  // Use menu items from content
+  const menuItems: MenuItem[] = content.menuItems.map(item => ({
+    label: item.name,
+    href: item.href,
+  }));
+
+  // Add submenu for Services
+  const servicesIndex = menuItems.findIndex(item => item.label === 'Services' || item.label === 'Servicios');
+  if (servicesIndex !== -1) {
+    menuItems[servicesIndex].children = [
+      {
+        label: 'Modern Web Applications',
+        href: '/services/web-applications',
+      },
+      {
+        label: 'API Development',
+        href: '/services/api-development',
+      },
+      {
+        label: 'Code Maintenance',
+        href: '/services/code-maintenance',
+      },
+      {
+        label: 'UX Design',
+        href: '/services/ux-design',
+      },
+    ];
+  }
 
   return (
     <Stack direction="row" spacing={4} alignItems="center">

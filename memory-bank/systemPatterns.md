@@ -40,6 +40,15 @@ The UI follows a component-based architecture with:
 - Material UI as the primary component library
 - Framer Motion for animations
 - Custom styling through a combination of component props and global CSS
+- Custom reusable components for consistent UI patterns
+
+#### Custom Components
+
+The project includes several custom components that should be used whenever possible:
+
+- **Section**: A wrapper component for page sections that provides consistent styling, spacing, and container behavior
+- **GradientText**: A component for rendering text with gradient styling
+- **MotionComponents**: Wrapped Material UI components with Framer Motion for animations
 
 ### Theme Management
 

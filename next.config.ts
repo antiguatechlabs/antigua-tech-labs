@@ -4,7 +4,6 @@ const nextConfig: NextConfig = {
   /* config options here */
   // Simplified config for better hot reload
   reactStrictMode: true,
-  swcMinify: true,
 };
 
 export default nextConfig;

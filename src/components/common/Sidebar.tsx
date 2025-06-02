@@ -1,17 +1,19 @@
 'use client';
 
-import { Box, Drawer, Stack, Typography, TextField, Button, IconButton } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
+import { Box, Drawer, Stack, Typography, TextField, Button, IconButton } from '@mui/material';
+import { useState, useEffect } from 'react';
+
 import { useLanguage } from '@/context/languageContext';
 import { getContactContent, getNavbarContent } from '@/lib/data';
-import { useState, useEffect } from 'react';
+
 
 interface SidebarProps {
   isOpen: boolean;
-  onClose: () => void;
+  onCloseAction: () => void;
 }
 
-const Sidebar = ({ isOpen, onClose }: SidebarProps) => {
+export const Sidebar = ({ isOpen=true, onCloseAction }: SidebarProps) => {
   const { language, toggleLanguage } = useLanguage();
   const content = getContactContent(language);
   const navContent = getNavbarContent(language);
@@ -52,14 +54,14 @@ const Sidebar = ({ isOpen, onClose }: SidebarProps) => {
     });
 
     // Close sidebar
-    onClose();
+    onCloseAction();
   };
 
   return (
     <Drawer
       anchor="right"
       open={isOpen}
-      onClose={onClose}
+      onClose={onCloseAction}
       sx={{
         '& .MuiDrawer-paper': {
           width: { xs: '100%', sm: 400 },
@@ -70,7 +72,7 @@ const Sidebar = ({ isOpen, onClose }: SidebarProps) => {
     >
       <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 3 }}>
         <Typography variant="h6">{content.title}</Typography>
-        <IconButton onClick={onClose} aria-label="Close sidebar">
+        <IconButton onClick={onCloseAction} aria-label="Close sidebar">
           <CloseIcon />
         </IconButton>
       </Box>
@@ -181,5 +183,3 @@ const Sidebar = ({ isOpen, onClose }: SidebarProps) => {
     </Drawer>
   );
 };
-
-export default Sidebar;

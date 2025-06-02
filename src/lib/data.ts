@@ -1,24 +1,26 @@
 // Import JSON files directly
-import enHero from '../content/en/hero.json';
-import esHero from '../content/es/hero.json';
-import enFeatures from '../content/en/features.json';
-import esFeatures from '../content/es/features.json';
-import enTestimonials from '../content/en/testimonials.json';
-import esTestimonials from '../content/es/testimonials.json';
-import enContact from '../content/en/contact.json';
-import esContact from '../content/es/contact.json';
-import enFooter from '../content/en/footer.json';
-import esFooter from '../content/es/footer.json';
-import enNavbar from '../content/en/navbar.json';
-import esNavbar from '../content/es/navbar.json';
-import enWhyChoose from '../content/en/whyChoose.json';
-import esWhyChoose from '../content/es/whyChoose.json';
-import enWhyChooseTwo from '../content/en/whyChooseTwo.json';
-import esWhyChooseTwo from '../content/es/whyChooseTwo.json';
 import enBrand from '../content/en/brand.json';
-import esBrand from '../content/es/brand.json';
 import enBrandSlider from '../content/en/brandSlider.json';
+import enContact from '../content/en/contact.json';
+import enFaq from '../content/en/faq.json';
+import enFeatures from '../content/en/features.json';
+import enFooter from '../content/en/footer.json';
+import enHero from '../content/en/hero.json';
+import enNavbar from '../content/en/navbar.json';
+import enTestimonials from '../content/en/testimonials.json';
+import enWhyChoose from '../content/en/whyChoose.json';
+import enWhyChooseTwo from '../content/en/whyChooseTwo.json';
+import esBrand from '../content/es/brand.json';
 import esBrandSlider from '../content/es/brandSlider.json';
+import esContact from '../content/es/contact.json';
+import esFaq from '../content/es/faq.json';
+import esFeatures from '../content/es/features.json';
+import esFooter from '../content/es/footer.json';
+import esHero from '../content/es/hero.json';
+import esNavbar from '../content/es/navbar.json';
+import esTestimonials from '../content/es/testimonials.json';
+import esWhyChoose from '../content/es/whyChoose.json';
+import esWhyChooseTwo from '../content/es/whyChooseTwo.json';
 
 // Define content types
 export interface HeroContent {
@@ -35,6 +37,7 @@ export interface FeatureItem {
 
 export interface FeaturesContent {
   title: string;
+  subtitle?: string;
   items: FeatureItem[];
 }
 
@@ -100,6 +103,10 @@ export interface NavbarContent {
     en: string;
     es: string;
   };
+  menuItems: Array<{
+    name: string;
+    href: string;
+  }>;
 }
 
 // Define additional content types
@@ -136,6 +143,20 @@ export interface BrandSliderContent {
   brands: { name: string; logo: string }[];
 }
 
+export interface FAQItem {
+  question: string;
+  answer: string;
+}
+
+export interface FAQContent {
+  title: string;
+  subtitle: string;
+  contactText: string;
+  contactLink: string;
+  contactSuffix: string;
+  faqs: FAQItem[];
+}
+
 // Content mapping
 const contentMap = {
   en: {
@@ -149,6 +170,7 @@ const contentMap = {
     whyChooseTwo: enWhyChooseTwo as WhyChooseTwoContent,
     brand: enBrand as BrandContent,
     brandSlider: enBrandSlider as BrandSliderContent,
+    faq: enFaq as FAQContent,
   },
   es: {
     hero: esHero as HeroContent,
@@ -161,6 +183,7 @@ const contentMap = {
     whyChooseTwo: esWhyChooseTwo as WhyChooseTwoContent,
     brand: esBrand as BrandContent,
     brandSlider: esBrandSlider as BrandSliderContent,
+    faq: esFaq as FAQContent,
   },
 };
 
@@ -215,4 +238,8 @@ export function getBrandContent(language: string = 'en'): BrandContent {
 
 export function getBrandSliderContent(language: string = 'en'): BrandSliderContent {
   return getContent<BrandSliderContent>('brandSlider', language);
+}
+
+export function getFAQContent(language: string = 'en'): FAQContent {
+  return getContent<FAQContent>('faq', language);
 }

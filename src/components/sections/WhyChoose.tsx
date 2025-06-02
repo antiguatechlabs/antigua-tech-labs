@@ -1,15 +1,17 @@
 'use client';
 
 import { Box, Container, Typography, Button, Paper } from '@mui/material';
-import Link from 'next/link';
 import Image from 'next/image';
-import { slideInLeft, slideInRight } from '@/lib/animations';
+import Link from 'next/link';
 import { useEffect, useState } from 'react';
-import { getWhyChooseContent, WhyChooseContent } from '@/lib/data';
-import { useLanguage } from '@/context/languageContext';
-import { MotionBox, MotionPaper } from '@/lib/motionComponents';
 
-const WhyChoose = () => {
+import { useLanguage } from '@/context/languageContext';
+import { slideInLeft, slideInRight } from '@/lib/animations';
+import { getWhyChooseContent, WhyChooseContent } from '@/lib/data';
+import { MotionBox, MotionPaper } from '@/lib/motionComponents';
+import { textWithGradient } from '@/lib/textFormatters';
+
+export const WhyChoose = () => {
   const { language } = useLanguage();
   const [whyChooseContent, setWhyChooseContent] = useState<WhyChooseContent>(
     getWhyChooseContent(language),
@@ -39,16 +41,14 @@ const WhyChoose = () => {
               variants={slideInLeft}
             >
               <Typography
-                color="secondary.main"
+                color="primary.main"
                 fontWeight="bold"
                 variant="subtitle1"
                 sx={{
                   mb: 1.5,
-                  textTransform: 'uppercase',
-                  letterSpacing: 1,
                 }}
               >
-                {whyChooseContent.subtitle}
+                {textWithGradient(whyChooseContent.subtitle)}
               </Typography>
 
               <Typography
@@ -60,7 +60,7 @@ const WhyChoose = () => {
                   color: 'text.primary',
                 }}
               >
-                {whyChooseContent.title}
+                {textWithGradient(whyChooseContent.title)}
               </Typography>
 
               <Typography
@@ -79,13 +79,12 @@ const WhyChoose = () => {
                   component={Link}
                   href={whyChooseContent.buttonLink}
                   variant="contained"
-                  color="secondary"
+                  color="primary"
                   size="large"
                   sx={{
                     px: 4,
                     fontWeight: 'bold',
-                    textTransform: 'uppercase',
-                    letterSpacing: 1,
+                    textTransform: 'none',
                   }}
                 >
                   {whyChooseContent.buttonText}
@@ -173,7 +172,7 @@ const WhyChoose = () => {
                     md: 2.5,
                     lg: 3,
                   },
-                  bgcolor: 'secondary.main',
+                  bgcolor: 'primary.main',
                   color: 'white',
                   borderRadius: 2,
                   // Add z-index to ensure it appears above other elements
@@ -208,5 +207,3 @@ const WhyChoose = () => {
     </Box>
   );
 };
-
-export default WhyChoose;

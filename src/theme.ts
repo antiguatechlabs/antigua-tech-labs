@@ -14,30 +14,53 @@ export const brandColors = {
   900: '#120933',
 };
 
+export const colors = {
+  blueGray: '#2b2d42',
+  purple1: '#4e2c70',
+  purple2: '#702b9e',
+  magenta: '#b429f9',
+  violet: '#9c43f8',
+  lightViolet: '#c492f7',
+  lavender: '#855df7',
+  periwinkle: '#6d77f6',
+  skyBlue: '#5591f5',
+  lightBlue: '#3eabf4',
+  aqua: '#26c5f3',
+  transparent: 'rgba(255, 255, 255, 0.7)',
+  white: '#ffffff',
+  text: '#171717',
+  textLight: '#4a5568',
+};
+
 // Create a base theme function that can be used with light mode
 export const createAppTheme = (mode: 'light') =>
   createTheme({
     palette: {
       mode,
       primary: {
-        main: brandColors[500],
-        light: brandColors[400],
-        dark: brandColors[600],
-        contrastText: '#ffffff',
+        main: colors.violet,
+        light: colors.lightViolet,
+        dark: colors.purple2,
+        contrastText: colors.white,
       },
       secondary: {
-        main: '#2d05a5',
-        light: '#5a30ff',
-        dark: '#2d05e9',
-        contrastText: '#ffffff',
+        main: colors.skyBlue,
+        light: colors.lightBlue,
+        dark: colors.periwinkle,
+        contrastText: colors.white,
+      },
+      info: {
+        main: colors.aqua,
+        light: colors.lavender,
+        contrastText: colors.white,
       },
       background: {
-        default: '#ffffff',
-        paper: '#ffffff',
+        default: colors.transparent,
+        paper: colors.white,
       },
       text: {
-        primary: '#171717',
-        secondary: '#4a5568',
+        primary: colors.text,
+        secondary: colors.textLight,
       },
     },
     typography: {
@@ -112,14 +135,6 @@ export const createAppTheme = (mode: 'light') =>
       MuiLink: {
         defaultProps: {
           underline: 'none',
-        },
-        styleOverrides: {
-          root: {
-            color: brandColors[500],
-            '&:hover': {
-              color: brandColors[600],
-            },
-          },
         },
       },
     },

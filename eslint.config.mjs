@@ -50,13 +50,28 @@ const eslintConfig = [
       // Best practices
       'arrow-body-style': ['error', 'as-needed'],
       'prefer-arrow-callback': 'error',
+      'no-unused-vars': 'off', // Turn off base rule
       '@typescript-eslint/no-unused-vars': ['error', {
         argsIgnorePattern: '^_',
         varsIgnorePattern: '^_',
-        caughtErrorsIgnorePattern: '^_'
+        caughtErrorsIgnorePattern: '^_',
       }],
-      'no-unused-vars': 'off', // Turn off the base rule as it can report incorrect errors
       'no-console': ['warn', { allow: ['warn', 'error'] }],
+      'import/order': [
+        'error',
+        {
+          'groups': [
+            'builtin', // Módulos internos de Node.js
+            'external', // Paquetes externos
+            'internal', // Otras importaciones internas (puedes agregar más grupos si es necesario)
+          ],
+          'alphabetize': {
+            'order': 'asc',
+            'caseInsensitive': true,
+          },
+          'newlines-between': 'always',
+        },
+      ],
     },
   },
   // JSON files configuration

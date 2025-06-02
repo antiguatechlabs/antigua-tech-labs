@@ -1,35 +1,36 @@
 {
-  "title": "Nuestros Servicios",
+  "title": "Soluciones {{gradient:Digitales}} Integrales",
+  "subtitle": "Desde el concepto hasta la implementación, construimos aplicaciones escalables que se adaptan a las necesidades cambiantes de tu negocio.",
   "items": [
     {
-      "title": "Desarrollo Web Moderno",
-      "description": "Construimos aplicaciones web responsivas y de carga rápida utilizando las últimas tecnologías y frameworks.",
-      "icon": "ChatIcon"
+      "title": "Aplicaciones Web Personalizadas",
+      "description": "Aplicaciones web a medida diseñadas para resolver los desafíos específicos de tu negocio y optimizar operaciones.",
+      "icon": "LayoutIcon"
     },
     {
-      "title": "Arquitectura Escalable",
-      "description": "Nuestras soluciones están diseñadas para crecer con tu negocio, desde startup hasta escala empresarial.",
-      "icon": "TimeIcon"
+      "title": "Desarrollo de Aplicaciones Móviles",
+      "description": "Aplicaciones móviles nativas y multiplataforma que proporcionan experiencias fluidas en todos los dispositivos.",
+      "icon": "SmartphoneIcon"
     },
     {
-      "title": "Desarrollo de APIs",
-      "description": "Creamos APIs robustas y bien documentadas que conectan tus sistemas y permiten una integración perfecta.",
-      "icon": "LinkIcon"
+      "title": "Soluciones de Comercio Electrónico",
+      "description": "Tiendas online escalables con procesamiento seguro de pagos, gestión de inventario y análisis de clientes.",
+      "icon": "ShoppingCartIcon"
     },
     {
-      "title": "Calidad de Código",
-      "description": "Seguimos las mejores prácticas de la industria para entregar código limpio, mantenible y bien probado.",
-      "icon": "StarIcon"
+      "title": "Visualización de Datos",
+      "description": "Paneles e informes interactivos que transforman datos complejos en información empresarial procesable.",
+      "icon": "BarChartIcon"
     },
     {
-      "title": "Diseño de Experiencia de Usuario",
-      "description": "Creamos interfaces intuitivas y accesibles que proporcionan experiencias de usuario excepcionales.",
-      "icon": "GlobeIcon"
+      "title": "Integración de APIs",
+      "description": "Conexiones perfectas entre tus sistemas y servicios de terceros para automatizar flujos de trabajo y mejorar la funcionalidad.",
+      "icon": "RefreshIcon"
     },
     {
-      "title": "Mantenimiento Continuo",
-      "description": "Proporcionamos soporte continuo y actualizaciones para mantener tus aplicaciones seguras y al día.",
-      "icon": "SettingsIcon"
+      "title": "Seguridad y Mantenimiento",
+      "description": "Soporte continuo, actualizaciones de seguridad y optimización del rendimiento para mantener tus aplicaciones funcionando sin problemas.",
+      "icon": "SecurityIcon"
     }
   ]
 }

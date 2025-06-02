@@ -1,5 +1,5 @@
 {
-  "title": "Start Your Project",
+  "title": "Start Your {{gradient:Project}}",
   "subtitle": "Ready to build a modern web application that scales with your business? Let's talk.",
   "buttonText": "Send Message",
   "formLabels": {

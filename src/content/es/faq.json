@@ -1,0 +1,33 @@
+{
+  "title": "Preguntas {{gradient:Frecuentes}}",
+  "subtitle": "Encuentra respuestas a preguntas comunes sobre nuestros servicios, procesos y tecnología.",
+  "contactText": "¿Todavía tienes preguntas?",
+  "contactLink": "Contacta a nuestro equipo",
+  "contactSuffix": "para más información.",
+  "faqs": [
+    {
+      "question": "¿Cuánto tiempo suele tardar el desarrollo de una aplicación web?",
+      "answer": "Los plazos de desarrollo varían según la complejidad del proyecto. Un sitio web simple puede tardar de 4 a 6 semanas, mientras que una aplicación web compleja podría llevar de 3 a 6 meses. Durante nuestra consulta inicial, proporcionaremos un cronograma detallado basado en sus requisitos específicos."
+    },
+    {
+      "question": "¿Proporcionan soporte continuo después del lanzamiento de la aplicación?",
+      "answer": "Sí, ofrecemos varios paquetes de soporte y mantenimiento para garantizar que su aplicación siga funcionando sin problemas después del lanzamiento. Nuestro soporte incluye corrección de errores, actualizaciones de seguridad, optimización del rendimiento y mejoras de funcionalidades."
+    },
+    {
+      "question": "¿Qué tecnologías utilizan para el desarrollo?",
+      "answer": "Utilizamos tecnologías modernas y estándar de la industria que garantizan que su aplicación sea rápida, segura y escalable. Nuestra pila tecnológica típicamente incluye React, Node.js, Python y varios servicios en la nube. Recomendaremos las mejores tecnologías según las necesidades específicas de su proyecto."
+    },
+    {
+      "question": "¿Pueden ayudar con la migración de una aplicación existente?",
+      "answer": "Absolutamente. Tenemos amplia experiencia en la migración de aplicaciones desde sistemas heredados a plataformas modernas. Nuestro proceso incluye una evaluación exhaustiva de su sistema actual, planificación de migración de datos y un enfoque de implementación por fases para minimizar la interrupción."
+    },
+    {
+      "question": "¿Cómo manejan los cambios en el proyecto o nuevos requisitos?",
+      "answer": "Seguimos una metodología de desarrollo ágil que se adapta a los cambios durante todo el ciclo de vida del proyecto. Si surgen nuevos requisitos, evaluaremos el impacto en el cronograma y presupuesto, luego trabajaremos con usted para priorizar las funcionalidades y realizar los ajustes necesarios."
+    },
+    {
+      "question": "¿Qué hace que su enfoque de desarrollo sea diferente?",
+      "answer": "Nuestro enfoque combina experiencia técnica con comprensión empresarial. No solo construimos lo que nos piden, colaboramos con usted para entender sus objetivos de negocio y las necesidades de los usuarios, y luego recomendamos soluciones que aporten valor real. También enfatizamos la comunicación clara, precios transparentes y código de calidad."
+    }
+  ]
+}

@@ -1,138 +1,238 @@
 'use client';
+import CodeIcon from '@mui/icons-material/Code';
+import MenuIcon from '@mui/icons-material/Menu';
 import {
-  Box,
-  Button,
-  Typography,
-  Stack,
   AppBar,
   Toolbar,
-  Drawer,
-  IconButton,
-  Divider,
+  Box,
   Container,
+  IconButton,
+  Link as MuiLink,
+  Typography,
 } from '@mui/material';
-import MenuIcon from '@mui/icons-material/Menu';
-import CloseIcon from '@mui/icons-material/Close';
-import { useEffect, useState } from 'react';
-import { useLanguage } from '@/context/languageContext';
-import { getNavbarContent, NavbarContent } from '@/lib/data';
+import Link from 'next/link';
+import { useParams, usePathname } from 'next/navigation';
+import React, { useState, useLayoutEffect } from 'react';
 
-export default function Navbar() {
-  const [isOpen, setIsOpen] = useState(false);
-  const { language, toggleLanguage } = useLanguage();
-  const [content, setContent] = useState<NavbarContent>(getNavbarContent(language));
+import { useLanguage } from '@/context/languageContext';
+import { useSidebar } from '@/context/sidebarContext';
+import { getNavbarContent } from '@/lib/data';
+
+import { MobileMenu } from './MobileMenu';
+
+export function Navbar() {
+  const { handleSidebar, isSidebarOpen } = useSidebar();
+  const params = useParams();
+  // We'll use pathname in the future if needed
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const pathname = usePathname();
+
+  // Language context integration
+  const { language, setLanguage } = useLanguage();
+  const [content, setContent] = useState(getNavbarContent(language));
+
+  // Get current language from URL
+  const currentLang = params.lang as string || 'en';
 
   // Update content when language changes
-  useEffect(() => {
+  useLayoutEffect(() => {
     setContent(getNavbarContent(language));
   }, [language]);
 
-  const onOpen = () => setIsOpen(true);
-  const onClose = () => setIsOpen(false);
+  // State for sticky header and mobile menu
+  const [isSticky, setIsSticky] = useState(false);
+
+  // Handle scroll for sticky header
+  useLayoutEffect(() => {
+    const handleScroll = () => {
+      setIsSticky(window.scrollY > 80);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
 
   return (
-    <AppBar position="static" color="default" elevation={1} sx={{ bgcolor: 'background.paper' }}>
+    <AppBar
+      position="sticky"
+      elevation={isSticky ? 3 : 0}
+      sx={{
+        bgcolor: 'background.default',
+        backdropFilter: 'blur(8px)',
+        borderBottom: '1px solid',
+        borderColor: 'divider',
+        transition: 'all 0.3s ease',
+        borderRadius: 0,
+        boxShadow: isSticky ? '0px 10px 10px rgba(0, 0, 0, 0.1)' : 'none',
+      }}
+    >
       <Container maxWidth="xl">
         <Toolbar disableGutters sx={{ py: 1 }}>
-          <Typography variant="h6" component="h1" sx={{ flexGrow: { xs: 1, md: 0 } }}>
-            {content.companyName}
-          </Typography>
 
-          <Box sx={{ display: 'flex', alignItems: 'center', ml: 'auto' }}>
-            {/* Language toggle moved to sidebar */}
-
-            {/* Mobile menu button - only visible on small screens */}
-            <Box sx={{ display: { xs: 'flex', md: 'none' } }}>
-              <IconButton aria-label="Open menu" onClick={onOpen} size="medium">
-                <MenuIcon />
-              </IconButton>
-            </Box>
-
-            {/* Desktop navigation - hidden on mobile */}
-            <Stack
-              direction="row"
-              spacing={1}
+          {/* Logo */}
+          <Box sx={{ display: 'flex', alignItems: 'center', mr: { xs: 'auto', sm: 0 } }}>
+            <MuiLink
+              underline="none"
+              href={`/${currentLang}`}
+              component={Link}
               sx={{
-                display: { xs: 'none', md: 'flex' },
+                display: 'flex',
+                alignItems: 'center',
+                color: 'text.primary',
               }}
             >
-              <Button variant="text">{content.navItems.features}</Button>
-              <Button variant="text">{content.navItems.testimonials}</Button>
-              <Button variant="text">{content.navItems.pricing}</Button>
-              <Button variant="contained" color="secondary">
-                {content.navItems.contact}
-              </Button>
-            </Stack>
-          </Box>
-
-          {/* Mobile drawer menu */}
-          <Drawer
-            anchor="right"
-            open={isOpen}
-            onClose={onClose}
-            sx={{
-              '& .MuiDrawer-paper': {
-                width: { xs: '100%', sm: 300 },
-                boxSizing: 'border-box',
-                p: 2,
-              },
-            }}
-          >
-            <Box
-              sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 2 }}
-            >
-              <Typography variant="h6">{content.menuTitle}</Typography>
-              <IconButton onClick={onClose} aria-label="Close menu">
-                <CloseIcon />
-              </IconButton>
-            </Box>
-
-            <Stack spacing={2} sx={{ mt: 2 }}>
-              <Button
-                variant="text"
-                fullWidth
-                sx={{ justifyContent: 'flex-start' }}
-                onClick={onClose}
-              >
-                {content.navItems.features}
-              </Button>
-              <Button
-                variant="text"
-                fullWidth
-                sx={{ justifyContent: 'flex-start' }}
-                onClick={onClose}
-              >
-                {content.navItems.testimonials}
-              </Button>
-              <Button
-                variant="text"
-                fullWidth
-                sx={{ justifyContent: 'flex-start' }}
-                onClick={onClose}
-              >
-                {content.navItems.pricing}
-              </Button>
-              <Button variant="contained" color="secondary" fullWidth onClick={onClose}>
-                {content.navItems.contact}
-              </Button>
-
-              {/* Divider line */}
-              <Divider sx={{ my: 1 }} />
-
-              <Button
-                variant="outlined"
-                fullWidth
-                onClick={() => {
-                  toggleLanguage();
-                  onClose();
+              <Box
+                sx={{
+                  width: 32,
+                  height: 32,
+                  borderRadius: 1,
+                  display: { sm: 'none', md: 'flex' },
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  background: 'linear-gradient(to right, #9c43f8, #26c5f3)',
+                  mr: 1,
                 }}
               >
-                {language === 'en' ? 'Switch to Spanish' : 'Cambiar a Inglés'}
-              </Button>
-            </Stack>
-          </Drawer>
+                <CodeIcon sx={{ color: 'white', fontSize: '1.25rem' }} />
+              </Box>
+              <Typography
+                variant="h6"
+                sx={{
+                  fontWeight: 600,
+                  color: 'text.primary',
+                  fontSize: '1.25rem',
+                }}
+              >
+                {content.companyName}
+              </Typography>
+            </MuiLink>
+          </Box>
+
+          {/* Desktop menu */}
+          <Box
+            sx={{
+              flexGrow: 1,
+              display: { xs: 'none', sm: 'flex' },
+              justifyContent: 'center',
+              gap: 4,
+              ml: 4,
+            }}
+          >
+            {content.menuItems.map((item, i) => (
+              <MuiLink
+                key={`${item.name}-${i}`}
+                href={`/${currentLang}${item.href}`}
+                underline="none"
+                sx={{
+                  fontSize: '0.875rem',
+                  fontWeight: 500,
+                  color: 'text.primary',
+                  '&:hover': { color: 'text.secondary' },
+                  transition: 'color 0.2s',
+                }}
+              >
+                {item.name}
+              </MuiLink>
+            ))}
+          </Box>
+
+          {/* Language Toggle */}
+          <Box sx={{
+            display: 'flex',
+            alignItems: 'center',
+            mr: { xs: 2, md: 3 },
+            order: { xs: 1, md: 2 },
+          }}>
+            <IconButton
+              onClick={() => {
+                // Toggle language and update URL
+                const newLang = language === 'en' ? 'es' : 'en';
+                setLanguage(newLang);
+              }}
+              aria-label="Toggle language"
+              sx={{
+                border: '1px solid',
+                borderColor: 'divider',
+                borderRadius: 1,
+                p: 0.5,
+                minWidth: 40,
+                height: 36,
+                fontSize: '0.75rem',
+                fontWeight: 600,
+                color: 'text.primary',
+                transition: 'all 0.2s ease',
+                '&:hover': {
+                  bgcolor: 'rgba(156, 67, 248, 0.1)',
+                  borderColor: 'primary.main',
+                },
+              }}
+            >
+              {content.languageToggle[language]}
+            </IconButton>
+          </Box>
+
+          {/* Contact Info - Hidden on mobile */}
+          {/* <Box sx={{ display: {
+            xs: 'none', md: 'flex',
+          }, alignItems: 'center', gap: 1.5, ml: 2 }}>
+            <Avatar
+              sx={{
+                bgcolor: isSticky ? 'secondary.main' : 'secondary.light',
+              }}
+            >
+              <PhoneIcon fontSize="small" />
+            </Avatar>
+            <Box>
+              <Typography
+                variant="caption"
+                sx={{
+                  color: 'text.primary',
+                  fontWeight: 500,
+                }}
+              >
+                    Need help?
+              </Typography>
+              <MuiLink
+                href="tel:+15025557890"
+                sx={{
+                  fontWeight: 700,
+                  color: 'text.primary',
+                  textDecoration: 'none',
+                  display: 'block',
+                  '&:hover': {
+                    color: isSticky ? 'primary.main' : 'secondary.light',
+                  },
+                }}
+              >
+                                    (502) 555-7890
+              </MuiLink>
+            </Box>
+          </Box> */}
+
+          {/* Mobile Menu Toggle - Only visible on mobile */}
+          <IconButton
+            aria-label="Open menu"
+            onClick={handleSidebar}
+            sx={{
+              color: 'text.primary',
+              ml: { xs: 0, sm: 2 },
+              // TODO: fix the display issue on md sizes
+              display: { xs: 'flex', md: 'none' },
+              order: { xs: 2, md: 3 },
+            }}
+          >
+            <MenuIcon />
+          </IconButton>
         </Toolbar>
       </Container>
+
+      {/* Mobile Menu */}
+      <MobileMenu
+        isOpen={isSidebarOpen}
+        onClose={handleSidebar}
+      />
     </AppBar>
   );
 }

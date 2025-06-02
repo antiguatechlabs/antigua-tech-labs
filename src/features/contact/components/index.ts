@@ -1,2 +1,0 @@
-// Contact Feature Components
-export { default as ContactForm } from './ContactForm';

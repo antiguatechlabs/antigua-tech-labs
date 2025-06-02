@@ -1,21 +1,24 @@
-// Re-export from new locations
-
 // Common Components
-export { Header, Footer, Menu, MobileMenu, Sidebar, Navbar } from './common';
+export * from './common';
 
 // UI Components
-export { CounterUp, ThemeToggle } from './ui';
+export * from './ui';
 
-// Home Feature Components
-export {
-  Hero,
-  Features,
-  Testimonials,
-  WhyChoose,
-  WhyChooseTwo,
-  Brand,
-  BrandSlider,
-} from '../features/home/components';
+// Section Components
+export * from './sections';
 
-// Contact Feature Components
-export { ContactForm as Contact } from '../features/contact/components';
+// Layout Components
+export * from './layout';
+
+// export {
+//   Hero,
+//   Features,
+//   Testimonials,
+//   WhyChoose,
+//   WhyChooseTwo,
+//   Brand,
+//   Slider,
+//   BrandSlider,
+// } from '../features/home/components';
+
+

@@ -1,15 +1,17 @@
 'use client';
 
+import PhoneIcon from '@mui/icons-material/Phone';
 import { Box, Container, Typography, Button, Stack, Link as MuiLink, Paper } from '@mui/material';
 import Link from 'next/link';
-import { fadeIn } from '@/lib/animations';
-import PhoneIcon from '@mui/icons-material/Phone';
 import { useEffect, useState } from 'react';
-import { getWhyChooseTwoContent, WhyChooseTwoContent } from '@/lib/data';
-import { useLanguage } from '@/context/languageContext';
-import { MotionBox } from '@/lib/motionComponents';
 
-const WhyChooseTwo = () => {
+import { useLanguage } from '@/context/languageContext';
+import { fadeIn } from '@/lib/animations';
+import { getWhyChooseTwoContent, WhyChooseTwoContent } from '@/lib/data';
+import { MotionBox } from '@/lib/motionComponents';
+import { textWithGradient } from '@/lib/textFormatters';
+
+export const WhyChooseTwo = () => {
   const { language } = useLanguage();
   const [content, setContent] = useState<WhyChooseTwoContent>(getWhyChooseTwoContent(language));
 
@@ -57,7 +59,7 @@ const WhyChooseTwo = () => {
             position: 'absolute',
             top: { xs: '20px', md: '40px' },
             right: { xs: '20px', md: '40px' },
-            bgcolor: 'secondary.main',
+            bgcolor: 'primary.main',
             color: 'white',
             p: 2,
             borderRadius: 1,
@@ -68,7 +70,7 @@ const WhyChooseTwo = () => {
             <Box
               sx={{
                 bgcolor: 'white',
-                color: 'secondary.main',
+                color: 'primary.dark',
                 borderRadius: '50%',
                 p: 1,
                 display: 'flex',
@@ -123,12 +125,10 @@ const WhyChooseTwo = () => {
             <Typography
               variant="subtitle1"
               sx={{
-                color: 'secondary.light',
+                color: 'primary.light',
                 fontWeight: 'bold',
                 fontSize: '1.125rem',
                 mb: 1.5,
-                textTransform: 'uppercase',
-                letterSpacing: 1,
               }}
             >
               {content.subtitle}
@@ -144,7 +144,7 @@ const WhyChooseTwo = () => {
                 lineHeight: 1.2,
               }}
             >
-              {content.title}
+              {textWithGradient(content.title)}
             </Typography>
 
             <Typography
@@ -163,13 +163,12 @@ const WhyChooseTwo = () => {
                 component={Link}
                 href={content.buttonLink}
                 variant="contained"
-                color="secondary"
+                color="primary"
                 size="large"
                 sx={{
                   px: 4,
                   fontWeight: 'bold',
-                  textTransform: 'uppercase',
-                  letterSpacing: 1,
+                  textTransform: 'none',
                 }}
               >
                 {content.buttonText}
@@ -197,4 +196,3 @@ const WhyChooseTwo = () => {
   );
 };
 
-export default WhyChooseTwo;

@@ -1,5 +1,14 @@
 'use client';
 
+import CloseIcon from '@mui/icons-material/Close';
+import EmailIcon from '@mui/icons-material/Email';
+import ExpandLessIcon from '@mui/icons-material/ExpandLess';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import FacebookIcon from '@mui/icons-material/Facebook';
+import InstagramIcon from '@mui/icons-material/Instagram';
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import PhoneIcon from '@mui/icons-material/Phone';
+import TwitterIcon from '@mui/icons-material/Twitter';
 import {
   Drawer,
   Box,
@@ -14,24 +23,17 @@ import {
   Stack,
   Collapse,
 } from '@mui/material';
-import CloseIcon from '@mui/icons-material/Close';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import ExpandLessIcon from '@mui/icons-material/ExpandLess';
 import Link from 'next/link';
+import { useParams } from 'next/navigation';
 import { useState } from 'react';
+
 import { useLanguage } from '@/context/languageContext';
+import { useSidebar } from '@/context/sidebarContext';
 import { getNavbarContent } from '@/lib/data';
-import PhoneIcon from '@mui/icons-material/Phone';
-import EmailIcon from '@mui/icons-material/Email';
-import FacebookIcon from '@mui/icons-material/Facebook';
-import TwitterIcon from '@mui/icons-material/Twitter';
-import InstagramIcon from '@mui/icons-material/Instagram';
-import LinkedInIcon from '@mui/icons-material/LinkedIn';
 
 interface MobileMenuProps {
   isOpen: boolean;
   onClose: () => void;
-  handleSidebar: () => void;
 }
 
 interface MenuItem {
@@ -40,8 +42,11 @@ interface MenuItem {
   children?: MenuItem[];
 }
 
-const MobileMenu = ({ isOpen, onClose, handleSidebar }: MobileMenuProps) => {
+export const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
+  const { handleSidebar } = useSidebar();
   const { language } = useLanguage();
+  const params = useParams();
+  const currentLang = params.lang as string || 'en';
   const content = getNavbarContent(language);
   const [expandedItem, setExpandedItem] = useState<number | null>(null);
 
@@ -49,51 +54,34 @@ const MobileMenu = ({ isOpen, onClose, handleSidebar }: MobileMenuProps) => {
     setExpandedItem(expandedItem === index ? null : index);
   };
 
-  // Define menu items (same structure as in Menu component)
-  const menuItems: MenuItem[] = [
-    {
-      label: 'Home',
-      href: '/',
-    },
-    {
-      label: content.navItems.features,
-      href: '/#features',
-    },
-    {
-      label: content.navItems.testimonials,
-      href: '/#testimonials',
-    },
-    {
-      label: content.navItems.pricing,
-      href: '/#pricing',
-    },
-    {
-      label: 'Services',
-      href: '#',
-      children: [
-        {
-          label: 'Modern Web Applications',
-          href: '/services/web-applications',
-        },
-        {
-          label: 'API Development',
-          href: '/services/api-development',
-        },
-        {
-          label: 'Code Maintenance',
-          href: '/services/code-maintenance',
-        },
-        {
-          label: 'UX Design',
-          href: '/services/ux-design',
-        },
-      ],
-    },
-    {
-      label: content.navItems.contact,
-      href: '/#contact',
-    },
-  ];
+  // Use menu items from content with language prefix
+  const menuItems: MenuItem[] = content.menuItems.map(item => ({
+    label: item.name,
+    href: `/${currentLang}${item.href}`,
+  }));
+
+  // Add submenu for Services
+  const servicesIndex = menuItems.findIndex(item => item.label === 'Services' || item.label === 'Servicios');
+  if (servicesIndex !== -1) {
+    menuItems[servicesIndex].children = [
+      {
+        label: 'Modern Web Applications',
+        href: `/${currentLang}/services/web-applications`,
+      },
+      {
+        label: 'API Development',
+        href: `/${currentLang}/services/api-development`,
+      },
+      {
+        label: 'Code Maintenance',
+        href: `/${currentLang}/services/code-maintenance`,
+      },
+      {
+        label: 'UX Design',
+        href: `/${currentLang}/services/ux-design`,
+      },
+    ];
+  }
 
   return (
     <Drawer
@@ -271,5 +259,3 @@ const MobileMenu = ({ isOpen, onClose, handleSidebar }: MobileMenuProps) => {
     </Drawer>
   );
 };
-
-export default MobileMenu;

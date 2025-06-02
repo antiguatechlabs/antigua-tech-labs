@@ -1,7 +1,9 @@
 'use client';
 
-import { ReactNode } from 'react';
 import { Box, SxProps, Theme } from '@mui/material';
+import { ReactNode } from 'react';
+
+import { colors } from '@/theme';
 
 interface GradientTextProps {
   children: ReactNode;
@@ -13,13 +15,15 @@ interface GradientTextProps {
 
 const GradientText = ({
   children,
-  startColor = '#9c43f8',
-  endColor = '#26c5f3',
+  startColor = colors.violet,
+  endColor = colors.aqua,
   component = 'span',
   sx = {},
+  ...muiProps
 }: GradientTextProps) => (
   <Box
     component={component}
+    {...muiProps}
     sx={{
       background: `linear-gradient(to right, ${startColor}, ${endColor})`,
       WebkitBackgroundClip: 'text',

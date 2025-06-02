@@ -1,7 +1,7 @@
 'use client';
 
-import { useState, useEffect, useRef } from 'react';
 import { Box, Typography } from '@mui/material';
+import { useState, useEffect, useRef } from 'react';
 
 interface CounterUpProps {
   end: number;

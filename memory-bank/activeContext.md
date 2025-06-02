@@ -10,6 +10,8 @@ The Antigua Digital Landing Page project is currently in its initial development
 - Configured Chakra UI and Material UI as the primary UI libraries
 - Implemented the basic layout structure with providers
 - Created the hero section with content loaded from JSON
+- Implemented the Features section with custom components
+- Created textWithGradient utility for consistent gradient text styling
 - Set up the GitHub Actions workflow for deployment to Vercel
 
 ## Active Decisions
@@ -38,13 +40,22 @@ The current styling approach combines:
 - Component-based styling through Chakra UI props
 - Global CSS variables for theme properties
 - CSS modules for page-specific styling
+- Custom components for consistent UI patterns (Section, GradientText)
 - This hybrid approach balances component encapsulation with global theme consistency
+
+### Custom Component Usage
+
+The project emphasizes the use of custom components for consistency:
+
+- Section component for page sections with consistent styling
+- textWithGradient utility for gradient text formatting
+- Motion components for animated UI elements
 
 ## Next Steps
 
 ### Immediate Tasks
 
-1. Expand the landing page with additional sections (features, benefits, testimonials)
+1. Expand the landing page with additional sections (benefits, testimonials)
 2. Implement responsive design for all viewport sizes
 3. Add navigation components (header, footer)
 4. Enhance visual design with animations and transitions
@@ -65,6 +76,7 @@ The current styling approach combines:
 - Deciding on the granularity of components
 - Balancing server and client components for optimal performance
 - Establishing patterns for component composition and reuse
+- Using custom components (Section, GradientText) for consistency
 
 ### State Management
 

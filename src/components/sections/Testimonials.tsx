@@ -2,16 +2,17 @@
 import { Box, Typography, Stack, Avatar } from '@mui/material';
 import { motion, useInView } from 'framer-motion';
 import { useRef, useState, useEffect } from 'react';
-import { getTestimonialsContent, TestimonialsContent, TestimonialItem } from '@/lib/data';
+
+import { Section } from '@/components/common';
 import { useLanguage } from '@/context/languageContext';
-import { fadeIn, slideInLeft, slideInRight } from '@/lib/animations';
+import { slideInLeft, slideInRight } from '@/lib/animations';
+import { getTestimonialsContent, TestimonialsContent, TestimonialItem } from '@/lib/data';
 import {
-  MotionBox,
-  MotionContainer,
   MotionTypography,
   MotionPaper,
   MotionStack,
 } from '@/lib/motionComponents';
+import { textWithGradient } from '@/lib/textFormatters';
 
 export default function Testimonials() {
   const { language } = useLanguage();
@@ -19,7 +20,7 @@ export default function Testimonials() {
     getTestimonialsContent(language),
   );
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, amount: 0.2 });
+  useInView(ref, { once: true, amount: 0.2 });
 
   // Update content when language changes
   useEffect(() => {
@@ -63,104 +64,101 @@ export default function Testimonials() {
   };
 
   return (
-    <MotionBox
+    <Section
+      id="testimonials"
       ref={ref}
+      maxWidth="xl"
       sx={{
         py: { xs: 5, md: 8 },
       }}
-      initial="hidden"
-      animate={isInView ? 'visible' : 'hidden'}
-      variants={fadeIn}
     >
-      <MotionContainer maxWidth="xl" sx={{ px: { xs: 2, md: 3 } }}>
-        <MotionTypography
-          variant="h2"
-          sx={{
-            textAlign: 'center',
-            mb: { xs: 4, md: 6 },
-            fontSize: { xs: '1.75rem', md: '2.25rem' },
-          }}
-          variants={slideInLeft}
-        >
-          {testimonials.title}
-        </MotionTypography>
+      <MotionTypography
+        variant="h2"
+        sx={{
+          textAlign: 'center',
+          mb: { xs: 4, md: 6 },
+          fontSize: { xs: '1.75rem', md: '2.25rem' },
+        }}
+        variants={slideInLeft}
+      >
+        {textWithGradient(testimonials.title)}
+      </MotionTypography>
 
-        <Box
-          sx={{ display: 'flex', flexWrap: 'wrap', mx: -2 }}
-          component={motion.div}
-          variants={containerVariants}
-        >
-          {testimonials.items.map((testimonial: TestimonialItem, index: number) => (
-            <Box
-              key={index}
+      <Box
+        sx={{ display: 'flex', flexWrap: 'wrap', mx: -2 }}
+        component={motion.div}
+        variants={containerVariants}
+      >
+        {testimonials.items.map((testimonial: TestimonialItem, index: number) => (
+          <Box
+            key={index}
+            sx={{
+              width: { xs: '100%', md: '50%' },
+              px: 2,
+              mb: 4,
+            }}
+          >
+            <MotionPaper
               sx={{
-                width: { xs: '100%', md: '50%' },
-                px: 2,
-                mb: 4,
+                p: { xs: 2.5, md: 3 },
+                bgcolor: 'grey.50',
+                borderRadius: 1,
+                height: '100%',
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'space-between',
               }}
+              variants={cardVariants}
+              whileHover="hover"
+              custom={index}
             >
-              <MotionPaper
-                sx={{
-                  p: { xs: 2.5, md: 3 },
-                  bgcolor: 'grey.50',
-                  borderRadius: 1,
-                  height: '100%',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  justifyContent: 'space-between',
-                }}
-                variants={cardVariants}
-                whileHover="hover"
-                custom={index}
-              >
-                <Box component={motion.div} variants={slideInRight}>
+              <Box component={motion.div} variants={slideInRight}>
+                <Typography
+                  variant="body1"
+                  sx={{
+                    fontSize: { xs: '1rem', md: '1.125rem' },
+                    fontStyle: 'italic',
+                    mb: 2,
+                  }}
+                >
+                    &ldquo;{testimonial.quote}&rdquo;
+                </Typography>
+              </Box>
+
+              <MotionStack direction="row" spacing={2} sx={{ mt: 'auto' }}>
+                <Avatar
+                  alt={testimonial.name}
+                  src={testimonial.avatar || getAvatarUrl(testimonial.name)}
+                  sx={{
+                    width: { xs: 40, md: 48 },
+                    height: { xs: 40, md: 48 },
+                  }}
+                />
+                <Stack spacing={0}>
                   <Typography
-                    variant="body1"
+                    variant="subtitle1"
                     sx={{
-                      fontSize: { xs: '1rem', md: '1.125rem' },
-                      fontStyle: 'italic',
-                      mb: 2,
+                      fontWeight: 'bold',
+                      fontSize: { xs: '0.875rem', md: '1rem' },
                     }}
                   >
-                    &ldquo;{testimonial.quote}&rdquo;
+                    {testimonial.name}
                   </Typography>
-                </Box>
-
-                <MotionStack direction="row" spacing={2} sx={{ mt: 'auto' }}>
-                  <Avatar
-                    alt={testimonial.name}
-                    src={testimonial.avatar || getAvatarUrl(testimonial.name)}
+                  <Typography
+                    variant="body2"
                     sx={{
-                      width: { xs: 40, md: 48 },
-                      height: { xs: 40, md: 48 },
+                      fontSize: { xs: '0.75rem', md: '0.875rem' },
+                      color: 'text.secondary',
                     }}
-                  />
-                  <Stack spacing={0}>
-                    <Typography
-                      variant="subtitle1"
-                      sx={{
-                        fontWeight: 'bold',
-                        fontSize: { xs: '0.875rem', md: '1rem' },
-                      }}
-                    >
-                      {testimonial.name}
-                    </Typography>
-                    <Typography
-                      variant="body2"
-                      sx={{
-                        fontSize: { xs: '0.75rem', md: '0.875rem' },
-                        color: 'text.secondary',
-                      }}
-                    >
-                      {testimonial.title}, {testimonial.company}
-                    </Typography>
-                  </Stack>
-                </MotionStack>
-              </MotionPaper>
-            </Box>
-          ))}
-        </Box>
-      </MotionContainer>
-    </MotionBox>
+                  >
+                    {testimonial.title}, {testimonial.company}
+                  </Typography>
+                </Stack>
+              </MotionStack>
+            </MotionPaper>
+          </Box>
+        ))}
+      </Box>
+    </Section>
   );
 }

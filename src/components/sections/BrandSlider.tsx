@@ -1,28 +1,26 @@
 'use client';
 
 import { Box } from '@mui/material';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Autoplay, Navigation, Pagination } from 'swiper/modules';
-import { motion } from 'framer-motion';
-import { fadeIn } from '@/lib/animations';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
-import { getBrandSliderContent, BrandSliderContent } from '@/lib/data';
+import { Autoplay, Navigation, Pagination } from 'swiper/modules';
+import { Swiper, SwiperSlide } from 'swiper/react';
+
 import { useLanguage } from '@/context/languageContext';
+import { fadeIn } from '@/lib/animations';
+import { getBrandSliderContent, BrandSliderContent } from '@/lib/data';
+import { MotionBox } from '@/lib/motionComponents';
 
 // Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 
-// Create motion components
-const MotionBox = motion(Box);
-
 interface BrandSliderProps {
   brands?: { name: string; logo: string }[];
 }
 
-const BrandSlider = ({ brands }: BrandSliderProps) => {
+export const BrandSlider = ({ brands }: BrandSliderProps) => {
   const { language } = useLanguage();
   const [content, setContent] = useState<BrandSliderContent>(getBrandSliderContent(language));
 
@@ -142,4 +140,3 @@ const BrandSlider = ({ brands }: BrandSliderProps) => {
   );
 };
 
-export default BrandSlider;

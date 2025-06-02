@@ -10,5 +10,13 @@
   "languageToggle": {
     "en": "EN",
     "es": "ES"
-  }
+  },
+  "menuItems": [
+    { "name": "Home", "href": "#" },
+    { "name": "Services", "href": "#features" },
+    { "name": "Testimonials", "href": "#testimonials" },
+    { "name": "Projects", "href": "#pricing" },
+    { "name": "Services", "href": "#services" },
+    { "name": "Contact", "href": "#contact" }
+  ]
 }

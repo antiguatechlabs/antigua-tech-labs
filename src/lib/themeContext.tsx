@@ -1,6 +1,7 @@
 'use client';
-import { createContext, useContext, ReactNode } from 'react';
 import { ThemeProvider as MuiThemeProvider } from '@mui/material/styles';
+import { createContext, useContext, ReactNode } from 'react';
+
 import { createAppTheme } from '@/theme';
 
 type ThemeMode = 'light';

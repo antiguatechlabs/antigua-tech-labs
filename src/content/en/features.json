@@ -1,35 +1,36 @@
 {
-  "title": "Our Services",
+  "title": "Comprehensive {{gradient:Digital Solutions}}",
+  "subtitle": "From concept to deployment, we build scalable applications that adapt to your evolving business needs.",
   "items": [
     {
-      "title": "Modern Web Development",
-      "description": "We build responsive, fast-loading web applications using the latest technologies and frameworks.",
-      "icon": "ChatIcon"
+      "title": "Custom Web Applications",
+      "description": "Tailored web applications designed to solve your specific business challenges and streamline operations.",
+      "icon": "LayoutIcon"
     },
     {
-      "title": "Scalable Architecture",
-      "description": "Our solutions are designed to grow with your business, from startup to enterprise scale.",
-      "icon": "TimeIcon"
+      "title": "Mobile App Development",
+      "description": "Native and cross-platform mobile applications that provide seamless experiences across all devices.",
+      "icon": "SmartphoneIcon"
     },
     {
-      "title": "API Development",
-      "description": "We create robust, well-documented APIs that connect your systems and enable seamless integration.",
-      "icon": "LinkIcon"
+      "title": "E-commerce Solutions",
+      "description": "Scalable online stores with secure payment processing, inventory management, and customer analytics.",
+      "icon": "ShoppingCartIcon"
     },
     {
-      "title": "Code Quality",
-      "description": "We follow industry best practices to deliver clean, maintainable, and well-tested code.",
-      "icon": "StarIcon"
+      "title": "Data Visualization",
+      "description": "Interactive dashboards and reports that transform complex data into actionable business insights.",
+      "icon": "BarChartIcon"
     },
     {
-      "title": "User Experience Design",
-      "description": "We create intuitive, accessible interfaces that provide exceptional user experiences.",
-      "icon": "GlobeIcon"
+      "title": "API Integration",
+      "description": "Seamless connections between your systems and third-party services to automate workflows and enhance functionality.",
+      "icon": "RefreshIcon"
     },
     {
-      "title": "Ongoing Maintenance",
-      "description": "We provide continuous support and updates to keep your applications secure and up-to-date.",
-      "icon": "SettingsIcon"
+      "title": "Security & Maintenance",
+      "description": "Ongoing support, security updates, and performance optimization to keep your applications running smoothly.",
+      "icon": "SecurityIcon"
     }
   ]
 }
