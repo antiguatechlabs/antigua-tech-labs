@@ -5,6 +5,7 @@ import { Box, Container, Typography, Button, Stack, Link as MuiLink, Paper } fro
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 
+import { Section } from '@/components/common';
 import { useLanguage } from '@/context/languageContext';
 import { fadeIn } from '@/lib/animations';
 import { getWhyChooseTwoContent, WhyChooseTwoContent } from '@/lib/data';
@@ -20,13 +21,14 @@ export const WhyChooseTwo = () => {
     setContent(getWhyChooseTwoContent(language));
   }, [language]);
   return (
-    <Box
-      component="section"
+    <Section
       sx={{
         position: 'relative',
         py: 10,
         overflow: 'hidden',
       }}
+      animation="none" // We'll use custom animations inside
+      withContainer={false} // We'll handle the container ourselves
     >
       {/* Background Image */}
       <Box
@@ -192,7 +194,7 @@ export const WhyChooseTwo = () => {
           </MotionBox>
         </Box>
       </Container>
-    </Box>
+    </Section>
   );
 };
 

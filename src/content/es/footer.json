@@ -1,6 +1,10 @@
 {
   "companyName": "Antigua Digital",
   "companyDescription": "Aplicaciones web modernas que escalan con tu negocio.",
+  "email": "info@antiguadigital.com",
+  "address": "3891 Ranchview Dr. Richardson",
+  "phone": "+1 (234) 567-8901",
+  "logo": "/components/footer-logo-1.png",
   "sections": {
     "product": {
       "title": "Servicios",

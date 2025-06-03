@@ -37,6 +37,7 @@ The AI-powered Sales Agent offers:
 3. **Trust**: Design and content should establish credibility and professionalism
 4. **Engagement**: Visual elements and copy should maintain interest and encourage exploration
 5. **Action**: Clear call-to-action should guide users toward the next step
+6. **Accessibility**: Content should be available in the user's preferred language
 
 ## Key Messaging
 
@@ -62,3 +63,13 @@ The AI-powered Sales Agent offers:
 - Low bounce rate
 - Positive user feedback on clarity and value proposition
 - Conversion of visitors to qualified leads
+- Effective language switching and content localization
+
+## Multilingual Support
+
+The landing page supports multiple languages to reach a broader audience:
+
+- **English**: Primary language for international visitors
+- **Spanish**: Secondary language for Latin American market
+- **Language Detection**: URL-based language routing with automatic redirection
+- **Language Switching**: Easy toggle between languages without losing context

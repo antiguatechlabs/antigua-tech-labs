@@ -14,19 +14,7 @@ import { FooterContent, getFooterContent } from '@/lib/data';
 import { MotionBox, MotionStack, MotionTypography } from '@/lib/motionComponents';
 import { colors } from '@/theme';
 
-interface FooterProps {
-  email?: string;
-  address?: string;
-  phone?: string;
-  logo?: string;
-}
-
-export const Footer = ({
-  email = 'info@antiguadigital.com',
-  address = '3891 Ranchview Dr. Richardson',
-  phone = '+1 (234) 567-8901',
-  logo = '/logo.png',
-}: FooterProps) => {
+export const Footer = () => {
   const { language } = useLanguage();
   const [content, setContent] = useState<FooterContent>(getFooterContent(language));
 
@@ -158,7 +146,7 @@ export const Footer = ({
               <MotionStack spacing={3} alignItems="flex-start">
                 <Link href="/" passHref>
                   <Box sx={{ height: '60px', position: 'relative', width: '150px' }}>
-                    <Image src={logo} alt={content.companyName} fill style={{ objectFit: 'contain' }} />
+                    <Image src={content.logo} alt={content.companyName} fill style={{ objectFit: 'contain' }} />
                   </Box>
                 </Link>
                 <MotionTypography variant="body2" sx={{ color: 'grey.400' }}>
@@ -168,7 +156,7 @@ export const Footer = ({
                   <Stack direction="row" spacing={1} alignItems="center">
                     <EmailIcon sx={{ color: 'primary.light' }} fontSize="small" />
                     <MuiLink
-                      href={`mailto:${email}`}
+                      href={`mailto:${content.email}`}
                       sx={{
                         color: 'white',
                         textDecoration: 'none',
@@ -176,17 +164,17 @@ export const Footer = ({
                         '&:hover': { color: 'primary.light' },
                       }}
                     >
-                      {email}
+                      {content.email}
                     </MuiLink>
                   </Stack>
                   <Stack direction="row" spacing={1} alignItems="center">
                     <LocationOnIcon sx={{ color: 'primary.light' }} fontSize="small" />
-                    <Typography variant="body2">{address}</Typography>
+                    <Typography variant="body2">{content.address}</Typography>
                   </Stack>
                   <Stack direction="row" spacing={1} alignItems="center">
                     <PhoneIcon sx={{ color: 'primary.light' }} fontSize="small" />
                     <MuiLink
-                      href={`tel:${phone}`}
+                      href={`tel:${content.phone}`}
                       sx={{
                         color: 'white',
                         textDecoration: 'none',
@@ -194,7 +182,7 @@ export const Footer = ({
                         '&:hover': { color: 'primary.light' },
                       }}
                     >
-                      {phone}
+                      {content.phone}
                     </MuiLink>
                   </Stack>
                 </Stack>

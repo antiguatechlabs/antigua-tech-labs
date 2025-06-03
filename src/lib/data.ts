@@ -73,6 +73,10 @@ export interface ContactContent {
 export interface FooterContent {
   companyName: string;
   companyDescription: string;
+  email: string;
+  address: string;
+  phone: string;
+  logo: string;
   sections: {
     product: {
       title: string;

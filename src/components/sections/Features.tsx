@@ -15,6 +15,8 @@ import { useLanguage } from '@/context/languageContext';
 import { getFeaturesContent, FeaturesContent, FeatureItem } from '@/lib/data';
 import { textWithGradient } from '@/lib/textFormatters';
 
+import SpotlightCard from '../ui/SpotlightCard';
+
 // Create motion components
 const MotionCard = motion(Card);
 
@@ -54,7 +56,12 @@ export function Features() {
   };
 
   return (
-    <Section id="services" maxWidth="lg">
+    <Section
+      id="services"
+      maxWidth="lg"
+      animation="slideUp"
+      animationDelay={0.2}
+    >
       <Box sx={{ textAlign: 'center', mb: 8 }}>
         <Typography
           variant="h2"
@@ -119,39 +126,41 @@ export function Features() {
                     flexDirection: 'column',
                   }}
                 >
-                  <CardContent sx={{ p: 4, display: 'flex', flexDirection: 'column', height: '100%' }}>
-                    <Box
-                      sx={{
-                        width: 48,
-                        height: 48,
-                        borderRadius: 2,
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        mb: 3,
-                        background: 'linear-gradient(135deg, #9c43f8 0%, #26c5f3 100%)',
-                        color: 'white',
-                      }}
-                    >
-                      {iconMap[feature.icon] || <StarIcon fontSize="large" />}
-                    </Box>
-                    <Typography variant="h5" sx={{ fontWeight: 600, mb: 1.5 }}>
-                      {feature.title}
-                    </Typography>
-                    <Typography
-                      variant="body1"
-                      sx={{
-                        color: 'text.secondary',
-                        overflow: 'hidden',
-                        display: '-webkit-box',
-                        WebkitLineClamp: 3,
-                        WebkitBoxOrient: 'vertical',
-                        flex: 1,
-                      }}
-                    >
-                      {feature.description}
-                    </Typography>
-                  </CardContent>
+                  <SpotlightCard spotlightColor="rgba(100, 81, 112, 0.2)">
+                    <CardContent sx={{ p: 4, display: 'flex', flexDirection: 'column', height: '100%' }}>
+                      <Box
+                        sx={{
+                          width: 48,
+                          height: 48,
+                          borderRadius: 2,
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'center',
+                          mb: 3,
+                          background: 'linear-gradient(135deg, #9c43f8 0%, #26c5f3 100%)',
+                          color: 'white',
+                        }}
+                      >
+                        {iconMap[feature.icon] || <StarIcon fontSize="large" />}
+                      </Box>
+                      <Typography variant="h5" sx={{ fontWeight: 600, mb: 1.5 }}>
+                        {feature.title}
+                      </Typography>
+                      <Typography
+                        variant="body1"
+                        sx={{
+                          color: 'text.secondary',
+                          overflow: 'hidden',
+                          display: '-webkit-box',
+                          WebkitLineClamp: 3,
+                          WebkitBoxOrient: 'vertical',
+                          flex: 1,
+                        }}
+                      >
+                        {feature.description}
+                      </Typography>
+                    </CardContent>
+                  </SpotlightCard>
                 </MotionCard>
               </Box>
             </Box>

@@ -71,6 +71,8 @@ export default function Testimonials() {
       sx={{
         py: { xs: 5, md: 8 },
       }}
+      animation="slideUp"
+      animationDelay={0.2}
     >
       <MotionTypography
         variant="h2"

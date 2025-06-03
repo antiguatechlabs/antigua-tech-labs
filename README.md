@@ -1,6 +1,6 @@
 # Antigua Digital Landing Page
 
-A modern, mobile-first landing page for Antigua Digital built with Next.js, Chakra UI, Material UI, and Framer Motion.
+A modern, mobile-first landing page for Antigua Digital built with Next.js, Chakra UI, Material UI, and Framer Motion. Features multilingual support with English and Spanish versions.
 
 ## Project Overview
 
@@ -11,6 +11,7 @@ This landing page showcases Antigua Digital's AI-powered sales agent solution wi
 - **Mobile-First Design**: Optimized for all screen sizes with responsive layouts
 - **Modern UI Components**: Built with Chakra UI and Material UI
 - **Smooth Animations**: Enhanced with Framer Motion animations
+- **Multilingual Support**: Language-based routing with English and Spanish content
 - **Content Management**: JSON-based content for easy updates
 - **Server Components**: Leveraging Next.js App Router and React Server Components
 - **TypeScript**: Type-safe code throughout the project
@@ -20,8 +21,14 @@ This landing page showcases Antigua Digital's AI-powered sales agent solution wi
 ```
 /src
   /app             # Next.js App Router pages and layout
-    /components    # Page section components
-    /data          # JSON content files
+    /[lang]        # Dynamic segment for language-based routing
+      /layout.tsx  # Language-specific layout
+      /page.tsx    # Main page component
+  /components      # Reusable UI components
+  /content         # Language-specific JSON content files
+    /en            # English content
+    /es            # Spanish content
+  /context         # React context providers
   /lib             # Utility functions
   /theme           # Theme configuration
 /public            # Static assets
@@ -101,10 +108,11 @@ This project uses several tools to maintain code quality:
 
 ## Content Management
 
-Content for the landing page is stored in JSON files in the `/src/app/data` directory. To update content:
+Content for the landing page is stored in JSON files in the `/src/content` directory, organized by language. To update content:
 
-1. Edit the corresponding JSON file (e.g., `hero.json`, `features.json`)
-2. The changes will be reflected automatically
+1. Navigate to the appropriate language directory (`/src/content/en` or `/src/content/es`)
+2. Edit the corresponding JSON file (e.g., `hero.json`, `features.json`)
+3. The changes will be reflected automatically based on the selected language
 
 ## Customization
 
@@ -116,9 +124,18 @@ Content for the landing page is stored in JSON files in the `/src/app/data` dire
 
 ### Adding New Sections
 
-1. Create a new component in `/src/app/components`
-2. Add corresponding data in `/src/app/data` if needed
-3. Import and add the component to `src/app/page.tsx`
+1. Create a new component in `/src/components/sections`
+2. Add corresponding data in `/src/content/en` and `/src/content/es` if needed
+3. Import and add the component to `src/app/[lang]/page.tsx`
+
+### Language Support
+
+The landing page supports multiple languages through URL-based routing:
+
+- English: `/en/`
+- Spanish: `/es/`
+
+The language context automatically detects the language from the URL and loads the appropriate content. Users can toggle between languages using the language switcher in the navigation.
 
 ## Deployment
 

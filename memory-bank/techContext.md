@@ -7,6 +7,7 @@
 - **Next.js 15**: The latest version of Next.js, providing server components, improved routing with the App Router, and optimized rendering strategies.
 - **React 19**: The latest version of React, offering improved performance, better error handling, and enhanced developer experience.
 - **TypeScript**: Used throughout the project for type safety and improved developer experience.
+- **Next.js Middleware**: Used for language detection, validation, and redirection.
 
 ### UI Libraries
 
@@ -59,24 +60,40 @@ antigua-digital-landing-page/
 ├── .github/
 │   └── workflows/
 │       └── deploy.yml      # CI/CD configuration
-├── content/
-│   └── hero.json           # Content for the hero section
+├── memory-bank/            # Project documentation
 ├── public/                 # Static assets
-│   ├── file.svg
-│   ├── globe.svg
-│   ├── next.svg
-│   ├── vercel.svg
-│   └── window.svg
+│   ├── avatars/            # User avatars
+│   ├── brand/              # Brand assets
+│   ├── components/         # Component-specific assets
+│   ├── images/             # General images
+│   └── various SVG files
 ├── src/
 │   ├── app/                # Next.js App Router structure
 │   │   ├── favicon.ico
 │   │   ├── globals.css     # Global styles
-│   │   ├── layout.tsx      # Root layout component
+│   │   ├── not-found.tsx   # 404 page
 │   │   ├── page.module.css # Page-specific styles
-│   │   ├── page.tsx        # Home page component
-│   │   └── providers.tsx   # Context providers
-│   ├── lib/
-│   │   └── data.ts         # Data loading utilities
+│   │   ├── page.tsx        # Root redirect page
+│   │   └── [lang]/         # Language-specific routes
+│   │       ├── layout.tsx  # Language-specific layout
+│   │       └── page.tsx    # Main page component
+│   ├── components/         # Reusable components
+│   │   ├── common/         # Common UI components
+│   │   ├── layout/         # Layout components
+│   │   ├── sections/       # Page section components
+│   │   └── ui/             # UI utility components
+│   ├── content/            # Content files by language
+│   │   ├── en/             # English content
+│   │   └── es/             # Spanish content
+│   ├── context/            # React context providers
+│   │   ├── languageContext.tsx  # Language state management
+│   │   ├── sidebarContext.tsx   # Sidebar state management
+│   │   └── themeContext.tsx     # Theme state management
+│   ├── lib/                # Utility functions
+│   │   ├── animations.ts   # Animation utilities
+│   │   ├── data.ts         # Data loading utilities
+│   │   └── textFormatters.tsx # Text formatting utilities
+│   ├── middleware.ts       # Next.js middleware for language routing
 │   └── theme.ts            # Theme configuration
 ├── .gitignore
 ├── eslint.config.mjs       # ESLint configuration
@@ -99,6 +116,7 @@ antigua-digital-landing-page/
 - Server components are used for content-heavy sections to reduce client-side JavaScript.
 - Static rendering is employed where possible for improved performance.
 - Images and assets are optimized for fast loading.
+- Language-specific routes are pre-rendered for faster initial loading.
 
 ### Accessibility Requirements
 
@@ -122,6 +140,7 @@ antigua-digital-landing-page/
 
 - Currently, no external API integrations are implemented.
 - The application is designed to be easily extendable for future integrations.
+- Language-based routing allows for potential integration with translation services.
 
 ## Build and Deployment Process
 
@@ -142,3 +161,12 @@ antigua-digital-landing-page/
 
 - No specific monitoring or analytics tools are currently implemented.
 - Future implementation could include tools like Google Analytics or Vercel Analytics.
+- Language-specific analytics tracking will be implemented to measure performance by language.
+
+### Internationalization
+
+- The application supports English and Spanish through language-based routing.
+- URL patterns like `/en/` and `/es/` determine which language content to display.
+- Middleware handles language detection and redirection.
+- SEO is optimized with proper hreflang tags for language variants.
+- Content is organized in language-specific directories for easy management.

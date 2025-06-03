@@ -2,35 +2,43 @@
 
 ## Architecture Overview
 
-The Antigua Digital Landing Page follows a modern Next.js 15 architecture with the App Router pattern, leveraging React 19's latest features. The system is designed with a clear separation of concerns and a component-based approach.
+The Antigua Digital Landing Page follows a modern Next.js 15 architecture with the App Router pattern, leveraging React 19's latest features. The system is designed with a clear separation of concerns and a component-based approach, with language-based routing for multilingual support.
 
 ```mermaid
 flowchart TD
-    A[App Entry] --> B[Root Layout]
-    B --> C[Providers]
-    C --> D[Page Components]
-    D --> E[UI Components]
-    F[Content Files] --> G[Data Loading]
-    G --> D
+    A[App Entry] --> B[Middleware]
+    B --> C[Language Detection]
+    C --> D[Language-Specific Layout]
+    D --> E[Providers]
+    E --> F[Page Components]
+    F --> G[UI Components]
+    H[Language-Specific Content Files] --> I[Data Loading]
+    J[Language Context] --> I
+    I --> F
 ```
 
 ## Key Design Patterns
 
 ### Content Management
 
-The project uses a translation-based content management approach:
+The project uses a language-based content management approach:
 
-- JSON files in the `/src/translations/en` and `/src/translations/es` directories store structured content
-- Data loading utilities in `/src/lib/data.ts` handle content retrieval based on the selected language
+- JSON files in the `/src/content/en` and `/src/content/es` directories store structured content by language
+- Data loading utilities in `/src/lib/data.ts` handle content retrieval based on the URL language parameter
+- Middleware handles language detection and redirection to the appropriate language path
 - Components use the language context to load the appropriate translations
 - This approach allows for easy content updates and multilingual support without code changes
 
 ```mermaid
 flowchart LR
-    A[Translation JSON Files] --> B[Data Loading Utilities]
-    C[Language Context] --> B
-    B --> D[Components]
-    D --> E[Rendered UI]
+    A[URL Language Parameter] --> B[Language Context]
+    C[Language-Specific JSON Files] --> D[Data Loading Utilities]
+    B --> D
+    D --> E[Components]
+    E --> F[Rendered UI]
+    B --> G[Language Toggle]
+    G --> H[URL Update]
+    H --> A
 ```
 
 ### UI Component Structure
@@ -75,14 +83,26 @@ The application uses a Provider pattern to manage global state and theming:
 
 - `Providers` component wraps the application to provide context
 - ThemeProvider supplies Material UI theming
+- LanguageProvider manages language state and switching
 - AnimatePresence enables page transition animations
+
+### Language-Based Routing
+
+The application implements language-based routing:
+
+- URL patterns like `/en/` and `/es/` determine which language content to display
+- Middleware redirects users from the root URL to a default language (e.g., `/en/`)
+- Language context reads the language from the URL path
+- Language toggle updates the URL when the language is changed
+- SEO is optimized with proper hreflang tags
 
 ### Data Flow
 
 Data flows through the application in a unidirectional pattern:
 
-- Content is loaded from JSON files using data utilities
-- Page components receive content through props
+- Language is determined from the URL path
+- Content is loaded from language-specific JSON files using data utilities
+- Page components receive content through props based on the current language
 - UI components render based on the provided content
 - Interactive elements trigger client-side actions
 
@@ -103,6 +123,14 @@ Data flows through the application in a unidirectional pattern:
 - Component-based styling through Material UI props and the sx prop
 - Global CSS for fundamental styling and variables
 - CSS variables for theme switching and responsive design
+
+### Internationalization Strategy
+
+- Language-based routing with URL patterns (`/en/`, `/es/`)
+- Language context for managing the current language
+- Language-specific content files for translations
+- SEO optimization with hreflang tags
+- Middleware for language detection and redirection
 
 ### Deployment Strategy
 

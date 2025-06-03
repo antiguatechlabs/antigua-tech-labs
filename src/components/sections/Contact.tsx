@@ -65,6 +65,8 @@ export function Contact() {
         py: { xs: 5, md: 8 },
         bgcolor: 'grey.50',
       }}
+      animation="slideRight"
+      animationDelay={0.3}
     >
       <MotionStack spacing={{ xs: 3, md: 4 }} sx={{ mb: { xs: 3, md: 4 } }}>
         <Box component={motion.div} variants={slideUp}>

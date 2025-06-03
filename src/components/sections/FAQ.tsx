@@ -33,7 +33,13 @@ export function FAQ() {
   };
 
   return (
-    <Section id="faq" maxWidth="lg" containerSx={{ maxWidth: '64rem' }}>
+    <Section
+      id="faq"
+      maxWidth="lg"
+      containerSx={{ maxWidth: '64rem' }}
+      animation="slideLeft"
+      animationDelay={0.3}
+    >
       <Box sx={{ textAlign: 'center', mb: 8 }}>
         <Typography
           variant="h2"
