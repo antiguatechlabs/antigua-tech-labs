@@ -58,7 +58,6 @@ export function Features() {
   return (
     <Section
       id="services"
-      maxWidth="lg"
       animation="slideUp"
       animationDelay={0.2}
     >
@@ -127,7 +126,7 @@ export function Features() {
                   }}
                 >
                   <SpotlightCard spotlightColor="rgba(100, 81, 112, 0.2)">
-                    <CardContent sx={{ p: 4, display: 'flex', flexDirection: 'column', height: '100%' }}>
+                    <CardContent sx={{ p: 0, display: 'flex', flexDirection: 'column', height: '100%' }}>
                       <Box
                         sx={{
                           width: 48,

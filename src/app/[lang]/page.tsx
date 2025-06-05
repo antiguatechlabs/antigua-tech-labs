@@ -15,10 +15,10 @@ export default function Home() {
     <>
       <Navbar />
       <Hero />
-      <WhyChoose />
       <WhyChooseTwo />
-      <Features />
       <Slider />
+      <Features />
+      <WhyChoose />
       <Contact />
       <FAQ />
       <Footer />

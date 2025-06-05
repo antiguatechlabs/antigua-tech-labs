@@ -1,17 +1,19 @@
 'use client';
 import MessageIcon from '@mui/icons-material/Message';
-import PeopleIcon from '@mui/icons-material/People';
 import PlayArrowIcon from '@mui/icons-material/PlayArrow';
-import TrendingUpIcon from '@mui/icons-material/TrendingUp';
 import { Box, Typography, Button, Stack } from '@mui/material';
 import { motion } from 'framer-motion';
 import { useParams } from 'next/navigation';
 import React, { useState, useEffect } from 'react';
 
+
 import { Section } from '@/components/common';
 import { useLanguage } from '@/context/languageContext';
 import { getHeroContent } from '@/lib/data';
 import { textWithGradient } from '@/lib/textFormatters';
+import { colors } from '@/theme';
+
+import { CodeWindow } from '../layout';
 
 
 // Create motion components
@@ -36,14 +38,18 @@ export function Hero() {
   return (
     <Section
       id="hero"
-      withGradientBg
-      animation="none" // We'll use custom animations inside
+      sx={{
+        paddingTop: { xs: 8, md: 10, lg: 12 },
+        paddingBottom: { xs: 8, md: 10, lg: 12 },
+        backgroundColor: colors.gradientBackground,
+      }}
     >
       <Box
         sx={{
           display: 'flex',
+          // justifyContent: 'center',
           flexDirection: { xs: 'column', lg: 'row' },
-          gap: 6,
+          // gap: 6,
           alignItems: 'center',
         }}
       >
@@ -114,145 +120,69 @@ export function Hero() {
           </MotionBox>
         </Box>
 
-        <Box sx={{ flex: 1 }}>
+        <Box sx={{ flex: 1, position: 'relative', overflow: 'hidden', border: '1px solid red' }}>
           <MotionBox
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5, delay: 0.2 }}
             sx={{ position: 'relative' }}
           >
-            <Box sx={{ position: 'relative', zIndex: 1 }}>
-              <Box
-                component="img"
-                src="https://img.heroui.chat/image/dashboard?w=1200&h=800&u=1"
-                alt="Web application dashboard"
-                sx={{
-                  width: '100%',
-                  height: 'auto',
-                  borderRadius: 2,
-                  boxShadow: '0 10px 30px rgba(0, 0, 0, 0.1)',
-                }}
-              />
-
-              <Box
-                sx={{
-                  position: 'absolute',
-                  bottom: -24,
-                  left: -24,
-                  bgcolor: 'background.paper',
-                  borderRadius: 2,
-                  boxShadow: '0 4px 12px rgba(0, 0, 0, 0.08)',
-                  p: 2,
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: 1.5,
-                }}
-              >
-                <Box
-                  sx={{
-                    bgcolor: 'success.100',
-                    borderRadius: '50%',
-                    p: 1,
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                  }}
-                >
-                  <TrendingUpIcon sx={{ color: 'success.600' }} />
-                </Box>
-                <Box>
-                  <Typography variant="caption" sx={{ color: 'text.secondary' }}>
-                      Monthly Traffic
-                  </Typography>
-                  <Typography variant="subtitle2" sx={{ fontWeight: 600 }}>
-                      +27.4% Growth
-                  </Typography>
-                </Box>
-              </Box>
-
-              <Box
-                sx={{
-                  position: 'absolute',
-                  top: -24,
-                  right: -24,
-                  bgcolor: 'background.paper',
-                  borderRadius: 2,
-                  boxShadow: '0 4px 12px rgba(0, 0, 0, 0.08)',
-                  p: 2,
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: 1.5,
-                }}
-              >
-                <Box
-                  sx={{
-                    bgcolor: 'primary.100',
-                    borderRadius: '50%',
-                    p: 1,
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                  }}
-                >
-                  <PeopleIcon sx={{ color: 'primary.600' }} />
-                </Box>
-                <Box>
-                  <Typography variant="caption" sx={{ color: 'text.secondary' }}>
-                      User Engagement
-                  </Typography>
-                  <Typography variant="subtitle2" sx={{ fontWeight: 600 }}>
-                      +143% Increase
-                  </Typography>
-                </Box>
-              </Box>
-            </Box>
-
             <Box
               sx={{
-                position: 'absolute',
+                position: 'relative',
+                zIndex: 1,
+                display: 'flex',
+                justifyContent: { xs: 'center', md: 'flex-start' },
+                alignItems: 'center',
                 width: '100%',
-                height: '100%',
-                background:
-                    'radial-gradient(circle, rgba(90, 48, 255, 0.2) 0%, rgba(72, 38, 204, 0.1) 70%)',
-                borderRadius: '50%',
-                filter: 'blur(60px)',
-                top: '50%',
-                left: '50%',
-                transform: 'translate(-50%, -50%)',
-                zIndex: -1,
+                overflow: 'visible',
+                // Create a glow effect behind the code window
+                '&::before': {
+                  content: '""',
+                  position: 'absolute',
+                  width: '60%',
+                  height: '60%',
+                  borderRadius: '50%',
+                  filter: 'blur(40px)',
+                  top: '50%',
+                  left: { xs: '50%', md: '30%' },
+                  transform: 'translate(-50%, -50%)',
+                  zIndex: -1,
+                },
               }}
-            />
+            >
+              <Box
+                sx={{
+                  position: 'relative',
+                  width: { xs: '50%', sm: '90%', md: '150%' },
+                  transform: {
+                    xs: 'translateX(0)',
+                    md: 'translateX(25%)',
+                    lg: 'translateX(30%)',
+                  },
+                  // boxShadow: '0 10px 30px rgba(0, 0, 0, 0.15)',
+                  borderRadius: '8px',
+                  overflow: { xs: 'auto', md: 'hidden' },
+                }}
+              >
+                <CodeWindow
+                  code={`<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hello World</title>
+</head>
+<body>
+  <h1>Hello World</h1>
+</body>
+</html>`}
+                />
+              </Box>
+            </Box>
           </MotionBox>
         </Box>
       </Box>
-
-      {/*  */}
-      {/* <Box
-          sx={{
-            mt: 12,
-            display: 'flex',
-            flexWrap: 'wrap',
-            justifyContent: 'center',
-            gap: { xs: 4, md: 6 },
-          }}
-        >
-          {['Google', 'Microsoft', 'Slack', 'Spotify', 'Airbnb'].map((company, index) => (
-            <Box
-              key={index}
-              sx={{
-                opacity: 0.6,
-                transition: 'opacity 0.3s',
-                '&:hover': { opacity: 1 },
-                height: 32,
-                width: 'auto',
-              }}
-            >
-              <Typography variant="h6" sx={{ color: 'text.secondary', fontWeight: 500 }}>
-                {company}
-              </Typography>
-            </Box>
-          ))}
-        </Box> */}
     </Section>
   );
 }

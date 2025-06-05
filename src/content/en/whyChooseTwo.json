@@ -4,7 +4,7 @@
   "description": "Our development approach focuses on creating clean, maintainable code that can grow with your business. We leverage the latest technologies and follow industry best practices to ensure your applications are not only powerful and feature-rich but also secure, efficient, and future-proof.",
   "buttonText": "Our Process",
   "buttonLink": "/process",
-  "backgroundImage": "/images/backgrounds/why-choose-two-bg.jpg",
+  "backgroundImage": "/svg/waves-grey.svg",
   "phoneNumber": "+1 (502) 555-7890",
   "yearEstablished": "2020"
 }

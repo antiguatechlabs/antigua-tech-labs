@@ -5,3 +5,4 @@ export { default as ThemeToggle } from './ThemeToggle';
 export { default as GradientText } from './GradientText';
 export { default as BlurText } from './BlurText';
 export { default as SplitText } from './SplitText';
+export { default as ScrollToTop } from './ScrollToTop';

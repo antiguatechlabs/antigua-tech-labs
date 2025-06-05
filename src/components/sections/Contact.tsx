@@ -60,7 +60,6 @@ export function Contact() {
     <Section
       id="contact"
       ref={ref}
-      maxWidth="md"
       sx={{
         py: { xs: 5, md: 8 },
         bgcolor: 'grey.50',
@@ -122,7 +121,7 @@ export function Contact() {
             transition: { duration: 0.3 },
           }}
         >
-          <MotionStack spacing={{ xs: 2, md: 3 }}>
+          <MotionStack spacing={{ xs: 2, md: 3 }} paddingX={5}>
             <Box component={motion.div} variants={itemVariants} sx={{ width: '100%' }}>
               <FormControl fullWidth required>
                 <FormLabel sx={{ fontSize: { xs: '0.875rem', md: '1rem' } }}>
@@ -137,10 +136,10 @@ export function Contact() {
                     mt: 1,
                     '& .MuiOutlinedInput-root': {
                       '&:hover fieldset': {
-                        borderColor: 'secondary.main',
+                        borderColor: 'primary.dark',
                       },
                       '&.Mui-focused fieldset': {
-                        borderColor: 'secondary.main',
+                        borderColor: 'primary.dark',
                         borderWidth: 2,
                       },
                     },
@@ -164,10 +163,10 @@ export function Contact() {
                     mt: 1,
                     '& .MuiOutlinedInput-root': {
                       '&:hover fieldset': {
-                        borderColor: 'secondary.main',
+                        borderColor: 'primary.dark',
                       },
                       '&.Mui-focused fieldset': {
-                        borderColor: 'secondary.main',
+                        borderColor: 'primary.dark',
                         borderWidth: 2,
                       },
                     },
@@ -183,7 +182,7 @@ export function Contact() {
                 </FormLabel>
                 <TextareaAutosize
                   minRows={4}
-                  placeholder={content.placeholders.message}
+                  // placeholder={content.placeholders.message}
                   style={{
                     width: '100%',
                     padding: '10px',
@@ -197,20 +196,21 @@ export function Contact() {
                 />
               </FormControl>
             </Box>
-
-            <MotionButton
-              variant="contained"
-              color="secondary"
-              size="large"
-              fullWidth
-              sx={{ mt: { xs: 1, md: 2 } }}
-              variants={buttonHover}
-              whileHover="hover"
-              whileTap="tap"
-              initial="initial"
-            >
-              {content.buttonText}
-            </MotionButton>
+            <Box display={'flex'} justifyContent="center">
+              <MotionButton
+                variant="contained"
+                color="primary"
+                size="large"
+                // fullWidth
+                sx={{ mt: { xs: 1, md: 2 }, width: '50%' }}
+                variants={buttonHover}
+                whileHover="hover"
+                whileTap="tap"
+                initial="initial"
+              >
+                {content.buttonText}
+              </MotionButton>
+            </Box>
           </MotionStack>
         </MotionPaper>
       </Box>

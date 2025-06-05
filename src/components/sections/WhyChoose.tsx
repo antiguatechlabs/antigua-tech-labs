@@ -23,11 +23,7 @@ export const WhyChoose = () => {
     setWhyChooseContent(getWhyChooseContent(language));
   }, [language]);
   return (
-    <Section
-      sx={{ py: 10, bgcolor: 'background.paper' }}
-      maxWidth="xl"
-      animation="none" // We'll use custom animations inside
-    >
+    <Section id='why-choose'>
       <Box
         sx={{
           display: 'flex',

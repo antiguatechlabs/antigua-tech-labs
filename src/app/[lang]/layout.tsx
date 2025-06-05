@@ -5,6 +5,7 @@ import Head from 'next/head';
 import { notFound } from 'next/navigation';
 import { ReactNode } from 'react';
 
+import { ScrollToTop } from '@/components/ui';
 import { LanguageProvider } from '@/context/languageContext';
 import { SidebarProvider } from '@/context/sidebarContext';
 import { ThemeProvider } from '@/context/themeContext';
@@ -19,7 +20,7 @@ const inter = Inter({
 
 const locales = ['en', 'es'];
 
-export default function LocaleLayout({
+export default async function LocaleLayout({
   children,
   params,
 }: {
@@ -52,10 +53,16 @@ export default function LocaleLayout({
               <AnimatePresence mode="wait" initial={false}>
                 {children}
               </AnimatePresence>
+              <ScrollToTop />
             </SidebarProvider>
           </ThemeProvider>
         </LanguageProvider>
       </body>
     </html>
   );
+}
+
+
+export function generateStaticParams() {
+  return [{ lang: 'en' }, { lang: 'es' }];
 }

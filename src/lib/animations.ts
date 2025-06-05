@@ -1,5 +1,114 @@
 import { Variants } from 'framer-motion';
 
+// Animation type options
+export type AnimationType = 'fade' | 'slideUp' | 'slideLeft' | 'slideRight' | 'none';
+
+// Define base animation variants
+export const animationVariants: Record<AnimationType, Variants> = {
+  fade: {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { duration: 0.5, ease: 'easeOut' },
+    },
+  },
+  slideUp: {
+    hidden: { opacity: 0, y: 50 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.5, ease: 'easeOut' },
+    },
+  },
+  slideLeft: {
+    hidden: { opacity: 0, x: -50 },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: { duration: 0.5, ease: 'easeOut' },
+    },
+  },
+  slideRight: {
+    hidden: { opacity: 0, x: 50 },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: { duration: 0.5, ease: 'easeOut' },
+    },
+  },
+  none: {} as Variants,
+};
+
+/**
+ * Gets animation props for a component based on animation type
+ *
+ * @param animation - Type of animation to apply
+ * @param customVariants - Custom animation variants to override defaults
+ * @param animationDelay - Delay before animation starts in seconds
+ * @param viewport - Whether to trigger animation when in viewport
+ * @returns Animation props object for framer-motion
+ */
+export const getAnimationProps = (
+  animation: AnimationType = 'fade',
+  customVariants?: Variants,
+  animationDelay: number = 0.2,
+  viewport: boolean = true,
+) => {
+  if (animation === 'none') return {};
+
+  // Use custom variants if provided, otherwise use predefined ones
+  const baseVariants = customVariants || animationVariants[animation];
+
+  // Enhanced variants with more pronounced effects
+  let enhancedVariants: Variants = {
+    hidden: {
+      opacity: 0,
+      ...(baseVariants.hidden || {}),
+    },
+    visible: {
+      opacity: 1,
+      ...(baseVariants.visible || {}),
+      transition: {
+        duration: 0.8, // Longer duration
+        ease: 'easeOut',
+        delay: animationDelay,
+      },
+    },
+  };
+
+  // Add specific animation properties based on type
+  if (animation === 'slideUp') {
+    enhancedVariants = {
+      ...enhancedVariants,
+      hidden: { ...enhancedVariants.hidden, y: 80 },
+      visible: { ...enhancedVariants.visible, y: 0 },
+    };
+  } else if (animation === 'slideLeft') {
+    enhancedVariants = {
+      ...enhancedVariants,
+      hidden: { ...enhancedVariants.hidden, x: -80 },
+      visible: { ...enhancedVariants.visible, x: 0 },
+    };
+  } else if (animation === 'slideRight') {
+    enhancedVariants = {
+      ...enhancedVariants,
+      hidden: { ...enhancedVariants.hidden, x: 80 },
+      visible: { ...enhancedVariants.visible, x: 0 },
+    };
+  }
+
+  return {
+    initial: 'hidden',
+    whileInView: 'visible',
+    variants: enhancedVariants,
+    viewport: viewport ? {
+      once: true,
+      amount: 0.2, // Trigger earlier
+      margin: '-50px 0px', // Add margin to trigger before fully in view
+    } : undefined,
+  };
+};
+
 // Basic fade in animation
 export const fadeIn: Variants = {
   hidden: { opacity: 0 },
