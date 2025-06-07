@@ -69,7 +69,7 @@ export function Navbar() {
       }}
     >
       <Container maxWidth="xl">
-        <Toolbar disableGutters sx={{ py: 1 }}>
+        <Toolbar disableGutters sx={{ py: 1, display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
 
           {/* Logo */}
           <Box sx={{ display: 'flex', alignItems: 'center', mr: { xs: 'auto', sm: 0 } }}>
@@ -88,7 +88,7 @@ export function Navbar() {
                   width: 32,
                   height: 32,
                   borderRadius: 1,
-                  display: { sm: 'none', md: 'flex' },
+                  display: { xs: 'none', md: 'flex' },
                   alignItems: 'center',
                   justifyContent: 'center',
                   background: 'linear-gradient(to right, #9c43f8, #26c5f3)',
@@ -114,7 +114,7 @@ export function Navbar() {
           <Box
             sx={{
               flexGrow: 1,
-              display: { xs: 'none', sm: 'flex' },
+              display: { xs: 'none', md: 'flex' },
               justifyContent: 'center',
               gap: 4,
               ml: 4,
@@ -140,7 +140,7 @@ export function Navbar() {
 
           {/* Language Toggle */}
           <Box sx={{
-            display: 'flex',
+            display: { xs: 'none', md: 'flex' },
             alignItems: 'center',
             mr: { xs: 2, md: 3 },
             order: { xs: 1, md: 2 },
@@ -172,44 +172,6 @@ export function Navbar() {
               {content.languageToggle[language]}
             </IconButton>
           </Box>
-
-          {/* Contact Info - Hidden on mobile */}
-          {/* <Box sx={{ display: {
-            xs: 'none', md: 'flex',
-          }, alignItems: 'center', gap: 1.5, ml: 2 }}>
-            <Avatar
-              sx={{
-                bgcolor: isSticky ? 'secondary.main' : 'secondary.light',
-              }}
-            >
-              <PhoneIcon fontSize="small" />
-            </Avatar>
-            <Box>
-              <Typography
-                variant="caption"
-                sx={{
-                  color: 'text.primary',
-                  fontWeight: 500,
-                }}
-              >
-                    Need help?
-              </Typography>
-              <MuiLink
-                href="tel:+15025557890"
-                sx={{
-                  fontWeight: 700,
-                  color: 'text.primary',
-                  textDecoration: 'none',
-                  display: 'block',
-                  '&:hover': {
-                    color: isSticky ? 'primary.main' : 'secondary.light',
-                  },
-                }}
-              >
-                                    (502) 555-7890
-              </MuiLink>
-            </Box>
-          </Box> */}
 
           {/* Mobile Menu Toggle - Only visible on mobile */}
           <IconButton

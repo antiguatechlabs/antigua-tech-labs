@@ -7,8 +7,6 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
-import PhoneIcon from '@mui/icons-material/Phone';
-import TwitterIcon from '@mui/icons-material/Twitter';
 import {
   Drawer,
   Box,
@@ -115,19 +113,17 @@ export const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
                     onClick={() => toggleExpand(index)}
                     sx={{
                       py: 1.5,
-                      borderBottom: '1px solid',
-                      borderColor: 'divider',
+                      borderBottom: '1px solid rgba(242, 242, 242)',
                       cursor: 'pointer',
                     }}
                   >
                     <ListItemText
                       primary={item.label}
-                      primaryTypographyProps={{ fontWeight: 500 }}
                     />
                     {expandedItem === index ? <ExpandLessIcon /> : <ExpandMoreIcon />}
                   </ListItem>
                   <Collapse in={expandedItem === index}>
-                    <List disablePadding sx={{ pl: 2, bgcolor: 'action.hover', mb: 1 }}>
+                    <List disablePadding sx={{ pl: 2, bgcolor: 'rgba(242, 242, 242)', mb: 1 }}>
                       {item.children.map((child, childIndex) => (
                         <ListItem
                           key={childIndex}
@@ -136,6 +132,7 @@ export const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
                           onClick={onClose}
                           sx={{
                             py: 1,
+                            color: 'text.secondary',
                             '&:hover': { color: 'primary.main' },
                           }}
                         >
@@ -152,8 +149,8 @@ export const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
                   onClick={onClose}
                   sx={{
                     py: 1.5,
-                    borderBottom: '1px solid',
-                    borderColor: 'divider',
+                    borderBottom: '1px solid rgba(242, 242, 242)',
+                    color: 'text.secondary',
                     '&:hover': { color: 'primary.main' },
                     cursor: 'pointer',
                   }}
@@ -176,14 +173,6 @@ export const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
             Contact Us
           </Typography>
           <Stack spacing={2}>
-            <Box sx={{ display: 'flex', alignItems: 'center' }}>
-              <IconButton size="small" color="primary" sx={{ mr: 1 }}>
-                <PhoneIcon />
-              </IconButton>
-              <MuiLink href="tel:+15025557890" sx={{ textDecoration: 'none' }}>
-                (502) 555-7890
-              </MuiLink>
-            </Box>
             <Box sx={{ display: 'flex', alignItems: 'center' }}>
               <IconButton size="small" color="primary" sx={{ mr: 1 }}>
                 <EmailIcon />
@@ -213,15 +202,6 @@ export const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
             <IconButton
               color="primary"
               component={MuiLink}
-              href="https://twitter.com"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <TwitterIcon />
-            </IconButton>
-            <IconButton
-              color="primary"
-              component={MuiLink}
               href="https://instagram.com"
               target="_blank"
               rel="noopener noreferrer"
@@ -246,6 +226,7 @@ export const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
             onClick={() => {
               onClose();
               handleSidebar();
+              // add push to contact form
             }}
             variant="contained"
             color="primary"

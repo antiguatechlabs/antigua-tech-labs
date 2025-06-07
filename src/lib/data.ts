@@ -7,6 +7,7 @@ import enFeatures from '../content/en/features.json';
 import enFooter from '../content/en/footer.json';
 import enHero from '../content/en/hero.json';
 import enNavbar from '../content/en/navbar.json';
+import enSlider from '../content/en/slider.json';
 import enTestimonials from '../content/en/testimonials.json';
 import enWhyChoose from '../content/en/whyChoose.json';
 import enWhyChooseTwo from '../content/en/whyChooseTwo.json';
@@ -18,6 +19,7 @@ import esFeatures from '../content/es/features.json';
 import esFooter from '../content/es/footer.json';
 import esHero from '../content/es/hero.json';
 import esNavbar from '../content/es/navbar.json';
+import esSlider from '../content/es/slider.json';
 import esTestimonials from '../content/es/testimonials.json';
 import esWhyChoose from '../content/es/whyChoose.json';
 import esWhyChooseTwo from '../content/es/whyChooseTwo.json';
@@ -161,6 +163,11 @@ export interface FAQContent {
   faqs: FAQItem[];
 }
 
+export interface SliderContent {
+  title: string;
+  subtitle: string;
+}
+
 // Content mapping
 const contentMap = {
   en: {
@@ -175,6 +182,7 @@ const contentMap = {
     brand: enBrand as BrandContent,
     brandSlider: enBrandSlider as BrandSliderContent,
     faq: enFaq as FAQContent,
+    slider: enSlider as SliderContent,
   },
   es: {
     hero: esHero as HeroContent,
@@ -188,6 +196,7 @@ const contentMap = {
     brand: esBrand as BrandContent,
     brandSlider: esBrandSlider as BrandSliderContent,
     faq: esFaq as FAQContent,
+    slider: esSlider as SliderContent,
   },
 };
 
@@ -241,9 +250,13 @@ export function getBrandContent(language: string = 'en'): BrandContent {
 }
 
 export function getBrandSliderContent(language: string = 'en'): BrandSliderContent {
-  return getContent<BrandSliderContent>('brandSlider', language);
+  return getContent<BrandSliderContent>('brand', language);
 }
 
 export function getFAQContent(language: string = 'en'): FAQContent {
   return getContent<FAQContent>('faq', language);
+}
+
+export function getSliderContent(language: string = 'en'): SliderContent {
+  return getContent<SliderContent>('slider', language);
 }

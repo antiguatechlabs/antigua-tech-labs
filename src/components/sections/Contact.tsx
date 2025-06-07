@@ -107,7 +107,6 @@ export function Contact() {
       >
         <MotionPaper
           sx={{
-            p: { xs: 2.5, md: 4 },
             borderRadius: 1,
             boxShadow: 1,
             bgcolor: 'background.paper',
@@ -121,7 +120,7 @@ export function Contact() {
             transition: { duration: 0.3 },
           }}
         >
-          <MotionStack spacing={{ xs: 2, md: 3 }} paddingX={5}>
+          <MotionStack spacing={{ xs: 2, sm: 3 }} padding={{ xs: 3, sm: 6 }}>
             <Box component={motion.div} variants={itemVariants} sx={{ width: '100%' }}>
               <FormControl fullWidth required>
                 <FormLabel sx={{ fontSize: { xs: '0.875rem', md: '1rem' } }}>
@@ -182,7 +181,6 @@ export function Contact() {
                 </FormLabel>
                 <TextareaAutosize
                   minRows={4}
-                  // placeholder={content.placeholders.message}
                   style={{
                     width: '100%',
                     padding: '10px',

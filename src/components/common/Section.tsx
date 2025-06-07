@@ -49,7 +49,7 @@ export const Section = forwardRef<HTMLDivElement, SectionProps>(({
           width: '100%',
           pt: { xs: 4, md: 6 },
           pb: { xs: 5, md: 8 },
-          px: { xs: 2, md: 8, lg: 12 },
+          px: { xs: 2, sm: 10, lg: 12 },
           ...sx, // Spread user sx props - fully supports responsive values
         }}
         {...motionProps}

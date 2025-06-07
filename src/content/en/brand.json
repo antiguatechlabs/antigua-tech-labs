@@ -1,11 +1,20 @@
 {
-  "counterValue": 150,
-  "counterTitle": "{{gradient:Successful Projects}} Delivered",
   "brands": [
-    { "name": "TechCorp", "logo": "/brand/brand-1-1.png" },
-    { "name": "InnovateLabs", "logo": "/brand/brand-1-2.png" },
-    { "name": "DataSphere", "logo": "/brand/brand-1-3.png" },
-    { "name": "CloudNine", "logo": "/brand/brand-1-4.png" },
-    { "name": "WebFusion", "logo": "/brand/brand-1-5.png" }
+    { "name": "JavaScript", "logo": "/svg/slider/js-logo.svg" },
+    { "name": "JavaScript - Dark", "logo": "/svg/slider/js-logo-dark.svg" },
+    { "name": "TypeScript", "logo": "/svg/slider/ts-logo.svg" },
+    { "name": "TypeScript - Dark", "logo": "/svg/slider/ts-logo-dark.svg" },
+    { "name": "React", "logo": "/svg/slider/react-logo.svg" },
+    { "name": "React - Dark", "logo": "/svg/slider/react-logo-dark.svg" },
+    { "name": "Next.js", "logo": "/svg/slider/nextjs-logo.svg" },
+    { "name": "Next.js - Dark", "logo": "/svg/slider/nextjs-logo-dark.svg" },
+    { "name": "Node.js", "logo": "/svg/slider/nodejs-logo.svg" },
+    { "name": "Node.js - Dark", "logo": "/svg/slider/nodejs-logo-dark.svg" },
+    { "name": "Tailwind CSS", "logo": "/svg/slider/tailwindcss-logo.svg" },
+    { "name": "Tailwind CSS - Dark", "logo": "/svg/slider/tailwindcss-logo-dark.svg" },
+    { "name": "MongoDB", "logo": "/svg/slider/mongodb-logo.svg" },
+    { "name": "MongoDB - Dark", "logo": "/svg/slider/mongodb-logo-dark.svg" },
+    { "name": "MySQL", "logo": "/svg/slider/mysql-logo.svg" },
+    { "name": "MySQL - Dark", "logo": "/svg/slider/mysql-logo-dark.svg" }
   ]
 }

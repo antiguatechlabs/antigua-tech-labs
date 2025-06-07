@@ -1,7 +1,5 @@
 'use client';
-import { Box, Container, Typography, Button } from '@mui/material';
-import Image from 'next/image';
-import Link from 'next/link';
+import { Box, Container, Typography } from '@mui/material';
 import { useEffect, useState } from 'react';
 import React from 'react';
 
@@ -11,8 +9,6 @@ import { fadeIn } from '@/lib/animations';
 import { getWhyChooseTwoContent, WhyChooseTwoContent } from '@/lib/data';
 import { MotionBox } from '@/lib/motionComponents';
 import { textWithGradient } from '@/lib/textFormatters';
-
-import webdev from '../../../public/brand/web-dev-hero.png';
 
 export const WhyChooseTwo = () => {
   const { language } = useLanguage();
@@ -29,70 +25,19 @@ export const WhyChooseTwo = () => {
         backgroundColor: 'text.primary',
       }}
     >
-      {/* <Paper
-        elevation={4}
-        sx={{
-          position: 'absolute',
-          top: { xs: '20px', md: '40px' },
-          left: { xs: '20px', md: '40px' },
-          bgcolor: 'primary.main',
-          color: 'white',
-          p: 2,
-          borderRadius: 1,
-          zIndex: 2,
-        }}
-      >
-        <Stack direction="row" spacing={1.5} alignItems="center">
-          <Box
-            sx={{
-              bgcolor: 'white',
-              color: 'primary.dark',
-              borderRadius: '50%',
-              p: 1,
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-            }}
-          >
-            <PhoneIcon fontSize="small" />
-          </Box>
-          <Stack spacing={0}>
-            <Typography variant="caption" sx={{ fontWeight: 500 }}>
-                Need help?
-            </Typography>
-            <MuiLink
-              href={`tel:${content.phoneNumber}`}
-              sx={{
-                fontSize: '0.875rem',
-                fontWeight: 'bold',
-                color: 'white',
-                textDecoration: 'none',
-                '&:hover': { color: 'rgba(255, 255, 255, 0.8)' },
-              }}
-            >
-              {content.phoneNumber}
-            </MuiLink>
-          </Stack>
-        </Stack>
-      </Paper> */}
-
       {/* Content */}
       <Container
-        maxWidth="xl"
         sx={{
           position: 'relative',
-          zIndex: 2,
+          zIndex: 1,
+          p: 0,
         }}
       >
-        <Box display={'flex'} flexDirection={{ xs: 'column', md: 'row' }} alignItems="center" justifyContent="space-between" sx={{ py: 8, gap: 4 }}>
-          <Box display={{ xs: 'none', md: 'flex' }} justifyContent={'start'} sx={{ position: 'relative', width: '100%', height: '100%' }}>
-            <Image src={webdev} alt="Background" width={350} />
-          </Box>
+        <Box display={'flex'} flexDirection={{ xs: 'column', md: 'row' }} alignItems="center" justifyContent="center" sx={{ py: 8, gap: 4 }}>
           <Box
             sx={{
               display: 'flex',
               flexDirection: 'column',
-              maxWidth: { xs: '100%', md: '50%' },
             }}
           >
             <MotionBox
@@ -102,6 +47,7 @@ export const WhyChooseTwo = () => {
               variants={fadeIn}
             >
               <Typography
+                display={{ xs: 'block' }}
                 variant="subtitle1"
                 sx={{
                   color: 'primary.main',
@@ -116,6 +62,7 @@ export const WhyChooseTwo = () => {
               <Typography
                 variant="h2"
                 component="h2"
+                textAlign={{ xs: 'left' }}
                 sx={{
                   fontSize: { xs: '2rem', md: '2.5rem' },
                   mb: 3,
@@ -137,7 +84,7 @@ export const WhyChooseTwo = () => {
                 {content.description}
               </Typography>
 
-              <Box sx={{ mb: 5 }}>
+              {/* <Box sx={{ mb: 5 }}>
                 <Button
                   component={Link}
                   href={content.buttonLink}
@@ -152,22 +99,25 @@ export const WhyChooseTwo = () => {
                 >
                   {content.buttonText}
                 </Button>
-              </Box>
+              </Box> */}
 
               {/* Since Year Text */}
-              <Typography
-                variant="h1"
-                sx={{
-                  fontSize: { xs: '4rem', md: '6rem' },
-                  fontWeight: 'bold',
-                  color: 'rgba(255, 255, 255, 0.15)',
-                  lineHeight: 1,
-                  position: 'relative',
-                  zIndex: -1,
-                }}
-              >
+              <Box sx={{ position: 'relative', display: 'flex', alignItems: 'center', justifyContent: 'end', height: '100px', width: '100%' }}>
+
+                <Typography
+                  variant="h1"
+                  sx={{
+                    fontSize: { xs: '4rem', md: '6rem' },
+                    fontWeight: 'bold',
+                    color: 'rgba(255, 255, 255, 0.15)',
+                    lineHeight: 1,
+                    position: 'relative',
+                    zIndex: -1,
+                  }}
+                >
               Since {content.yearEstablished}
-              </Typography>
+                </Typography>
+              </Box>
             </MotionBox>
           </Box>
 

@@ -3,17 +3,19 @@ import MessageIcon from '@mui/icons-material/Message';
 import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 import { Box, Typography, Button, Stack } from '@mui/material';
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 import { useParams } from 'next/navigation';
 import React, { useState, useEffect } from 'react';
 
 
+
+import HeroImage from '@/assets/hero/dev.svg';
 import { Section } from '@/components/common';
 import { useLanguage } from '@/context/languageContext';
 import { getHeroContent } from '@/lib/data';
 import { textWithGradient } from '@/lib/textFormatters';
 import { colors } from '@/theme';
 
-import { CodeWindow } from '../layout';
 
 
 // Create motion components
@@ -47,18 +49,18 @@ export function Hero() {
       <Box
         sx={{
           display: 'flex',
-          // justifyContent: 'center',
           flexDirection: { xs: 'column', lg: 'row' },
-          // gap: 6,
-          alignItems: 'center',
+          alignItems: 'stretch', // Ensures children stretch equally
+          width: '100%',
         }}
       >
-        <Box sx={{ flex: 1 }}>
+        {/* Text section */}
+        <Box sx={{ flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
           <MotionBox
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            sx={{ maxWidth: '48rem' }}
+            sx={{ maxWidth: '48rem', flex: 1 }}
           >
             <MotionTypography
               variant="h1"
@@ -119,67 +121,29 @@ export function Hero() {
             </Stack>
           </MotionBox>
         </Box>
-
-        <Box sx={{ flex: 1, position: 'relative', overflow: 'hidden', border: '1px solid red' }}>
+        <Box
+          sx={{
+            flex: 1,
+            // border: '1px solid red',
+            display: 'flex',
+            // display: { xs: 'none', md: 'flex' },
+          }}
+        >
           <MotionBox
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            sx={{ position: 'relative' }}
+            sx={{ width: '100%', display: 'flex', justifyContent: { xs: 'center', sm: 'end' }, alignItems: 'center' }}
           >
-            <Box
-              sx={{
-                position: 'relative',
-                zIndex: 1,
-                display: 'flex',
-                justifyContent: { xs: 'center', md: 'flex-start' },
-                alignItems: 'center',
-                width: '100%',
-                overflow: 'visible',
-                // Create a glow effect behind the code window
-                '&::before': {
-                  content: '""',
-                  position: 'absolute',
-                  width: '60%',
-                  height: '60%',
-                  borderRadius: '50%',
-                  filter: 'blur(40px)',
-                  top: '50%',
-                  left: { xs: '50%', md: '30%' },
-                  transform: 'translate(-50%, -50%)',
-                  zIndex: -1,
-                },
+            <Image
+              src={HeroImage}
+              alt="Developer illustration"
+              width={600}
+              height={600}
+              style={{
+                filter: 'drop-shadow(10px 10px 10px rgba(0, 0, 0, 0.1))',
               }}
-            >
-              <Box
-                sx={{
-                  position: 'relative',
-                  width: { xs: '50%', sm: '90%', md: '150%' },
-                  transform: {
-                    xs: 'translateX(0)',
-                    md: 'translateX(25%)',
-                    lg: 'translateX(30%)',
-                  },
-                  // boxShadow: '0 10px 30px rgba(0, 0, 0, 0.15)',
-                  borderRadius: '8px',
-                  overflow: { xs: 'auto', md: 'hidden' },
-                }}
-              >
-                <CodeWindow
-                  code={`<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hello World</title>
-</head>
-<body>
-  <h1>Hello World</h1>
-</body>
-</html>`}
-                />
-              </Box>
-            </Box>
+            />
           </MotionBox>
         </Box>
       </Box>

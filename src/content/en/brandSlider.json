@@ -1,13 +1,10 @@
 {
   "title": "Our Trusted Partners",
   "brands": [
-    { "name": "TechCorp", "logo": "/brand/brand-1-1.png" },
-    { "name": "InnovateLabs", "logo": "/brand/brand-1-2.png" },
-    { "name": "DataSphere", "logo": "/brand/brand-1-3.png" },
-    { "name": "CloudNine", "logo": "/brand/brand-1-4.png" },
-    { "name": "WebFusion", "logo": "/brand/brand-1-5.png" },
-    { "name": "DigitalEdge", "logo": "/brand/brand-1-1.png" },
-    { "name": "CodeCraft", "logo": "/brand/brand-1-2.png" },
-    { "name": "AppNexus", "logo": "/brand/brand-1-3.png" }
+ { "name": "JavaScript", "logo": "/components/slider/js.jpg" },
+    { "name": "TypeScript", "logo": "/components/slider/ts.png" },
+    { "name": "React", "logo": "/components/slider/react.png" },
+    { "name": "Next", "logo": "/components/slider/next.png" },
+    { "name": "GCP", "logo": "/components/slider/gcp.png" }
   ]
 }

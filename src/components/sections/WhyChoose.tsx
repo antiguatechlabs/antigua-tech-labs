@@ -136,14 +136,14 @@ export const WhyChoose = () => {
                 position: 'absolute',
                 // Responsive bottom positioning
                 bottom: {
-                  xs: '-15px', // Closer to image on mobile
+                  // xs: '-15px', // Closer to image on mobile
                   sm: '-18px',
                   md: '-20px',
                   lg: '-25px',
                 },
                 // Responsive right positioning
                 right: {
-                  xs: '50%', // Center on mobile
+                  // xs: '50%', // Center on mobile
                   sm: '30%',
                   md: '15%',
                   lg: '10%',
@@ -151,18 +151,17 @@ export const WhyChoose = () => {
                 },
                 // Transform to adjust horizontal centering on mobile
                 transform: {
-                  xs: 'translateX(50%)', // Center on mobile
+                  // xs: 'translateX(50%)', // Center on mobile
                   sm: 'translateX(0)', // No transform on larger screens
                 },
                 // Responsive width
                 width: {
-                  // xs: "80%", // Wider on mobile
                   sm: 'auto',
                 },
                 maxWidth: {
-                  // xs: "180px",
-                  // sm: "190px",
-                  // md: "200px",
+                  xs: '180px',
+                  sm: '190px',
+                  md: '200px',
                   lg: '220px',
                 },
                 // Responsive padding
