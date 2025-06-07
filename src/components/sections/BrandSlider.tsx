@@ -4,7 +4,7 @@
 
 import { Box } from '@mui/material';
 import Image from 'next/image';
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useCallback } from 'react';
 import { Autoplay, Navigation, Pagination } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
@@ -29,7 +29,7 @@ import tailwindDark from '@/assets/slider/tailwindcss-logo-dark.svg';
 import tailwindColor from '@/assets/slider/tailwindcss-logo.svg';
 import tsDark from '@/assets/slider/ts-logo-dark.svg';
 import tsColor from '@/assets/slider/ts-logo.svg';
-import { fadeIn } from '@/lib/animations';
+import { fadeVariant } from '@/lib/animationVariants';
 import { MotionBox } from '@/lib/motionComponents';
 
 const brandData = [
@@ -73,7 +73,7 @@ export const BrandSlider: React.FC = () => {
     onSlideChange: (swiper: any) => updateVisibleIndices(swiper),
   };
 
-  const updateVisibleIndices = (swiper: any) => {
+  const updateVisibleIndices = useCallback((swiper: any) => {
     const slidesPerView = Math.floor(swiper.params.slidesPerView as number);
     const start = swiper.realIndex;
     const totalSlides = brandData.length;
@@ -87,14 +87,12 @@ export const BrandSlider: React.FC = () => {
     const middle = Math.floor(visibleIndices.length / 2);
     const centerIndices = visibleIndices.slice(middle - Math.floor(centerCount / 2), middle + Math.ceil(centerCount / 2));
     setVisibleCenterIndices(centerIndices);
-  };
+  }, []);
 
   return (
     <MotionBox
       initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, margin: '-100px' }}
-      variants={fadeIn}
+      {...fadeVariant}
       sx={{ width: '100%', overflow: 'hidden', maxWidth: '100vw' }}
     >
       <Swiper {...swiperOptions} style={{ overflow: 'hidden', width: '100%' }}>

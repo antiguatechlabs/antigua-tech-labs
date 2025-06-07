@@ -6,28 +6,18 @@ import SecurityIcon from '@mui/icons-material/Security';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import SmartphoneIcon from '@mui/icons-material/Smartphone';
 import StarIcon from '@mui/icons-material/Star';
-import { Box, Typography, Card, CardContent } from '@mui/material';
-import { motion } from 'framer-motion';
-import { useEffect, useState } from 'react';
+import { Box, Typography, CardContent } from '@mui/material';
+import React from 'react';
 
 import { Section } from '@/components/common';
-import { useLanguage } from '@/context/languageContext';
-import { getFeaturesContent, FeaturesContent, FeatureItem } from '@/lib/data';
+import { fadeVariant, staggerContainerVariant } from '@/lib';
+import { FeaturesContent, FeatureItem } from '@/lib/data';
+import { MotionCard, MotionDiv } from '@/lib/motionComponents';
 import { textWithGradient } from '@/lib/textFormatters';
 
 import SpotlightCard from '../ui/SpotlightCard';
 
-// Create motion components
-const MotionCard = motion(Card);
-
-export function Features() {
-  const { language } = useLanguage();
-  const [features, setFeatures] = useState<FeaturesContent>(getFeaturesContent(language));
-
-  // Update content when language changes
-  useEffect(() => {
-    setFeatures(getFeaturesContent(language));
-  }, [language]);
+export function Features({ content }: { content: FeaturesContent }) {
 
   // Map icon names to actual icon components
   const iconMap: Record<string, React.ReactNode> = {
@@ -38,21 +28,6 @@ export function Features() {
     RefreshIcon: <RefreshIcon fontSize="large" />,
     SecurityIcon: <SecurityIcon fontSize="large" />,
     StarIcon: <StarIcon fontSize="large" />,
-  };
-
-  const container = {
-    hidden: { opacity: 0 },
-    show: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-      },
-    },
-  };
-
-  const item = {
-    hidden: { opacity: 0, y: 20 },
-    show: { opacity: 1, y: 0, transition: { duration: 0.5 } },
   };
 
   return (
@@ -70,9 +45,9 @@ export function Features() {
             fontSize: { xs: '1.875rem', md: '2.25rem' },
           }}
         >
-          {textWithGradient(features.title)}
+          {textWithGradient(content.title)}
         </Typography>
-        {features.subtitle && (
+        {content.subtitle && (
           <Typography
             variant="body1"
             sx={{
@@ -82,17 +57,14 @@ export function Features() {
               mx: 'auto',
             }}
           >
-            {features.subtitle}
+            {content.subtitle}
           </Typography>
         )}
       </Box>
 
-      <Box
-        component={motion.div}
-        variants={container}
-        initial="hidden"
-        whileInView="show"
-        viewport={{ once: true, margin: '-100px' }}
+      <MotionDiv
+        {...staggerContainerVariant}
+        style={{ width: '100%' }}
       >
         <Box
           sx={{
@@ -105,9 +77,9 @@ export function Features() {
             gap: 4,
           }}
         >
-          {features.items.map((feature: FeatureItem, index: number) => (
+          {content.items.map((feature: FeatureItem, index: number) => (
             <Box key={index}>
-              <Box component={motion.div} variants={item}>
+              <MotionDiv {...fadeVariant}>
                 <MotionCard
                   sx={{
                     height: '100%',
@@ -161,11 +133,11 @@ export function Features() {
                     </CardContent>
                   </SpotlightCard>
                 </MotionCard>
-              </Box>
+              </MotionDiv>
             </Box>
           ))}
         </Box>
-      </Box>
+      </MotionDiv>
     </Section>
   );
 }

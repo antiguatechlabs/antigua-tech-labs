@@ -62,11 +62,8 @@ antigua-digital-landing-page/
 │       └── deploy.yml      # CI/CD configuration
 ├── memory-bank/            # Project documentation
 ├── public/                 # Static assets
-│   ├── avatars/            # User avatars
-│   ├── brand/              # Brand assets
 │   ├── components/         # Component-specific assets
-│   ├── images/             # General images
-│   └── various SVG files
+│   └── images/             # General images
 ├── src/
 │   ├── app/                # Next.js App Router structure
 │   │   ├── favicon.ico
@@ -77,6 +74,9 @@ antigua-digital-landing-page/
 │   │   └── [lang]/         # Language-specific routes
 │   │       ├── layout.tsx  # Language-specific layout
 │   │       └── page.tsx    # Main page component
+│   ├── assets/             # SVG and other assets
+│   │   ├── hero/           # Hero section assets
+│   │   └── slider/         # Slider section assets
 │   ├── components/         # Reusable components
 │   │   ├── common/         # Common UI components
 │   │   ├── layout/         # Layout components
@@ -92,8 +92,12 @@ antigua-digital-landing-page/
 │   ├── lib/                # Utility functions
 │   │   ├── animations.ts   # Animation utilities
 │   │   ├── data.ts         # Data loading utilities
+│   │   ├── motionComponents.ts  # Framer Motion components
+│   │   ├── pageContent.ts  # Page content aggregation
 │   │   └── textFormatters.tsx # Text formatting utilities
 │   ├── middleware.ts       # Next.js middleware for language routing
+│   ├── styles/             # Additional styles
+│   │   └── custom-highlight.css  # Syntax highlighting styles
 │   └── theme.ts            # Theme configuration
 ├── .gitignore
 ├── eslint.config.mjs       # ESLint configuration
@@ -110,6 +114,7 @@ antigua-digital-landing-page/
 
 - The application targets modern browsers with good CSS Variable support.
 - Responsive design ensures compatibility with various device sizes.
+- Progressive enhancement ensures basic functionality on older browsers.
 
 ### Performance Considerations
 
@@ -117,6 +122,7 @@ antigua-digital-landing-page/
 - Static rendering is employed where possible for improved performance.
 - Images and assets are optimized for fast loading.
 - Language-specific routes are pre-rendered for faster initial loading.
+- Code splitting reduces initial bundle size.
 
 ### Accessibility Requirements
 
@@ -124,6 +130,7 @@ antigua-digital-landing-page/
 - Proper semantic HTML is used throughout the application.
 - Color contrast meets WCAG guidelines.
 - Keyboard navigation is supported for all interactive elements.
+- ARIA attributes are used where appropriate.
 
 ## Dependencies and Integrations
 
@@ -141,6 +148,7 @@ antigua-digital-landing-page/
 - Currently, no external API integrations are implemented.
 - The application is designed to be easily extendable for future integrations.
 - Language-based routing allows for potential integration with translation services.
+- Form submission will eventually connect to a backend API.
 
 ## Build and Deployment Process
 
@@ -156,12 +164,14 @@ antigua-digital-landing-page/
 
 - **Production**: Deployed from the main branch
 - **Development**: Local development environment
+- **Preview**: Vercel preview deployments for pull requests
 
 ### Monitoring and Analytics
 
 - No specific monitoring or analytics tools are currently implemented.
 - Future implementation could include tools like Google Analytics or Vercel Analytics.
 - Language-specific analytics tracking will be implemented to measure performance by language.
+- Error tracking will be added for production monitoring.
 
 ### Internationalization
 
@@ -170,3 +180,19 @@ antigua-digital-landing-page/
 - Middleware handles language detection and redirection.
 - SEO is optimized with proper hreflang tags for language variants.
 - Content is organized in language-specific directories for easy management.
+
+## Security Considerations
+
+- No sensitive data is currently stored or processed on the client.
+- Form submissions will implement CSRF protection when connected to a backend.
+- Content Security Policy will be implemented for production.
+- Regular dependency updates to address security vulnerabilities.
+
+## Future Technical Considerations
+
+- Potential migration to a headless CMS for content management
+- Implementation of server-side form validation and processing
+- Addition of user authentication for personalized experiences
+- Integration with analytics and tracking tools
+- Implementation of A/B testing capabilities
+- Expansion to additional languages and regions

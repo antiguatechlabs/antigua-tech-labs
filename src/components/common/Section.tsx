@@ -1,10 +1,10 @@
 'use client';
 
 import { Box, SxProps, Theme } from '@mui/material';
-import { motion, AnimatePresence, Variants } from 'framer-motion';
+import { AnimatePresence, Variants } from 'framer-motion';
 import React, { ReactNode, forwardRef } from 'react';
 
-import { AnimationType, getAnimationProps } from '@/lib/animations';
+import { AnimationType, getAnimationProps } from '@/lib/animationVariants';
 
 interface SectionProps {
   id?: string;
@@ -42,7 +42,7 @@ export const Section = forwardRef<HTMLDivElement, SectionProps>(({
   return (
     <AnimatePresence>
       <Box
-        component={motion.section}
+        component="section"
         id={id}
         ref={ref}
         sx={{

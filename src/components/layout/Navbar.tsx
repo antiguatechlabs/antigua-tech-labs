@@ -16,11 +16,11 @@ import React, { useState, useLayoutEffect } from 'react';
 
 import { useLanguage } from '@/context/languageContext';
 import { useSidebar } from '@/context/sidebarContext';
-import { getNavbarContent } from '@/lib/data';
+import { NavbarContent } from '@/lib/data';
 
 import { MobileMenu } from './MobileMenu';
 
-export function Navbar() {
+export function Navbar({ content }: { content: NavbarContent }) {
   const { handleSidebar, isSidebarOpen } = useSidebar();
   const params = useParams();
   // We'll use pathname in the future if needed
@@ -29,15 +29,9 @@ export function Navbar() {
 
   // Language context integration
   const { language, setLanguage } = useLanguage();
-  const [content, setContent] = useState(getNavbarContent(language));
 
   // Get current language from URL
   const currentLang = params.lang as string || 'en';
-
-  // Update content when language changes
-  useLayoutEffect(() => {
-    setContent(getNavbarContent(language));
-  }, [language]);
 
   // State for sticky header and mobile menu
   const [isSticky, setIsSticky] = useState(false);

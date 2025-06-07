@@ -1,42 +1,20 @@
 'use client';
 import MessageIcon from '@mui/icons-material/Message';
 import PlayArrowIcon from '@mui/icons-material/PlayArrow';
-import { Box, Typography, Button, Stack } from '@mui/material';
-import { motion } from 'framer-motion';
+import { Box, Stack } from '@mui/material';
 import Image from 'next/image';
-import { useParams } from 'next/navigation';
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 
-
-
-import HeroImage from '@/assets/hero/dev.svg';
+import HeroImage from '@/assets/hero/code.svg';
 import { Section } from '@/components/common';
-import { useLanguage } from '@/context/languageContext';
-import { getHeroContent } from '@/lib/data';
+import { slideLeftVariant } from '@/lib/animationVariants';
+import { HeroContent } from '@/lib/data';
+import { MotionBox, MotionTypography, MotionButton } from '@/lib/motionComponents';
 import { textWithGradient } from '@/lib/textFormatters';
 import { colors } from '@/theme';
 
+export function Hero({ content }: { content: HeroContent }) {
 
-
-// Create motion components
-const MotionBox = motion(Box);
-const MotionTypography = motion(Typography);
-const MotionButton = motion(Button);
-
-export function Hero() {
-  const { language } = useLanguage();
-  const params = useParams();
-
-  // Get language from URL parameter or fall back to language context
-  const urlLang = params.lang as string;
-  const currentLang = urlLang || language;
-
-  const [content, setContent] = useState(getHeroContent(currentLang));
-
-  useEffect(() => {
-    // Update content when either URL language or context language changes
-    setContent(getHeroContent(urlLang || language));
-  }, [language, urlLang]);
   return (
     <Section
       id="hero"
@@ -50,8 +28,9 @@ export function Hero() {
         sx={{
           display: 'flex',
           flexDirection: { xs: 'column', lg: 'row' },
-          alignItems: 'stretch', // Ensures children stretch equally
+          alignItems: { xs: 'center', lg: 'stretch' }, // Center on mobile, stretch on desktop
           width: '100%',
+          gap: { xs: 4, md: 6 }, // Add spacing between elements
         }}
       >
         {/* Text section */}
@@ -64,6 +43,7 @@ export function Hero() {
           >
             <MotionTypography
               variant="h1"
+              {...slideLeftVariant}
               sx={{
                 fontSize: { xs: '2.25rem', md: '3rem', lg: '3.75rem' },
                 fontWeight: 'bold',
@@ -121,19 +101,30 @@ export function Hero() {
             </Stack>
           </MotionBox>
         </Box>
+
+        {/* Image section */}
         <Box
           sx={{
             flex: 1,
-            // border: '1px solid red',
             display: 'flex',
-            // display: { xs: 'none', md: 'flex' },
           }}
         >
           <MotionBox
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            sx={{ width: '100%', display: 'flex', justifyContent: { xs: 'center', sm: 'end' }, alignItems: 'center' }}
+          //   initial={{ opacity: 0, y: 20 }}
+            // animate={{ opacity: 1, y: 0 }}
+            // transition={{ duration: 0.5 }}
+            // sx={{ maxWidth: '48rem', flex: 1 }}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            sx={{
+              width: '100%',
+              display: 'flex',
+              justifyContent: { xs: 'center', sm: 'end' },
+              alignItems: 'center',
+              mt: { xs: 4, md: 0 },
+              px: { xs: 2, sm: 3, md: 4 },
+            }}
           >
             <Image
               src={HeroImage}
@@ -142,7 +133,12 @@ export function Hero() {
               height={600}
               style={{
                 filter: 'drop-shadow(10px 10px 10px rgba(0, 0, 0, 0.1))',
+                width: '100%',
+                height: 'auto',
+                maxWidth: '600px',
               }}
+              sizes="(max-width: 600px) 100vw, (max-width: 1200px) 50vw, 600px"
+              priority
             />
           </MotionBox>
         </Box>

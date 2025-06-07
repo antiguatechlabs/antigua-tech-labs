@@ -50,6 +50,15 @@ The UI follows a component-based architecture with:
 - Custom styling through a combination of component props and global CSS
 - Custom reusable components for consistent UI patterns
 
+#### Component Organization
+
+The project organizes components into logical categories:
+
+- `/components/common`: Shared utility components like Section and ScrollPreserver
+- `/components/layout`: Structural components like Navbar, Footer, and MobileMenu
+- `/components/sections`: Page section components like Hero, Features, and Contact
+- `/components/ui`: UI utility components like GradientText, BlurText, and ThemeToggle
+
 #### Custom Components
 
 The project includes several custom components that should be used whenever possible:
@@ -57,6 +66,8 @@ The project includes several custom components that should be used whenever poss
 - **Section**: A wrapper component for page sections that provides consistent styling, spacing, and container behavior
 - **GradientText**: A component for rendering text with gradient styling
 - **MotionComponents**: Wrapped Material UI components with Framer Motion for animations
+- **SpotlightCard**: Interactive card component with spotlight effect
+- **CounterUp**: Animated counter component for statistics
 
 ### Theme Management
 
@@ -65,13 +76,14 @@ The project implements a theming system:
 - Material UI theme for component styling
 - Global CSS variables for fundamental styling properties
 - Dark/light mode support through CSS variables and media queries
+- ThemeContext for managing theme state and preferences
 
 ### Rendering Strategy
 
 The application uses Next.js App Router with:
 
 - Server components for content-heavy sections
-- Client components for interactive elements
+- Client components for interactive elements (marked with 'use client' directive)
 - Static rendering for performance optimization
 - Metadata API for SEO optimization
 
@@ -84,6 +96,7 @@ The application uses a Provider pattern to manage global state and theming:
 - `Providers` component wraps the application to provide context
 - ThemeProvider supplies Material UI theming
 - LanguageProvider manages language state and switching
+- SidebarProvider manages sidebar state for mobile navigation
 - AnimatePresence enables page transition animations
 
 ### Language-Based Routing
@@ -137,3 +150,26 @@ Data flows through the application in a unidirectional pattern:
 - GitHub Actions for CI/CD pipeline
 - Vercel for hosting and edge network distribution
 - Automated builds and deployments on main branch changes
+
+## Performance Considerations
+
+- Server components reduce client-side JavaScript
+- Image optimization with Next.js Image component
+- CSS-in-JS for efficient styling
+- Code splitting for optimal bundle sizes
+- Lazy loading for non-critical components
+
+## Accessibility Patterns
+
+- Semantic HTML structure
+- ARIA attributes for interactive elements
+- Keyboard navigation support
+- Color contrast compliance
+- Screen reader compatibility
+
+## Error Handling
+
+- Fallback UI for error states
+- Graceful degradation for missing content
+- Default language fallback for missing translations
+- Proper error boundaries for component failures

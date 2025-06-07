@@ -1,7 +1,8 @@
 'use client';
 import { Typography, TypographyProps } from '@mui/material';
-import { motion } from 'framer-motion';
 import { useEffect, useRef, useState, useMemo } from 'react';
+
+import { MotionSpan } from '@/lib/motionComponents';
 
 type AnimationSnapshot = {
   filter?: string;
@@ -136,7 +137,7 @@ const BlurText: React.FC<BlurTextProps> = ({
         };
 
         return (
-          <motion.span
+          <MotionSpan
             key={index}
             initial={fromSnapshot}
             animate={inView ? animateKeyframes : fromSnapshot}
@@ -148,7 +149,7 @@ const BlurText: React.FC<BlurTextProps> = ({
           >
             {segment === ' ' ? '\u00A0' : segment}
             {animateBy === 'words' && index < elements.length - 1 && '\u00A0'}
-          </motion.span>
+          </MotionSpan>
         );
       })}
     </Typography>

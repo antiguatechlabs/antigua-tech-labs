@@ -1,8 +1,9 @@
 'use client';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import { Box, Fab, useScrollTrigger, Zoom, SxProps, Theme } from '@mui/material';
-import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
+
+import { MotionDiv } from '@/lib/motionComponents';
 
 /**
  * ScrollToTop component props
@@ -87,13 +88,12 @@ export default function ScrollToTop({
       }}
     >
       <Zoom in={trigger}>
-        <Box
-          component={motion.div}
+        <MotionDiv
           initial="hidden"
           animate="visible"
           whileHover="hover"
-          whileTap="tap"
           variants={fabVariants}
+          whileTap="tap"
         >
           <Fab
             onClick={handleClick}
@@ -107,7 +107,7 @@ export default function ScrollToTop({
           >
             <KeyboardArrowUpIcon />
           </Fab>
-        </Box>
+        </MotionDiv>
       </Zoom>
     </Box>
   );

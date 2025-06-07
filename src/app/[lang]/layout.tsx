@@ -6,9 +6,33 @@ import { notFound } from 'next/navigation';
 import { ReactNode } from 'react';
 
 import { ScrollToTop } from '@/components/ui';
-import { LanguageProvider } from '@/context/languageContext';
-import { SidebarProvider } from '@/context/sidebarContext';
-import { ThemeProvider } from '@/context/themeContext';
+import { LanguageProvider, SidebarProvider, ThemeProvider } from '@/context';
+import { MotionBox } from '@/lib/motionComponents';
+
+
+// Next.js functions
+export function generateStaticParams() {
+  return [{ lang: 'en' }, { lang: 'es' }];
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ lang: string }>;
+}) {
+  const { lang } = await params;
+  const baseUrl = 'https://localhost:3000'; // Reemplaza con tu URL base real
+
+  return {
+    alternates: {
+      canonical: `${baseUrl}/${lang}`,
+      languages: {
+        en: `${baseUrl}/en`,
+        es: `${baseUrl}/es`,
+      },
+    },
+  };
+}
 
 
 // Initialize the Inter font with Latin subset
@@ -18,17 +42,20 @@ const inter = Inter({
   variable: '--font-inter',
 });
 
-const locales = ['en', 'es'];
+interface LocaleLayoutProps {
+  children: ReactNode;
+  params: Promise<{ lang: string }>;
+}
 
 export default async function LocaleLayout({
   children,
   params,
-}: {
-  children: ReactNode;
-  params: { lang: string };
-}) {
-  const lang = locales.includes(params.lang) ? params.lang : null;
-  if (!lang) notFound();
+}: LocaleLayoutProps) {
+
+  const { lang } = await params;
+  const locales = ['en', 'es'];
+
+  if (!locales.includes(lang)) notFound();
 
   const host = typeof window !== 'undefined' ? window.location.origin : 'https://example.com';
 
@@ -51,8 +78,17 @@ export default async function LocaleLayout({
             <SidebarProvider>
               <CssBaseline />
               <AnimatePresence mode="wait" initial={false}>
-                {children}
+                <MotionBox
+                  key={lang}
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -10 }}
+                  transition={{ duration: 0.25 }}
+                >
+                  {children}
+                </MotionBox>
               </AnimatePresence>
+              {/* <ScrollPreserver/> */}
               <ScrollToTop />
             </SidebarProvider>
           </ThemeProvider>
@@ -60,9 +96,4 @@ export default async function LocaleLayout({
       </body>
     </html>
   );
-}
-
-
-export function generateStaticParams() {
-  return [{ lang: 'en' }, { lang: 'es' }];
 }

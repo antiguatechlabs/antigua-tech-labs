@@ -9,19 +9,27 @@ import {
   Hero,
   Features,
 } from '@/components';
+import { getHomePageContent } from '@/lib/pageContent';
 
-export default function Home() {
+export default async function Home({
+  params,
+}: {
+  params: Promise<{ lang: string }>;
+}) {
+  const { lang } = await params;
+  const content = getHomePageContent(lang);
+
   return (
     <>
-      <Navbar />
-      <Hero />
-      <WhyChooseTwo />
-      <Slider />
-      <Features />
-      <WhyChoose />
-      <Contact />
-      <FAQ />
-      <Footer />
+      <Navbar content={content.navbar} />
+      <Hero content={content.hero} />
+      <WhyChooseTwo content={content.whyChooseTwo} />
+      <Slider content={content.slider} />
+      <Features content={content.features} />
+      <WhyChoose content={content.whyChoose} />
+      <Contact content={content.contact} />
+      <FAQ content={content.faq} />
+      <Footer content={content.footer} />
     </>
   );
 }

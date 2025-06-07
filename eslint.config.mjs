@@ -1,5 +1,6 @@
 import { dirname } from 'path';
 import { fileURLToPath } from 'url';
+
 import { FlatCompat } from '@eslint/eslintrc';
 
 const __filename = fileURLToPath(import.meta.url);
@@ -17,8 +18,6 @@ const ignorePatterns = [
   '**/*.min.js',
   '**/dist/**',
   '**/build/**',
-  'components-to-migrate/**',
-  'extracted-components/**',
   'memory-bank/**',
   '**/*.css',
   '**/*.md',

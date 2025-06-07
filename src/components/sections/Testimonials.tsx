@@ -1,16 +1,17 @@
 'use client';
 import { Box, Typography, Stack, Avatar } from '@mui/material';
-import { motion, useInView } from 'framer-motion';
+import { useInView } from 'framer-motion';
 import { useRef, useState, useEffect } from 'react';
 
 import { Section } from '@/components/common';
 import { useLanguage } from '@/context/languageContext';
-import { slideInLeft, slideInRight } from '@/lib/animations';
+import { cardHoverVariant, fadeVariant, slideLeftVariant, staggerContainerVariant } from '@/lib/animationVariants';
 import { getTestimonialsContent, TestimonialsContent, TestimonialItem } from '@/lib/data';
 import {
   MotionTypography,
   MotionPaper,
   MotionStack,
+  MotionDiv,
 } from '@/lib/motionComponents';
 import { textWithGradient } from '@/lib/textFormatters';
 
@@ -31,45 +32,13 @@ export default function Testimonials() {
   const getAvatarUrl = (name: string) =>
     `https://ui-avatars.com/api/?name=${encodeURIComponent(name)}&background=0D8ABC&color=fff`;
 
-  // Animation variants
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-        delayChildren: 0.3,
-      },
-    },
-  };
-
-  const cardVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.6,
-        ease: 'easeOut',
-      },
-    },
-    hover: {
-      y: -5,
-      boxShadow: '0px 8px 16px rgba(0, 0, 0, 0.1)',
-      transition: {
-        duration: 0.3,
-        ease: 'easeInOut',
-      },
-    },
-  };
-
   return (
     <Section
       id="testimonials"
       ref={ref}
-      maxWidth="xl"
       sx={{
         py: { xs: 5, md: 8 },
+        maxWidth: 'xl',
       }}
       animation="slideUp"
       animationDelay={0.2}
@@ -81,15 +50,16 @@ export default function Testimonials() {
           mb: { xs: 4, md: 6 },
           fontSize: { xs: '1.75rem', md: '2.25rem' },
         }}
-        variants={slideInLeft}
+        {...slideLeftVariant}
       >
         {textWithGradient(testimonials.title)}
       </MotionTypography>
 
-      <Box
-        sx={{ display: 'flex', flexWrap: 'wrap', mx: -2 }}
-        component={motion.div}
-        variants={containerVariants}
+      <MotionDiv
+        style={{ display: 'flex', flexWrap: 'wrap', marginLeft: -8, marginRight: -8 }}
+        {...staggerContainerVariant}
+        initial="hidden"
+        animate="visible"
       >
         {testimonials.items.map((testimonial: TestimonialItem, index: number) => (
           <Box
@@ -110,22 +80,24 @@ export default function Testimonials() {
                 flexDirection: 'column',
                 justifyContent: 'space-between',
               }}
-              variants={cardVariants}
+              {...cardHoverVariant}
               whileHover="hover"
               custom={index}
             >
-              <Box component={motion.div} variants={slideInRight}>
+              <MotionDiv
+                style={{ marginBottom: 16 }}
+                {...fadeVariant}
+              >
                 <Typography
                   variant="body1"
                   sx={{
                     fontSize: { xs: '1rem', md: '1.125rem' },
                     fontStyle: 'italic',
-                    mb: 2,
                   }}
                 >
-                    &ldquo;{testimonial.quote}&rdquo;
+                  &ldquo;{testimonial.quote}&rdquo;
                 </Typography>
-              </Box>
+              </MotionDiv>
 
               <MotionStack direction="row" spacing={2} sx={{ mt: 'auto' }}>
                 <Avatar
@@ -160,7 +132,7 @@ export default function Testimonials() {
             </MotionPaper>
           </Box>
         ))}
-      </Box>
+      </MotionDiv>
     </Section>
   );
 }

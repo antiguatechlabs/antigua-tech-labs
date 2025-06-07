@@ -8,25 +8,15 @@ import {
   Typography,
   Box,
 } from '@mui/material';
-import { motion } from 'framer-motion';
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 
 import { Section } from '@/components/common';
-import { useLanguage } from '@/context/languageContext';
-import { getFAQContent, FAQContent } from '@/lib/data';
+import { FAQContent } from '@/lib/data';
+import { MotionBox, MotionSpan } from '@/lib/motionComponents';
 import { textWithGradient } from '@/lib/textFormatters';
 
-// Create motion components
-const MotionBox = motion(Box);
-
-export function FAQ() {
+export function FAQ({ content }: { content: FAQContent }) {
   const [expanded, setExpanded] = useState<string | false>(false);
-  const { language } = useLanguage();
-  const [content, setContent] = useState<FAQContent>(getFAQContent(language));
-
-  useEffect(() => {
-    setContent(getFAQContent(language));
-  }, [language]);
 
   const handleChange = (panel: string) => (event: React.SyntheticEvent, isExpanded: boolean) => {
     setExpanded(isExpanded ? panel : false);
@@ -120,19 +110,36 @@ export function FAQ() {
       <Box sx={{ mt: 6, textAlign: 'center' }}>
         <Typography>
           {content.contactText}{' '}
-          <Box
-            component="span"
-            sx={{
-              color: 'primary.main',
-              fontWeight: 500,
-              cursor: 'pointer',
-              '&:hover': {
-                textDecoration: 'underline',
-              },
-            }}
+          <MotionSpan
+            initial="initial"
+            whileHover="hover"
+            whileTap="tap"
+            style={{ display: 'inline-block' }}
           >
-            {content.contactLink}
-          </Box>{' '}
+            <Box
+              component="span"
+              onClick={e => {
+                e.preventDefault();
+                const contactSection = document.getElementById('contact');
+                if (contactSection) {
+                  contactSection.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start',
+                  });
+                }
+              }}
+              sx={{
+                color: 'primary.main',
+                fontWeight: 500,
+                cursor: 'pointer',
+                '&:hover': {
+                  textDecoration: 'underline',
+                },
+              }}
+            >
+              {content.contactLink}
+            </Box>
+          </MotionSpan>{' '}
           {content.contactSuffix}
         </Typography>
       </Box>

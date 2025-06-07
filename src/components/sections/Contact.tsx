@@ -7,54 +7,23 @@ import {
   FormLabel,
   TextareaAutosize,
 } from '@mui/material';
-import { motion, useInView } from 'framer-motion';
-import { useRef, useState, useEffect } from 'react';
+import { useInView } from 'framer-motion';
+import { useRef } from 'react';
 
 import { Section } from '@/components/common';
-import { useLanguage } from '@/context/languageContext';
-import { slideUp, buttonHover } from '@/lib/animations';
-import { getContactContent, ContactContent } from '@/lib/data';
+import { slideLeftVariant, staggerContainerVariant, fadeVariant, buttonHoverVariant } from '@/lib/animationVariants';
+import { ContactContent } from '@/lib/data';
 import {
   MotionStack,
   MotionPaper,
   MotionButton,
+  MotionDiv,
 } from '@/lib/motionComponents';
 import { textWithGradient } from '@/lib/textFormatters';
 
-export function Contact() {
-  const { language } = useLanguage();
-  const [content, setContent] = useState<ContactContent>(getContactContent(language));
+export function Contact({ content }: { content: ContactContent }) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.2 });
-
-  // Update content when language changes
-  useEffect(() => {
-    setContent(getContactContent(language));
-  }, [language]);
-
-  // Animation variants
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-        delayChildren: 0.2,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.5,
-        ease: 'easeOut',
-      },
-    },
-  };
 
   return (
     <Section
@@ -68,7 +37,7 @@ export function Contact() {
       animationDelay={0.3}
     >
       <MotionStack spacing={{ xs: 3, md: 4 }} sx={{ mb: { xs: 3, md: 4 } }}>
-        <Box component={motion.div} variants={slideUp}>
+        <MotionDiv {...slideLeftVariant}>
           <Typography
             variant="h2"
             sx={{
@@ -78,10 +47,10 @@ export function Contact() {
           >
             {textWithGradient(content.title)}
           </Typography>
-        </Box>
+        </MotionDiv>
 
         {content.subtitle && (
-          <Box component={motion.div} variants={slideUp}>
+          <MotionDiv {...slideLeftVariant}>
             <Typography
               variant="body1"
               sx={{
@@ -94,7 +63,7 @@ export function Contact() {
             >
               {content.subtitle}
             </Typography>
-          </Box>
+          </MotionDiv>
         )}
       </MotionStack>
 
@@ -111,7 +80,7 @@ export function Contact() {
             boxShadow: 1,
             bgcolor: 'background.paper',
           }}
-          variants={containerVariants}
+          {...staggerContainerVariant}
           initial="hidden"
           animate={isInView ? 'visible' : 'hidden'}
           elevation={2}
@@ -121,7 +90,7 @@ export function Contact() {
           }}
         >
           <MotionStack spacing={{ xs: 2, sm: 3 }} padding={{ xs: 3, sm: 6 }}>
-            <Box component={motion.div} variants={itemVariants} sx={{ width: '100%' }}>
+            <MotionDiv {...fadeVariant} style={{ width: '100%' }}>
               <FormControl fullWidth required>
                 <FormLabel sx={{ fontSize: { xs: '0.875rem', md: '1rem' } }}>
                   {content.formLabels.name}
@@ -145,9 +114,9 @@ export function Contact() {
                   }}
                 />
               </FormControl>
-            </Box>
+            </MotionDiv>
 
-            <Box component={motion.div} variants={itemVariants} sx={{ width: '100%' }}>
+            <MotionDiv {...fadeVariant} style={{ width: '100%' }}>
               <FormControl fullWidth required>
                 <FormLabel sx={{ fontSize: { xs: '0.875rem', md: '1rem' } }}>
                   {content.formLabels.email}
@@ -172,9 +141,9 @@ export function Contact() {
                   }}
                 />
               </FormControl>
-            </Box>
+            </MotionDiv>
 
-            <Box component={motion.div} variants={itemVariants} sx={{ width: '100%' }}>
+            <MotionDiv {...fadeVariant} style={{ width: '100%' }}>
               <FormControl fullWidth required>
                 <FormLabel sx={{ fontSize: { xs: '0.875rem', md: '1rem' } }}>
                   {content.formLabels.message}
@@ -193,7 +162,7 @@ export function Contact() {
                   }}
                 />
               </FormControl>
-            </Box>
+            </MotionDiv>
             <Box display={'flex'} justifyContent="center">
               <MotionButton
                 variant="contained"
@@ -201,7 +170,7 @@ export function Contact() {
                 size="large"
                 // fullWidth
                 sx={{ mt: { xs: 1, md: 2 }, width: '50%' }}
-                variants={buttonHover}
+                {...buttonHoverVariant}
                 whileHover="hover"
                 whileTap="tap"
                 initial="initial"
