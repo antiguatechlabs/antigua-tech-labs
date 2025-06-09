@@ -1,4 +1,4 @@
-// lib/animations/props.ts
+// lib/animationProps.ts
 
 export const fadeInUpProps = {
   initial: { opacity: 0, y: 20 },

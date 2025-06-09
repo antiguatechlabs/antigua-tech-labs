@@ -32,7 +32,7 @@ import tsColor from '@/assets/slider/ts-logo.svg';
 import { fadeVariant } from '@/lib/animationVariants';
 import { MotionBox } from '@/lib/motionComponents';
 
-const brandData = [
+const stackData = [
   { name: 'JavaScript', darkLogo: jsDark, colorLogo: jsColor },
   { name: 'TypeScript', darkLogo: tsDark, colorLogo: tsColor },
   { name: 'React', darkLogo: reactDark, colorLogo: reactColor },
@@ -43,10 +43,8 @@ const brandData = [
   { name: 'MySQL', darkLogo: mysqlDark, colorLogo: mysqlColor },
 ];
 
-export const BrandSlider: React.FC = () => {
-  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+export const StackSlider: React.FC = () => {
   const [visibleCenterIndices, setVisibleCenterIndices] = useState<number[]>([]);
-  const [imageError, setImageError] = useState<Record<number, boolean>>({});
   const swiperRef = useRef(null);
 
   const swiperOptions = {
@@ -76,7 +74,7 @@ export const BrandSlider: React.FC = () => {
   const updateVisibleIndices = useCallback((swiper: any) => {
     const slidesPerView = Math.floor(swiper.params.slidesPerView as number);
     const start = swiper.realIndex;
-    const totalSlides = brandData.length;
+    const totalSlides = stackData.length;
     const visibleIndices = Array.from({ length: slidesPerView }, (_, i) => (start + i) % totalSlides);
 
     let centerCount = 1;
@@ -96,13 +94,10 @@ export const BrandSlider: React.FC = () => {
       sx={{ width: '100%', overflow: 'hidden', maxWidth: '100vw' }}
     >
       <Swiper {...swiperOptions} style={{ overflow: 'hidden', width: '100%' }}>
-        {brandData.map((brand, index) => {
-          const showColor =
-            hoveredIndex === index || visibleCenterIndices.includes(index);
-          const logoToShow = showColor ? brand.colorLogo : brand.darkLogo;
-
+        {stackData.map((tech, index) => {
+          const showColor = visibleCenterIndices.includes(index);
           return (
-            <SwiperSlide key={brand.name + index}>
+            <SwiperSlide key={tech.name + index}>
               <Box
                 sx={{
                   p: 2,
@@ -119,33 +114,30 @@ export const BrandSlider: React.FC = () => {
                     height: '75px',
                     cursor: 'pointer',
                   }}
-                  onMouseEnter={() => setHoveredIndex(index)}
-                  onMouseLeave={() => setHoveredIndex(null)}
                 >
-                  {imageError[index] ? (
-                    <Box
-                      sx={{
-                        width: 150,
-                        height: 60,
-                        backgroundColor: '#f1f1f1',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                      }}
-                    >
-                      {brand.name}
-                    </Box>
-                  ) : (
-                    <Image
-                      src={logoToShow}
-                      alt={brand.name}
-                      fill
-                      style={{ objectFit: 'contain', width: '100%', height: '100%' }}
-                      onError={() =>
-                        setImageError(prev => ({ ...prev, [index]: true }))
-                      }
-                    />
-                  )}
+                  <Image
+                    src={tech.darkLogo}
+                    alt={tech.name}
+                    fill
+                    style={{
+                      objectFit: 'contain',
+                      opacity: showColor ? 0 : 1,
+                      transition: 'opacity 0.3s ease',
+                    }}
+                  />
+                  <Image
+                    src={tech.colorLogo}
+                    alt={tech.name}
+                    fill
+                    style={{
+                      objectFit: 'contain',
+                      opacity: showColor ? 1 : 0,
+                      position: 'absolute',
+                      top: 0,
+                      left: 0,
+                      transition: 'opacity 0.3s ease',
+                    }}
+                  />
                 </Box>
               </Box>
             </SwiperSlide>

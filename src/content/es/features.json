@@ -1,35 +1,35 @@
 {
-  "title": "Soluciones {{gradient:Digitales}} Integrales",
-  "subtitle": "Desde el concepto hasta la implementación, construimos aplicaciones escalables que se adaptan a las necesidades cambiantes de tu negocio.",
+  "title": "Soluciones {{gradient:Digitales Integrales}}",
+  "subtitle": "Desde la idea hasta el lanzamiento, desarrollamos aplicaciones que se adaptan a las necesidades reales de tu negocio.",
   "items": [
     {
-      "title": "Aplicaciones Web Personalizadas",
-      "description": "Aplicaciones web a medida diseñadas para resolver los desafíos específicos de tu negocio y optimizar operaciones.",
+      "title": "Aplicaciones Web a Medida",
+      "description": "Plataformas web personalizadas que resuelven desafíos específicos y optimizan tus operaciones.",
       "icon": "LayoutIcon"
     },
     {
-      "title": "Desarrollo de Aplicaciones Móviles",
-      "description": "Aplicaciones móviles nativas y multiplataforma que proporcionan experiencias fluidas en todos los dispositivos.",
+      "title": "Desarrollo de Apps Móviles",
+      "description": "Aplicaciones nativas y multiplataforma con experiencia fluida en todos los dispositivos.",
       "icon": "SmartphoneIcon"
     },
     {
-      "title": "Soluciones de Comercio Electrónico",
-      "description": "Tiendas online escalables con procesamiento seguro de pagos, gestión de inventario y análisis de clientes.",
+      "title": "Soluciones de E-commerce",
+      "description": "Tiendas online escalables con pagos seguros, gestión de inventario y análisis de clientes.",
       "icon": "ShoppingCartIcon"
     },
     {
       "title": "Visualización de Datos",
-      "description": "Paneles e informes interactivos que transforman datos complejos en información empresarial procesable.",
+      "description": "Dashboards interactivos que convierten datos complejos en decisiones estratégicas.",
       "icon": "BarChartIcon"
     },
     {
       "title": "Integración de APIs",
-      "description": "Conexiones perfectas entre tus sistemas y servicios de terceros para automatizar flujos de trabajo y mejorar la funcionalidad.",
+      "description": "Conectamos tus sistemas con servicios externos para automatizar procesos y mejorar funcionalidades.",
       "icon": "RefreshIcon"
     },
     {
       "title": "Seguridad y Mantenimiento",
-      "description": "Soporte continuo, actualizaciones de seguridad y optimización del rendimiento para mantener tus aplicaciones funcionando sin problemas.",
+      "description": "Soporte continuo, actualizaciones de seguridad y mejoras de rendimiento para un funcionamiento estable.",
       "icon": "SecurityIcon"
     }
   ]

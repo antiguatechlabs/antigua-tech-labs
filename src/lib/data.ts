@@ -1,6 +1,4 @@
 // Import JSON files directly
-import enBrand from '../content/en/brand.json';
-import enBrandSlider from '../content/en/brandSlider.json';
 import enContact from '../content/en/contact.json';
 import enFaq from '../content/en/faq.json';
 import enFeatures from '../content/en/features.json';
@@ -11,8 +9,6 @@ import enSlider from '../content/en/slider.json';
 import enTestimonials from '../content/en/testimonials.json';
 import enWhyChoose from '../content/en/whyChoose.json';
 import enWhyChooseTwo from '../content/en/whyChooseTwo.json';
-import esBrand from '../content/es/brand.json';
-import esBrandSlider from '../content/es/brandSlider.json';
 import esContact from '../content/es/contact.json';
 import esFaq from '../content/es/faq.json';
 import esFeatures from '../content/es/features.json';
@@ -138,17 +134,6 @@ export interface WhyChooseTwoContent {
   yearEstablished: string;
 }
 
-export interface BrandContent {
-  counterValue: number;
-  counterTitle: string;
-  brands: { name: string; logo: string }[];
-}
-
-export interface BrandSliderContent {
-  title: string;
-  brands: { name: string; logo: string }[];
-}
-
 export interface FAQItem {
   question: string;
   answer: string;
@@ -179,8 +164,6 @@ const contentMap = {
     navbar: enNavbar as NavbarContent,
     whyChoose: enWhyChoose as WhyChooseContent,
     whyChooseTwo: enWhyChooseTwo as WhyChooseTwoContent,
-    brand: enBrand as BrandContent,
-    brandSlider: enBrandSlider as BrandSliderContent,
     faq: enFaq as FAQContent,
     slider: enSlider as SliderContent,
   },
@@ -193,8 +176,6 @@ const contentMap = {
     navbar: esNavbar as NavbarContent,
     whyChoose: esWhyChoose as WhyChooseContent,
     whyChooseTwo: esWhyChooseTwo as WhyChooseTwoContent,
-    brand: esBrand as BrandContent,
-    brandSlider: esBrandSlider as BrandSliderContent,
     faq: esFaq as FAQContent,
     slider: esSlider as SliderContent,
   },
@@ -243,14 +224,6 @@ export function getWhyChooseContent(language: string = 'en'): WhyChooseContent {
 
 export function getWhyChooseTwoContent(language: string = 'en'): WhyChooseTwoContent {
   return getContent<WhyChooseTwoContent>('whyChooseTwo', language);
-}
-
-export function getBrandContent(language: string = 'en'): BrandContent {
-  return getContent<BrandContent>('brand', language);
-}
-
-export function getBrandSliderContent(language: string = 'en'): BrandSliderContent {
-  return getContent<BrandSliderContent>('brand', language);
 }
 
 export function getFAQContent(language: string = 'en'): FAQContent {

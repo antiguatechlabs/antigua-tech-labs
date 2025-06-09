@@ -1,4 +1,4 @@
-// lib/animations/variants.ts
+// lib/animationVariants.ts
 import { Variants } from 'framer-motion';
 
 // Define individual animation variants

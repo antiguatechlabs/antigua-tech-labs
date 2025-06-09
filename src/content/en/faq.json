@@ -1,33 +1,33 @@
 {
-  "title": "Frequently Asked {{gradient:Questions}}",
-  "subtitle": "Find answers to common questions about our services, process, and technology.",
+  "title": "Frequently {{gradient:Asked Questions}}",
+  "subtitle": "Find clear answers about our services, process, and technology stack.",
   "contactText": "Still have questions?",
-  "contactLink": "Contact our team",
+  "contactLink": "Talk to Our Team",
   "contactSuffix": "for more information.",
   "faqs": [
     {
-      "question": "How long does it typically take to develop a web application?",
-      "answer": "Development timelines vary based on project complexity. A simple website might take 4-6 weeks, while a complex web application could take 3-6 months. During our initial consultation, we'll provide a detailed timeline based on your specific requirements."
+      "question": "How long does it take to develop a web application?",
+      "answer": "It depends on the scope. A basic app can take 4–6 weeks, while more complex platforms may require 3–6 months. In our initial consultation, we’ll provide a clear timeline tailored to your project."
     },
     {
-      "question": "Do you provide ongoing support after the application is launched?",
-      "answer": "Yes, we offer various support and maintenance packages to ensure your application continues to run smoothly after launch. Our support includes bug fixes, security updates, performance optimization, and feature enhancements."
+      "question": "Do you provide ongoing support after launch?",
+      "answer": "Yes. We offer support and maintenance plans that include bug fixes, security updates, performance improvements, and feature enhancements."
     },
     {
       "question": "What technologies do you use for development?",
-      "answer": "We use modern, industry-standard technologies that ensure your application is fast, secure, and scalable. Our tech stack typically includes React, Node.js, Python, and various cloud services. We'll recommend the best technologies based on your specific project needs."
+      "answer": "We work with modern technologies like React, Node.js, TypeScript, Python, and various cloud services. Our stack is selected based on your specific needs for speed, security, and scalability."
     },
     {
-      "question": "Can you help with migrating an existing application?",
-      "answer": "Absolutely. We have extensive experience migrating applications from legacy systems to modern platforms. Our process includes a thorough assessment of your current system, data migration planning, and a phased implementation approach to minimize disruption."
+      "question": "Can you help migrate an existing application?",
+      "answer": "Absolutely. We specialize in migrating legacy systems to modern platforms. Our phased approach ensures a smooth transition with minimal disruption."
     },
     {
-      "question": "How do you handle project changes or new requirements?",
-      "answer": "We follow an agile development methodology that accommodates changes throughout the project lifecycle. If new requirements arise, we'll evaluate the impact on timeline and budget, then work with you to prioritize features and make necessary adjustments."
+      "question": "How do you handle changes or new requirements?",
+      "answer": "We follow an agile methodology, which allows us to adapt quickly. When changes arise, we assess their impact and work with you to reprioritize and adjust the scope if needed."
     },
     {
       "question": "What makes your development approach different?",
-      "answer": "Our approach combines technical expertise with business understanding. We don't just build what you ask for—we collaborate with you to understand your business goals and user needs, then recommend solutions that deliver real value. We also emphasize clear communication, transparent pricing, and quality code."
+      "answer": "We go beyond code—we partner with you to understand your business goals and user needs. Our approach combines technical expertise with strategic insight, transparent communication, and quality-first execution."
     }
   ]
 }

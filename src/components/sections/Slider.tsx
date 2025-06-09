@@ -6,13 +6,13 @@ import React from 'react';
 import { Section } from '@/components/common';
 import { SliderContent } from '@/lib/data';
 
-import { BrandSlider } from './BrandSlider';
+import { StackSlider } from './StackSlider';
 import { textWithGradient } from '../../lib/textFormatters';
 
 export const Slider = ({ content }: { content: SliderContent }) => (
   <Section
     sx={{ py: 6, bgcolor: 'background.paper' }}
-    animation="fade"
+    animation="fadeInUp"
   >
     <Box sx={{ textAlign: 'center', mb: 8 }}>
       <Typography
@@ -41,7 +41,7 @@ export const Slider = ({ content }: { content: SliderContent }) => (
         </Typography>
       )}
     </Box>
-    <BrandSlider />
+    <StackSlider />
   </Section>
 );
 

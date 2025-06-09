@@ -1,48 +1,59 @@
 'use client';
 
 import { Box, SxProps, Theme } from '@mui/material';
-import { AnimatePresence, Variants } from 'framer-motion';
+import { motion } from 'framer-motion';
 import React, { ReactNode, forwardRef } from 'react';
 
-import { AnimationType, getAnimationProps } from '@/lib/animationVariants';
+import {
+  fadeInProps,
+  fadeInDownProps,
+  fadeInLeftProps,
+  fadeInRightProps,
+  fadeInUpProps,
+  staggerContainerProps,
+} from '@/lib/animationProps';
+
+export type AnimationPropType =
+  | 'fadeIn'
+  | 'fadeInUp'
+  | 'fadeInDown'
+  | 'fadeInLeft'
+  | 'fadeInRight'
+  | 'stagger';
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const animationPropMap: Record<AnimationPropType, any> = {
+  fadeIn: fadeInProps,
+  fadeInUp: fadeInUpProps,
+  fadeInDown: fadeInDownProps,
+  fadeInLeft: fadeInLeftProps,
+  fadeInRight: fadeInRightProps,
+  stagger: staggerContainerProps,
+};
 
 interface SectionProps {
   id?: string;
   children: ReactNode;
   sx?: SxProps<Theme>;
-  // Animation props
-  animation?: AnimationType;
-  customVariants?: Variants;
+  animation?: AnimationPropType;
   animationDelay?: number;
-  viewport?: boolean; // Whether to trigger animation when in viewport
 }
 
-/**
- * Section component that provides consistent styling for page sections with animation capabilities
- *
- * @param id - The ID of the section for navigation
- * @param children - The content of the section
- * @param sx - Additional styles for the section (fully supports responsive values)
- * @param animation - Type of animation to apply (default: 'fade')
- * @param customVariants - Custom animation variants to override defaults
- * @param animationDelay - Delay before animation starts in seconds (default: 0)
- * @param viewport - Whether to trigger animation when in viewport (default: true)
- */
-export const Section = forwardRef<HTMLDivElement, SectionProps>(({
-  id,
-  children,
-  sx,
-  animation = 'fade',
-  customVariants,
-  animationDelay = 0.2, // Add a small default delay
-  viewport = true,
-}, ref) => {
-  const motionProps = getAnimationProps(animation, customVariants, animationDelay, viewport);
+export const Section = forwardRef<HTMLDivElement, SectionProps>(
+  ({ id, children, sx, animation = 'fadeIn', animationDelay = 0.2 }, ref) => {
+    const selectedProps = animationPropMap[animation] || fadeInProps;
 
-  return (
-    <AnimatePresence>
+    const delayedProps = {
+      ...selectedProps,
+      transition: {
+        ...selectedProps.transition,
+        delay: animationDelay,
+      },
+    };
+
+    return (
       <Box
-        component="section"
+        component={motion.section}
         id={id}
         ref={ref}
         sx={{
@@ -50,15 +61,17 @@ export const Section = forwardRef<HTMLDivElement, SectionProps>(({
           pt: { xs: 4, md: 6 },
           pb: { xs: 5, md: 8 },
           px: { xs: 2, sm: 10, lg: 12 },
-          ...sx, // Spread user sx props - fully supports responsive values
+          ...sx,
         }}
-        {...motionProps}
+        initial={delayedProps.initial}
+        whileInView={delayedProps.animate}
+        transition={delayedProps.transition}
+        viewport={{ once: true, amount: 0.2 }}
       >
         {children}
       </Box>
-    </AnimatePresence>
-  );
-});
+    );
+  },
+);
 
-// Add display name for React DevTools
 Section.displayName = 'Section';

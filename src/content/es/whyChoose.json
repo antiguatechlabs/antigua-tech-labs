@@ -1,10 +1,10 @@
 {
   "title": "Por Qué Elegir {{gradient:Antigua Digital}}",
-  "subtitle": "Su Socio en Transformación Digital",
-  "description": "En Antigua Digital, combinamos experiencia técnica con pensamiento creativo para ofrecer soluciones que impulsan el crecimiento empresarial. Nuestro equipo de desarrolladores y diseñadores experimentados trabaja de manera colaborativa para crear aplicaciones escalables y fáciles de usar que satisfacen las necesidades específicas de su negocio.",
-  "buttonText": "Conocer Más",
+  "subtitle": "Tu aliado en transformación digital",
+  "description": "En Antigua Digital unimos expertise técnico y pensamiento creativo para desarrollar soluciones que realmente impulsan tu crecimiento. Nuestro equipo de desarrolladores y diseñadores trabaja de forma ágil y colaborativa para construir aplicaciones escalables, seguras y centradas en el usuario, adaptadas a las necesidades únicas de tu negocio.",
+  "buttonText": "Conocer más",
   "buttonLink": "/about",
   "imageSrc": "/images/why-choose.jpg",
   "yearEstablished": "2020",
-  "tagline": "Entregando excelencia en soluciones digitales"
+  "tagline": "Excelencia en soluciones digitales personalizadas"
 }

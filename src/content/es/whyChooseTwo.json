@@ -1,10 +1,10 @@
 {
-  "title": "Construyendo {{gradient:Aplicaciones Modernas}} que Escalan",
-  "subtitle": "Por Qué Elegirnos",
-  "description": "Nuestro enfoque de desarrollo se centra en crear código limpio y mantenible que puede crecer con su negocio. Aprovechamos las últimas tecnologías y seguimos las mejores prácticas de la industria para garantizar que sus aplicaciones no solo sean potentes y ricas en funcionalidades, sino también seguras, eficientes y preparadas para el futuro.",
+  "title": "Creamos {{gradient:Soluciones}} que se Adaptan a Tus Necesidades",
+  "subtitle": "Por qué elegirnos",
+  "description": "Desarrollamos soluciones digitales escalables con código limpio, mantenible y basado en las mejores prácticas del sector. Usamos tecnologías de vanguardia para garantizar que tus aplicaciones sean seguras, rápidas y preparadas para el futuro.",
   "buttonText": "Nuestro Proceso",
   "buttonLink": "/process",
-  "backgroundImage": "svg/waves-grey.svg",
+  "backgroundImage": "/svg/waves-grey.svg",
   "phoneNumber": "+1 (502) 555-7890",
   "yearEstablished": "2020"
 }

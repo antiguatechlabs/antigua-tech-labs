@@ -45,6 +45,51 @@ The landing page is organized into these major sections:
 - **Contact**: Contact form with validation
 - **Footer**: Site footer with links and information
 
+### Reusable Components
+
+The project includes several reusable components that ensure consistency:
+
+#### Section Component
+
+The `Section` component is a fundamental building block that provides consistent styling and animations:
+
+```tsx
+<Section
+  id="features"
+  animation="fadeInUp"
+  animationDelay={0.3}
+  sx={{ backgroundColor: 'background.paper' }}
+>
+  {/* Section content */}
+</Section>
+```
+
+This component handles:
+- Consistent spacing and padding across viewport sizes
+- Built-in animations with configurable types and delays
+- Viewport-based animation triggering
+- Responsive layout adjustments
+
+#### Motion Components
+
+Material UI components wrapped with Framer Motion for seamless animations:
+
+```tsx
+<MotionTypography
+  variant="h1"
+  initial={{ opacity: 0, y: 20 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.5 }}
+>
+  Animated Heading
+</MotionTypography>
+```
+
+Available motion components include:
+- `MotionBox`, `MotionContainer`, `MotionStack`
+- `MotionPaper`, `MotionButton`, `MotionTypography`
+- `MotionCard`, `MotionDiv`, `MotionSection`, `MotionSpan`
+
 ## Technologies Used
 
 - **Next.js 15**: React framework with App Router
@@ -118,9 +163,50 @@ Content for the landing page is stored in JSON files in the `/src/content` direc
 
 ### Styling
 
-- Chakra UI's prop-based styling is used for component-specific styling
+- Material UI's prop-based styling is used for component-specific styling through the `sx` prop
 - Global CSS variables for theme properties in `src/theme.ts`
 - Support for both light and dark modes
+- Animation styling through Framer Motion variants and props
+
+#### Animation System
+
+The project uses a comprehensive animation system:
+
+1. **Animation Variants**: Predefined animation patterns
+   ```typescript
+   export const slideUpVariant: Variants = {
+     initial: { opacity: 0, y: 50 },
+     animate: {
+       opacity: 1,
+       y: 0,
+       transition: { duration: 0.5, ease: 'easeOut' },
+     },
+   };
+   ```
+
+2. **Animation Props**: Ready-to-use animation configurations
+   ```typescript
+   export const fadeInUpProps = {
+     initial: { opacity: 0, y: 20 },
+     animate: { opacity: 1, y: 0 },
+     transition: { duration: 0.5 },
+   };
+   ```
+
+3. **Page Transitions**: Smooth transitions between pages and language changes
+   ```tsx
+   <AnimatePresence mode="wait" initial={false}>
+     <MotionBox
+       key={lang}
+       initial={{ opacity: 0, y: 10 }}
+       animate={{ opacity: 1, y: 0 }}
+       exit={{ opacity: 0, y: -10 }}
+       transition={{ duration: 0.25 }}
+     >
+       {children}
+     </MotionBox>
+   </AnimatePresence>
+   ```
 
 ### Adding New Sections
 
@@ -135,7 +221,48 @@ The landing page supports multiple languages through URL-based routing:
 - English: `/en/`
 - Spanish: `/es/`
 
-The language context automatically detects the language from the URL and loads the appropriate content. Users can toggle between languages using the language switcher in the navigation.
+#### Language Implementation
+
+The multilingual system works through several integrated components:
+
+1. **URL-based routing**: Language is determined from the URL path segment (`/en/`, `/es/`)
+2. **Middleware**: Automatically redirects users from the root URL to their preferred language
+   ```typescript
+   // Redirects / to /en/ or /es/ based on browser preferences
+   export function middleware(request: NextRequest) {
+     const { pathname } = request.nextUrl;
+     // Check if URL already has language code
+     if (!pathnameHasLanguage) {
+       return NextResponse.redirect(
+         new URL(`/${defaultLanguage}${pathname === '/' ? '' : pathname}`, request.url),
+       );
+     }
+     return NextResponse.next();
+   }
+   ```
+
+3. **Language Context**: Provides language state and toggle functionality throughout the app
+   ```tsx
+   const { language, toggleLanguage } = useLanguage();
+   ```
+
+4. **Content Loading**: JSON files are organized by language and loaded dynamically
+   ```tsx
+   // Server component loading content based on URL parameter
+   const { lang } = await params;
+   const content = getHomePageContent(lang);
+   
+   // Component receiving language-specific content
+   <Hero content={content.hero} />
+   ```
+
+5. **SEO Optimization**: Proper hreflang tags are included for search engines
+   ```html
+   <link rel="alternate" hrefLang="en" href="https://example.com/en" />
+   <link rel="alternate" hrefLang="es" href="https://example.com/es" />
+   ```
+
+Users can toggle between languages using the language switcher in the navigation, which updates the URL and triggers a page transition animation.
 
 ## Deployment
 

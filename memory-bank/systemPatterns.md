@@ -63,11 +63,39 @@ The project organizes components into logical categories:
 
 The project includes several custom components that should be used whenever possible:
 
-- **Section**: A wrapper component for page sections that provides consistent styling, spacing, and container behavior
+- **Section**: A wrapper component for page sections that provides consistent styling, spacing, and container behavior with built-in animations
 - **GradientText**: A component for rendering text with gradient styling
 - **MotionComponents**: Wrapped Material UI components with Framer Motion for animations
 - **SpotlightCard**: Interactive card component with spotlight effect
 - **CounterUp**: Animated counter component for statistics
+
+#### Section Component Example
+
+The Section component is a key building block that encapsulates consistent styling and animations:
+
+```tsx
+// Usage example
+<Section
+  id="hero"
+  animation="fadeInUp"
+  animationDelay={0.3}
+  sx={{
+    paddingTop: { xs: 8, md: 10, lg: 12 },
+    backgroundColor: colors.gradientBackground,
+  }}
+>
+  {/* Section content */}
+</Section>
+```
+
+The Section component accepts these props:
+- `id`: Optional string for section identification
+- `animation`: Animation type ('fadeIn', 'fadeInUp', 'fadeInDown', 'fadeInLeft', 'fadeInRight', 'stagger')
+- `animationDelay`: Number in seconds to delay the animation
+- `sx`: Material UI's sx prop for additional styling
+- `children`: React nodes for section content
+
+This approach ensures consistent spacing, animations, and styling across all page sections.
 
 ### Theme Management
 
@@ -109,6 +137,58 @@ The application implements language-based routing:
 - Language toggle updates the URL when the language is changed
 - SEO is optimized with proper hreflang tags
 
+#### Middleware Implementation
+
+The middleware handles language detection and redirection:
+
+```typescript
+// middleware.ts
+export function middleware(request: NextRequest) {
+  const { pathname } = request.nextUrl;
+  const supportedLanguages = ['en', 'es'];
+  const defaultLanguage = 'en';
+
+  const pathnameHasLanguage = supportedLanguages.some(
+    lang => pathname.startsWith(`/${lang}/`) || pathname === `/${lang}`,
+  );
+
+  if (!pathnameHasLanguage) {
+    return NextResponse.redirect(
+      new URL(`/${defaultLanguage}${pathname === '/' ? '' : pathname}`, request.url),
+    );
+  }
+
+  return NextResponse.next();
+}
+```
+
+#### Language Context Usage
+
+The language context is provided at the layout level and used throughout the application:
+
+```tsx
+// In layout.tsx
+<LanguageProvider initialLanguage={lang as 'en' | 'es'}>
+  {/* Application content */}
+</LanguageProvider>
+
+// In components
+const { language, toggleLanguage } = useLanguage();
+```
+
+#### Content Loading Example
+
+Content is loaded based on the current language:
+
+```tsx
+// In page.tsx
+const { lang } = await params;
+const content = getHomePageContent(lang);
+
+// In components
+<Hero content={content.hero} />
+```
+
 ### Data Flow
 
 Data flows through the application in a unidirectional pattern:
@@ -130,6 +210,64 @@ Data flows through the application in a unidirectional pattern:
 
 - **Material UI**: Selected for its comprehensive component system, icon library, and theming capabilities
 - **Framer Motion**: Implemented for high-quality animations and transitions
+
+#### Animation Integration
+
+The project integrates Framer Motion with Material UI components:
+
+```typescript
+// Motion-wrapped Material UI components
+export const MotionBox = motion.create(Box);
+export const MotionButton = motion.create(Button);
+export const MotionTypography = motion.create(Typography);
+export const MotionCard = motion.create(Card);
+```
+
+#### Animation Variants
+
+Predefined animation variants ensure consistent animations:
+
+```typescript
+// Animation variants
+export const fadeVariant: Variants = {
+  initial: { opacity: 0 },
+  animate: {
+    opacity: 1,
+    transition: { duration: 0.5, ease: 'easeOut' },
+  },
+};
+
+export const slideUpVariant: Variants = {
+  initial: { opacity: 0, y: 50 },
+  animate: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.5, ease: 'easeOut' },
+  },
+};
+```
+
+#### Animation Props
+
+Reusable animation props simplify component animations:
+
+```typescript
+// Animation props
+export const fadeInUpProps = {
+  initial: { opacity: 0, y: 20 },
+  animate: { opacity: 1, y: 0 },
+  transition: { duration: 0.5 },
+};
+
+// Usage in components
+<MotionTypography
+  variant="h1"
+  {...slideLeftVariant}
+  sx={{ fontSize: { xs: '2.25rem', md: '3rem' } }}
+>
+  {textWithGradient(content.title)}
+</MotionTypography>
+```
 
 ### Styling Approach
 

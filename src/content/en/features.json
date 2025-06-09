@@ -1,35 +1,35 @@
 {
   "title": "Comprehensive {{gradient:Digital Solutions}}",
-  "subtitle": "From concept to deployment, we build scalable applications that adapt to your evolving business needs.",
+  "subtitle": "From concept to launch, we develop applications that adapt to your real business needs.",
   "items": [
     {
       "title": "Custom Web Applications",
-      "description": "Tailored web applications designed to solve your specific business challenges and streamline operations.",
+      "description": "Tailored platforms built to solve specific challenges and streamline your daily operations.",
       "icon": "LayoutIcon"
     },
     {
       "title": "Mobile App Development",
-      "description": "Native and cross-platform mobile applications that provide seamless experiences across all devices.",
+      "description": "Native and cross-platform apps designed for smooth performance across all devices.",
       "icon": "SmartphoneIcon"
     },
     {
-      "title": "E-commerce Solutions",
-      "description": "Scalable online stores with secure payment processing, inventory management, and customer analytics.",
+      "title": "E-Commerce Solutions",
+      "description": "Scalable online stores with secure payments, inventory control, and customer analytics.",
       "icon": "ShoppingCartIcon"
     },
     {
       "title": "Data Visualization",
-      "description": "Interactive dashboards and reports that transform complex data into actionable business insights.",
+      "description": "Interactive dashboards that turn complex data into clear, actionable insights.",
       "icon": "BarChartIcon"
     },
     {
       "title": "API Integration",
-      "description": "Seamless connections between your systems and third-party services to automate workflows and enhance functionality.",
+      "description": "Seamless connections to third-party services that automate tasks and expand functionality.",
       "icon": "RefreshIcon"
     },
     {
       "title": "Security & Maintenance",
-      "description": "Ongoing support, security updates, and performance optimization to keep your applications running smoothly.",
+      "description": "Ongoing support, security patches, and performance improvements to keep your app running smoothly.",
       "icon": "SecurityIcon"
     }
   ]
