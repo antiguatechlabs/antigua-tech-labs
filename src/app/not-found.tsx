@@ -1,13 +1,7 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-'use client';
-
 import { Box, Button, Container } from '@mui/material';
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
-import { useEffect, useState } from 'react';
 
 import { GradientText } from '@/components/ui';
-import { defaultLanguage, supportedLanguages } from '@/lib/i18n/config';
 import { MotionBox, MotionTypography } from '@/lib/motionComponents';
 import { colors } from '@/theme';
 
@@ -28,37 +22,12 @@ const content = {
   },
 } as const;
 
-export default function NotFound() {
-  const pathname = usePathname();
-  const [language, setLanguage] = useState<'en' | 'es'>(defaultLanguage);
-
-  useEffect(() => {
-    console.error('404 page accessed');
-
-    const detectLanguage = () => {
-      // 1. Check from URL
-      const segments = pathname?.split('/');
-      if (segments?.length > 1 && supportedLanguages.includes(segments[1] as any)) {
-        return segments[1] as 'en' | 'es';
-      }
-
-      // 2. Check browser language
-      const browserLang = navigator.language.slice(0, 2);
-      if (supportedLanguages.includes(browserLang as any)) {
-        return browserLang as 'en' | 'es';
-      }
-
-      // 3. Fallback
-      return defaultLanguage;
-    };
-
-    setLanguage(detectLanguage());
-  }, [pathname]);
-
-  const pageContent = content[language];
+export default function NotFound({ params }: { params: { lang: string } }) {
+  const lang = params.lang === 'es' ? 'es' : 'en';
+  const pageContent = content[lang];
 
   return (
-    <Container maxWidth="lg">
+    <Container>
       <Box
         sx={{
           display: 'flex',
@@ -128,7 +97,7 @@ export default function NotFound() {
         >
           <Button
             component={Link}
-            href={`/${language}`}
+            href={`/${lang}`}
             variant="contained"
             size="large"
             sx={{
@@ -152,4 +121,9 @@ export default function NotFound() {
       </Box>
     </Container>
   );
+}
+
+
+export function generateStaticParams() {
+  return [{ lang: 'en' }, { lang: 'es' }];
 }

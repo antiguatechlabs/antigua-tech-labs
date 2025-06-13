@@ -4,3 +4,4 @@ export * from './Menu';
 // export * from './MobileMenu';
 export * from './Section';
 export * from './ScrollPreserver';
+export * from './FramerWrapper';

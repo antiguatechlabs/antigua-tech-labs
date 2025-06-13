@@ -19,9 +19,9 @@ export function Hero({ content }: { content: HeroContent }) {
     <Section
       id="hero"
       sx={{
-        paddingTop: { xs: 8, md: 10, lg: 12 },
+        paddingTop: { xs: 8, md: 10, lg: 15 },
         paddingBottom: { xs: 8, md: 10, lg: 12 },
-        backgroundColor: colors.gradientBackground,
+        backgroundColor: colors.gradientMain,
       }}
     >
       <Box
@@ -30,11 +30,11 @@ export function Hero({ content }: { content: HeroContent }) {
           flexDirection: { xs: 'column', lg: 'row' },
           alignItems: { xs: 'center', lg: 'stretch' }, // Center on mobile, stretch on desktop
           width: '100%',
-          gap: { xs: 4, md: 6 }, // Add spacing between elements
+          gap: { xs: 4, md: 2 }, // Add spacing between elements
         }}
       >
         {/* Text section */}
-        <Box sx={{ flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+        <Box border={'1px solid red'} sx={{ flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
           <MotionBox
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -104,6 +104,7 @@ export function Hero({ content }: { content: HeroContent }) {
 
         {/* Image section */}
         <Box
+          border={'1px solid blue'}
           sx={{
             flex: 1,
             display: 'flex',

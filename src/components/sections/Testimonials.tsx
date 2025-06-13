@@ -40,7 +40,7 @@ export default function Testimonials() {
         py: { xs: 5, md: 8 },
         maxWidth: 'xl',
       }}
-      animation="slideUp"
+      animation="fadeInUp"
       animationDelay={0.2}
     >
       <MotionTypography

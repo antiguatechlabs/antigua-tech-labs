@@ -33,7 +33,7 @@ export function Features({ content }: { content: FeaturesContent }) {
   return (
     <Section
       id="services"
-      animation="slideUp"
+      animation="fadeInUp"
       animationDelay={0.2}
     >
       <Box sx={{ textAlign: 'center', mb: 8 }}>

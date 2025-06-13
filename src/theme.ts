@@ -32,7 +32,7 @@ export const colors = {
   textLight: '#4a5568',
   gradientMain: 'linear-gradient(to right, #9c43f8, #26c5f3)',
   gradientSecondary: 'linear-gradient(to right, #855df7, #5591f5)',
-  gradientBackground: 'linear-gradient(180deg, rgba(90, 48, 255, 0.03), rgba(90, 48, 255, 0.01))',
+  gradientBackground: 'linear-gradient(180deg, rgba(72, 70, 79, 0.33), rgba(90, 48, 255, 0.01))',
 };
 
 // Create a base theme function that can be used with light mode

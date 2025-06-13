@@ -1,5 +1,4 @@
 import { CssBaseline } from '@mui/material';
-import { AnimatePresence } from 'framer-motion';
 import { Inter } from 'next/font/google';
 import Head from 'next/head';
 import { notFound } from 'next/navigation';
@@ -7,7 +6,6 @@ import { ReactNode } from 'react';
 
 import { ScrollToTop } from '@/components/ui';
 import { LanguageProvider, SidebarProvider, ThemeProvider } from '@/context';
-import { MotionBox } from '@/lib/motionComponents';
 
 
 // Next.js functions
@@ -77,17 +75,7 @@ export default async function LocaleLayout({
           <ThemeProvider>
             <SidebarProvider>
               <CssBaseline />
-              <AnimatePresence mode="wait" initial={false}>
-                <MotionBox
-                  key={lang}
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -10 }}
-                  transition={{ duration: 0.25 }}
-                >
-                  {children}
-                </MotionBox>
-              </AnimatePresence>
+              {children}
               {/* <ScrollPreserver/> */}
               <ScrollToTop />
             </SidebarProvider>

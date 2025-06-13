@@ -25,7 +25,7 @@ export function FAQ({ content }: { content: FAQContent }) {
   return (
     <Section
       id="faq"
-      animation="slideLeft"
+      animation="fadeInLeft"
       animationDelay={0.3}
     >
       <Box sx={{ textAlign: 'center', mb: 8 }}>
