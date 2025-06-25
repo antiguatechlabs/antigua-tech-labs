@@ -83,7 +83,7 @@ export const WhyChoose = ({ content }: { content: WhyChooseContent }) => (
       </Box>
 
       {/* Right Image */}
-      <Box sx={{ flex: 1, position: 'relative' }}>
+      <Box sx={{ flex: 1, position: 'relative', width: '100%' }}>
         <MotionBox
           initial="hidden"
           whileInView="visible"
@@ -94,11 +94,11 @@ export const WhyChoose = ({ content }: { content: WhyChooseContent }) => (
           <Paper
             elevation={4}
             sx={{
-              position: 'relative',
               borderRadius: 2,
               overflow: 'hidden',
               width: '100%',
               height: { xs: '300px', md: '400px' },
+              position: 'relative',
             }}
           >
             <Box
@@ -116,80 +116,49 @@ export const WhyChoose = ({ content }: { content: WhyChooseContent }) => (
                 style={{ objectFit: 'cover' }}
               />
             </Box>
-          </Paper>
 
-          {/* Floating Element */}
-          <MotionPaper
-            elevation={4}
-            sx={{
-              position: 'absolute',
-              // Responsive bottom positioning
-              bottom: {
-                // xs: '-15px', // Closer to image on mobile
-                sm: '-18px',
-                md: '-20px',
-                lg: '-25px',
-              },
-              // Responsive right positioning
-              right: {
-                // xs: '50%', // Center on mobile
-                sm: '30%',
-                md: '15%',
-                lg: '10%',
-                xl: '5%',
-              },
-              // Transform to adjust horizontal centering on mobile
-              transform: {
-                // xs: 'translateX(50%)', // Center on mobile
-                sm: 'translateX(0)', // No transform on larger screens
-              },
-              // Responsive width
-              width: {
-                sm: 'auto',
-              },
-              maxWidth: {
-                xs: '180px',
-                sm: '190px',
-                md: '200px',
-                lg: '220px',
-              },
-              // Responsive padding
-              p: {
-                xs: 2,
-                sm: 2.25,
-                md: 2.5,
-                lg: 3,
-              },
-              bgcolor: 'primary.main',
-              color: 'white',
-              borderRadius: 2,
-              // Add z-index to ensure it appears above other elements
-              zIndex: 1,
-            }}
-            initial={{ y: 50, opacity: 0 }}
-            animate={{
-              y: [0, -10, 0],
-              opacity: 1,
-              transition: {
-                y: {
-                  duration: 4,
-                  repeat: Infinity,
-                  repeatType: 'loop',
+            {/* Floating Element */}
+            <MotionPaper
+              elevation={4}
+              sx={{
+                position: 'absolute',
+                bottom: 16,
+                right: 16,
+                transform: 'translate(50%, 50%)',
+                width: 180,
+                bgcolor: 'primary.main',
+                color: 'white',
+                borderRadius: 2,
+                zIndex: 2,
+                px: 2,
+                py: 1.5,
+              }}
+              initial={{ y: 50, opacity: 0 }}
+              animate={{
+                y: [0, -10, 0],
+                opacity: 1,
+                transition: {
+                  y: {
+                    duration: 4,
+                    repeat: Infinity,
+                    repeatType: 'loop',
+                  },
+                  opacity: {
+                    duration: 0.5,
+                    delay: 0.5,
+                  },
                 },
-                opacity: {
-                  duration: 0.5,
-                  delay: 0.5,
-                },
-              },
-            }}
-          >
-            <Typography variant="h6" component="h4" sx={{ mb: 1 }}>
-                  Since {content.yearEstablished}
-            </Typography>
-            <Typography variant="body2">{content.tagline}</Typography>
-          </MotionPaper>
+              }}
+            >
+              <Typography variant="h6" component="h4" sx={{ mb: 0.5 }}>
+                {content.yearEstablished}
+              </Typography>
+              <Typography variant="body2">{content.tagline}</Typography>
+            </MotionPaper>
+          </Paper>
         </MotionBox>
       </Box>
+
     </Box>
   </Section>
 );

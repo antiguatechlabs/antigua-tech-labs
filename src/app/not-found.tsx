@@ -1,3 +1,4 @@
+'use client';
 import { Box, Button, Container } from '@mui/material';
 import Link from 'next/link';
 
@@ -22,108 +23,106 @@ const content = {
   },
 } as const;
 
-export default function NotFound({ params }: { params: { lang: string } }) {
-  const lang = params.lang === 'es' ? 'es' : 'en';
-  const pageContent = content[lang];
+export default function NotFound() {
+  const pageContent = content['en'];
 
   return (
-    <Container>
-      <Box
-        sx={{
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-          justifyContent: 'center',
-          minHeight: '100vh',
-          textAlign: 'center',
-          py: 8,
-          px: { xs: 2, md: 4 },
-        }}
-      >
-        <MotionBox
-          initial={{ opacity: 0, y: -50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-        >
-          <GradientText
-            component="h1"
-            startColor={colors.violet}
-            endColor={colors.aqua}
+    <html lang={'en'}>
+      <body style={{ margin: 0, fontFamily: 'Inter, sans-serif', backgroundColor: '#fff' }}>
+        <Container>
+          <Box
             sx={{
-              fontSize: { xs: '8rem', md: '12rem' },
-              fontWeight: 800,
-              lineHeight: 1,
-              mb: 2,
-              letterSpacing: '-0.05em',
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              justifyContent: 'center',
+              minHeight: '100vh',
+              textAlign: 'center',
+              py: 8,
+              px: { xs: 2, md: 4 },
             }}
           >
-            {pageContent.title}
-          </GradientText>
-        </MotionBox>
+            <MotionBox
+              initial={{ opacity: 0, y: -50 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+            >
+              <GradientText
+                component="h1"
+                startColor={colors.violet}
+                endColor={colors.aqua}
+                sx={{
+                  fontSize: { xs: '8rem', md: '12rem' },
+                  fontWeight: 800,
+                  lineHeight: 1,
+                  mb: 2,
+                  letterSpacing: '-0.05em',
+                }}
+              >
+                {pageContent.title}
+              </GradientText>
+            </MotionBox>
 
-        <MotionTypography
-          variant="h3"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-          sx={{
-            fontWeight: 700,
-            mb: 3,
-            fontSize: { xs: '1.75rem', md: '2.5rem' },
-          }}
-        >
-          {pageContent.heading}
-        </MotionTypography>
+            <MotionTypography
+              variant="h3"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              sx={{
+                fontWeight: 700,
+                mb: 3,
+                fontSize: { xs: '1.75rem', md: '2.5rem' },
+              }}
+            >
+              {pageContent.heading}
+            </MotionTypography>
 
-        <MotionTypography
-          variant="body1"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.4 }}
-          sx={{
-            mb: 6,
-            maxWidth: '600px',
-            fontSize: { xs: '1rem', md: '1.125rem' },
-            color: 'text.secondary',
-          }}
-        >
-          {pageContent.description}
-        </MotionTypography>
+            <MotionTypography
+              variant="body1"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.5, delay: 0.4 }}
+              sx={{
+                mb: 6,
+                maxWidth: '600px',
+                fontSize: { xs: '1rem', md: '1.125rem' },
+                color: 'text.secondary',
+              }}
+            >
+              {pageContent.description}
+            </MotionTypography>
 
-        <MotionBox
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.6 }}
-        >
-          <Button
-            component={Link}
-            href={`/${lang}`}
-            variant="contained"
-            size="large"
-            sx={{
-              px: 4,
-              py: 1.5,
-              fontSize: '1rem',
-              fontWeight: 600,
-              borderRadius: '8px',
-              background: colors.gradientMain,
-              '&:hover': {
-                background: colors.gradientSecondary,
-                transform: 'translateY(-2px)',
-                boxShadow: '0 8px 16px rgba(90, 48, 255, 0.2)',
-              },
-              transition: 'all 0.3s ease',
-            }}
-          >
-            {pageContent.buttonText}
-          </Button>
-        </MotionBox>
-      </Box>
-    </Container>
+            <MotionBox
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.6 }}
+            >
+              <Button
+                component={Link}
+                href={'/'}
+                variant="contained"
+                size="large"
+                sx={{
+                  px: 4,
+                  py: 1.5,
+                  fontSize: '1rem',
+                  fontWeight: 600,
+                  borderRadius: '8px',
+                  background: colors.gradientMain,
+                  '&:hover': {
+                    background: colors.gradientSecondary,
+                    transform: 'translateY(-2px)',
+                    boxShadow: '0 8px 16px rgba(90, 48, 255, 0.2)',
+                  },
+                  transition: 'all 0.3s ease',
+                }}
+              >
+                {pageContent.buttonText}
+              </Button>
+            </MotionBox>
+          </Box>
+        </Container>
+      </body>
+    </html>
   );
-}
-
-
-export function generateStaticParams() {
-  return [{ lang: 'en' }, { lang: 'es' }];
 }

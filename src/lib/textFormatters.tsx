@@ -1,6 +1,6 @@
 import React, { ReactNode } from 'react';
 
-import GradientText from '../components/ui/GradientText';
+import GradientText from '../components/ui/text/GradientText';
 
 /**
  * Processes text and converts special gradient patterns into GradientText components
@@ -9,7 +9,7 @@ import GradientText from '../components/ui/GradientText';
  * @param text - The text to process
  * @returns Array of React nodes with gradient text applied where specified
  */
-export const textWithGradient = (text: string): ReactNode[] => {
+export const textWithGradient = (text: string, mainTitle = false): ReactNode[] => {
   // Match {{gradient:text}} or {{gradient:text:startColor:endColor}}
   const pattern = /\{\{gradient:(.*?)(?::(.*?):(.*?))?\}\}/g;
   const parts: ReactNode[] = [];
@@ -34,13 +34,14 @@ export const textWithGradient = (text: string): ReactNode[] => {
           key={`gradient-${match.index}`}
           startColor={startColor}
           endColor={endColor}
+          mainTitle={mainTitle}
         >
           {gradientText}
         </GradientText>,
       );
     } else {
       parts.push(
-        <GradientText key={`gradient-${match.index}`}>
+        <GradientText mainTitle={mainTitle} key={`gradient-${match.index}`}>
           {gradientText}
         </GradientText>,
       );

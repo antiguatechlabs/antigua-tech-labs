@@ -10,6 +10,7 @@ interface GradientTextProps {
   startColor?: string;
   endColor?: string;
   component?: React.ElementType;
+  mainTitle?: boolean;
   sx?: SxProps<Theme>;
 }
 
@@ -19,6 +20,7 @@ const GradientText = ({
   endColor = colors.aqua,
   component = 'span',
   sx = {},
+  mainTitle = false,
   ...muiProps
 }: GradientTextProps) => (
   <Box
@@ -29,6 +31,7 @@ const GradientText = ({
       WebkitBackgroundClip: 'text',
       WebkitTextFillColor: 'transparent',
       display: 'inline',
+      fontSize: mainTitle ? { xs: 'inherit', md: 'inherit', lg: '5rem' } : 'inherit',
       ...sx,
     }}
   >

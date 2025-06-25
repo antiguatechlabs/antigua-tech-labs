@@ -19,7 +19,7 @@ const CodeBlock: React.FC<CodeBlockProps> = ({ language, code }) => {
       component="pre"
       sx={{
         m: 0,
-        p: 2,
+        p: 5,
         overflowX: 'hidden',
         fontFamily: 'monospace',
         fontSize: '1rem',
@@ -32,10 +32,12 @@ const CodeBlock: React.FC<CodeBlockProps> = ({ language, code }) => {
 
 type CodeWindowProps = {
   code: string
+  language?: 'html' | 'css' | 'javascript'
 }
 
 const CodeWindow: React.FC<CodeWindowProps> = ({
   code,
+  language = 'html',
 }) => (
   <Box
     sx={{
@@ -68,7 +70,7 @@ const CodeWindow: React.FC<CodeWindowProps> = ({
     <Box sx={{ width: '100%', display: 'flex', flexDirection: 'column' }}>
       <Box sx={{ borderBottom: '1px solid #e6e6e6' }}>
         <CodeBlock
-          language="html"
+          language={language}
           code={code}
         />
       </Box>

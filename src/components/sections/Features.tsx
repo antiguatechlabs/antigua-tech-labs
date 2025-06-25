@@ -6,6 +6,7 @@ import SecurityIcon from '@mui/icons-material/Security';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import SmartphoneIcon from '@mui/icons-material/Smartphone';
 import StarIcon from '@mui/icons-material/Star';
+import ViewInArIcon from '@mui/icons-material/ViewInAr';
 import { Box, Typography, CardContent } from '@mui/material';
 import React from 'react';
 
@@ -15,7 +16,6 @@ import { FeaturesContent, FeatureItem } from '@/lib/data';
 import { MotionCard, MotionDiv } from '@/lib/motionComponents';
 import { textWithGradient } from '@/lib/textFormatters';
 
-import SpotlightCard from '../ui/SpotlightCard';
 
 export function Features({ content }: { content: FeaturesContent }) {
 
@@ -28,6 +28,7 @@ export function Features({ content }: { content: FeaturesContent }) {
     RefreshIcon: <RefreshIcon fontSize="large" />,
     SecurityIcon: <SecurityIcon fontSize="large" />,
     StarIcon: <StarIcon fontSize="large" />,
+    ViewInArIcon: <ViewInArIcon fontSize="large" />,
   };
 
   return (
@@ -78,63 +79,60 @@ export function Features({ content }: { content: FeaturesContent }) {
           }}
         >
           {content.items.map((feature: FeatureItem, index: number) => (
-            <Box key={index}>
-              <MotionDiv {...fadeVariant}>
-                <MotionCard
-                  sx={{
-                    height: '100%',
-                    border: '1px solid',
-                    borderColor: 'divider',
-                    transition: 'all 0.3s ease',
-                    background:
+            <MotionDiv key={index} {...fadeVariant}>
+              <MotionCard
+                sx={{
+                  height: '100%',
+                  border: '1px solid red',
+                  borderColor: 'divider',
+                  transition: 'all 0.3s ease',
+                  background:
                         'linear-gradient(145deg, rgba(255,255,255,0.9), rgba(240,240,245,0.4))',
-                    '&:hover': {
-                      boxShadow: '0 8px 16px rgba(0,0,0,0.1)',
-                      transform: 'translateY(-5px)',
-                    },
-                    minHeight: { xs: '280px', md: '320px' },
-                    display: 'flex',
-                    flexDirection: 'column',
-                  }}
-                >
-                  <SpotlightCard spotlightColor="rgba(100, 81, 112, 0.2)">
-                    <CardContent sx={{ p: 0, display: 'flex', flexDirection: 'column', height: '100%' }}>
-                      <Box
-                        sx={{
-                          width: 48,
-                          height: 48,
-                          borderRadius: 2,
-                          display: 'flex',
-                          alignItems: 'center',
-                          justifyContent: 'center',
-                          mb: 3,
-                          background: 'linear-gradient(135deg, #9c43f8 0%, #26c5f3 100%)',
-                          color: 'white',
-                        }}
-                      >
-                        {iconMap[feature.icon] || <StarIcon fontSize="large" />}
-                      </Box>
-                      <Typography variant="h5" sx={{ fontWeight: 600, mb: 1.5 }}>
-                        {feature.title}
-                      </Typography>
-                      <Typography
-                        variant="body1"
-                        sx={{
-                          color: 'text.secondary',
-                          overflow: 'hidden',
-                          display: '-webkit-box',
-                          WebkitLineClamp: 3,
-                          WebkitBoxOrient: 'vertical',
-                          flex: 1,
-                        }}
-                      >
-                        {feature.description}
-                      </Typography>
-                    </CardContent>
-                  </SpotlightCard>
-                </MotionCard>
-              </MotionDiv>
-            </Box>
+                  '&:hover': {
+                    boxShadow: '0 8px 16px rgba(0,0,0,0.1)',
+                    transform: 'translateY(-5px)',
+                  },
+                  minHeight: { xs: '280px', md: '320px' },
+                  display: 'flex',
+                  flexDirection: 'column',
+                }}
+              >
+                <CardContent sx={{ p: 5, display: 'flex', flexDirection: 'column', height: '100%' }}>
+                  <Box
+                    sx={{
+                      width: 48,
+                      height: 48,
+                      borderRadius: 2,
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      mb: 4,
+                      background: 'linear-gradient(135deg, #9c43f8 0%, #26c5f3 100%)',
+                      color: 'white',
+                    }}
+                  >
+                    {iconMap[feature.icon] || <StarIcon fontSize="large" />}
+                  </Box>
+                  <Typography variant="h5" sx={{ fontWeight: 600, mb: 1.5 }}>
+                    {feature.title}
+                  </Typography>
+                  <Typography
+                    variant="body1"
+                    sx={{
+                      color: 'text.secondary',
+                      overflow: 'hidden',
+                      display: '-webkit-box',
+                      WebkitLineClamp: 3,
+                      WebkitBoxOrient: 'vertical',
+                      flex: 1,
+                    }}
+                  >
+                    {feature.description}
+                  </Typography>
+                </CardContent>
+              </MotionCard>
+            </MotionDiv>
+
           ))}
         </Box>
       </MotionDiv>

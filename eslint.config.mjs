@@ -28,7 +28,7 @@ const eslintConfig = [
     ignores: ignorePatterns,
   },
   ...compat.extends('next/core-web-vitals', 'next/typescript'),
-  ...compat.plugins('json', 'markdown', 'css'),
+  ...compat.plugins('json', 'css'),
   {
     rules: {
       // Formatting rules
@@ -77,11 +77,6 @@ const eslintConfig = [
   {
     files: ['**/*.json'],
     rules: {},
-  },
-  // Markdown files configuration
-  {
-    files: ['**/*.md'],
-    processor: 'markdown/markdown',
   },
   // CSS files configuration
   {

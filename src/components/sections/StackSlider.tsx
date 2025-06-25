@@ -13,6 +13,12 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 
+import dockerDark from '@/assets/slider/docker-logo-dark.svg';
+import dockerColor from '@/assets/slider/docker-logo.svg';
+import gcpColor from '@/assets/slider/gcp-logo.svg';
+import gcpDark from '@/assets/slider/gpc-logo-dark.svg';
+import graphQLDark from '@/assets/slider/graphql-logo-dark.svg';
+import graphQLColor from '@/assets/slider/graphql-logo.svg';
 import jsDark from '@/assets/slider/js-logo-dark.svg';
 import jsColor from '@/assets/slider/js-logo.svg';
 import mongodbDark from '@/assets/slider/mongodb-logo-dark.svg';
@@ -41,6 +47,9 @@ const stackData = [
   { name: 'Tailwind CSS', darkLogo: tailwindDark, colorLogo: tailwindColor },
   { name: 'MongoDB', darkLogo: mongodbDark, colorLogo: mongodbColor },
   { name: 'MySQL', darkLogo: mysqlDark, colorLogo: mysqlColor },
+  { name: 'GCP', darkLogo: gcpDark, colorLogo: gcpColor },
+  { name: 'GraphQL', darkLogo: graphQLDark, colorLogo: graphQLColor },
+  { name: 'Docker', darkLogo: dockerDark, colorLogo: dockerColor },
 ];
 
 export const StackSlider: React.FC = () => {

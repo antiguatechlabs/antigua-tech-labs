@@ -17,6 +17,7 @@
     "@emotion/styled": "^11.14.0",
     "@mui/icons-material": "^7.1.0",
     "@mui/material": "^7.1.0",
+    "@shikijs/engine-oniguruma": "^3.6.0",
     "framer-motion": "^12.10.5",
     "gsap": "^3.13.0",
     "highlight.js": "^11.11.1",
@@ -42,6 +43,7 @@
     "husky": "^9.1.7",
     "lint-staged": "^16.1.0",
     "prettier": "^3.5.3",
+    "shiki": "^3.6.0",
     "typescript": "^5",
     "webpack": "^5.99.9"
   },

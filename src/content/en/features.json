@@ -18,9 +18,9 @@
       "icon": "ShoppingCartIcon"
     },
     {
-      "title": "Data Visualization",
-      "description": "Interactive dashboards that turn complex data into clear, actionable insights.",
-      "icon": "BarChartIcon"
+      "title": "3D Model Design",
+      "description": "Create, customize, and visualize detailed 3D models with precision and flexibility.",
+      "icon": "ViewInArIcon"
     },
     {
       "title": "API Integration",
