@@ -1,21 +1,65 @@
 {
   "companyName": "Antigua Digital",
   "menuTitle": "Menu",
-  "navItems": {
-    "features": "Services",
-    "testimonials": "Testimonials",
-    "pricing": "Projects",
-    "contact": "Contact"
-  },
   "languageToggle": {
     "en": "EN",
     "es": "ES"
   },
   "menuItems": [
-    { "name": "Home", "href": "#" },
-    { "name": "Services", "href": "#features" },
-    { "name": "Testimonials", "href": "#testimonials" },
-    { "name": "Projects", "href": "#pricing" },
-    { "name": "Services", "href": "#services" }
-  ]
+    { 
+      "name": "Home", 
+      "href": "#" 
+    },
+    { 
+      "name": "Services", 
+      "href": "#features",
+      "submenu": [
+        {
+          "name": "Web Applications",
+          "href": "/services/web-applications"
+        },
+         {
+          "name": "Mobile Applications",
+          "href": "/services/web-applications"
+        },
+        {
+          "name": "API Development",
+          "href": "/services/api-development"
+        },
+        {
+          "name": "Code Maintenance",
+          "href": "/services/code-maintenance"
+        },
+        {
+          "name": "UX Design",
+          "href": "/services/ux-design"
+        },
+        {
+          "name": "3D Modeling",
+          "href": "/services/3d-modeling"
+        }
+      ]
+    },
+    { 
+      "name": "Projects", 
+      "href": "#pricing" 
+    },
+    { 
+      "name": "Contact", 
+      "href": "#contact" 
+    }
+  ],
+  "contactInfo": {
+    "email": "contact@antiguadigital.com",
+    "socialLinks": {
+      "facebook": "https://facebook.com",
+      "instagram": "https://instagram.com",
+      "linkedin": "https://linkedin.com"
+    }
+  },
+  "mobileMenu": {
+    "contactTitle": "Contact Us",
+    "followTitle": "Follow Us",
+    "contactFormButton": "Contact Form"
+  }
 }

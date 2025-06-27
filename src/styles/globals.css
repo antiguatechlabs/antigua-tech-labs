@@ -1,0 +1,14 @@
+/* Global smooth scrolling behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Ensure smooth scrolling works on all elements */
+* {
+  scroll-behavior: smooth;
+}
+
+/* Improve scroll behavior for anchor links */
+:target {
+  scroll-margin-top: 100px; /* Account for sticky navbar height + extra padding */
+}

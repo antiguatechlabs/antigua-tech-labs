@@ -42,3 +42,5 @@ next-env.d.ts
 
 # extracted-components
 /extracted-components
+# Million Lint
+.million

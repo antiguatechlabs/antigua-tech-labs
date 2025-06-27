@@ -1,18 +1,18 @@
 {
   "companyName": "Antigua Digital",
-  "companyDescription": "Aplicaciones web modernas que escalan con tu negocio.",
+  "companyDescription": "Soluciones digitales a la medida que crecen con tu negocio.",
   "email": "info@antiguadigital.com",
-  "address": "3891 Ranchview Dr. Richardson",
+  "address": "Antigua Guatemala, Guatemala",
   "phone": "+1 (234) 567-8901",
   "logo": "/components/footer-logo-1.png",
   "sections": {
     "product": {
       "title": "Servicios",
-      "links": ["Desarrollo Web", "Desarrollo de APIs", "Diseño UX", "Mantenimiento"]
+      "links": ["Aplicaciones Web", "Aplicaciones Móviles", "Desarrollo de APIs", "Diseño UX", "Modelado 3D", "Mantenimiento de Código"]
     },
     "company": {
       "title": "Empresa",
-      "links": ["Acerca de", "Equipo", "Carreras", "Contacto"]
+      "links": ["Acerca de", "Equipo", "Contacto"]
     },
     "legal": {
       "title": "Legal",

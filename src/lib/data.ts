@@ -95,12 +95,6 @@ export interface FooterContent {
 export interface NavbarContent {
   companyName: string;
   menuTitle: string;
-  navItems: {
-    features: string;
-    testimonials: string;
-    pricing: string;
-    contact: string;
-  };
   languageToggle: {
     en: string;
     es: string;
@@ -108,7 +102,24 @@ export interface NavbarContent {
   menuItems: Array<{
     name: string;
     href: string;
+    submenu?: Array<{
+      name: string;
+      href: string;
+    }>;
   }>;
+  contactInfo: {
+    email: string;
+    socialLinks: {
+      facebook: string;
+      instagram: string;
+      linkedin: string;
+    };
+  };
+  mobileMenu: {
+    contactTitle: string;
+    followTitle: string;
+    contactFormButton: string;
+  };
 }
 
 // Define additional content types

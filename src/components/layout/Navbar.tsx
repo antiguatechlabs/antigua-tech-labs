@@ -1,5 +1,6 @@
 'use client';
 import CodeIcon from '@mui/icons-material/Code';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import MenuIcon from '@mui/icons-material/Menu';
 import {
   AppBar,
@@ -9,6 +10,8 @@ import {
   IconButton,
   Link as MuiLink,
   Typography,
+  Menu,
+  MenuItem,
 } from '@mui/material';
 import Link from 'next/link';
 import { useParams, usePathname } from 'next/navigation';
@@ -19,6 +22,23 @@ import { useSidebar } from '@/context/sidebarContext';
 import { NavbarContent } from '@/lib/data';
 
 import { MobileMenu } from './MobileMenu';
+
+const navLinkSx = {
+  display: 'flex',
+  alignItems: 'center',
+  gap: 0.5,
+  fontSize: '0.875rem',
+  fontWeight: 500,
+  color: 'text.primary',
+  background: 'none',
+  border: 'none',
+  cursor: 'pointer',
+  textDecoration: 'none',
+  transition: 'color 0.2s',
+  '&:hover': {
+    color: 'text.secondary',
+  },
+};
 
 export function Navbar({ content }: { content: NavbarContent }) {
   const { handleSidebar, isSidebarOpen } = useSidebar();
@@ -33,8 +53,20 @@ export function Navbar({ content }: { content: NavbarContent }) {
   // Get current language from URL
   const currentLang = params.lang as string || 'en';
 
-  // State for sticky header and mobile menu
+  // State for sticky header and dropdown menu
   const [isSticky, setIsSticky] = useState(false);
+  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
+  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+
+  const handleDropdownOpen = (event: React.MouseEvent<HTMLElement>, itemName: string) => {
+    setAnchorEl(event.currentTarget);
+    setOpenDropdown(itemName);
+  };
+
+  const handleDropdownClose = () => {
+    setAnchorEl(null);
+    setOpenDropdown(null);
+  };
 
   // Handle scroll for sticky header
   useLayoutEffect(() => {
@@ -47,6 +79,23 @@ export function Navbar({ content }: { content: NavbarContent }) {
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
+
+  // Smooth scroll handler for anchor links
+  const handleSmoothScroll = (href: string) => {
+    if (href.startsWith('#')) {
+      const element = document.querySelector(href);
+      if (element) {
+        const navbarHeight = 64; // Approximate navbar height
+        const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
+        const offsetPosition = elementPosition - navbarHeight;
+
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth',
+        });
+      }
+    }
+  };
 
   return (
     <AppBar
@@ -115,21 +164,58 @@ export function Navbar({ content }: { content: NavbarContent }) {
             }}
           >
             {content.menuItems.map((item, i) => (
-              <MuiLink
-                key={`${item.name}-${i}`}
-                href={`/${currentLang}${item.href}`}
-                underline="none"
-                sx={{
-                  fontSize: '0.875rem',
-                  fontWeight: 500,
-                  color: 'text.primary',
-                  '&:hover': { color: 'text.secondary' },
-                  transition: 'color 0.2s',
-                }}
-              >
-                {item.name}
-              </MuiLink>
+              <Box key={`${item.name}-${i}`} sx={{ position: 'relative' }}>
+                {item.submenu ? (
+                  <>
+                    <Box
+                      component="button"
+                      onClick={e => handleDropdownOpen(e, item.name)}
+                      sx={navLinkSx}
+                    >
+                      <Typography component="span">{item.name}</Typography>
+                      <ExpandMoreIcon sx={{ fontSize: '1rem' }} />
+                    </Box>
+                    <Menu
+                      anchorEl={anchorEl}
+                      open={openDropdown === item.name}
+                      onClose={handleDropdownClose}
+                      sx={{
+                        '& .MuiPaper-root': {
+                          mt: 1,
+                          minWidth: 200,
+                          boxShadow: '0px 4px 20px rgba(0, 0, 0, 0.1)',
+                        },
+                      }}
+                    >
+                      {item.submenu.map((subItem, subIndex) => (
+                        <MenuItem
+                          key={subIndex}
+                          component={Link}
+                          href={`/${currentLang}${subItem.href}`}
+                          onClick={handleDropdownClose}
+                          sx={{
+                            fontSize: '0.875rem',
+                            py: 1.5,
+                            '&:hover': { bgcolor: 'rgba(156, 67, 248, 0.1)' },
+                          }}
+                        >
+                          {subItem.name}
+                        </MenuItem>
+                      ))}
+                    </Menu>
+                  </>
+                ) : (
+                  <Box
+                    component="button"
+                    onClick={() => handleSmoothScroll(item.href)}
+                    sx={navLinkSx}
+                  >
+                    <Typography component="span">{item.name}</Typography>
+                  </Box>
+                )}
+              </Box>
             ))}
+
           </Box>
 
           {/* Language Toggle */}
@@ -188,6 +274,7 @@ export function Navbar({ content }: { content: NavbarContent }) {
       <MobileMenu
         isOpen={isSidebarOpen}
         onClose={handleSidebar}
+        content={content}
       />
     </AppBar>
   );

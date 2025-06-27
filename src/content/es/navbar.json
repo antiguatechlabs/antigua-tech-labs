@@ -1,22 +1,65 @@
 {
   "companyName": "Antigua Digital",
   "menuTitle": "Menú",
-  "navItems": {
-    "features": "Servicios",
-    "testimonials": "Testimonios",
-    "pricing": "Proyectos",
-    "contact": "Contacto"
-  },
   "languageToggle": {
     "en": "EN",
     "es": "ES"
   },
   "menuItems": [
-    { "name": "Inicio", "href": "#" },
-    { "name": "Servicios", "href": "#features" },
-    { "name": "Testimonios", "href": "#testimonials" },
-    { "name": "Proyectos", "href": "#pricing" },
-    { "name": "Servicios", "href": "#services" },
-    { "name": "Contacto", "href": "#contact" }
-  ]
+    { 
+      "name": "Inicio", 
+      "href": "#hero" 
+    },
+    { 
+      "name": "Servicios", 
+      "href": "#features",
+      "submenu": [
+        {
+          "name": "Aplicaciones Web",
+          "href": "/services/web-applications"
+        },
+        {
+          "name": "Aplicaciones Móviles",
+          "href": "/services/mobile-applications"
+        },
+        {
+          "name": "Desarrollo de APIs",
+          "href": "/services/api-development"
+        },
+        {
+          "name": "Mantenimiento de Código",
+          "href": "/services/code-maintenance"
+        },
+        {
+          "name": "Diseño UX",
+          "href": "/services/ux-design"
+        },
+        {
+          "name": "Modelado 3D",
+          "href": "/services/3d-modeling"
+        }
+      ]
+    },
+    { 
+      "name": "Proyectos", 
+      "href": "#pricing" 
+    },
+    { 
+      "name": "Contacto", 
+      "href": "#contact" 
+    }
+  ],
+  "contactInfo": {
+    "email": "contact@antiguadigital.com",
+    "socialLinks": {
+      "facebook": "https://facebook.com",
+      "instagram": "https://instagram.com",
+      "linkedin": "https://linkedin.com"
+    }
+  },
+  "mobileMenu": {
+    "contactTitle": "Contáctanos",
+    "followTitle": "Síguenos",
+    "contactFormButton": "Formulario de Contacto"
+  }
 }

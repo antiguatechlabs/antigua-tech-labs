@@ -5,6 +5,7 @@ import { ReactNode } from 'react';
 
 import { ScrollToTop } from '@/components/ui';
 import { LanguageProvider, SidebarProvider, ThemeProvider } from '@/context';
+import '@/styles/globals.css';
 
 
 // Next.js functions
@@ -55,7 +56,7 @@ export default async function LocaleLayout({
 
   return (
     <html lang={lang} className={inter.variable}>
-      <body style={{ overflowX: 'hidden', width: '100%' }} className={inter.className}>
+      <body style={{ overflowX: 'hidden', width: '100%', scrollBehavior: 'smooth' }} className={inter.className}>
         <LanguageProvider initialLanguage={lang as 'en' | 'es'}>
           <ThemeProvider>
             <SidebarProvider>

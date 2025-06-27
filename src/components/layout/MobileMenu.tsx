@@ -27,11 +27,12 @@ import { useState } from 'react';
 
 import { useLanguage } from '@/context/languageContext';
 import { useSidebar } from '@/context/sidebarContext';
-import { getNavbarContent } from '@/lib/data';
+import { NavbarContent } from '@/lib/data';
 
 interface MobileMenuProps {
   isOpen: boolean;
   onClose: () => void;
+  content: NavbarContent;
 }
 
 interface MenuItem {
@@ -40,46 +41,45 @@ interface MenuItem {
   children?: MenuItem[];
 }
 
-export const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
+export const MobileMenu = ({ isOpen, onClose, content }: MobileMenuProps) => {
   const { handleSidebar } = useSidebar();
-  const { language } = useLanguage();
+  const { language, setLanguage } = useLanguage();
   const params = useParams();
   const currentLang = params.lang as string || 'en';
-  const content = getNavbarContent(language);
   const [expandedItem, setExpandedItem] = useState<number | null>(null);
 
   const toggleExpand = (index: number) => {
     setExpandedItem(expandedItem === index ? null : index);
   };
 
+  // Smooth scroll handler for anchor links
+  const handleSmoothScroll = (href: string) => {
+    if (href.startsWith('#')) {
+      const element = document.querySelector(href);
+      if (element) {
+        const navbarHeight = 64; // Approximate navbar height
+        const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
+        const offsetPosition = elementPosition - navbarHeight;
+
+        onClose();
+
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth',
+        });
+      }
+    }
+  };
+
   // Use menu items from content with language prefix
   const menuItems: MenuItem[] = content.menuItems.map(item => ({
     label: item.name,
     href: `/${currentLang}${item.href}`,
+    children: item.submenu?.map(subItem => ({
+      label: subItem.name,
+      href: `/${currentLang}${subItem.href}`,
+    })),
   }));
-
-  // Add submenu for Services
-  const servicesIndex = menuItems.findIndex(item => item.label === 'Services' || item.label === 'Servicios');
-  if (servicesIndex !== -1) {
-    menuItems[servicesIndex].children = [
-      {
-        label: 'Modern Web Applications',
-        href: `/${currentLang}/services/web-applications`,
-      },
-      {
-        label: 'API Development',
-        href: `/${currentLang}/services/api-development`,
-      },
-      {
-        label: 'Code Maintenance',
-        href: `/${currentLang}/services/code-maintenance`,
-      },
-      {
-        label: 'UX Design',
-        href: `/${currentLang}/services/ux-design`,
-      },
-    ];
-  }
 
   return (
     <Drawer
@@ -95,6 +95,32 @@ export const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
     >
       <Box sx={{ p: 2, display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
         <Typography variant="h6">{content.companyName}</Typography>
+        <IconButton
+          onClick={() => {
+            // Toggle language and update URL
+            const newLang = language === 'en' ? 'es' : 'en';
+            setLanguage(newLang);
+          }}
+          aria-label="Toggle language"
+          sx={{
+            border: '1px solid',
+            borderColor: 'divider',
+            borderRadius: 1,
+            p: 1,
+            minWidth: 60,
+            height: 40,
+            fontSize: '0.875rem',
+            fontWeight: 600,
+            color: 'text.primary',
+            transition: 'all 0.2s ease',
+            '&:hover': {
+              bgcolor: 'rgba(156, 67, 248, 0.1)',
+              borderColor: 'primary.main',
+            },
+          }}
+        >
+          {content.languageToggle[language]}
+        </IconButton>
         <IconButton onClick={onClose} aria-label="Close menu">
           <CloseIcon />
         </IconButton>
@@ -144,9 +170,15 @@ export const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
                 </>
               ) : (
                 <ListItem
-                  component={Link}
-                  href={item.href}
-                  onClick={onClose}
+                  onClick={() => {
+                    if (item.href.startsWith('#')) {
+                      handleSmoothScroll(item.href);
+                    } else {
+                      // For non-anchor links, use regular navigation
+                      window.location.href = item.href;
+                      onClose();
+                    }
+                  }}
                   sx={{
                     py: 1.5,
                     borderBottom: '1px solid rgba(242, 242, 242)',
@@ -162,38 +194,16 @@ export const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
           ))}
         </List>
 
-        {/* Add a divider to replace the removed theme toggle section */}
-        <Box sx={{ mt: 4, mb: 4 }}>
-          <Divider />
-        </Box>
-
-        {/* Contact Information */}
-        <Box sx={{ mt: 0 }}>
-          <Typography fontWeight="bold" variant="h6" sx={{ mb: 2 }}>
-            Contact Us
-          </Typography>
-          <Stack spacing={2}>
-            <Box sx={{ display: 'flex', alignItems: 'center' }}>
-              <IconButton size="small" color="primary" sx={{ mr: 1 }}>
-                <EmailIcon />
-              </IconButton>
-              <MuiLink href="mailto:contact@antiguadigital.com" sx={{ textDecoration: 'none' }}>
-                contact@antiguadigital.com
-              </MuiLink>
-            </Box>
-          </Stack>
-        </Box>
-
         {/* Social Media Links */}
-        <Box sx={{ mt: 4 }}>
+        <Box sx={{ my: 4 }}>
           <Typography fontWeight="bold" variant="h6" sx={{ mb: 2 }}>
-            Follow Us
+            {content.mobileMenu.followTitle}
           </Typography>
           <Stack direction="row" spacing={1}>
             <IconButton
               color="primary"
               component={MuiLink}
-              href="https://facebook.com"
+              href={content.contactInfo.socialLinks.facebook}
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -202,7 +212,7 @@ export const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
             <IconButton
               color="primary"
               component={MuiLink}
-              href="https://instagram.com"
+              href={content.contactInfo.socialLinks.instagram}
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -211,29 +221,42 @@ export const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
             <IconButton
               color="primary"
               component={MuiLink}
-              href="https://linkedin.com"
+              href={content.contactInfo.socialLinks.linkedin}
               target="_blank"
               rel="noopener noreferrer"
             >
               <LinkedInIcon />
             </IconButton>
+
+          </Stack>
+        </Box>
+        <Divider/>
+        <Box sx={{ mt: 3 }}>
+          <Stack spacing={2}>
+            <Box sx={{ display: 'flex', alignItems: 'center' }}>
+              <IconButton size="small" color="primary" sx={{ mr: 1 }}>
+                <EmailIcon />
+              </IconButton>
+              <MuiLink href={`mailto:${content.contactInfo.email}`} sx={{ textDecoration: 'none', color: 'text.primary' }}>
+                {content.contactInfo.email}
+              </MuiLink>
+            </Box>
           </Stack>
         </Box>
 
-        {/* Sidebar Toggle Button */}
+        {/* Contact Form Button */}
         <Box sx={{ mt: 5 }}>
           <Button
             onClick={() => {
               onClose();
               handleSidebar();
-              // add push to contact form
             }}
             variant="contained"
             color="primary"
             size="large"
             fullWidth
           >
-            Contact Form
+            {content.mobileMenu.contactFormButton}
           </Button>
         </Box>
       </Box>

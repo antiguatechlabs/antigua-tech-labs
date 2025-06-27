@@ -1,5 +1,8 @@
 'use client';
 
+import EmailIcon from '@mui/icons-material/Email';
+import LocationOnIcon from '@mui/icons-material/LocationOn';
+import PhoneIcon from '@mui/icons-material/Phone';
 import { Box, Container, Typography, Link as MuiLink, Stack } from '@mui/material';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -133,43 +136,43 @@ export const Footer = ({ content }: { content: FooterContent }) => (
                   <Image src={content.logo} alt={content.companyName} fill style={{ objectFit: 'contain' }} />
                 </Box>
               </Link>
-              {/* <MotionTypography variant="body2" sx={{ color: 'grey.400' }}>
-                  {content.companyDescription}
-                </MotionTypography> */}
-              {/* <Stack spacing={2} width="100%">
-                  <Stack direction="row" spacing={1} alignItems="center">
-                    <EmailIcon sx={{ color: 'primary.light' }} fontSize="small" />
-                    <MuiLink
-                      href={`mailto:${content.email}`}
-                      sx={{
-                        color: 'white',
-                        textDecoration: 'none',
-                        transition: 'color 0.2s ease',
-                        '&:hover': { color: 'primary.light' },
-                      }}
-                    >
-                      {content.email}
-                    </MuiLink>
-                  </Stack>
-                  <Stack direction="row" spacing={1} alignItems="center">
-                    <LocationOnIcon sx={{ color: 'primary.light' }} fontSize="small" />
-                    <Typography variant="body2">{content.address}</Typography>
-                  </Stack>
-                  <Stack direction="row" spacing={1} alignItems="center">
-                    <PhoneIcon sx={{ color: 'primary.light' }} fontSize="small" />
-                    <MuiLink
-                      href={`tel:${content.phone}`}
-                      sx={{
-                        color: 'white',
-                        textDecoration: 'none',
-                        transition: 'color 0.2s ease',
-                        '&:hover': { color: 'primary.light' },
-                      }}
-                    >
-                      {content.phone}
-                    </MuiLink>
-                  </Stack>
-                </Stack> */}
+              <MotionTypography variant="body2" sx={{ color: 'grey.400' }}>
+                {content.companyDescription}
+              </MotionTypography>
+              <Stack spacing={2} width="100%">
+                <Stack direction="row" spacing={1} alignItems="center">
+                  <EmailIcon sx={{ color: 'primary.light' }} fontSize="small" />
+                  <MuiLink
+                    href={`mailto:${content.email}`}
+                    sx={{
+                      color: 'white',
+                      textDecoration: 'none',
+                      transition: 'color 0.2s ease',
+                      '&:hover': { color: 'primary.light' },
+                    }}
+                  >
+                    {content.email}
+                  </MuiLink>
+                </Stack>
+                <Stack direction="row" spacing={1} alignItems="center">
+                  <LocationOnIcon sx={{ color: 'primary.light' }} fontSize="small" />
+                  <Typography variant="body2">{content.address}</Typography>
+                </Stack>
+                <Stack direction="row" spacing={1} alignItems="center">
+                  <PhoneIcon sx={{ color: 'primary.light' }} fontSize="small" />
+                  <MuiLink
+                    href={`tel:${content.phone}`}
+                    sx={{
+                      color: 'white',
+                      textDecoration: 'none',
+                      transition: 'color 0.2s ease',
+                      '&:hover': { color: 'primary.light' },
+                    }}
+                  >
+                    {content.phone}
+                  </MuiLink>
+                </Stack>
+              </Stack>
             </MotionStack>
           </MotionBox>
 
@@ -265,7 +268,7 @@ export const Footer = ({ content }: { content: FooterContent }) => (
 
       {/* Bottom section */}
       <MotionBox
-        sx={{ borderTop: '1px solid', borderColor: 'grey.800', py: 3 }}
+        sx={{ borderTop: '1px solid', borderColor: 'grey.800', py: 3, px: 6 }}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.5 }}
