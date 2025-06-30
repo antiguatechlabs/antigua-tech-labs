@@ -1,9 +1,7 @@
 import {
-  Footer,
   WhyChoose,
   WhyChooseTwo,
   Slider,
-  Navbar,
   Contact,
   FAQ,
   Hero,
@@ -21,7 +19,6 @@ export default async function Home({
 
   return (
     <>
-      <Navbar content={content.navbar} />
       <Hero content={content.hero} />
       <WhyChooseTwo content={content.whyChooseTwo} />
       <Slider content={content.slider} />
@@ -29,7 +26,6 @@ export default async function Home({
       <WhyChoose content={content.whyChoose} />
       <Contact content={content.contact} />
       <FAQ content={content.faq} />
-      <Footer content={content.footer} />
     </>
   );
 }

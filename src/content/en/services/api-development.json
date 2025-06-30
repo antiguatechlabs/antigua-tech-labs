@@ -1,0 +1,115 @@
+{
+  "hero": {
+    "title": "API Development",
+    "subtitle": "Robust Backend Services & Integrations",
+    "description": "Build scalable, secure APIs that power your applications and enable seamless integrations. Our expert team creates RESTful and GraphQL APIs with comprehensive documentation and enterprise-grade security."
+  },
+  "features": {
+    "title": "Why Choose Our API Development",
+    "items": [
+      {
+        "title": "RESTful & GraphQL APIs",
+        "description": "Modern API architectures with flexible data querying and efficient resource management for optimal performance.",
+        "icon": "code"
+      },
+      {
+        "title": "Scalable Architecture",
+        "description": "Cloud-native designs that automatically scale with your business growth and handle millions of requests.",
+        "icon": "scale"
+      },
+      {
+        "title": "Enterprise Security",
+        "description": "OAuth 2.0, JWT authentication, rate limiting, and comprehensive security measures to protect your data.",
+        "icon": "shield"
+      },
+      {
+        "title": "Real-time Features",
+        "description": "WebSocket connections, server-sent events, and real-time data synchronization for dynamic applications.",
+        "icon": "speed"
+      },
+      {
+        "title": "Comprehensive Documentation",
+        "description": "Interactive API documentation with examples, testing tools, and clear integration guidelines.",
+        "icon": "search"
+      },
+      {
+        "title": "Third-party Integrations",
+        "description": "Seamless connections to payment gateways, social platforms, and business tools your company uses.",
+        "icon": "star"
+      }
+    ]
+  },
+  "process": {
+    "title": "Our API Development Process",
+    "steps": [
+      {
+        "number": 1,
+        "title": "Requirements Analysis",
+        "description": "We analyze your data flow, integration needs, and performance requirements to design the optimal API architecture."
+      },
+      {
+        "number": 2,
+        "title": "API Design & Documentation",
+        "description": "Create detailed API specifications, endpoint definitions, and interactive documentation before development begins."
+      },
+      {
+        "number": 3,
+        "title": "Development & Testing",
+        "description": "Build robust APIs with comprehensive unit testing, integration testing, and performance optimization."
+      },
+      {
+        "number": 4,
+        "title": "Security Implementation",
+        "description": "Implement authentication, authorization, rate limiting, and security best practices to protect your API."
+      },
+      {
+        "number": 5,
+        "title": "Deployment & Monitoring",
+        "description": "Deploy to cloud infrastructure with monitoring, logging, and analytics to ensure optimal performance."
+      }
+    ]
+  },
+  "technologies": {
+    "title": "API Technologies We Use",
+    "items": [
+      "Node.js",
+      "Express.js",
+      "GraphQL",
+      "REST",
+      "MongoDB",
+      "PostgreSQL",
+      "Redis",
+      "Docker",
+      "AWS",
+      "Microservices"
+    ]
+  },
+  "portfolio": {
+    "title": "API Development Success Stories",
+    "projects": [
+      {
+        "title": "E-commerce API Platform",
+        "description": "Microservices architecture handling 1M+ daily transactions with 99.9% uptime",
+        "image": "/images/portfolio/ecommerce-api.jpg",
+        "technologies": ["Node.js", "GraphQL", "MongoDB"]
+      },
+      {
+        "title": "Financial Services API",
+        "description": "Secure banking API with real-time transactions and regulatory compliance",
+        "image": "/images/portfolio/fintech-api.jpg",
+        "technologies": ["Express.js", "PostgreSQL", "Redis"]
+      },
+      {
+        "title": "IoT Data Processing API",
+        "description": "Real-time data ingestion and processing for smart device networks",
+        "image": "/images/portfolio/iot-api.jpg",
+        "technologies": ["Microservices", "Docker", "AWS"]
+      }
+    ]
+  },
+  "cta": {
+    "title": "Ready to Build Your API?",
+    "description": "Let's discuss your backend requirements and create a robust API solution that scales with your business.",
+    "buttonText": "Start Your API Project"
+  }
+}

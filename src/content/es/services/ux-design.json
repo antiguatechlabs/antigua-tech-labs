@@ -1,0 +1,115 @@
+{
+  "hero": {
+    "title": "Diseño UX",
+    "subtitle": "Diseño Centrado en el Usuario y Optimización de Experiencia",
+    "description": "Crea experiencias de usuario intuitivas y atractivas que deleiten a tus clientes e impulsen resultados empresariales. Nuestro equipo de diseño UX combina investigación, estrategia y diseño creativo para construir productos que los usuarios aman."
+  },
+  "features": {
+    "title": "Por Qué Elegir Nuestro Diseño UX",
+    "items": [
+      {
+        "title": "Investigación y Pruebas de Usuario",
+        "description": "Entrevistas profundas con usuarios, pruebas de usabilidad y análisis de comportamiento para entender las necesidades y puntos de dolor de tu audiencia.",
+        "icon": "search"
+      },
+      {
+        "title": "Diseño Responsivo",
+        "description": "Experiencias perfectas en todos los dispositivos y tamaños de pantalla con principios de diseño mobile-first.",
+        "icon": "responsive"
+      },
+      {
+        "title": "Enfoque en Accesibilidad",
+        "description": "Diseños compatibles con WCAG que aseguran que tu producto sea utilizable por todos, incluyendo usuarios con discapacidades.",
+        "icon": "shield"
+      },
+      {
+        "title": "Prototipado Rápido",
+        "description": "Prototipos interactivos y wireframes que permiten iteración rápida y retroalimentación de stakeholders.",
+        "icon": "speed"
+      },
+      {
+        "title": "Sistemas de Diseño",
+        "description": "Sistemas de diseño integrales y guías de estilo que aseguran consistencia en todo tu ecosistema de productos.",
+        "icon": "code"
+      },
+      {
+        "title": "Optimización de Conversión",
+        "description": "Decisiones de diseño basadas en datos que mejoran el engagement, retención y tasas de conversión del usuario.",
+        "icon": "star"
+      }
+    ]
+  },
+  "process": {
+    "title": "Nuestro Proceso de Diseño UX",
+    "steps": [
+      {
+        "number": 1,
+        "title": "Descubrimiento e Investigación",
+        "description": "Entender a tus usuarios, objetivos empresariales y panorama competitivo a través de investigación y análisis integral."
+      },
+      {
+        "number": 2,
+        "title": "Estrategia y Planificación",
+        "description": "Definir personas de usuario, mapas de viaje y arquitectura de información para guiar el proceso de diseño."
+      },
+      {
+        "number": 3,
+        "title": "Wireframing y Prototipado",
+        "description": "Crear wireframes de baja y alta fidelidad y prototipos interactivos para probar conceptos y flujos."
+      },
+      {
+        "number": 4,
+        "title": "Diseño Visual",
+        "description": "Desarrollar diseños visuales hermosos y alineados con la marca que mejoren la usabilidad y creen conexiones emocionales."
+      },
+      {
+        "number": 5,
+        "title": "Pruebas e Iteración",
+        "description": "Realizar pruebas de usabilidad e iterar basándose en retroalimentación del usuario para optimizar la experiencia final."
+      }
+    ]
+  },
+  "technologies": {
+    "title": "Herramientas de Diseño UX Que Usamos",
+    "items": [
+      "Figma",
+      "Sketch",
+      "Adobe XD",
+      "InVision",
+      "Principle",
+      "Framer",
+      "Miro",
+      "Hotjar",
+      "Google Analytics",
+      "Maze"
+    ]
+  },
+  "portfolio": {
+    "title": "Historias de Éxito en Diseño UX",
+    "projects": [
+      {
+        "title": "Rediseño de Dashboard SaaS",
+        "description": "Aumentó el engagement del usuario en 85% y redujo tickets de soporte en 60%",
+        "image": "/images/portfolio/saas-dashboard.jpg",
+        "technologies": ["Figma", "Pruebas de Usuario", "Analytics"]
+      },
+      {
+        "title": "App Móvil de E-commerce",
+        "description": "Mejoró la tasa de conversión en 40% con proceso de checkout optimizado",
+        "image": "/images/portfolio/ecommerce-mobile-ux.jpg",
+        "technologies": ["Sketch", "Prototipado", "Pruebas A/B"]
+      },
+      {
+        "title": "Portal de Pacientes de Salud",
+        "description": "Mejoró accesibilidad y redujo tiempo de completar tareas en 50%",
+        "image": "/images/portfolio/healthcare-portal.jpg",
+        "technologies": ["Adobe XD", "Accesibilidad", "Investigación de Usuario"]
+      }
+    ]
+  },
+  "cta": {
+    "title": "¿Listo para Mejorar Tu Experiencia de Usuario?",
+    "description": "Hablemos sobre tus desafíos de UX y creemos diseños que tus usuarios amarán y de los que tu negocio se beneficiará.",
+    "buttonText": "Iniciar Proyecto UX"
+  }
+}

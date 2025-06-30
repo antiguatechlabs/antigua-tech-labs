@@ -1,0 +1,115 @@
+{
+  "hero": {
+    "title": "Modelado 3D",
+    "subtitle": "Visualización 3D Inmersiva y Experiencias Interactivas",
+    "description": "Da vida a tus ideas con modelos 3D impresionantes, animaciones y experiencias interactivas. Desde visualización de productos hasta renders arquitectónicos y aplicaciones web 3D, creamos experiencias digitales inmersivas."
+  },
+  "features": {
+    "title": "Por Qué Elegir Nuestro Modelado 3D",
+    "items": [
+      {
+        "title": "Renderizado Fotorrealista",
+        "description": "Renders 3D de alta calidad con iluminación realista, materiales y texturas que muestran tus productos con detalle impresionante.",
+        "icon": "star"
+      },
+      {
+        "title": "3D Web Interactivo",
+        "description": "Experiencias 3D basadas en web usando WebGL y Three.js que funcionan suavemente en todos los dispositivos y navegadores.",
+        "icon": "responsive"
+      },
+      {
+        "title": "Visualización de Productos",
+        "description": "Vistas de productos 360 grados, configuradores y experiencias AR que ayudan a los clientes a visualizar antes de comprar.",
+        "icon": "search"
+      },
+      {
+        "title": "Visualización Arquitectónica",
+        "description": "Renders arquitectónicos detallados, tours virtuales y modelos de edificios interactivos para bienes raíces y construcción.",
+        "icon": "code"
+      },
+      {
+        "title": "Animación y Movimiento",
+        "description": "Animaciones 3D suaves, demostraciones de productos y videos explicativos que involucran y educan a tu audiencia.",
+        "icon": "speed"
+      },
+      {
+        "title": "Integración VR/AR",
+        "description": "Experiencias de realidad virtual y aumentada que proporcionan interacción inmersiva con tu contenido 3D.",
+        "icon": "shield"
+      }
+    ]
+  },
+  "process": {
+    "title": "Nuestro Proceso de Modelado 3D",
+    "steps": [
+      {
+        "number": 1,
+        "title": "Concepto y Planificación",
+        "description": "Entender tu visión, requisitos y limitaciones técnicas para planificar la solución 3D óptima."
+      },
+      {
+        "number": 2,
+        "title": "Modelado 3D",
+        "description": "Crear modelos 3D detallados usando software estándar de la industria con topología adecuada y optimización."
+      },
+      {
+        "number": 3,
+        "title": "Texturizado y Materiales",
+        "description": "Aplicar materiales realistas, texturas y shaders para lograr apariencias fotorrealistas o estilizadas."
+      },
+      {
+        "number": 4,
+        "title": "Iluminación y Renderizado",
+        "description": "Configurar iluminación profesional y renderizar imágenes de alta calidad o preparar para renderizado en tiempo real."
+      },
+      {
+        "number": 5,
+        "title": "Integración y Optimización",
+        "description": "Integrar contenido 3D en aplicaciones web o plataformas con optimización de rendimiento para experiencias fluidas."
+      }
+    ]
+  },
+  "technologies": {
+    "title": "Tecnologías 3D Que Usamos",
+    "items": [
+      "Blender",
+      "Maya",
+      "3ds Max",
+      "Three.js",
+      "WebGL",
+      "Unity",
+      "Unreal Engine",
+      "Substance Painter",
+      "ZBrush",
+      "Cinema 4D"
+    ]
+  },
+  "portfolio": {
+    "title": "Historias de Éxito en Modelado 3D",
+    "projects": [
+      {
+        "title": "Configurador Interactivo de Productos",
+        "description": "Configurador 3D de autos con personalización en tiempo real y funcionalidad de vista previa AR",
+        "image": "/images/portfolio/3d-car-configurator.jpg",
+        "technologies": ["Three.js", "WebGL", "AR.js"]
+      },
+      {
+        "title": "Visualización Arquitectónica",
+        "description": "Renders fotorrealistas y tour virtual para desarrollo inmobiliario de lujo",
+        "image": "/images/portfolio/architectural-viz.jpg",
+        "technologies": ["Blender", "Cycles", "Tours Virtuales"]
+      },
+      {
+        "title": "Animación de Dispositivo Médico",
+        "description": "Animación 3D educativa explicando funcionalidad compleja de dispositivo médico",
+        "image": "/images/portfolio/medical-animation.jpg",
+        "technologies": ["Maya", "Arnold", "After Effects"]
+      }
+    ]
+  },
+  "cta": {
+    "title": "¿Listo para Crear Experiencias 3D Impresionantes?",
+    "description": "Hablemos sobre tus necesidades de visualización 3D y creemos experiencias inmersivas que cautiven a tu audiencia.",
+    "buttonText": "Iniciar Proyecto 3D"
+  }
+}

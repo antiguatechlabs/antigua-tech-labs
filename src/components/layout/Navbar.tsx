@@ -43,9 +43,9 @@ const navLinkSx = {
 export function Navbar({ content }: { content: NavbarContent }) {
   const { handleSidebar, isSidebarOpen } = useSidebar();
   const params = useParams();
-  // We'll use pathname in the future if needed
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+
   const pathname = usePathname();
+  console.log({ pathname });
 
   // Language context integration
   const { language, setLanguage } = useLanguage();
@@ -207,6 +207,7 @@ export function Navbar({ content }: { content: NavbarContent }) {
                 ) : (
                   <Box
                     component="button"
+                    // if not on /[lang] add link instead
                     onClick={() => handleSmoothScroll(item.href)}
                     sx={navLinkSx}
                   >

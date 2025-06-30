@@ -1,0 +1,115 @@
+{
+  "hero": {
+    "title": "Code Maintenance",
+    "subtitle": "Ongoing Support & Legacy System Modernization",
+    "description": "Keep your applications running smoothly with our comprehensive maintenance services. From bug fixes to performance optimization and legacy system modernization, we ensure your code stays current and secure."
+  },
+  "features": {
+    "title": "Why Choose Our Code Maintenance",
+    "items": [
+      {
+        "title": "Proactive Monitoring",
+        "description": "24/7 system monitoring with automated alerts and performance tracking to prevent issues before they impact users.",
+        "icon": "search"
+      },
+      {
+        "title": "Security Updates",
+        "description": "Regular security patches, vulnerability assessments, and compliance updates to protect your applications.",
+        "icon": "shield"
+      },
+      {
+        "title": "Performance Optimization",
+        "description": "Database tuning, code refactoring, and infrastructure improvements to enhance application speed and efficiency.",
+        "icon": "speed"
+      },
+      {
+        "title": "Legacy Modernization",
+        "description": "Gradual migration of legacy systems to modern technologies while maintaining business continuity.",
+        "icon": "code"
+      },
+      {
+        "title": "Bug Fixes & Updates",
+        "description": "Rapid response to issues with comprehensive testing and deployment of fixes and feature updates.",
+        "icon": "star"
+      },
+      {
+        "title": "Documentation & Training",
+        "description": "Maintain up-to-date documentation and provide team training for better code understanding.",
+        "icon": "responsive"
+      }
+    ]
+  },
+  "process": {
+    "title": "Our Code Maintenance Process",
+    "steps": [
+      {
+        "number": 1,
+        "title": "System Assessment",
+        "description": "Comprehensive analysis of your current codebase, infrastructure, and potential improvement areas."
+      },
+      {
+        "number": 2,
+        "title": "Maintenance Plan",
+        "description": "Create a customized maintenance schedule with priorities, timelines, and resource allocation."
+      },
+      {
+        "number": 3,
+        "title": "Monitoring Setup",
+        "description": "Implement monitoring tools, alerts, and automated testing to track system health and performance."
+      },
+      {
+        "number": 4,
+        "title": "Regular Updates",
+        "description": "Scheduled maintenance windows for updates, patches, and improvements with minimal downtime."
+      },
+      {
+        "number": 5,
+        "title": "Continuous Improvement",
+        "description": "Ongoing optimization, refactoring, and modernization to keep your systems current and efficient."
+      }
+    ]
+  },
+  "technologies": {
+    "title": "Maintenance Technologies We Use",
+    "items": [
+      "Git",
+      "Docker",
+      "Jenkins",
+      "Monitoring Tools",
+      "Testing Frameworks",
+      "Cloud Platforms",
+      "Database Tools",
+      "Security Scanners",
+      "Performance Analyzers",
+      "Documentation Tools"
+    ]
+  },
+  "portfolio": {
+    "title": "Code Maintenance Success Stories",
+    "projects": [
+      {
+        "title": "Legacy Banking System Modernization",
+        "description": "Migrated 20-year-old COBOL system to modern microservices architecture",
+        "image": "/images/portfolio/legacy-modernization.jpg",
+        "technologies": ["Microservices", "Docker", "Cloud Migration"]
+      },
+      {
+        "title": "E-commerce Platform Optimization",
+        "description": "Improved page load times by 60% and reduced server costs by 40%",
+        "image": "/images/portfolio/performance-optimization.jpg",
+        "technologies": ["Performance Tuning", "Database Optimization", "CDN"]
+      },
+      {
+        "title": "Healthcare System Security Update",
+        "description": "Implemented HIPAA compliance and security hardening for patient data protection",
+        "image": "/images/portfolio/security-update.jpg",
+        "technologies": ["Security Patches", "Compliance", "Monitoring"]
+      }
+    ]
+  },
+  "cta": {
+    "title": "Ready to Optimize Your Code?",
+    "description": "Let's discuss your maintenance needs and create a plan to keep your applications running at peak performance.",
+    "buttonText": "Start Maintenance Plan"
+  }
+}

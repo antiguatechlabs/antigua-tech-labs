@@ -8,35 +8,35 @@
   "menuItems": [
     { 
       "name": "Home", 
-      "href": "#" 
+      "href": "/" 
     },
-    { 
-      "name": "Services", 
-      "href": "#features",
+    {
+      "name": "Services",
+      "href": "/services",
       "submenu": [
         {
           "name": "Web Applications",
-          "href": "/services/web-applications"
+          "href": "/services#web-applications"
         },
-         {
+        {
           "name": "Mobile Applications",
-          "href": "/services/web-applications"
+          "href": "/services#mobile-applications"
         },
         {
           "name": "API Development",
-          "href": "/services/api-development"
+          "href": "/services#api-development"
         },
         {
           "name": "Code Maintenance",
-          "href": "/services/code-maintenance"
+          "href": "/services#code-maintenance"
         },
         {
           "name": "UX Design",
-          "href": "/services/ux-design"
+          "href": "/services#ux-design"
         },
         {
           "name": "3D Modeling",
-          "href": "/services/3d-modeling"
+          "href": "/services#3d-modeling"
         }
       ]
     },
