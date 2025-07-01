@@ -1,8 +1,10 @@
 {
   "hero": {
-    "title": "Mobile Applications",
+    "title": "{{gradient:Mobile Applications}} That Connect and Engage",
     "subtitle": "Native iOS & Android Development",
-    "description": "Create powerful, user-friendly mobile applications that engage your audience and drive business growth. Our expert team delivers native iOS and Android apps with exceptional performance and intuitive design."
+    "description": "Create powerful, user-friendly mobile applications that engage your audience and drive business growth. Our expert team delivers native iOS and Android apps with exceptional performance and intuitive design.",
+    "image": "/images/services/mobile-applications-hero.jpg",
+    "textPosition": "right"
   },
   "features": {
     "title": "Why Choose Our Mobile Development",

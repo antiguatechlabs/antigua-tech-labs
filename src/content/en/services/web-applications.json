@@ -1,8 +1,10 @@
 {
   "hero": {
     "title": "Custom {{gradient:Web Solutions}} That Drive Business Growth",
+    "subtitle": "Professional Web Development",
     "description": "We build modern, scalable web applications tailored to your business needs. From concept to deployment, our expert team delivers high-performance solutions that engage users and drive results.",
-    "image": "web-applications-hero.jpg"
+    "image": "/images/services/web-applications-hero.jpg",
+    "textPosition": "left"
   },
   "features": {
     "title": "Why Choose Our Web Applications",

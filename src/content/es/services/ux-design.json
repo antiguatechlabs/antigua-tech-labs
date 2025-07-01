@@ -1,8 +1,10 @@
 {
   "hero": {
-    "title": "Diseño UX",
+    "title": "{{gradient:Diseño UX}} y Experiencia de Usuario",
     "subtitle": "Diseño Centrado en el Usuario y Optimización de Experiencia",
-    "description": "Crea experiencias de usuario intuitivas y atractivas que deleiten a tus clientes e impulsen resultados empresariales. Nuestro equipo de diseño UX combina investigación, estrategia y diseño creativo para construir productos que los usuarios aman."
+    "description": "Crea experiencias de usuario intuitivas y atractivas que deleiten a tus clientes e impulsen resultados empresariales. Nuestro equipo de diseño UX combina investigación, estrategia y diseño creativo para construir productos que los usuarios aman.",
+    "image": "/images/services/ux-design-hero.jpg",
+    "textPosition": "left"
   },
   "features": {
     "title": "Por Qué Elegir Nuestro Diseño UX",

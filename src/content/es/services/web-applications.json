@@ -1,9 +1,10 @@
 {
   "hero": {
-    "title": "Aplicaciones Web",
-    "subtitle": "Soluciones Web Personalizadas Que Impulsan el Crecimiento Empresarial",
+    "title": "{{gradient:Aplicaciones Web}} Personalizadas Que Impulsan el Crecimiento",
+    "subtitle": "Desarrollo Web Profesional",
     "description": "Construimos aplicaciones web modernas y escalables adaptadas a las necesidades de tu negocio. Desde el concepto hasta el despliegue, nuestro equipo experto entrega soluciones de alto rendimiento que involucran a los usuarios y generan resultados.",
-    "image": "web-applications-hero.jpg"
+    "image": "/images/services/web-applications-hero.jpg",
+    "textPosition": "left"
   },
   "features": {
     "title": "Por Qué Elegir Nuestras Aplicaciones Web",

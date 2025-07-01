@@ -1,8 +1,10 @@
 {
   "hero": {
-    "title": "Code Maintenance",
+    "title": "{{gradient:Code Maintenance}} & System Optimization",
     "subtitle": "Ongoing Support & Legacy System Modernization",
-    "description": "Keep your applications running smoothly with our comprehensive maintenance services. From bug fixes to performance optimization and legacy system modernization, we ensure your code stays current and secure."
+    "description": "Keep your applications running smoothly with our comprehensive maintenance services. From bug fixes to performance optimization and legacy system modernization, we ensure your code stays current and secure.",
+    "image": "/images/services/code-maintenance-hero.jpg",
+    "textPosition": "right"
   },
   "features": {
     "title": "Why Choose Our Code Maintenance",

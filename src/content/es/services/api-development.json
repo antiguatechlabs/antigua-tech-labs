@@ -1,8 +1,10 @@
 {
   "hero": {
-    "title": "Desarrollo de APIs",
+    "title": "{{gradient:Desarrollo de APIs}} y Servicios Backend",
     "subtitle": "Servicios Backend Robustos e Integraciones",
-    "description": "Construye APIs escalables y seguras que impulsen tus aplicaciones y permitan integraciones perfectas. Nuestro equipo experto crea APIs RESTful y GraphQL con documentación completa y seguridad de nivel empresarial."
+    "description": "Construye APIs escalables y seguras que impulsen tus aplicaciones y permitan integraciones perfectas. Nuestro equipo experto crea APIs RESTful y GraphQL con documentación completa y seguridad de nivel empresarial.",
+    "image": "/images/services/api-development-hero.jpg",
+    "textPosition": "left"
   },
   "features": {
     "title": "Por Qué Elegir Nuestro Desarrollo de APIs",

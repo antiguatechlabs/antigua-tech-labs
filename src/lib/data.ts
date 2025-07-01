@@ -183,7 +183,8 @@ export interface ServiceHeroContent {
   title: string;
   subtitle: string;
   description: string;
-  image?: string;
+  image: string;
+  textPosition?: 'left' | 'right';
 }
 
 export interface ServiceFeatureItem {

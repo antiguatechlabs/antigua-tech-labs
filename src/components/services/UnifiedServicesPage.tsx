@@ -4,9 +4,8 @@ import React from 'react';
 
 import { UnifiedServicesPageContent } from '@/lib/data';
 
-import { ServiceHero } from './ServiceHero';
 import { ServiceSection } from './ServiceSection';
-import { ServicesNavigation } from './ServicesNavigation';
+import { ServiceTwoColumnSection } from './ServiceTwoColumnSection';
 
 interface UnifiedServicesPageProps {
   content: UnifiedServicesPageContent;
@@ -16,51 +15,50 @@ export function UnifiedServicesPage({ content }: UnifiedServicesPageProps) {
   return (
     <Box>
       {/* Services Overview Hero */}
-      <ServiceHero content={content.overview.hero} />
+      <ServiceTwoColumnSection content={content.overview.hero} />
 
       {/* Services Navigation */}
-      <ServicesNavigation content={content.overview.navigation} />
 
       {/* Web Applications Service Section */}
       <ServiceSection
         id="web-applications"
         content={content.webApplications}
-        showDivider={true}
+        index={0}
       />
 
       {/* Mobile Applications Service Section */}
       <ServiceSection
         id="mobile-applications"
         content={content.mobileApplications}
-        showDivider={true}
+        index={1}
       />
 
       {/* API Development Service Section */}
       <ServiceSection
         id="api-development"
         content={content.apiDevelopment}
-        showDivider={true}
+        index={2}
       />
 
       {/* Code Maintenance Service Section */}
       <ServiceSection
         id="code-maintenance"
         content={content.codeMaintenance}
-        showDivider={true}
+        index={3}
       />
 
       {/* UX Design Service Section */}
       <ServiceSection
         id="ux-design"
         content={content.uxDesign}
-        showDivider={true}
+        index={4}
       />
 
       {/* 3D Modeling Service Section */}
       <ServiceSection
         id="3d-modeling"
         content={content.modeling3d}
-        showDivider={false}
+        index={5}
       />
     </Box>
   );

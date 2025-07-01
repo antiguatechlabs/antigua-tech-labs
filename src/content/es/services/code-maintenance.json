@@ -1,8 +1,10 @@
 {
   "hero": {
-    "title": "Mantenimiento de Código",
+    "title": "{{gradient:Mantenimiento de Código}} y Optimización de Sistemas",
     "subtitle": "Soporte Continuo y Modernización de Sistemas Legacy",
-    "description": "Mantén tus aplicaciones funcionando sin problemas con nuestros servicios integrales de mantenimiento. Desde corrección de errores hasta optimización de rendimiento y modernización de sistemas legacy, aseguramos que tu código se mantenga actual y seguro."
+    "description": "Mantén tus aplicaciones funcionando sin problemas con nuestros servicios integrales de mantenimiento. Desde corrección de errores hasta optimización de rendimiento y modernización de sistemas legacy, aseguramos que tu código se mantenga actual y seguro.",
+    "image": "/images/services/code-maintenance-hero.jpg",
+    "textPosition": "right"
   },
   "features": {
     "title": "Por Qué Elegir Nuestro Mantenimiento de Código",
