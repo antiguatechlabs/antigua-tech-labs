@@ -3,7 +3,7 @@
     "title": "{{gradient:Aplicaciones Móviles}} Que Conectan y Cautivan",
     "subtitle": "Desarrollo Nativo iOS y Android",
     "description": "Crea aplicaciones móviles potentes y fáciles de usar que cautiven a tu audiencia e impulsen el crecimiento empresarial. Nuestro equipo experto entrega apps nativas para iOS y Android con rendimiento excepcional y diseño intuitivo.",
-    "image": "/images/services/mobile-applications-hero.jpg",
+    "image": "/src/assets/services/mobile-applications-hero.svg",
     "textPosition": "right"
   },
   "features": {

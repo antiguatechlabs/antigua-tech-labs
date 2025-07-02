@@ -8,7 +8,7 @@
   "menuItems": [
     { 
       "name": "Home", 
-      "href": "/" 
+      "href": "/#hero" 
     },
     {
       "name": "Services",
@@ -41,12 +41,8 @@
       ]
     },
     { 
-      "name": "Projects", 
-      "href": "#pricing" 
-    },
-    { 
       "name": "Contact", 
-      "href": "#contact" 
+      "href": "/#contact" 
     }
   ],
   "contactInfo": {

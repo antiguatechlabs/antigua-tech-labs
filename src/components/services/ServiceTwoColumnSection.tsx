@@ -7,13 +7,31 @@ import { textWithGradient } from '@/lib/textFormatters';
 
 interface ServiceTwoColumnSectionProps {
   content: ServiceHeroContent;
+  heroImage?: string;
+  gradientColors?: { start: string; end: string };
 }
 
-export function ServiceTwoColumnSection({ content }: ServiceTwoColumnSectionProps) {
+export function ServiceTwoColumnSection({
+  content,
+  heroImage,
+  gradientColors,
+}: ServiceTwoColumnSectionProps) {
+  // Apply custom gradient colors if provided
+  const getProcessedTitle = () => {
+    if (gradientColors && content.title.includes('{{gradient:')) {
+      // Extract the gradient text and replace with custom colors
+      return content.title.replace(
+        /\{\{gradient:(.*?)\}\}/g,
+        `{{gradient:$1:${gradientColors.start}:${gradientColors.end}}}`,
+      );
+    }
+    return content.title;
+  };
+
   return (
     <TwoColumnSection
-      image={content.image}
-      title={textWithGradient(content.title)}
+      image={heroImage || content.image}
+      title={textWithGradient(getProcessedTitle())}
       subtitle={content.subtitle}
       description={content.description}
       textPosition={content.textPosition || 'left'}

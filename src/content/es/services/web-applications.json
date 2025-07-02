@@ -3,7 +3,7 @@
     "title": "{{gradient:Aplicaciones Web}} Personalizadas Que Impulsan el Crecimiento",
     "subtitle": "Desarrollo Web Profesional",
     "description": "Construimos aplicaciones web modernas y escalables adaptadas a las necesidades de tu negocio. Desde el concepto hasta el despliegue, nuestro equipo experto entrega soluciones de alto rendimiento que involucran a los usuarios y generan resultados.",
-    "image": "/images/services/web-applications-hero.jpg",
+    "image": "/src/assets/services/web-applications-hero.svg",
     "textPosition": "left"
   },
   "features": {

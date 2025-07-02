@@ -4,11 +4,10 @@
   "email": "info@antiguadigital.com",
   "address": "Antigua Guatemala, Guatemala",
   "phone": "+1 (234) 567-8901",
-  "logo": "/components/footer-logo-1.png",
   "sections": {
     "product": {
       "title": "Servicios",
-      "links": ["Aplicaciones Web", "Aplicaciones Móviles", "Desarrollo de APIs", "Diseño UX", "Modelado 3D", "Mantenimiento de Código"]
+      "links": ["Aplicaciones Web", "Aplicaciones Móviles", "Desarrollo de APIs", "Mantenimiento de Código", "Diseño UX", "Modelado 3D"]
     },
     "company": {
       "title": "Empresa",

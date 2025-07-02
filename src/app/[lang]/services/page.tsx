@@ -9,24 +9,35 @@ interface ServicesPageProps {
   };
 }
 
+export async function generateStaticParams() {
+  return [{ lang: 'en' }, { lang: 'es' }];
+}
+
 export async function generateMetadata({ params }: ServicesPageProps): Promise<Metadata> {
-  const { lang } = params;
+  const { lang } = await params;
   const content = getUnifiedServicesPageContent(lang);
 
+  // Helper function to remove {{gradient:...}} and keep only the text
+  const stripGradient = (str: string) => str.replace(/\{\{gradient:([^}]+)\}\}/g, '$1');
+
   return {
-    title: content.overview.hero.title,
+    title: stripGradient(content.overview.hero.title),
     description: content.overview.hero.description,
     openGraph: {
-      title: content.overview.hero.title,
+      title: stripGradient(content.overview.hero.title),
       description: content.overview.hero.description,
       type: 'website',
     },
   };
 }
 
-export default function ServicesPage({ params }: ServicesPageProps) {
-  const { lang } = params;
+export default async function Services({
+  params,
+}: {
+  params: Promise<{ lang: string }>;
+}) {
+  const { lang } = await params;
   const content = getUnifiedServicesPageContent(lang);
 
-  return <UnifiedServicesPage content={content} />;
+  return <UnifiedServicesPage content={content} language={lang} />;
 }

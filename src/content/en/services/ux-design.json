@@ -3,7 +3,7 @@
     "title": "{{gradient:UX Design}} & User Experience",
     "subtitle": "User-Centered Design & Experience Optimization",
     "description": "Create intuitive, engaging user experiences that delight your customers and drive business results. Our UX design team combines research, strategy, and creative design to build products users love.",
-    "image": "/images/services/ux-design-hero.jpg",
+    "image": "/src/assets/services/ux-design-hero.svg",
     "textPosition": "left"
   },
   "features": {

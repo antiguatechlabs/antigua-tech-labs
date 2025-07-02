@@ -117,7 +117,7 @@ export function Hero({ content }: { content: HeroContent }) {
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.98 }}
                 >
-                    See Our Process
+                  {content.secondaryCta}
                 </MotionButton>
               </Stack>
             </Box>

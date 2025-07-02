@@ -8,7 +8,7 @@
   "menuItems": [
     { 
       "name": "Inicio", 
-      "href": "/" 
+      "href": "/#hero" 
     },
     {
       "name": "Servicios",
@@ -41,12 +41,8 @@
       ]
     },
     { 
-      "name": "Proyectos", 
-      "href": "#pricing" 
-    },
-    { 
       "name": "Contacto", 
-      "href": "#contact" 
+      "href": "/#contact" 
     }
   ],
   "contactInfo": {

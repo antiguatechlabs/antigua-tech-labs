@@ -5,6 +5,7 @@ import {
   getSliderContent,
   getFeaturesContent,
   getWhyChooseContent,
+  getOurTeamContent,
   getContactContent,
   getFAQContent,
   getFooterContent,
@@ -16,6 +17,7 @@ import {
   SliderContent,
   FeaturesContent,
   WhyChooseContent,
+  OurTeamContent,
   ContactContent,
   FAQContent,
   FooterContent,
@@ -29,6 +31,7 @@ export interface HomePageContent {
   slider: SliderContent;
   features: FeaturesContent;
   whyChoose: WhyChooseContent;
+  ourTeam: OurTeamContent;
   contact: ContactContent;
   faq: FAQContent;
   footer: FooterContent;
@@ -42,6 +45,7 @@ export function getHomePageContent(lang: string): HomePageContent {
     slider: getSliderContent(lang),
     features: getFeaturesContent(lang),
     whyChoose: getWhyChooseContent(lang),
+    ourTeam: getOurTeamContent(lang),
     contact: getContactContent(lang),
     faq: getFAQContent(lang),
     footer: getFooterContent(lang),

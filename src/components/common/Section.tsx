@@ -13,6 +13,7 @@ import {
   staggerContainerProps,
 } from '@/lib/animationProps';
 import { getWaveColor } from '@/lib/colorUtils';
+import { getRandomWave } from '@/lib/waveUtils';
 
 export type AnimationPropType =
   | 'fadeIn'
@@ -38,12 +39,13 @@ interface SectionProps {
   sx?: SxProps<Theme>;
   animation?: AnimationPropType;
   animationDelay?: number;
-  waves?: boolean; // ✅ New prop to enable waves
+  waves?: boolean;
+  noAnimation?: boolean;
 }
 
 export const Section = forwardRef<HTMLDivElement, SectionProps>(
   (
-    { id, children, sx, animation = 'fadeIn', animationDelay = 0.2, waves = false },
+    { id, children, sx, animation = 'fadeIn', animationDelay = 0.2, waves = false, noAnimation = false },
     ref,
   ) => {
     const selectedProps = animationPropMap[animation] || fadeInProps;
@@ -57,11 +59,46 @@ export const Section = forwardRef<HTMLDivElement, SectionProps>(
     };
 
     const waveColor = getWaveColor(sx);
+    const selectedWave = waves ? getRandomWave() : null;
+
+    // If noAnimation is true, use static props instead of animation props
+    const motionProps = noAnimation
+      ? {
+        initial: false,
+        animate: false,
+        transition: undefined,
+      }
+      : {
+        initial: delayedProps.initial,
+        whileInView: delayedProps.animate,
+        transition: delayedProps.transition,
+        viewport: { once: true, amount: 0.2 },
+      };
 
     return (
-      <>
+      <Box
+        component={motion.section}
+        {...motionProps}
+      >
+        {waves && selectedWave && (
+          <Box
+            component="svg"
+            viewBox={selectedWave.viewBox || '0 0 500 150'}
+            preserveAspectRatio="none"
+            sx={{
+              display: 'block',
+              width: '100%',
+              height: '50px',
+              // transform: 'rotate(180deg)',
+            }}
+          >
+            <path
+              d={selectedWave.path}
+              fill={waveColor}
+            />
+          </Box>
+        )}
         <Box
-          component={motion.section}
           id={id}
           ref={ref}
           sx={{
@@ -71,17 +108,13 @@ export const Section = forwardRef<HTMLDivElement, SectionProps>(
             px: { xs: 2, sm: 10, lg: 12 },
             ...sx,
           }}
-          initial={delayedProps.initial}
-          whileInView={delayedProps.animate}
-          transition={delayedProps.transition}
-          viewport={{ once: true, amount: 0.2 }}
         >
           {children}
         </Box>
-        {waves && (
+        {waves && selectedWave && (
           <Box
             component="svg"
-            viewBox="0 0 500 150"
+            viewBox={selectedWave.viewBox || '0 0 500 150'}
             preserveAspectRatio="none"
             sx={{
               width: '100%',
@@ -90,12 +123,12 @@ export const Section = forwardRef<HTMLDivElement, SectionProps>(
             }}
           >
             <path
-              d="M-0.27,23.08 C149.99,150.00 349.82,-49.98 500.00,49.99 L500.00,150.00 L-0.27,150.00 Z"
+              d={selectedWave.path}
               fill={waveColor}
             />
           </Box>
         )}
-      </>
+      </Box>
     );
   },
 );

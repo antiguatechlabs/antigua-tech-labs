@@ -3,7 +3,7 @@
     "title": "{{gradient:API Development}} & Backend Services",
     "subtitle": "Robust Backend Services & Integrations",
     "description": "Build scalable, secure APIs that power your applications and enable seamless integrations. Our expert team creates RESTful and GraphQL APIs with comprehensive documentation and enterprise-grade security.",
-    "image": "/images/services/api-development-hero.jpg",
+    "image": "/src/assets/services/api-development-hero.svg",
     "textPosition": "left"
   },
   "features": {

@@ -1,8 +1,9 @@
 {
   "hero": {
-    "title": "Nuestros Servicios",
+    "title": "Nuestros {{gradient:Servicios}}",
     "subtitle": "Soluciones Digitales Integrales",
-    "description": "Desde aplicaciones web hasta modelado 3D, ofrecemos servicios digitales completos para transformar las ideas de tu negocio en realidad. Explora nuestra gama completa de servicios y descubre cómo podemos ayudar a dar vida a tu visión."
+    "description": "Desde aplicaciones web hasta modelado 3D, ofrecemos servicios digitales completos para transformar las ideas de tu negocio en realidad. Explora nuestra gama completa de servicios y descubre cómo podemos ayudar a dar vida a tu visión.",
+    "ctaText": "Comienza Hoy"
   },
   "navigation": {
     "title": "Navegación Rápida",

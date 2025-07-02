@@ -14,7 +14,8 @@ import {
   MenuItem,
 } from '@mui/material';
 import Link from 'next/link';
-import { useParams, usePathname } from 'next/navigation';
+import { redirect, RedirectType } from 'next/navigation';
+import { useParams } from 'next/navigation';
 import React, { useState, useLayoutEffect } from 'react';
 
 import { useLanguage } from '@/context/languageContext';
@@ -43,9 +44,6 @@ const navLinkSx = {
 export function Navbar({ content }: { content: NavbarContent }) {
   const { handleSidebar, isSidebarOpen } = useSidebar();
   const params = useParams();
-
-  const pathname = usePathname();
-  console.log({ pathname });
 
   // Language context integration
   const { language, setLanguage } = useLanguage();
@@ -82,19 +80,7 @@ export function Navbar({ content }: { content: NavbarContent }) {
 
   // Smooth scroll handler for anchor links
   const handleSmoothScroll = (href: string) => {
-    if (href.startsWith('#')) {
-      const element = document.querySelector(href);
-      if (element) {
-        const navbarHeight = 64; // Approximate navbar height
-        const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
-        const offsetPosition = elementPosition - navbarHeight;
-
-        window.scrollTo({
-          top: offsetPosition,
-          behavior: 'smooth',
-        });
-      }
-    }
+    redirect(href, RedirectType.push);
   };
 
   return (

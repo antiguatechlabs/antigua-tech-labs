@@ -5,6 +5,7 @@ import enFeatures from '../content/en/features.json';
 import enFooter from '../content/en/footer.json';
 import enHero from '../content/en/hero.json';
 import enNavbar from '../content/en/navbar.json';
+import enOurTeam from '../content/en/ourTeam.json';
 import enModeling3d from '../content/en/services/3d-modeling.json';
 import enApiDevelopment from '../content/en/services/api-development.json';
 import enCodeMaintenance from '../content/en/services/code-maintenance.json';
@@ -22,6 +23,7 @@ import esFeatures from '../content/es/features.json';
 import esFooter from '../content/es/footer.json';
 import esHero from '../content/es/hero.json';
 import esNavbar from '../content/es/navbar.json';
+import esOurTeam from '../content/es/ourTeam.json';
 import esModeling3d from '../content/es/services/3d-modeling.json';
 import esApiDevelopment from '../content/es/services/api-development.json';
 import esCodeMaintenance from '../content/es/services/code-maintenance.json';
@@ -39,6 +41,7 @@ export interface HeroContent {
   title: string;
   subtitle: string;
   cta: string;
+  secondaryCta: string;
 }
 
 export interface FeatureItem {
@@ -178,6 +181,22 @@ export interface SliderContent {
   subtitle: string;
 }
 
+export interface TeamMember {
+  image: string;
+  title: string;
+  subtitle: string;
+  handle: string;
+  borderColor: string;
+  gradient: string;
+  url: string;
+}
+
+export interface OurTeamContent {
+  title: string;
+  subtitle: string;
+  teamMembers: TeamMember[];
+}
+
 // Service content types
 export interface ServiceHeroContent {
   title: string;
@@ -185,6 +204,7 @@ export interface ServiceHeroContent {
   description: string;
   image: string;
   textPosition?: 'left' | 'right';
+  ctaText?: string;
 }
 
 export interface ServiceFeatureItem {
@@ -283,6 +303,7 @@ const contentMap = {
     whyChooseTwo: enWhyChooseTwo as WhyChooseTwoContent,
     faq: enFaq as FAQContent,
     slider: enSlider as SliderContent,
+    ourTeam: enOurTeam as OurTeamContent,
     apiDevelopment: enApiDevelopment as ServicePageContent,
     codeMaintenance: enCodeMaintenance as ServicePageContent,
     mobileApplications: enMobileApplications as ServicePageContent,
@@ -302,6 +323,7 @@ const contentMap = {
     whyChooseTwo: esWhyChooseTwo as WhyChooseTwoContent,
     faq: esFaq as FAQContent,
     slider: esSlider as SliderContent,
+    ourTeam: esOurTeam as OurTeamContent,
     apiDevelopment: esApiDevelopment as ServicePageContent,
     codeMaintenance: esCodeMaintenance as ServicePageContent,
     mobileApplications: esMobileApplications as ServicePageContent,
@@ -363,6 +385,10 @@ export function getFAQContent(language: string = 'en'): FAQContent {
 
 export function getSliderContent(language: string = 'en'): SliderContent {
   return getContent<SliderContent>('slider', language);
+}
+
+export function getOurTeamContent(language: string = 'en'): OurTeamContent {
+  return getContent<OurTeamContent>('ourTeam', language);
 }
 
 // Service content loading functions

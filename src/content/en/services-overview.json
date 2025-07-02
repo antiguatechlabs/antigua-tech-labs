@@ -1,8 +1,9 @@
 {
   "hero": {
-    "title": "Our Services",
+    "title": "Our {{gradient:Services}}",
     "subtitle": "Comprehensive Digital Solutions",
-    "description": "From web applications to 3D modeling, we provide end-to-end digital services to transform your business ideas into reality. Explore our full range of services and discover how we can help bring your vision to life."
+    "description": "From web applications to 3D modeling, we provide end-to-end digital services to transform your business ideas into reality. Explore our full range of services and discover how we can help bring your vision to life.",
+    "ctaText": "Get Started Today"
   },
   "navigation": {
     "title": "Quick Navigation",

@@ -3,7 +3,7 @@
     "title": "{{gradient:Modelado 3D}} y Visualización",
     "subtitle": "Visualización 3D Inmersiva y Experiencias Interactivas",
     "description": "Da vida a tus ideas con modelos 3D impresionantes, animaciones y experiencias interactivas. Desde visualización de productos hasta renders arquitectónicos y aplicaciones web 3D, creamos experiencias digitales inmersivas.",
-    "image": "/images/services/3d-modeling-hero.jpg",
+    "image": "/src/assets/services/3d-modeling-hero.svg",
     "textPosition": "right"
   },
   "features": {
