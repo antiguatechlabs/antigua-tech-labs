@@ -1,0 +1,119 @@
+{
+  "hero": {
+    "title": "{{gradient:Aplicaciones Web}} Personalizadas Que Impulsan el Crecimiento",
+    "subtitle": "Desarrollo Web Profesional",
+    "description": "Construimos aplicaciones web modernas y escalables adaptadas a las necesidades de tu negocio. Desde el concepto hasta el despliegue, nuestro equipo experto entrega soluciones de alto rendimiento que involucran a los usuarios y generan resultados.",
+    "image": "/src/assets/services/web-applications-hero.svg",
+    "textPosition": "left"
+  },
+  "features": {
+    "title": "Por Qué Elegir Nuestras Aplicaciones Web",
+    "items": [
+      {
+        "title": "Stack Tecnológico Moderno",
+        "description": "Construidas con tecnologías de vanguardia como React, Next.js y TypeScript para un rendimiento y mantenibilidad óptimos.",
+        "icon": "code"
+      },
+      {
+        "title": "Diseño Responsivo",
+        "description": "Tu aplicación se verá y funcionará perfectamente en todos los dispositivos, desde teléfonos móviles hasta computadoras de escritorio.",
+        "icon": "responsive"
+      },
+      {
+        "title": "Arquitectura Escalable",
+        "description": "Diseñada para crecer con tu negocio, manejando el aumento de tráfico y requisitos de funcionalidades sin problemas.",
+        "icon": "scale"
+      },
+      {
+        "title": "Optimizada para SEO",
+        "description": "Construida pensando en la optimización para motores de búsqueda para ayudar a tu aplicación a posicionarse mejor y atraer más usuarios.",
+        "icon": "search"
+      },
+      {
+        "title": "Rendimiento Rápido",
+        "description": "Optimizada para velocidad con caché avanzado, división de código y monitoreo de rendimiento.",
+        "icon": "speed"
+      },
+      {
+        "title": "Seguridad Primero",
+        "description": "Implementada con prácticas de seguridad estándar de la industria para proteger tus datos y usuarios.",
+        "icon": "shield"
+      }
+    ]
+  },
+  "process": {
+    "title": "Nuestro Proceso de Desarrollo",
+    "steps": [
+      {
+        "number": 1,
+        "title": "Descubrimiento y Planificación",
+        "description": "Analizamos tus requisitos, definimos el alcance del proyecto y creamos una hoja de ruta de desarrollo detallada."
+      },
+      {
+        "number": 2,
+        "title": "Diseño y Prototipado",
+        "description": "Nuestro equipo crea wireframes y prototipos interactivos para visualizar la experiencia del usuario."
+      },
+      {
+        "number": 3,
+        "title": "Desarrollo y Pruebas",
+        "description": "Construimos tu aplicación usando metodología ágil con pruebas continuas y aseguramiento de calidad."
+      },
+      {
+        "number": 4,
+        "title": "Despliegue y Lanzamiento",
+        "description": "Desplegamos tu aplicación a producción y nos aseguramos de que todo funcione sin problemas para el lanzamiento."
+      },
+      {
+        "number": 5,
+        "title": "Soporte y Mantenimiento",
+        "description": "Soporte continuo, actualizaciones y mantenimiento para mantener tu aplicación funcionando al máximo rendimiento."
+      }
+    ]
+  },
+  "technologies": {
+    "title": "Tecnologías Que Utilizamos",
+    "items": [
+      "React",
+      "Next.js",
+      "TypeScript",
+      "Node.js",
+      "MongoDB",
+      "PostgreSQL",
+      "GraphQL",
+      "Tailwind CSS",
+      "Chakra UI",
+      "Vercel",
+      "AWS",
+      "Docker"
+    ]
+  },
+  "portfolio": {
+    "title": "Nuestros Proyectos de Aplicaciones Web",
+    "projects": [
+      {
+        "title": "Plataforma de E-commerce",
+        "description": "Una tienda en línea completa con procesamiento de pagos, gestión de inventario y análisis de clientes.",
+        "image": "ecommerce-project.jpg",
+        "technologies": ["React", "Node.js", "MongoDB", "Stripe"]
+      },
+      {
+        "title": "Dashboard Empresarial",
+        "description": "Dashboard de análisis en tiempo real para rastrear métricas empresariales e indicadores de rendimiento.",
+        "image": "dashboard-project.jpg",
+        "technologies": ["Next.js", "TypeScript", "PostgreSQL", "Chart.js"]
+      },
+      {
+        "title": "Sistema de Gestión de Aprendizaje",
+        "description": "Plataforma educativa con gestión de cursos, seguimiento de estudiantes y entrega de contenido interactivo.",
+        "image": "lms-project.jpg",
+        "technologies": ["React", "GraphQL", "Node.js", "AWS"]
+      }
+    ]
+  },
+  "cta": {
+    "title": "¿Listo para Construir Tu Aplicación Web?",
+    "description": "Hablemos sobre tu proyecto y creemos una solución personalizada que cumpla con tus objetivos empresariales.",
+    "buttonText": "Iniciar Tu Proyecto"
+  }
+}

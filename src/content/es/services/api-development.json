@@ -1,0 +1,117 @@
+{
+  "hero": {
+    "title": "{{gradient:Desarrollo de APIs}} y Servicios Backend",
+    "subtitle": "Servicios Backend Robustos e Integraciones",
+    "description": "Construye APIs escalables y seguras que impulsen tus aplicaciones y permitan integraciones perfectas. Nuestro equipo experto crea APIs RESTful y GraphQL con documentación completa y seguridad de nivel empresarial.",
+    "image": "/src/assets/services/api-development-hero.svg",
+    "textPosition": "left"
+  },
+  "features": {
+    "title": "Por Qué Elegir Nuestro Desarrollo de APIs",
+    "items": [
+      {
+        "title": "APIs RESTful y GraphQL",
+        "description": "Arquitecturas de API modernas con consultas de datos flexibles y gestión eficiente de recursos para rendimiento óptimo.",
+        "icon": "code"
+      },
+      {
+        "title": "Arquitectura Escalable",
+        "description": "Diseños nativos en la nube que escalan automáticamente con el crecimiento de tu negocio y manejan millones de solicitudes.",
+        "icon": "scale"
+      },
+      {
+        "title": "Seguridad Empresarial",
+        "description": "OAuth 2.0, autenticación JWT, limitación de velocidad y medidas de seguridad integrales para proteger tus datos.",
+        "icon": "shield"
+      },
+      {
+        "title": "Características en Tiempo Real",
+        "description": "Conexiones WebSocket, eventos enviados por servidor y sincronización de datos en tiempo real para aplicaciones dinámicas.",
+        "icon": "speed"
+      },
+      {
+        "title": "Documentación Integral",
+        "description": "Documentación interactiva de API con ejemplos, herramientas de prueba y pautas claras de integración.",
+        "icon": "search"
+      },
+      {
+        "title": "Integraciones de Terceros",
+        "description": "Conexiones perfectas a pasarelas de pago, plataformas sociales y herramientas empresariales que usa tu empresa.",
+        "icon": "star"
+      }
+    ]
+  },
+  "process": {
+    "title": "Nuestro Proceso de Desarrollo de APIs",
+    "steps": [
+      {
+        "number": 1,
+        "title": "Análisis de Requisitos",
+        "description": "Analizamos tu flujo de datos, necesidades de integración y requisitos de rendimiento para diseñar la arquitectura API óptima."
+      },
+      {
+        "number": 2,
+        "title": "Diseño y Documentación de API",
+        "description": "Creamos especificaciones detalladas de API, definiciones de endpoints y documentación interactiva antes de comenzar el desarrollo."
+      },
+      {
+        "number": 3,
+        "title": "Desarrollo y Pruebas",
+        "description": "Construimos APIs robustas con pruebas unitarias integrales, pruebas de integración y optimización de rendimiento."
+      },
+      {
+        "number": 4,
+        "title": "Implementación de Seguridad",
+        "description": "Implementamos autenticación, autorización, limitación de velocidad y mejores prácticas de seguridad para proteger tu API."
+      },
+      {
+        "number": 5,
+        "title": "Despliegue y Monitoreo",
+        "description": "Desplegamos en infraestructura en la nube con monitoreo, registro y análisis para asegurar rendimiento óptimo."
+      }
+    ]
+  },
+  "technologies": {
+    "title": "Tecnologías de API Que Usamos",
+    "items": [
+      "Node.js",
+      "Express.js",
+      "GraphQL",
+      "REST",
+      "MongoDB",
+      "PostgreSQL",
+      "Redis",
+      "Docker",
+      "AWS",
+      "Microservicios"
+    ]
+  },
+  "portfolio": {
+    "title": "Historias de Éxito en Desarrollo de APIs",
+    "projects": [
+      {
+        "title": "Plataforma API de E-commerce",
+        "description": "Arquitectura de microservicios manejando 1M+ transacciones diarias con 99.9% de tiempo activo",
+        "image": "/images/portfolio/ecommerce-api.jpg",
+        "technologies": ["Node.js", "GraphQL", "MongoDB"]
+      },
+      {
+        "title": "API de Servicios Financieros",
+        "description": "API bancaria segura con transacciones en tiempo real y cumplimiento regulatorio",
+        "image": "/images/portfolio/fintech-api.jpg",
+        "technologies": ["Express.js", "PostgreSQL", "Redis"]
+      },
+      {
+        "title": "API de Procesamiento de Datos IoT",
+        "description": "Ingesta y procesamiento de datos en tiempo real para redes de dispositivos inteligentes",
+        "image": "/images/portfolio/iot-api.jpg",
+        "technologies": ["Microservicios", "Docker", "AWS"]
+      }
+    ]
+  },
+  "cta": {
+    "title": "¿Listo para Construir Tu API?",
+    "description": "Hablemos sobre tus requisitos de backend y creemos una solución API robusta que escale con tu negocio.",
+    "buttonText": "Inicia Tu Proyecto de API"
+  }
+}

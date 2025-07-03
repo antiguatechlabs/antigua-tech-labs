@@ -1,0 +1,117 @@
+{
+  "hero": {
+    "title": "{{gradient:3D Modeling}} & Visualization",
+    "subtitle": "Immersive 3D Visualization & Interactive Experiences",
+    "description": "Bring your ideas to life with stunning 3D models, animations, and interactive experiences. From product visualization to architectural renders and web-based 3D applications, we create immersive digital experiences.",
+    "image": "/src/assets/services/3d-modeling-hero.svg",
+    "textPosition": "right"
+  },
+  "features": {
+    "title": "Why Choose Our 3D Modeling",
+    "items": [
+      {
+        "title": "Photorealistic Rendering",
+        "description": "High-quality 3D renders with realistic lighting, materials, and textures that showcase your products in stunning detail.",
+        "icon": "star"
+      },
+      {
+        "title": "Interactive 3D Web",
+        "description": "Web-based 3D experiences using WebGL and Three.js that run smoothly across all devices and browsers.",
+        "icon": "responsive"
+      },
+      {
+        "title": "Product Visualization",
+        "description": "360-degree product views, configurators, and AR experiences that help customers visualize before purchasing.",
+        "icon": "search"
+      },
+      {
+        "title": "Architectural Visualization",
+        "description": "Detailed architectural renders, virtual tours, and interactive building models for real estate and construction.",
+        "icon": "code"
+      },
+      {
+        "title": "Animation & Motion",
+        "description": "Smooth 3D animations, product demonstrations, and explainer videos that engage and educate your audience.",
+        "icon": "speed"
+      },
+      {
+        "title": "VR/AR Integration",
+        "description": "Virtual and augmented reality experiences that provide immersive interaction with your 3D content.",
+        "icon": "shield"
+      }
+    ]
+  },
+  "process": {
+    "title": "Our 3D Modeling Process",
+    "steps": [
+      {
+        "number": 1,
+        "title": "Concept & Planning",
+        "description": "Understand your vision, requirements, and technical constraints to plan the optimal 3D solution."
+      },
+      {
+        "number": 2,
+        "title": "3D Modeling",
+        "description": "Create detailed 3D models using industry-standard software with proper topology and optimization."
+      },
+      {
+        "number": 3,
+        "title": "Texturing & Materials",
+        "description": "Apply realistic materials, textures, and shaders to achieve photorealistic or stylized appearances."
+      },
+      {
+        "number": 4,
+        "title": "Lighting & Rendering",
+        "description": "Set up professional lighting and render high-quality images or prepare for real-time rendering."
+      },
+      {
+        "number": 5,
+        "title": "Integration & Optimization",
+        "description": "Integrate 3D content into web applications or platforms with performance optimization for smooth experiences."
+      }
+    ]
+  },
+  "technologies": {
+    "title": "3D Technologies We Use",
+    "items": [
+      "Blender",
+      "Maya",
+      "3ds Max",
+      "Three.js",
+      "WebGL",
+      "Unity",
+      "Unreal Engine",
+      "Substance Painter",
+      "ZBrush",
+      "Cinema 4D"
+    ]
+  },
+  "portfolio": {
+    "title": "3D Modeling Success Stories",
+    "projects": [
+      {
+        "title": "Interactive Product Configurator",
+        "description": "3D car configurator with real-time customization and AR preview functionality",
+        "image": "/images/portfolio/3d-car-configurator.jpg",
+        "technologies": ["Three.js", "WebGL", "AR.js"]
+      },
+      {
+        "title": "Architectural Visualization",
+        "description": "Photorealistic renders and virtual tour for luxury real estate development",
+        "image": "/images/portfolio/architectural-viz.jpg",
+        "technologies": ["Blender", "Cycles", "Virtual Tours"]
+      },
+      {
+        "title": "Medical Device Animation",
+        "description": "Educational 3D animation explaining complex medical device functionality",
+        "image": "/images/portfolio/medical-animation.jpg",
+        "technologies": ["Maya", "Arnold", "After Effects"]
+      }
+    ]
+  },
+  "cta": {
+    "title": "Ready to Create Stunning 3D Experiences?",
+    "description": "Let's discuss your 3D visualization needs and create immersive experiences that captivate your audience.",
+    "buttonText": "Start 3D Project"
+  }
+}

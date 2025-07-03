@@ -1,0 +1,117 @@
+{
+  "hero": {
+    "title": "{{gradient:Mobile Applications}} That Connect and Engage",
+    "subtitle": "Native iOS & Android Development",
+    "description": "Create powerful, user-friendly mobile applications that engage your audience and drive business growth. Our expert team delivers native iOS and Android apps with exceptional performance and intuitive design.",
+    "image": "/src/assets/services/mobile-applications-hero.svg",
+    "textPosition": "right"
+  },
+  "features": {
+    "title": "Why Choose Our Mobile Development",
+    "items": [
+      {
+        "title": "Native Performance",
+        "description": "Built with platform-specific technologies for optimal speed and responsiveness on both iOS and Android devices.",
+        "icon": "speed"
+      },
+      {
+        "title": "Cross-Platform Compatibility",
+        "description": "Develop once, deploy everywhere with our React Native and Flutter expertise for maximum reach.",
+        "icon": "responsive"
+      },
+      {
+        "title": "App Store Optimization",
+        "description": "Complete app store submission and optimization to maximize visibility and downloads.",
+        "icon": "search"
+      },
+      {
+        "title": "Offline Functionality",
+        "description": "Smart caching and offline capabilities ensure your app works seamlessly without internet connection.",
+        "icon": "shield"
+      },
+      {
+        "title": "Push Notifications",
+        "description": "Engage users with targeted push notifications and real-time updates to boost retention.",
+        "icon": "star"
+      },
+      {
+        "title": "Analytics Integration",
+        "description": "Built-in analytics and crash reporting to monitor performance and user behavior.",
+        "icon": "code"
+      }
+    ]
+  },
+  "process": {
+    "title": "Our Mobile Development Process",
+    "steps": [
+      {
+        "number": 1,
+        "title": "Discovery & Planning",
+        "description": "We analyze your requirements, target audience, and platform preferences to create a comprehensive mobile strategy."
+      },
+      {
+        "number": 2,
+        "title": "UI/UX Design",
+        "description": "Design intuitive, platform-specific interfaces that provide exceptional user experiences on mobile devices."
+      },
+      {
+        "number": 3,
+        "title": "Development & Testing",
+        "description": "Build your app using native technologies or cross-platform frameworks, with rigorous testing on real devices."
+      },
+      {
+        "number": 4,
+        "title": "App Store Deployment",
+        "description": "Handle the complete app store submission process, including optimization for better discoverability."
+      },
+      {
+        "number": 5,
+        "title": "Maintenance & Updates",
+        "description": "Provide ongoing support, updates, and feature enhancements to keep your app current and competitive."
+      }
+    ]
+  },
+  "technologies": {
+    "title": "Mobile Technologies We Use",
+    "items": [
+      "React Native",
+      "Flutter",
+      "Swift",
+      "Kotlin",
+      "Xamarin",
+      "Ionic",
+      "Firebase",
+      "AWS Mobile",
+      "Redux",
+      "MobX"
+    ]
+  },
+  "portfolio": {
+    "title": "Mobile App Success Stories",
+    "projects": [
+      {
+        "title": "E-commerce Mobile App",
+        "description": "Cross-platform shopping app with 50K+ downloads and 4.8-star rating",
+        "image": "/images/portfolio/mobile-ecommerce.jpg",
+        "technologies": ["React Native", "Firebase", "Stripe"]
+      },
+      {
+        "title": "Fitness Tracking App",
+        "description": "Native iOS app with health integration and social features",
+        "image": "/images/portfolio/fitness-app.jpg",
+        "technologies": ["Swift", "HealthKit", "Core Data"]
+      },
+      {
+        "title": "Business Management App",
+        "description": "Enterprise Android app for inventory and team management",
+        "image": "/images/portfolio/business-app.jpg",
+        "technologies": ["Kotlin", "Room", "Retrofit"]
+      }
+    ]
+  },
+  "cta": {
+    "title": "Ready to Launch Your Mobile App?",
+    "description": "Let's discuss your mobile app idea and create a solution that delights your users and grows your business.",
+    "buttonText": "Start Your Mobile Project"
+  }
+}

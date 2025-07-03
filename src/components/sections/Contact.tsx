@@ -72,6 +72,8 @@ export function Contact({ content }: { content: ContactContent }) {
         sx={{
           borderRadius: 1,
           overflow: 'hidden',
+          maxWidth: { xs: '100%', sm: '600px', md: '800px' },
+          mx: 'auto',
         }}
       >
         <MotionPaper

@@ -1,0 +1,49 @@
+{
+  "hero": {
+    "title": "Nuestros {{gradient:Servicios}}",
+    "subtitle": "Soluciones Digitales Integrales",
+    "description": "Desde aplicaciones web hasta modelado 3D, ofrecemos servicios digitales completos para transformar las ideas de tu negocio en realidad. Explora nuestra gama completa de servicios y descubre cómo podemos ayudar a dar vida a tu visión.",
+    "ctaText": "Comienza Hoy"
+  },
+  "navigation": {
+    "title": "Navegación Rápida",
+    "items": [
+      {
+        "id": "web-applications",
+        "title": "Aplicaciones Web",
+        "description": "Soluciones web personalizadas",
+        "icon": "web"
+      },
+      {
+        "id": "mobile-applications", 
+        "title": "Aplicaciones Móviles",
+        "description": "Apps para iOS y Android",
+        "icon": "mobile"
+      },
+      {
+        "id": "api-development",
+        "title": "Desarrollo de APIs", 
+        "description": "Servicios backend",
+        "icon": "api"
+      },
+      {
+        "id": "code-maintenance",
+        "title": "Mantenimiento de Código",
+        "description": "Soporte continuo",
+        "icon": "maintenance"
+      },
+      {
+        "id": "ux-design",
+        "title": "Diseño UX",
+        "description": "Diseño de experiencia de usuario",
+        "icon": "design"
+      },
+      {
+        "id": "3d-modeling",
+        "title": "Modelado 3D",
+        "description": "Visualización 3D",
+        "icon": "3d"
+      }
+    ]
+  }
+}

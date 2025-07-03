@@ -1,0 +1,117 @@
+{
+  "hero": {
+    "title": "{{gradient:Mantenimiento de Código}} y Optimización de Sistemas",
+    "subtitle": "Soporte Continuo y Modernización de Sistemas Legacy",
+    "description": "Mantén tus aplicaciones funcionando sin problemas con nuestros servicios integrales de mantenimiento. Desde corrección de errores hasta optimización de rendimiento y modernización de sistemas legacy, aseguramos que tu código se mantenga actual y seguro.",
+    "image": "/src/assets/services/code-maintenance-hero.svg",
+    "textPosition": "right"
+  },
+  "features": {
+    "title": "Por Qué Elegir Nuestro Mantenimiento de Código",
+    "items": [
+      {
+        "title": "Monitoreo Proactivo",
+        "description": "Monitoreo de sistemas 24/7 con alertas automatizadas y seguimiento de rendimiento para prevenir problemas antes de que afecten a los usuarios.",
+        "icon": "search"
+      },
+      {
+        "title": "Actualizaciones de Seguridad",
+        "description": "Parches de seguridad regulares, evaluaciones de vulnerabilidades y actualizaciones de cumplimiento para proteger tus aplicaciones.",
+        "icon": "shield"
+      },
+      {
+        "title": "Optimización de Rendimiento",
+        "description": "Ajuste de base de datos, refactorización de código y mejoras de infraestructura para mejorar la velocidad y eficiencia de aplicaciones.",
+        "icon": "speed"
+      },
+      {
+        "title": "Modernización Legacy",
+        "description": "Migración gradual de sistemas legacy a tecnologías modernas manteniendo la continuidad del negocio.",
+        "icon": "code"
+      },
+      {
+        "title": "Corrección de Errores y Actualizaciones",
+        "description": "Respuesta rápida a problemas con pruebas integrales y despliegue de correcciones y actualizaciones de características.",
+        "icon": "star"
+      },
+      {
+        "title": "Documentación y Capacitación",
+        "description": "Mantener documentación actualizada y proporcionar capacitación al equipo para mejor comprensión del código.",
+        "icon": "responsive"
+      }
+    ]
+  },
+  "process": {
+    "title": "Nuestro Proceso de Mantenimiento de Código",
+    "steps": [
+      {
+        "number": 1,
+        "title": "Evaluación del Sistema",
+        "description": "Análisis integral de tu base de código actual, infraestructura y áreas potenciales de mejora."
+      },
+      {
+        "number": 2,
+        "title": "Plan de Mantenimiento",
+        "description": "Crear un cronograma de mantenimiento personalizado con prioridades, plazos y asignación de recursos."
+      },
+      {
+        "number": 3,
+        "title": "Configuración de Monitoreo",
+        "description": "Implementar herramientas de monitoreo, alertas y pruebas automatizadas para rastrear la salud y rendimiento del sistema."
+      },
+      {
+        "number": 4,
+        "title": "Actualizaciones Regulares",
+        "description": "Ventanas de mantenimiento programadas para actualizaciones, parches y mejoras con tiempo de inactividad mínimo."
+      },
+      {
+        "number": 5,
+        "title": "Mejora Continua",
+        "description": "Optimización continua, refactorización y modernización para mantener tus sistemas actuales y eficientes."
+      }
+    ]
+  },
+  "technologies": {
+    "title": "Tecnologías de Mantenimiento Que Usamos",
+    "items": [
+      "Git",
+      "Docker",
+      "Jenkins",
+      "Herramientas de Monitoreo",
+      "Frameworks de Pruebas",
+      "Plataformas en la Nube",
+      "Herramientas de Base de Datos",
+      "Escáneres de Seguridad",
+      "Analizadores de Rendimiento",
+      "Herramientas de Documentación"
+    ]
+  },
+  "portfolio": {
+    "title": "Historias de Éxito en Mantenimiento de Código",
+    "projects": [
+      {
+        "title": "Modernización de Sistema Bancario Legacy",
+        "description": "Migración de sistema COBOL de 20 años a arquitectura moderna de microservicios",
+        "image": "/images/portfolio/legacy-modernization.jpg",
+        "technologies": ["Microservicios", "Docker", "Migración a la Nube"]
+      },
+      {
+        "title": "Optimización de Plataforma E-commerce",
+        "description": "Mejoró tiempos de carga de página en 60% y redujo costos de servidor en 40%",
+        "image": "/images/portfolio/performance-optimization.jpg",
+        "technologies": ["Ajuste de Rendimiento", "Optimización de BD", "CDN"]
+      },
+      {
+        "title": "Actualización de Seguridad Sistema Salud",
+        "description": "Implementó cumplimiento HIPAA y endurecimiento de seguridad para protección de datos de pacientes",
+        "image": "/images/portfolio/security-update.jpg",
+        "technologies": ["Parches de Seguridad", "Cumplimiento", "Monitoreo"]
+      }
+    ]
+  },
+  "cta": {
+    "title": "¿Listo para Optimizar Tu Código?",
+    "description": "Hablemos sobre tus necesidades de mantenimiento y creemos un plan para mantener tus aplicaciones funcionando al máximo rendimiento.",
+    "buttonText": "Iniciar Plan de Mantenimiento"
+  }
+}

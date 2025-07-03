@@ -1,0 +1,49 @@
+{
+  "hero": {
+    "title": "Our {{gradient:Services}}",
+    "subtitle": "Comprehensive Digital Solutions",
+    "description": "From web applications to 3D modeling, we provide end-to-end digital services to transform your business ideas into reality. Explore our full range of services and discover how we can help bring your vision to life.",
+    "ctaText": "Get Started Today"
+  },
+  "navigation": {
+    "title": "Quick Navigation",
+    "items": [
+      {
+        "id": "web-applications",
+        "title": "Web Applications",
+        "description": "Custom web solutions",
+        "icon": "web"
+      },
+      {
+        "id": "mobile-applications", 
+        "title": "Mobile Applications",
+        "description": "iOS and Android apps",
+        "icon": "mobile"
+      },
+      {
+        "id": "api-development",
+        "title": "API Development", 
+        "description": "Backend services",
+        "icon": "api"
+      },
+      {
+        "id": "code-maintenance",
+        "title": "Code Maintenance",
+        "description": "Ongoing support",
+        "icon": "maintenance"
+      },
+      {
+        "id": "ux-design",
+        "title": "UX Design",
+        "description": "User experience design",
+        "icon": "design"
+      },
+      {
+        "id": "3d-modeling",
+        "title": "3D Modeling",
+        "description": "3D visualization",
+        "icon": "3d"
+      }
+    ]
+  }
+}

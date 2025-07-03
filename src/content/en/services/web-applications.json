@@ -1,0 +1,119 @@
+{
+  "hero": {
+    "title": "Custom {{gradient:Web Solutions}} That Drive Business Growth",
+    "subtitle": "Professional Web Development",
+    "description": "We build modern, scalable web applications tailored to your business needs. From concept to deployment, our expert team delivers high-performance solutions that engage users and drive results.",
+    "image": "/src/assets/services/web-applications-hero.svg",
+    "textPosition": "left"
+  },
+  "features": {
+    "title": "Why Choose Our Web Applications",
+    "items": [
+      {
+        "title": "Modern Technology Stack",
+        "description": "Built with cutting-edge technologies like React, Next.js, and TypeScript for optimal performance and maintainability.",
+        "icon": "code"
+      },
+      {
+        "title": "Responsive Design",
+        "description": "Your application will look and work perfectly on all devices, from mobile phones to desktop computers.",
+        "icon": "responsive"
+      },
+      {
+        "title": "Scalable Architecture",
+        "description": "Designed to grow with your business, handling increased traffic and feature requirements seamlessly.",
+        "icon": "scale"
+      },
+      {
+        "title": "SEO Optimized",
+        "description": "Built with search engine optimization in mind to help your application rank higher and attract more users.",
+        "icon": "search"
+      },
+      {
+        "title": "Fast Performance",
+        "description": "Optimized for speed with advanced caching, code splitting, and performance monitoring.",
+        "icon": "speed"
+      },
+      {
+        "title": "Security First",
+        "description": "Implemented with industry-standard security practices to protect your data and users.",
+        "icon": "shield"
+      }
+    ]
+  },
+  "process": {
+    "title": "Our Development Process",
+    "steps": [
+      {
+        "number": 1,
+        "title": "Discovery & Planning",
+        "description": "We analyze your requirements, define project scope, and create a detailed development roadmap."
+      },
+      {
+        "number": 2,
+        "title": "Design & Prototyping",
+        "description": "Our team creates wireframes and interactive prototypes to visualize the user experience."
+      },
+      {
+        "number": 3,
+        "title": "Development & Testing",
+        "description": "We build your application using agile methodology with continuous testing and quality assurance."
+      },
+      {
+        "number": 4,
+        "title": "Deployment & Launch",
+        "description": "We deploy your application to production and ensure everything runs smoothly for launch."
+      },
+      {
+        "number": 5,
+        "title": "Support & Maintenance",
+        "description": "Ongoing support, updates, and maintenance to keep your application running at peak performance."
+      }
+    ]
+  },
+  "technologies": {
+    "title": "Technologies We Use",
+    "items": [
+      "React",
+      "Next.js",
+      "TypeScript",
+      "Node.js",
+      "MongoDB",
+      "PostgreSQL",
+      "GraphQL",
+      "Tailwind CSS",
+      "Chakra UI",
+      "Vercel",
+      "AWS",
+      "Docker"
+    ]
+  },
+  "portfolio": {
+    "title": "Our Web Application Projects",
+    "projects": [
+      {
+        "title": "E-commerce Platform",
+        "description": "A full-featured online store with payment processing, inventory management, and customer analytics.",
+        "image": "ecommerce-project.jpg",
+        "technologies": ["React", "Node.js", "MongoDB", "Stripe"]
+      },
+      {
+        "title": "Business Dashboard",
+        "description": "Real-time analytics dashboard for tracking business metrics and performance indicators.",
+        "image": "dashboard-project.jpg",
+        "technologies": ["Next.js", "TypeScript", "PostgreSQL", "Chart.js"]
+      },
+      {
+        "title": "Learning Management System",
+        "description": "Educational platform with course management, student tracking, and interactive content delivery.",
+        "image": "lms-project.jpg",
+        "technologies": ["React", "GraphQL", "Node.js", "AWS"]
+      }
+    ]
+  },
+  "cta": {
+    "title": "Ready to Build Your Web Application?",
+    "description": "Let's discuss your project and create a custom solution that meets your business goals.",
+    "buttonText": "Start Your Project"
+  }
+}

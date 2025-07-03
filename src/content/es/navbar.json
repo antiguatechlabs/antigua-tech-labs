@@ -8,45 +8,41 @@
   "menuItems": [
     { 
       "name": "Inicio", 
-      "href": "#hero" 
+      "href": "/#hero" 
     },
-    { 
-      "name": "Servicios", 
-      "href": "#features",
+    {
+      "name": "Servicios",
+      "href": "/services",
       "submenu": [
         {
           "name": "Aplicaciones Web",
-          "href": "/services/web-applications"
+          "href": "/services#web-applications"
         },
         {
           "name": "Aplicaciones Móviles",
-          "href": "/services/mobile-applications"
+          "href": "/services#mobile-applications"
         },
         {
           "name": "Desarrollo de APIs",
-          "href": "/services/api-development"
+          "href": "/services#api-development"
         },
         {
           "name": "Mantenimiento de Código",
-          "href": "/services/code-maintenance"
+          "href": "/services#code-maintenance"
         },
         {
           "name": "Diseño UX",
-          "href": "/services/ux-design"
+          "href": "/services#ux-design"
         },
         {
           "name": "Modelado 3D",
-          "href": "/services/3d-modeling"
+          "href": "/services#3d-modeling"
         }
       ]
     },
     { 
-      "name": "Proyectos", 
-      "href": "#pricing" 
-    },
-    { 
       "name": "Contacto", 
-      "href": "#contact" 
+      "href": "/#contact" 
     }
   ],
   "contactInfo": {

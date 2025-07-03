@@ -3,8 +3,10 @@ import { Inter } from 'next/font/google';
 import { notFound } from 'next/navigation';
 import { ReactNode } from 'react';
 
+import { Navbar, Footer } from '@/components';
 import { ScrollToTop } from '@/components/ui';
 import { LanguageProvider, SidebarProvider, ThemeProvider } from '@/context';
+import { getNavbarContent, getFooterContent } from '@/lib/data';
 import '@/styles/globals.css';
 
 
@@ -54,6 +56,9 @@ export default async function LocaleLayout({
   if (!locales.includes(lang)) notFound();
 
 
+  const navbarContent = getNavbarContent(lang);
+  const footerContent = getFooterContent(lang);
+
   return (
     <html lang={lang} className={inter.variable}>
       <body style={{ overflowX: 'hidden', width: '100%', scrollBehavior: 'smooth' }} className={inter.className}>
@@ -61,8 +66,9 @@ export default async function LocaleLayout({
           <ThemeProvider>
             <SidebarProvider>
               <CssBaseline />
+              <Navbar content={navbarContent} />
               {children}
-              {/* <ScrollPreserver/> */}
+              <Footer content={footerContent} />
               <ScrollToTop />
             </SidebarProvider>
           </ThemeProvider>

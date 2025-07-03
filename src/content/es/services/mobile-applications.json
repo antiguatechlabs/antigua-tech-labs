@@ -1,0 +1,117 @@
+{
+  "hero": {
+    "title": "{{gradient:Aplicaciones Móviles}} Que Conectan y Cautivan",
+    "subtitle": "Desarrollo Nativo iOS y Android",
+    "description": "Crea aplicaciones móviles potentes y fáciles de usar que cautiven a tu audiencia e impulsen el crecimiento empresarial. Nuestro equipo experto entrega apps nativas para iOS y Android con rendimiento excepcional y diseño intuitivo.",
+    "image": "/src/assets/services/mobile-applications-hero.svg",
+    "textPosition": "right"
+  },
+  "features": {
+    "title": "Por Qué Elegir Nuestro Desarrollo Móvil",
+    "items": [
+      {
+        "title": "Rendimiento Nativo",
+        "description": "Construidas con tecnologías específicas de plataforma para velocidad y capacidad de respuesta óptimas en dispositivos iOS y Android.",
+        "icon": "speed"
+      },
+      {
+        "title": "Compatibilidad Multiplataforma",
+        "description": "Desarrolla una vez, despliega en todas partes con nuestra experiencia en React Native y Flutter para máximo alcance.",
+        "icon": "responsive"
+      },
+      {
+        "title": "Optimización de App Store",
+        "description": "Envío completo a tiendas de aplicaciones y optimización para maximizar visibilidad y descargas.",
+        "icon": "search"
+      },
+      {
+        "title": "Funcionalidad Offline",
+        "description": "Caché inteligente y capacidades offline aseguran que tu app funcione perfectamente sin conexión a internet.",
+        "icon": "shield"
+      },
+      {
+        "title": "Notificaciones Push",
+        "description": "Involucra usuarios con notificaciones push dirigidas y actualizaciones en tiempo real para aumentar retención.",
+        "icon": "star"
+      },
+      {
+        "title": "Integración de Analytics",
+        "description": "Analytics integrados y reportes de errores para monitorear rendimiento y comportamiento del usuario.",
+        "icon": "code"
+      }
+    ]
+  },
+  "process": {
+    "title": "Nuestro Proceso de Desarrollo Móvil",
+    "steps": [
+      {
+        "number": 1,
+        "title": "Descubrimiento y Planificación",
+        "description": "Analizamos tus requisitos, audiencia objetivo y preferencias de plataforma para crear una estrategia móvil integral."
+      },
+      {
+        "number": 2,
+        "title": "Diseño UI/UX",
+        "description": "Diseñamos interfaces intuitivas específicas de plataforma que brindan experiencias excepcionales en dispositivos móviles."
+      },
+      {
+        "number": 3,
+        "title": "Desarrollo y Pruebas",
+        "description": "Construimos tu app usando tecnologías nativas o frameworks multiplataforma, con pruebas rigurosas en dispositivos reales."
+      },
+      {
+        "number": 4,
+        "title": "Despliegue en App Store",
+        "description": "Manejamos el proceso completo de envío a tiendas de aplicaciones, incluyendo optimización para mejor descubribilidad."
+      },
+      {
+        "number": 5,
+        "title": "Mantenimiento y Actualizaciones",
+        "description": "Proporcionamos soporte continuo, actualizaciones y mejoras de características para mantener tu app actual y competitiva."
+      }
+    ]
+  },
+  "technologies": {
+    "title": "Tecnologías Móviles Que Usamos",
+    "items": [
+      "React Native",
+      "Flutter",
+      "Swift",
+      "Kotlin",
+      "Xamarin",
+      "Ionic",
+      "Firebase",
+      "AWS Mobile",
+      "Redux",
+      "MobX"
+    ]
+  },
+  "portfolio": {
+    "title": "Historias de Éxito en Apps Móviles",
+    "projects": [
+      {
+        "title": "App Móvil de E-commerce",
+        "description": "App de compras multiplataforma con 50K+ descargas y calificación de 4.8 estrellas",
+        "image": "/images/portfolio/mobile-ecommerce.jpg",
+        "technologies": ["React Native", "Firebase", "Stripe"]
+      },
+      {
+        "title": "App de Seguimiento Fitness",
+        "description": "App nativa iOS con integración de salud y características sociales",
+        "image": "/images/portfolio/fitness-app.jpg",
+        "technologies": ["Swift", "HealthKit", "Core Data"]
+      },
+      {
+        "title": "App de Gestión Empresarial",
+        "description": "App empresarial Android para gestión de inventario y equipos",
+        "image": "/images/portfolio/business-app.jpg",
+        "technologies": ["Kotlin", "Room", "Retrofit"]
+      }
+    ]
+  },
+  "cta": {
+    "title": "¿Listo para Lanzar Tu App Móvil?",
+    "description": "Hablemos sobre tu idea de app móvil y creemos una solución que deleite a tus usuarios y haga crecer tu negocio.",
+    "buttonText": "Inicia Tu Proyecto Móvil"
+  }
+}

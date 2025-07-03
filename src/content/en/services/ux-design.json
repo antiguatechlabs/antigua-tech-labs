@@ -1,0 +1,117 @@
+{
+  "hero": {
+    "title": "{{gradient:UX Design}} & User Experience",
+    "subtitle": "User-Centered Design & Experience Optimization",
+    "description": "Create intuitive, engaging user experiences that delight your customers and drive business results. Our UX design team combines research, strategy, and creative design to build products users love.",
+    "image": "/src/assets/services/ux-design-hero.svg",
+    "textPosition": "left"
+  },
+  "features": {
+    "title": "Why Choose Our UX Design",
+    "items": [
+      {
+        "title": "User Research & Testing",
+        "description": "In-depth user interviews, usability testing, and behavioral analysis to understand your audience's needs and pain points.",
+        "icon": "search"
+      },
+      {
+        "title": "Responsive Design",
+        "description": "Seamless experiences across all devices and screen sizes with mobile-first design principles.",
+        "icon": "responsive"
+      },
+      {
+        "title": "Accessibility Focus",
+        "description": "WCAG compliant designs that ensure your product is usable by everyone, including users with disabilities.",
+        "icon": "shield"
+      },
+      {
+        "title": "Rapid Prototyping",
+        "description": "Interactive prototypes and wireframes that allow for quick iteration and stakeholder feedback.",
+        "icon": "speed"
+      },
+      {
+        "title": "Design Systems",
+        "description": "Comprehensive design systems and style guides that ensure consistency across your entire product ecosystem.",
+        "icon": "code"
+      },
+      {
+        "title": "Conversion Optimization",
+        "description": "Data-driven design decisions that improve user engagement, retention, and conversion rates.",
+        "icon": "star"
+      }
+    ]
+  },
+  "process": {
+    "title": "Our UX Design Process",
+    "steps": [
+      {
+        "number": 1,
+        "title": "Discovery & Research",
+        "description": "Understand your users, business goals, and competitive landscape through comprehensive research and analysis."
+      },
+      {
+        "number": 2,
+        "title": "Strategy & Planning",
+        "description": "Define user personas, journey maps, and information architecture to guide the design process."
+      },
+      {
+        "number": 3,
+        "title": "Wireframing & Prototyping",
+        "description": "Create low and high-fidelity wireframes and interactive prototypes to test concepts and flows."
+      },
+      {
+        "number": 4,
+        "title": "Visual Design",
+        "description": "Develop beautiful, on-brand visual designs that enhance usability and create emotional connections."
+      },
+      {
+        "number": 5,
+        "title": "Testing & Iteration",
+        "description": "Conduct usability testing and iterate based on user feedback to optimize the final experience."
+      }
+    ]
+  },
+  "technologies": {
+    "title": "UX Design Tools We Use",
+    "items": [
+      "Figma",
+      "Sketch",
+      "Adobe XD",
+      "InVision",
+      "Principle",
+      "Framer",
+      "Miro",
+      "Hotjar",
+      "Google Analytics",
+      "Maze"
+    ]
+  },
+  "portfolio": {
+    "title": "UX Design Success Stories",
+    "projects": [
+      {
+        "title": "SaaS Dashboard Redesign",
+        "description": "Increased user engagement by 85% and reduced support tickets by 60%",
+        "image": "/images/portfolio/saas-dashboard.jpg",
+        "technologies": ["Figma", "User Testing", "Analytics"]
+      },
+      {
+        "title": "E-commerce Mobile App",
+        "description": "Improved conversion rate by 40% with streamlined checkout process",
+        "image": "/images/portfolio/ecommerce-mobile-ux.jpg",
+        "technologies": ["Sketch", "Prototyping", "A/B Testing"]
+      },
+      {
+        "title": "Healthcare Patient Portal",
+        "description": "Enhanced accessibility and reduced task completion time by 50%",
+        "image": "/images/portfolio/healthcare-portal.jpg",
+        "technologies": ["Adobe XD", "Accessibility", "User Research"]
+      }
+    ]
+  },
+  "cta": {
+    "title": "Ready to Improve Your User Experience?",
+    "description": "Let's discuss your UX challenges and create designs that your users will love and your business will benefit from.",
+    "buttonText": "Start UX Project"
+  }
+}

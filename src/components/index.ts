@@ -10,6 +10,9 @@ export * from './sections';
 // Layout Components
 export * from './layout';
 
+// Service Components
+export * from './services';
+
 // export {
 //   Hero,
 //   Features,
