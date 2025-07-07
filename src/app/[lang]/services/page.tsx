@@ -4,9 +4,9 @@ import { UnifiedServicesPage } from '@/components/services';
 import { getUnifiedServicesPageContent } from '@/lib/data';
 
 interface ServicesPageProps {
-  params: {
+  params: Promise<{
     lang: string;
-  };
+  }>;
 }
 
 export async function generateStaticParams() {

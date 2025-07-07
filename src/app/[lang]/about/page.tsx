@@ -4,9 +4,9 @@ import { UnifiedAboutPage } from '@/components/sections';
 import { getAboutPageContent, getContactContent } from '@/lib/data';
 
 interface AboutPageProps {
-  params: {
+  params: Promise<{
     lang: string;
-  };
+  }>;
 }
 
 export async function generateStaticParams() {

@@ -13,9 +13,9 @@ import OurTeam from '@/components/sections/OurTeam';
 import { getHomePageContent } from '@/lib/pageContent';
 
 interface ServicesPageProps {
-  params: {
+  params: Promise<{
     lang: string;
-  };
+  }>;
 }
 
 export async function generateMetadata({ params }: ServicesPageProps): Promise<Metadata> {
