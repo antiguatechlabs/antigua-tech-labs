@@ -1,5 +1,6 @@
 import { CssBaseline } from '@mui/material';
 import { Inter } from 'next/font/google';
+import { cookies } from 'next/headers';
 import { notFound } from 'next/navigation';
 import { ReactNode } from 'react';
 
@@ -7,8 +8,13 @@ import { Navbar, Footer } from '@/components';
 import { ScrollToTop } from '@/components/ui';
 import { LanguageProvider, SidebarProvider, ThemeProvider } from '@/context';
 import { getNavbarContent, getFooterContent } from '@/lib/data';
+import { supportedLanguages } from '@/lib/i18n/config';
+import type { Language } from '@/lib/i18n/config';
 import '@/styles/globals.css';
 
+
+// Cookie configuration
+const LANGUAGE_COOKIE_NAME = 'aglanguage';
 
 // Next.js functions
 export function generateStaticParams() {
@@ -51,10 +57,12 @@ export default async function LocaleLayout({
 }: LocaleLayoutProps) {
 
   const { lang } = await params;
-  const locales = ['en', 'es'];
 
-  if (!locales.includes(lang)) notFound();
+  if (!supportedLanguages.includes(lang as Language)) notFound();
 
+  // Read language cookie for server-side consistency
+  const cookieStore = await cookies();
+  const _languageCookie = cookieStore.get(LANGUAGE_COOKIE_NAME);
 
   const navbarContent = getNavbarContent(lang);
   const footerContent = getFooterContent(lang);
@@ -62,7 +70,7 @@ export default async function LocaleLayout({
   return (
     <html lang={lang} className={inter.variable}>
       <body style={{ overflowX: 'hidden', width: '100%', scrollBehavior: 'smooth' }} className={inter.className}>
-        <LanguageProvider initialLanguage={lang as 'en' | 'es'}>
+        <LanguageProvider initialLanguage={lang as Language}>
           <ThemeProvider>
             <SidebarProvider>
               <CssBaseline />

@@ -1,6 +1,5 @@
 'use client';
 import CodeIcon from '@mui/icons-material/Code';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import MenuIcon from '@mui/icons-material/Menu';
 import {
   AppBar,
@@ -10,11 +9,8 @@ import {
   IconButton,
   Link as MuiLink,
   Typography,
-  Menu,
-  MenuItem,
 } from '@mui/material';
 import Link from 'next/link';
-import { redirect, RedirectType } from 'next/navigation';
 import { useParams } from 'next/navigation';
 import React, { useState, useLayoutEffect } from 'react';
 
@@ -51,20 +47,8 @@ export function Navbar({ content }: { content: NavbarContent }) {
   // Get current language from URL
   const currentLang = params.lang as string || 'en';
 
-  // State for sticky header and dropdown menu
+  // State for sticky header
   const [isSticky, setIsSticky] = useState(false);
-  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
-  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
-
-  const handleDropdownOpen = (event: React.MouseEvent<HTMLElement>, itemName: string) => {
-    setAnchorEl(event.currentTarget);
-    setOpenDropdown(itemName);
-  };
-
-  const handleDropdownClose = () => {
-    setAnchorEl(null);
-    setOpenDropdown(null);
-  };
 
   // Handle scroll for sticky header
   useLayoutEffect(() => {
@@ -77,11 +61,6 @@ export function Navbar({ content }: { content: NavbarContent }) {
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
-
-  // Smooth scroll handler for anchor links
-  const handleSmoothScroll = (href: string) => {
-    redirect(href, RedirectType.push);
-  };
 
   return (
     <AppBar
@@ -151,55 +130,15 @@ export function Navbar({ content }: { content: NavbarContent }) {
           >
             {content.menuItems.map((item, i) => (
               <Box key={`${item.name}-${i}`} sx={{ position: 'relative' }}>
-                {item.submenu ? (
-                  <>
-                    <Box
-                      component="button"
-                      onClick={e => handleDropdownOpen(e, item.name)}
-                      sx={navLinkSx}
-                    >
-                      <Typography component="span">{item.name}</Typography>
-                      <ExpandMoreIcon sx={{ fontSize: '1rem' }} />
-                    </Box>
-                    <Menu
-                      anchorEl={anchorEl}
-                      open={openDropdown === item.name}
-                      onClose={handleDropdownClose}
-                      sx={{
-                        '& .MuiPaper-root': {
-                          mt: 1,
-                          minWidth: 200,
-                          boxShadow: '0px 4px 20px rgba(0, 0, 0, 0.1)',
-                        },
-                      }}
-                    >
-                      {item.submenu.map((subItem, subIndex) => (
-                        <MenuItem
-                          key={subIndex}
-                          component={Link}
-                          href={`/${currentLang}${subItem.href}`}
-                          onClick={handleDropdownClose}
-                          sx={{
-                            fontSize: '0.875rem',
-                            py: 1.5,
-                            '&:hover': { bgcolor: 'rgba(156, 67, 248, 0.1)' },
-                          }}
-                        >
-                          {subItem.name}
-                        </MenuItem>
-                      ))}
-                    </Menu>
-                  </>
-                ) : (
-                  <Box
-                    component="button"
-                    // if not on /[lang] add link instead
-                    onClick={() => handleSmoothScroll(item.href)}
-                    sx={navLinkSx}
-                  >
-                    <Typography component="span">{item.name}</Typography>
-                  </Box>
-                )}
+                {/* Desktop: No dropdown for any items, direct navigation */}
+                <MuiLink
+                  component={Link}
+                  href={`/${currentLang}${item.href}`}
+                  sx={navLinkSx}
+                  underline="none"
+                >
+                  <Typography component="span">{item.name}</Typography>
+                </MuiLink>
               </Box>
             ))}
 

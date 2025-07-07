@@ -11,7 +11,20 @@
     },
     "company": {
       "title": "Empresa",
-      "links": ["Acerca de", "Equipo", "Contacto"]
+      "links": [
+        {
+          "title": "Acerca de Nosotros",
+          "href": "/about"
+        },
+        {
+          "title": "Nuestro Equipo",
+          "href": "/#our-team"
+        },
+        {
+          "title": "Contacto",
+          "href": "/#contact"
+        }
+      ]
     },
     "legal": {
       "title": "Legal",

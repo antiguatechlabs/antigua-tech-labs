@@ -219,7 +219,7 @@ export const Footer = ({ content }: { content: FooterContent }) => {
                         {...slideUpVariant}
                       >
                         <MuiLink
-                          href={`/${item.toLowerCase().replace(/\s+/g, '-')}`}
+                          href={`/${currentLang}${item.href}`}
                           sx={{
                             color: 'white',
                             textDecoration: 'none',
@@ -229,7 +229,7 @@ export const Footer = ({ content }: { content: FooterContent }) => {
                             },
                           }}
                         >
-                          {item}
+                          {item.title}
                         </MuiLink>
                       </MotionBox>
                     ),

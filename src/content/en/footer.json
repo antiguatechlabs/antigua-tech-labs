@@ -11,7 +11,20 @@
     },
     "company": {
       "title": "Company",
-      "links": ["About", "Team", "Contact"]
+      "links": [
+        {
+          "title": "About Us",
+          "href": "/about"
+        },
+        {
+          "title": "Our Team",
+          "href": "/#our-team"
+        },
+        {
+          "title": "Contact",
+          "href": "/#contact"
+        }
+      ]
     },
     "legal": {
       "title": "Legal",

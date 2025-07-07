@@ -1,4 +1,8 @@
 // Import JSON files directly
+import enAboutApproach from '../content/en/about-approach.json';
+import enAboutCta from '../content/en/about-cta.json';
+import enAboutHero from '../content/en/about-hero.json';
+import enAboutStory from '../content/en/about-story.json';
 import enContact from '../content/en/contact.json';
 import enFaq from '../content/en/faq.json';
 import enFeatures from '../content/en/features.json';
@@ -17,6 +21,10 @@ import enSlider from '../content/en/slider.json';
 import enTestimonials from '../content/en/testimonials.json';
 import enWhyChoose from '../content/en/whyChoose.json';
 import enWhyChooseTwo from '../content/en/whyChooseTwo.json';
+import esAboutApproach from '../content/es/about-approach.json';
+import esAboutCta from '../content/es/about-cta.json';
+import esAboutHero from '../content/es/about-hero.json';
+import esAboutStory from '../content/es/about-story.json';
 import esContact from '../content/es/contact.json';
 import esFaq from '../content/es/faq.json';
 import esFeatures from '../content/es/features.json';
@@ -99,7 +107,10 @@ export interface FooterContent {
     };
     company: {
       title: string;
-      links: string[];
+      links: Array<{
+        title: string;
+        href: string;
+      }>;
     };
     legal: {
       title: string;
@@ -120,6 +131,10 @@ export interface NavbarContent {
     name: string;
     href: string;
     submenu?: Array<{
+      name: string;
+      href: string;
+    }>;
+    mobileSubmenu?: Array<{
       name: string;
       href: string;
     }>;
@@ -195,6 +210,98 @@ export interface OurTeamContent {
   title: string;
   subtitle: string;
   teamMembers: TeamMember[];
+}
+
+// About page content types
+export interface AboutHeroContent {
+  headline: string;
+  subheading: string;
+  ctaText: string;
+  ctaLink: string;
+  backgroundImage: string;
+}
+
+export interface AboutApproachStep {
+  number: string;
+  title: string;
+  description: string;
+  icon: string;
+}
+
+export interface AboutApproachContent {
+  title: string;
+  subtitle: string;
+  steps: AboutApproachStep[];
+  methodology: {
+    title: string;
+    points: string[];
+  };
+}
+
+export interface AboutCTAContent {
+  title: string;
+  subtitle: string;
+  description: string;
+  primaryCta: {
+    text: string;
+    link: string;
+    variant: string;
+  };
+  secondaryCta: {
+    text: string;
+    link: string;
+    variant: string;
+  };
+  contactPreview: {
+    heading: string;
+    email: string;
+    phone: string;
+    location: string;
+  };
+}
+
+export interface AboutStoryTimelineItem {
+  year: string;
+  title: string;
+  description: string;
+  milestone: string;
+  icon: string;
+}
+
+export interface AboutStoryValue {
+  title: string;
+  description: string;
+  icon: string;
+}
+
+export interface AboutStoryContent {
+  title: string;
+  subtitle: string;
+  summary: {
+    title: string;
+    description: string;
+  };
+  timeline: AboutStoryTimelineItem[];
+  values: {
+    title: string;
+    subtitle: string;
+    items: AboutStoryValue[];
+  };
+  mission: {
+    title: string;
+    description: string;
+    vision: {
+      title: string;
+      description: string;
+    };
+  };
+}
+
+export interface AboutPageContent {
+  hero: AboutHeroContent;
+  story: AboutStoryContent;
+  approach: AboutApproachContent;
+  cta: AboutCTAContent;
 }
 
 // Service content types
@@ -304,6 +411,10 @@ const contentMap = {
     faq: enFaq as FAQContent,
     slider: enSlider as SliderContent,
     ourTeam: enOurTeam as OurTeamContent,
+    aboutHero: enAboutHero as AboutHeroContent,
+    aboutStory: enAboutStory as AboutStoryContent,
+    aboutApproach: enAboutApproach as AboutApproachContent,
+    aboutCta: enAboutCta as AboutCTAContent,
     apiDevelopment: enApiDevelopment as ServicePageContent,
     codeMaintenance: enCodeMaintenance as ServicePageContent,
     mobileApplications: enMobileApplications as ServicePageContent,
@@ -324,6 +435,10 @@ const contentMap = {
     faq: esFaq as FAQContent,
     slider: esSlider as SliderContent,
     ourTeam: esOurTeam as OurTeamContent,
+    aboutHero: esAboutHero as AboutHeroContent,
+    aboutStory: esAboutStory as AboutStoryContent,
+    aboutApproach: esAboutApproach as AboutApproachContent,
+    aboutCta: esAboutCta as AboutCTAContent,
     apiDevelopment: esApiDevelopment as ServicePageContent,
     codeMaintenance: esCodeMaintenance as ServicePageContent,
     mobileApplications: esMobileApplications as ServicePageContent,
@@ -436,5 +551,15 @@ export function getUnifiedServicesPageContent(language: string = 'en'): UnifiedS
   return {
     overview: getServicesOverviewContent(language),
     ...getAllServicesContent(language),
+  };
+}
+
+// About page content loading function
+export function getAboutPageContent(language: string = 'en'): AboutPageContent {
+  return {
+    hero: getContent<AboutHeroContent>('aboutHero', language),
+    story: getContent<AboutStoryContent>('aboutStory', language),
+    approach: getContent<AboutApproachContent>('aboutApproach', language),
+    cta: getContent<AboutCTAContent>('aboutCta', language),
   };
 }

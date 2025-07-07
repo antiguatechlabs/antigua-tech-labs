@@ -2,7 +2,8 @@
 import { usePathname, useRouter } from 'next/navigation';
 import { createContext, useContext, useState, useEffect, ReactNode } from 'react';
 
-type Language = 'en' | 'es';
+import { setLanguageCookie, getLanguageCookie } from '@/lib/cookies';
+import type { Language } from '@/lib/i18n/config';
 
 interface LanguageContextType {
   language: Language;
@@ -27,6 +28,9 @@ export function LanguageProvider({
   const setLanguage = (newLanguage: Language) => {
     setLanguageState(newLanguage);
 
+    // Set language preference in cookie
+    setLanguageCookie(newLanguage);
+
     // Update URL to reflect language change
     if (pathname) {
       const segments = pathname.split('/');
@@ -41,13 +45,14 @@ export function LanguageProvider({
     setLanguage(newLanguage);
   };
 
-  // Effect to save language preference to localStorage
+  // Effect to initialize language from cookie and set document language
   useEffect(() => {
-    try {
-      localStorage.setItem('language', language);
-      document.documentElement.lang = language;
-    } catch (error) {
-      console.warn('Error setting localStorage:', error);
+    // Set document language attribute
+    document.documentElement.lang = language;
+
+    // Initialize language from cookie if not already set
+    if (!getLanguageCookie()) {
+      setLanguageCookie(language);
     }
   }, [language]);
 
@@ -66,3 +71,4 @@ export function useLanguage() {
   }
   return context;
 }
+

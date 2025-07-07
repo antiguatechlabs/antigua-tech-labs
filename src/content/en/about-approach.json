@@ -1,0 +1,53 @@
+{
+  "title": "Our Approach",
+  "subtitle": "How we deliver exceptional results through proven methodologies and collaborative processes",
+  "steps": [
+    {
+      "number": "01",
+      "title": "Discovery & Planning",
+      "description": "We start by deeply understanding your business goals, target audience, and technical requirements through comprehensive consultation and analysis.",
+      "icon": "SearchIcon"
+    },
+    {
+      "number": "02", 
+      "title": "Design & Architecture",
+      "description": "Our team creates detailed wireframes, user experience designs, and technical architecture plans that align with your vision and objectives.",
+      "icon": "ArchitectureIcon"
+    },
+    {
+      "number": "03",
+      "title": "Agile Development",
+      "description": "We build your solution using Agile sprints, providing regular updates and incorporating your feedback throughout the development process.",
+      "icon": "CodeIcon"
+    },
+    {
+      "number": "04",
+      "title": "Quality Assurance",
+      "description": "Rigorous testing across multiple devices and scenarios ensures your application performs flawlessly before launch.",
+      "icon": "BugReportIcon"
+    },
+    {
+      "number": "05",
+      "title": "Deployment & Launch",
+      "description": "We handle the complete deployment process, ensuring smooth launch and optimal performance in your production environment.",
+      "icon": "RocketLaunchIcon"
+    },
+    {
+      "number": "06",
+      "title": "Ongoing Support",
+      "description": "Post-launch support includes monitoring, maintenance, updates, and continuous optimization to ensure long-term success.",
+      "icon": "SupportAgentIcon"
+    }
+  ],
+  "methodology": {
+    "title": "Our Development Philosophy",
+    "points": [
+      "Transparent communication at every stage",
+      "Regular sprint reviews and demonstrations", 
+      "Collaborative decision-making process",
+      "Continuous integration and deployment",
+      "User-centered design principles",
+      "Scalable and maintainable code practices"
+    ]
+  }
+}
