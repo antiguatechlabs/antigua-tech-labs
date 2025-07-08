@@ -121,7 +121,6 @@ export const StackSlider: React.FC = () => {
                     position: 'relative',
                     width: '75px',
                     height: '75px',
-                    cursor: 'pointer',
                   }}
                 >
                   <Image
