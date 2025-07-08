@@ -36,6 +36,7 @@ const TwoColumnSection: React.FC<TwoColumnSectionProps> = ({
       gap={4}
     >
       <Box flex={1} sx={{ position: 'relative', width: '100%', height: 'auto' }}>
+        {/* TODO: update the image with icons??? */}
         <Image
           src={image}
           alt={altText || subtitle || 'Service image'}
