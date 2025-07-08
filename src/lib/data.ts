@@ -10,6 +10,7 @@ import enFooter from '../content/en/footer.json';
 import enHero from '../content/en/hero.json';
 import enNavbar from '../content/en/navbar.json';
 import enOurTeam from '../content/en/ourTeam.json';
+import enPrivacyPolicy from '../content/en/privacy-policy.json';
 import enModeling3d from '../content/en/services/3d-modeling.json';
 import enApiDevelopment from '../content/en/services/api-development.json';
 import enCodeMaintenance from '../content/en/services/code-maintenance.json';
@@ -18,6 +19,7 @@ import enUxDesign from '../content/en/services/ux-design.json';
 import enWebApplications from '../content/en/services/web-applications.json';
 import enServicesOverview from '../content/en/services-overview.json';
 import enSlider from '../content/en/slider.json';
+import enTermsOfService from '../content/en/terms-of-service.json';
 import enTestimonials from '../content/en/testimonials.json';
 import enWhyChoose from '../content/en/whyChoose.json';
 import enWhyChooseTwo from '../content/en/whyChooseTwo.json';
@@ -32,6 +34,7 @@ import esFooter from '../content/es/footer.json';
 import esHero from '../content/es/hero.json';
 import esNavbar from '../content/es/navbar.json';
 import esOurTeam from '../content/es/ourTeam.json';
+import esPrivacyPolicy from '../content/es/privacy-policy.json';
 import esModeling3d from '../content/es/services/3d-modeling.json';
 import esApiDevelopment from '../content/es/services/api-development.json';
 import esCodeMaintenance from '../content/es/services/code-maintenance.json';
@@ -40,6 +43,7 @@ import esUxDesign from '../content/es/services/ux-design.json';
 import esWebApplications from '../content/es/services/web-applications.json';
 import esServicesOverview from '../content/es/services-overview.json';
 import esSlider from '../content/es/slider.json';
+import esTermsOfService from '../content/es/terms-of-service.json';
 import esTestimonials from '../content/es/testimonials.json';
 import esWhyChoose from '../content/es/whyChoose.json';
 import esWhyChooseTwo from '../content/es/whyChooseTwo.json';
@@ -297,6 +301,18 @@ export interface AboutStoryContent {
   };
 }
 
+// Legal content types
+export interface LegalSection {
+  title: string;
+  content: string[];
+}
+
+export interface LegalContent {
+  title: string;
+  lastUpdated: string;
+  sections: LegalSection[];
+}
+
 export interface AboutPageContent {
   hero: AboutHeroContent;
   story: AboutStoryContent;
@@ -422,6 +438,8 @@ const contentMap = {
     uxDesign: enUxDesign as ServicePageContent,
     webApplications: enWebApplications as ServicePageContent,
     servicesOverview: enServicesOverview as ServicesOverviewContent,
+    termsOfService: enTermsOfService as LegalContent,
+    privacyPolicy: enPrivacyPolicy as LegalContent,
   },
   es: {
     hero: esHero as HeroContent,
@@ -446,6 +464,8 @@ const contentMap = {
     uxDesign: esUxDesign as ServicePageContent,
     webApplications: esWebApplications as ServicePageContent,
     servicesOverview: esServicesOverview as ServicesOverviewContent,
+    termsOfService: esTermsOfService as LegalContent,
+    privacyPolicy: esPrivacyPolicy as LegalContent,
   },
 };
 
@@ -562,4 +582,13 @@ export function getAboutPageContent(language: string = 'en'): AboutPageContent {
     approach: getContent<AboutApproachContent>('aboutApproach', language),
     cta: getContent<AboutCTAContent>('aboutCta', language),
   };
+}
+
+// Legal content loading functions
+export function getTermsOfServiceContent(language: string = 'en'): LegalContent {
+  return getContent<LegalContent>('termsOfService', language);
+}
+
+export function getPrivacyPolicyContent(language: string = 'en'): LegalContent {
+  return getContent<LegalContent>('privacyPolicy', language);
 }

@@ -1,6 +1,7 @@
 
 // UI Components
 export { default as CounterUp } from './CounterUp';
+export { LegalModal } from './LegalModal';
 export { default as ThemeToggle } from './ThemeToggle';
 export { default as GradientText } from './text/GradientText';
 export { default as BlurText } from './text/BlurText';

@@ -7,18 +7,22 @@ import { Box, Container, Typography, Link as MuiLink, Stack } from '@mui/materia
 import Image from 'next/image';
 import Link from 'next/link';
 import { useParams, useRouter } from 'next/navigation';
-import React from 'react';
+import React, { useState } from 'react';
 
 // TODO: replace with your actual footer logo
 import FooterShape from '@/assets/footer/footer-shape-1.webp';
+import { LegalModal } from '@/components/ui';
 import { fadeVariant, slideUpVariant, staggerContainerVariant } from '@/lib/animationVariants';
-import { FooterContent } from '@/lib/data';
+import { FooterContent, getPrivacyPolicyContent, getTermsOfServiceContent, LegalContent } from '@/lib/data';
 import { MotionBox, MotionStack, MotionTypography } from '@/lib/motionComponents';
 import { colors } from '@/theme';
 
 export const Footer = ({ content }: { content: FooterContent }) => {
   const params = useParams();
   const router = useRouter();
+  const [modalOpen, setModalOpen] = useState(false);
+  const [modalContent, setModalContent] = useState<LegalContent | null>(null);
+  const [modalTitle, setModalTitle] = useState('');
 
   // Get current language from URL
   const currentLang = params.lang as string || 'en';
@@ -28,6 +32,27 @@ export const Footer = ({ content }: { content: FooterContent }) => {
     const serviceId = serviceName.toLowerCase().replace(/\s+/g, '-');
     const targetUrl = `/${currentLang}/services#${serviceId}`;
     router.push(targetUrl);
+  };
+
+  // Handle legal document modal opening
+  const handleLegalClick = (type: 'terms' | 'privacy') => {
+    if (type === 'terms') {
+      const content = getTermsOfServiceContent(currentLang);
+      setModalContent(content);
+      setModalTitle(content.title);
+    } else {
+      const content = getPrivacyPolicyContent(currentLang);
+      setModalContent(content);
+      setModalTitle(content.title);
+    }
+    setModalOpen(true);
+  };
+
+  // Handle modal close
+  const handleModalClose = () => {
+    setModalOpen(false);
+    setModalContent(null);
+    setModalTitle('');
   };
 
   return (
@@ -319,12 +344,21 @@ export const Footer = ({ content }: { content: FooterContent }) => {
               {content.sections.legal.links.map((item, index) => (
                 <MuiLink
                   key={index}
-                  href={`/${item.toLowerCase().replace(/\s+/g, '-')}`}
+                  component="button"
+                  onClick={() => {
+                    const type = item.toLowerCase().includes('privacy') ? 'privacy' : 'terms';
+                    handleLegalClick(type);
+                  }}
                   sx={{
                     fontSize: '0.875rem',
                     color: 'grey.500',
                     textDecoration: 'none',
                     transition: 'color 0.2s ease',
+                    background: 'none',
+                    border: 'none',
+                    cursor: 'pointer',
+                    fontFamily: 'inherit',
+                    padding: 0,
                     '&:hover': { color: 'primary.light' },
                   }}
                 >
@@ -335,6 +369,16 @@ export const Footer = ({ content }: { content: FooterContent }) => {
           </Stack>
         </MotionBox>
       </Container>
+
+      {/* Legal Modal */}
+      {modalContent && (
+        <LegalModal
+          open={modalOpen}
+          onClose={handleModalClose}
+          title={modalTitle}
+          content={modalContent}
+        />
+      )}
     </Box>
   );
 };
