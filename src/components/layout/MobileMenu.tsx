@@ -2,8 +2,6 @@
 
 import CloseIcon from '@mui/icons-material/Close';
 import EmailIcon from '@mui/icons-material/Email';
-import ExpandLessIcon from '@mui/icons-material/ExpandLess';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
@@ -19,11 +17,9 @@ import {
   Divider,
   Link as MuiLink,
   Stack,
-  Collapse,
 } from '@mui/material';
 import Link from 'next/link';
 import { useParams } from 'next/navigation';
-import { useState } from 'react';
 
 import { useLanguage } from '@/context/languageContext';
 import { useSidebar } from '@/context/sidebarContext';
@@ -46,11 +42,6 @@ export const MobileMenu = ({ isOpen, onClose, content }: MobileMenuProps) => {
   const { language, setLanguage } = useLanguage();
   const params = useParams();
   const currentLang = params.lang as string || 'en';
-  const [expandedItem, setExpandedItem] = useState<number | null>(null);
-
-  const toggleExpand = (index: number) => {
-    setExpandedItem(expandedItem === index ? null : index);
-  };
 
   // Smooth scroll handler for anchor links
   const handleSmoothScroll = (href: string) => {
@@ -75,7 +66,7 @@ export const MobileMenu = ({ isOpen, onClose, content }: MobileMenuProps) => {
   const menuItems: MenuItem[] = content.menuItems.map(item => ({
     label: item.name,
     href: `/${currentLang}${item.href}`,
-    children: item.submenu?.map(subItem => ({
+    children: item.mobileSubmenu?.map(subItem => ({
       label: subItem.name,
       href: `/${currentLang}${subItem.href}`,
     })),
@@ -136,37 +127,22 @@ export const MobileMenu = ({ isOpen, onClose, content }: MobileMenuProps) => {
               {item.children ? (
                 <>
                   <ListItem
-                    onClick={() => toggleExpand(index)}
+                    component={Link}
+                    href={item.href}
+                    onClick={onClose}
                     sx={{
                       py: 1.5,
                       borderBottom: '1px solid rgba(242, 242, 242)',
+                      color: 'text.secondary',
+                      '&:hover': { color: 'primary.main' },
                       cursor: 'pointer',
                     }}
                   >
                     <ListItemText
                       primary={item.label}
+                      primaryTypographyProps={{ fontWeight: 500 }}
                     />
-                    {expandedItem === index ? <ExpandLessIcon /> : <ExpandMoreIcon />}
                   </ListItem>
-                  <Collapse in={expandedItem === index}>
-                    <List disablePadding sx={{ pl: 2, bgcolor: 'rgba(242, 242, 242)', mb: 1 }}>
-                      {item.children.map((child, childIndex) => (
-                        <ListItem
-                          key={childIndex}
-                          component={Link}
-                          href={child.href}
-                          onClick={onClose}
-                          sx={{
-                            py: 1,
-                            color: 'text.secondary',
-                            '&:hover': { color: 'primary.main' },
-                          }}
-                        >
-                          <ListItemText primary={child.label} />
-                        </ListItem>
-                      ))}
-                    </List>
-                  </Collapse>
                 </>
               ) : (
                 <ListItem

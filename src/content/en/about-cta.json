@@ -1,0 +1,21 @@
+{
+  "title": "Ready to Transform Your Ideas?",
+  "subtitle": "Let's work together to bring your digital vision to life with innovative solutions that drive real results.",
+  "description": "Whether you need a web application, mobile app, or complete digital transformation, our team is ready to deliver exceptional results that exceed your expectations.",
+  "primaryCta": {
+    "text": "Start Your Project",
+    "link": "/contact",
+    "variant": "primary"
+  },
+  "secondaryCta": {
+    "text": "Schedule a Consultation",
+    "link": "/contact?type=consultation",
+    "variant": "outline"
+  },
+  "contactPreview": {
+    "heading": "Contact Us Today",
+    "email": "hello@antiguadigital.com",
+    "phone": "+502 1234-5678",
+    "location": "Antigua Guatemala"
+  }
+}

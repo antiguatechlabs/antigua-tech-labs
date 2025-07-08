@@ -1,0 +1,53 @@
+{
+  "title": "Nuestro Enfoque",
+  "subtitle": "Cómo entregamos resultados excepcionales a través de metodologías probadas y procesos colaborativos",
+  "steps": [
+    {
+      "number": "01",
+      "title": "Descubrimiento y Planificación",
+      "description": "Comenzamos entendiendo profundamente tus objetivos comerciales, audiencia objetivo y requisitos técnicos a través de consulta y análisis integral.",
+      "icon": "search"
+    },
+    {
+      "number": "02", 
+      "title": "Diseño y Arquitectura",
+      "description": "Nuestro equipo crea wireframes detallados, diseños de experiencia de usuario y planes de arquitectura técnica que se alinean con tu visión y objetivos.",
+      "icon": "architecture"
+    },
+    {
+      "number": "03",
+      "title": "Desarrollo Ágil",
+      "description": "Construimos tu solución usando sprints Agile, proporcionando actualizaciones regulares e incorporando tu retroalimentación durante todo el proceso de desarrollo.",
+      "icon": "code"
+    },
+    {
+      "number": "04",
+      "title": "Aseguramiento de Calidad",
+      "description": "Pruebas rigurosas en múltiples dispositivos y escenarios aseguran que tu aplicación funcione perfectamente antes del lanzamiento.",
+      "icon": "bug_report"
+    },
+    {
+      "number": "05",
+      "title": "Despliegue y Lanzamiento",
+      "description": "Manejamos el proceso completo de despliegue, asegurando un lanzamiento suave y rendimiento óptimo en tu entorno de producción.",
+      "icon": "rocket_launch"
+    },
+    {
+      "number": "06",
+      "title": "Soporte Continuo",
+      "description": "El soporte post-lanzamiento incluye monitoreo, mantenimiento, actualizaciones y optimización continua para asegurar el éxito a largo plazo.",
+      "icon": "support_agent"
+    }
+  ],
+  "methodology": {
+    "title": "Nuestra Filosofía de Desarrollo",
+    "points": [
+      "Comunicación transparente en cada etapa",
+      "Revisiones y demostraciones regulares de sprint", 
+      "Proceso de toma de decisiones colaborativo",
+      "Integración y despliegue continuo",
+      "Principios de diseño centrado en el usuario",
+      "Prácticas de código escalable y mantenible"
+    ]
+  }
+}

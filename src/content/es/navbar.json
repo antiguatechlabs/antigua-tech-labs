@@ -6,14 +6,18 @@
     "es": "ES"
   },
   "menuItems": [
-    { 
-      "name": "Inicio", 
-      "href": "/#hero" 
+    {
+      "name": "Inicio",
+      "href": "/#hero"
+    },
+    {
+      "name": "Acerca de Nosotros",
+      "href": "/about"
     },
     {
       "name": "Servicios",
       "href": "/services",
-      "submenu": [
+      "mobileSubmenu": [
         {
           "name": "Aplicaciones Web",
           "href": "/services#web-applications"
@@ -40,9 +44,9 @@
         }
       ]
     },
-    { 
-      "name": "Contacto", 
-      "href": "/#contact" 
+    {
+      "name": "Contacto",
+      "href": "/#contact"
     }
   ],
   "contactInfo": {

@@ -9,8 +9,8 @@ import Link from 'next/link';
 import { useParams, useRouter } from 'next/navigation';
 import React from 'react';
 
-import FooterLogo from '@/assets/footer/footer-logo-1.png';
-import FooterShape from '@/assets/footer/footer-shape-1.png';
+// TODO: replace with your actual footer logo
+import FooterShape from '@/assets/footer/footer-shape-1.webp';
 import { fadeVariant, slideUpVariant, staggerContainerVariant } from '@/lib/animationVariants';
 import { FooterContent } from '@/lib/data';
 import { MotionBox, MotionStack, MotionTypography } from '@/lib/motionComponents';
@@ -150,7 +150,15 @@ export const Footer = ({ content }: { content: FooterContent }) => {
               <MotionStack spacing={3} alignItems="flex-start">
                 <Link href="/" passHref>
                   <Box sx={{ height: '60px', position: 'relative', width: '150px' }}>
-                    <Image src={FooterLogo} alt={content.companyName} fill style={{ objectFit: 'contain' }} />
+                    {/* <Image
+                    src={FooterLogo}
+                    alt={content.companyName}
+                    fill
+                    style={{ objectFit: 'contain' }} /> */}
+                    {/* TODO: add logo */}
+                    <Typography variant="h5">
+                      {content.companyName}
+                    </Typography>
                   </Box>
                 </Link>
                 <MotionTypography variant="body2" sx={{ color: 'grey.400' }}>
@@ -219,7 +227,7 @@ export const Footer = ({ content }: { content: FooterContent }) => {
                         {...slideUpVariant}
                       >
                         <MuiLink
-                          href={`/${item.toLowerCase().replace(/\s+/g, '-')}`}
+                          href={`/${currentLang}${item.href}`}
                           sx={{
                             color: 'white',
                             textDecoration: 'none',
@@ -229,7 +237,7 @@ export const Footer = ({ content }: { content: FooterContent }) => {
                             },
                           }}
                         >
-                          {item}
+                          {item.title}
                         </MuiLink>
                       </MotionBox>
                     ),

@@ -3,6 +3,7 @@ import MessageIcon from '@mui/icons-material/Message';
 import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 import { Box, Stack } from '@mui/material';
 import dynamic from 'next/dynamic';
+import { useRouter } from 'next/navigation';
 import React from 'react';
 
 import { Section } from '@/components/common';
@@ -15,6 +16,8 @@ import { colors } from '@/theme';
 const CardSwapBox = dynamic(() => import('@/components/ui/CardSwapBox'), { ssr: false });
 
 export function Hero({ content }: { content: HeroContent }) {
+
+  const router = useRouter();
 
   const handleScrollToContact = () => {
     const contactSection = document.getElementById('contact');
@@ -108,6 +111,7 @@ export function Hero({ content }: { content: HeroContent }) {
                   variant="outlined"
                   color="inherit"
                   size="large"
+                  onClick={() => router.push('/services')}
                   startIcon={<PlayArrowIcon />}
                   sx={{
                     fontWeight: 500,

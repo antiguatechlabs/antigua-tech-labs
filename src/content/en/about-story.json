@@ -1,0 +1,79 @@
+{
+  "title": "Our {{gradient:Story}}",
+  "subtitle": "From a vision to transform Guatemala's digital landscape to becoming a trusted partner for businesses worldwide",
+  "summary": {
+    "title": "Our Journey",
+    "description": "Since our founding in 2020 in the historic city of Antigua Guatemala, we've grown from a passionate team of local developers into a recognized leader in software development across Central America. Our journey spans from delivering our first enterprise applications for local tourism businesses to serving international clients with cutting-edge AI integrations and cloud architectures. With over 50 successful projects completed and a commitment to innovation, quality, and cultural pride, we continue to bridge the gap between world-class technology and meaningful business impact. Today, we stand as a testament to Guatemala's growing tech ecosystem, proudly representing our heritage while building solutions that compete on the global stage."
+  },
+  "timeline": [
+    {
+      "year": "2020",
+      "title": "The Beginning",
+      "description": "Founded in Antigua Guatemala with a mission to bridge the gap between innovative technology and local businesses. We started as a small team of passionate developers with big dreams.",
+      "milestone": "Company Founded",
+      "icon": "RocketLaunchIcon"
+    },
+    {
+      "year": "2021",
+      "title": "First Major Projects",
+      "description": "Delivered our first enterprise-level web applications for local tourism and retail businesses, establishing our reputation for quality and reliability in the Guatemalan market.",
+      "milestone": "10+ Projects Completed",
+      "icon": "BusinessCenterIcon"
+    },
+    {
+      "year": "2022",
+      "title": "International Expansion",
+      "description": "Expanded our services to serve clients across Central America and North America, building a diverse portfolio of mobile applications and API integrations.",
+      "milestone": "International Clients",
+      "icon": "PublicIcon"
+    },
+    {
+      "year": "2023",
+      "title": "Technology Innovation",
+      "description": "Invested heavily in cutting-edge technologies including AI integration, cloud architecture, and modern development frameworks to stay ahead of industry trends.",
+      "milestone": "Tech Stack Modernization",
+      "icon": "AutoAwesomeIcon"
+    },
+    {
+      "year": "2024",
+      "title": "Growth & Recognition",
+      "description": "Achieved significant growth with 50+ successful projects and recognition as a leading software development company in Guatemala, serving clients from startups to enterprises.",
+      "milestone": "50+ Projects Delivered",
+      "icon": "EmojiEventsIcon"
+    }
+  ],
+  "values": {
+    "title": "Antigua Digital {{gradient:Core Values}}",
+    "subtitle": "The principles that guide everything we do",
+    "items": [
+      {
+        "title": "Innovation First",
+        "description": "We embrace cutting-edge technologies and creative solutions to solve complex problems.",
+        "icon": "LightbulbIcon"
+      },
+      {
+        "title": "Quality Excellence",
+        "description": "Every line of code, every design element, and every user interaction is crafted with meticulous attention to detail.",
+        "icon": "StarIcon"
+      },
+      {
+        "title": "Client Partnership",
+        "description": "We build long-term relationships based on trust, transparency, and mutual success.",
+        "icon": "HandshakeIcon"
+      },
+      {
+        "title": "Cultural Pride",
+        "description": "Proudly representing Guatemala on the global stage while supporting our local community.",
+        "icon": "FavoriteIcon"
+      }
+    ]
+  },
+  "mission": {
+    "title": "Our Mission",
+    "description": "To empower businesses with innovative digital solutions that drive growth, enhance user experiences, and create lasting value in an increasingly connected world.",
+    "vision": {
+      "title": "Our Vision",
+      "description": "To be the leading software development company in Central America, known for exceptional quality, innovation, and the positive impact we create for our clients and community."
+    }
+  }
+}
