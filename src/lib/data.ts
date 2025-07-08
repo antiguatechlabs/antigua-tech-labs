@@ -95,6 +95,14 @@ export interface ContactContent {
     email: string;
     message: string;
   };
+  feedback: {
+    success: string;
+    sending: string;
+    error: {
+      network: string;
+      general: string;
+    };
+  };
 }
 
 export interface FooterContent {

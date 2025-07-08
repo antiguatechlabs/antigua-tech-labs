@@ -11,5 +11,13 @@
     "name": "Your name",
     "email": "your.email@example.com",
     "message": "Tell us about your project requirements"
+  },
+  "feedback": {
+    "success": "Message sent successfully! We'll get back to you soon.",
+    "sending": "Sending...",
+    "error": {
+      "network": "Network error. Please try again.",
+      "general": "Failed to send message. Please try again later."
+    }
   }
 }

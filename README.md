@@ -15,6 +15,7 @@ This landing page showcases Antigua Digital's AI-powered sales agent solution wi
 - **Content Management**: JSON-based content for easy updates
 - **Server Components**: Leveraging Next.js App Router and React Server Components
 - **TypeScript**: Type-safe code throughout the project
+- **Email Integration**: Contact form with Nodemailer email sending
 
 ## Project Structure
 
@@ -42,7 +43,7 @@ The landing page is organized into these major sections:
 - **Hero**: Main headline and call-to-action
 - **Features**: Grid of product features with icons
 - **Testimonials**: Customer testimonials with avatars
-- **Contact**: Contact form with validation
+- **Contact**: Contact form with validation and email sending
 - **Footer**: Site footer with links and information
 
 ### Reusable Components
@@ -263,6 +264,76 @@ The multilingual system works through several integrated components:
    ```
 
 Users can toggle between languages using the language switcher in the navigation, which updates the URL and triggers a page transition animation.
+
+## Email Configuration
+
+The contact form uses Nodemailer to send emails. To set up email functionality:
+
+### 1. Environment Variables
+
+Copy the example environment file and configure your SMTP settings:
+
+```bash
+cp .env.local.example .env.local
+```
+
+Edit `.env.local` with your email provider settings:
+
+```env
+# SMTP Configuration
+SMTP_HOST=smtp.gmail.com
+SMTP_PORT=587
+SMTP_USER=your-email@gmail.com
+SMTP_PASS=your-app-password
+TO_EMAIL=contact@your-domain.com
+```
+
+### 2. Email Provider Setup
+
+#### Gmail Setup
+1. Enable 2-factor authentication on your Google account
+2. Generate an App Password:
+   - Go to Google Account settings
+   - Security → 2-Step Verification → App passwords
+   - Generate a password for "Mail"
+   - Use this password in `SMTP_PASS`
+
+#### Other Providers
+The system supports any SMTP provider. Common configurations:
+
+- **Outlook/Hotmail**: `smtp-mail.outlook.com:587`
+- **SendGrid**: `smtp.sendgrid.net:587`
+- **Mailtrap** (testing): `smtp.mailtrap.io:2525`
+
+### 3. Contact Form Features
+
+The contact form includes:
+- **Form validation**: Required fields and email format validation
+- **Loading states**: Visual feedback during submission
+- **Success/error messages**: User-friendly status updates
+- **Responsive design**: Works on all device sizes
+- **Spam protection**: Server-side validation and rate limiting ready
+
+### 4. API Endpoint
+
+The contact form submits to `/api/contact` which:
+- Validates form data
+- Sends formatted emails with HTML templates
+- Returns appropriate success/error responses
+- Includes proper error handling and logging
+
+### 5. Testing
+
+For development testing, consider using:
+- **Mailtrap**: Captures emails without sending them
+- **Gmail**: Use a dedicated test account
+- **Local SMTP**: Tools like MailHog for local development
+
+The email template includes:
+- Professional HTML formatting
+- Sender information and reply-to headers
+- Responsive email design
+- Company branding
 
 ## Deployment
 

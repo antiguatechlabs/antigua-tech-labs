@@ -11,5 +11,13 @@
     "name": "Tu nombre",
     "email": "tu.correo@ejemplo.com",
     "message": "Cuéntanos sobre los requisitos de tu proyecto"
+  },
+  "feedback": {
+    "success": "¡Mensaje enviado exitosamente! Te contactaremos pronto.",
+    "sending": "Enviando...",
+    "error": {
+      "network": "Error de conexión. Por favor intenta de nuevo.",
+      "general": "Error al enviar el mensaje. Por favor intenta más tarde."
+    }
   }
 }
