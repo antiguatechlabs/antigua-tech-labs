@@ -95,12 +95,14 @@ export function generateSEOMetadata(
  * Generate language alternates for hreflang
  */
 export function generateLanguageAlternates(basePath?: string): LanguageAlternates {
-  const path = basePath ? basePath.replace(SITE_CONFIG.url, '') : '';
+  // Recorta el dominio y, si queda /en… o /es…, bórralo
+  const rawPath = basePath ? basePath.replace(SITE_CONFIG.url, '') : '';
+  const cleanPath = rawPath.replace(/^\/(en|es)(?=\/|$)/, '');
 
   return {
-    'en': `${SITE_CONFIG.url}/en${path}`,
-    'es': `${SITE_CONFIG.url}/es${path}`,
-    'x-default': `${SITE_CONFIG.url}/en${path}`,
+    en: `${SITE_CONFIG.url}/en${cleanPath}`,
+    es: `${SITE_CONFIG.url}/es${cleanPath}`,
+    'x-default': `${SITE_CONFIG.url}/en${cleanPath}`,
   };
 }
 

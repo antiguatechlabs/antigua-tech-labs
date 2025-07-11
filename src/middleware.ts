@@ -55,7 +55,8 @@ export const config = {
      * - Archivos estáticos
      * - Archivos de optimización de imágenes
      * - Archivos de iconos y mapas del sitio
+     * - generador de imagenes OG
      */
-    '/((?!api|_next/static|_next/image|favicon.ico|sitemap.xml|robots.txt).*)',
+    '/((?!api|_next/static|_next/image|favicon.ico|sitemap.xml|robots.txt|og).*)',
   ],
 };

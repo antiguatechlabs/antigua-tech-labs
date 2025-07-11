@@ -1,6 +1,13 @@
 import { MetadataRoute } from 'next';
 
 import { SITE_CONFIG } from '@/lib/seo/config';
+// ---------- Build metadata ----------
+/**
+ * Última fecha en la que se publicó producción.
+ * Cámbiala manualmente
+ * Si haces un release con cambios de contenido, actualizas la fecha a ese día perros.
+ */
+const LAST_BUILD = new Date('2025-07-10'); //Acutalizar al realizar el realse
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = SITE_CONFIG.url;
@@ -14,13 +21,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     pages.forEach(page => {
       routes.push({
         url: `${baseUrl}/${lang}${page}`,
-        lastModified: new Date(),
+        lastModified: LAST_BUILD,
         changeFrequency: page === '' ? 'weekly' : 'monthly',
         priority: page === '' ? 1 : 0.8,
         alternates: {
           languages: {
             en: `${baseUrl}/en${page}`,
             es: `${baseUrl}/es${page}`,
+            'x-default': `${baseUrl}/en${page}`,
           },
         },
       });
@@ -41,13 +49,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     services.forEach(service => {
       routes.push({
         url: `${baseUrl}/${lang}/services/${service}`,
-        lastModified: new Date(),
+        lastModified: LAST_BUILD,
         changeFrequency: 'monthly',
         priority: 0.6,
         alternates: {
           languages: {
             en: `${baseUrl}/en/services/${service}`,
             es: `${baseUrl}/es/services/${service}`,
+            'x-default': `${baseUrl}/en/services/${service}`,
           },
         },
       });
