@@ -6,6 +6,7 @@ import { ReactNode } from 'react';
 
 import { Navbar, Footer } from '@/components';
 import { StructuredData } from '@/components/seo';
+import DefaultSEOClient from '@/components/seo/DefaultSEOClient';
 import { ScrollToTop } from '@/components/ui';
 import { LanguageProvider, SidebarProvider, ThemeProvider } from '@/context';
 import { getNavbarContent, getFooterContent } from '@/lib/data';
@@ -76,6 +77,7 @@ export default async function LocaleLayout({
   return (
     <html lang={lang} className={inter.variable}>
       <body style={{ overflowX: 'hidden', width: '100%', scrollBehavior: 'smooth' }} className={inter.className}>
+        <DefaultSEOClient lang={lang as 'en' | 'es'} />
         <StructuredData data={[organizationData, websiteData]} />
         <LanguageProvider initialLanguage={lang as Language}>
           <ThemeProvider>
