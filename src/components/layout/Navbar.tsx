@@ -1,5 +1,5 @@
 'use client';
-import CodeIcon from '@mui/icons-material/Code';
+// import CodeIcon from '@mui/icons-material/Code';
 import MenuIcon from '@mui/icons-material/Menu';
 import {
   AppBar,
@@ -10,10 +10,12 @@ import {
   Link as MuiLink,
   Typography,
 } from '@mui/material';
+import Image from 'next/image';
 import Link from 'next/link';
 import { useParams } from 'next/navigation';
 import React, { useState, useLayoutEffect } from 'react';
 
+import AGLogo from '@/assets/aglogo.png';
 import { useLanguage } from '@/context/languageContext';
 import { useSidebar } from '@/context/sidebarContext';
 import { NavbarContent } from '@/lib/data';
@@ -97,14 +99,15 @@ export function Navbar({ content }: { content: NavbarContent }) {
                   width: 32,
                   height: 32,
                   borderRadius: 1,
-                  display: { xs: 'none', md: 'flex' },
+                  // display: { xs: 'none', md: 'flex' },
                   alignItems: 'center',
                   justifyContent: 'center',
                   background: 'linear-gradient(to right, #9c43f8, #26c5f3)',
                   mr: 1,
                 }}
               >
-                <CodeIcon sx={{ color: 'white', fontSize: '1.25rem' }} />
+                {/* <CodeIcon sx={{ color: 'white', fontSize: '1.25rem' }} /> */}
+                <Image src={AGLogo} alt='Antigua Digital Logo' width={35} height={35}/>
               </Box>
               <Typography
                 variant="h6"

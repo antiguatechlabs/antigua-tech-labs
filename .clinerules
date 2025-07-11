@@ -8,16 +8,16 @@
 - Always use the data loading utilities rather than importing JSON directly
 
 ### Component Structure
-- Use Chakra UI as the primary component library
-- Use Material UI for specific components and icons when Chakra doesn't provide suitable options
+- Use Material UI as the primary component library
+- Use Framer Motion for animations and transitions
 - Client components should be marked with "use client" directive at the top
 - Server components are the default and don't need special marking
 
 ### Styling Approach
-- Prefer Chakra UI's prop-based styling for component-specific styling
+- Prefer Material UI's prop-based styling through the `sx` prop for component-specific styling
 - Use global CSS variables for theme properties and fundamental styling
 - Follow the existing color scheme using CSS variables (--background, --foreground)
-- Support both light and dark modes using CSS media queries
+- Support both light and dark modes using CSS media queries and Material UI theme
 
 ### File Organization
 - Page components go in the `/src/app` directory following Next.js App Router conventions
@@ -34,9 +34,10 @@
 ## Development Workflow
 
 ### Local Development
-- Use `pnpm dev` to start the development server
+- Use `npm run dev` to start the development server (with Turbopack for faster builds)
 - Make changes incrementally and test in the browser
 - Ensure responsive design works on various viewport sizes
+- Use `./init.sh` for initial project setup
 
 ### Code Quality
 - Follow TypeScript best practices with proper typing
@@ -85,10 +86,10 @@
 ## Implementation Notes
 
 ### Theme Integration
-- The project uses both Chakra UI and Material UI themes
-- Chakra theme is defined but currently commented out in providers.tsx
-- Material UI theme is created with default settings
+- The project uses Material UI as the primary component library
+- Material UI theme is configured with custom colors, typography, and breakpoints
 - Global CSS variables provide fundamental styling properties
+- Theme supports both light and dark modes with automatic system preference detection
 
 ### Content Loading
 - Server components load content during rendering using utilities in data.ts

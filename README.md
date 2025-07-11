@@ -1,10 +1,17 @@
 # Antigua Digital Landing Page
 
-A modern, mobile-first landing page for Antigua Digital built with Next.js, Chakra UI, Material UI, and Framer Motion. Features multilingual support with English and Spanish versions.
+A modern, mobile-first landing page for Antigua Digital built with Next.js, Material UI, and Framer Motion. Features multilingual support with English and Spanish versions, comprehensive component library, and advanced animation system.
 
 ## Project Overview
 
 This landing page showcases Antigua Digital's AI-powered sales agent solution with a clean, professional design. The page is fully responsive and optimized for all device sizes, from mobile phones to desktop computers.
+
+## Documentation
+
+- **[Component Documentation](docs/COMPONENTS.md)**: Comprehensive guide to all components
+- **[Development Guide](docs/DEVELOPMENT.md)**: Detailed development workflow and standards
+- **[API Documentation](#api-documentation)**: Contact form API reference
+- **[Troubleshooting](#troubleshooting)**: Common issues and solutions
 
 ## Features
 
@@ -21,30 +28,89 @@ This landing page showcases Antigua Digital's AI-powered sales agent solution wi
 
 ```
 /src
-  /app             # Next.js App Router pages and layout
-    /[lang]        # Dynamic segment for language-based routing
-      /layout.tsx  # Language-specific layout
-      /page.tsx    # Main page component
-  /components      # Reusable UI components
-  /content         # Language-specific JSON content files
-    /en            # English content
-    /es            # Spanish content
-  /context         # React context providers
-  /lib             # Utility functions
-  /theme           # Theme configuration
-/public            # Static assets
+  /app                    # Next.js App Router pages and layout
+    /[lang]              # Dynamic segment for language-based routing
+      /layout.tsx        # Language-specific layout
+      /page.tsx          # Main page component
+      /about/            # About page
+      /services/         # Services page
+    /api/                # API routes
+      /contact/          # Contact form API endpoint
+  /assets                # Static assets and images
+    /footer/             # Footer-specific assets
+    /hero/               # Hero section assets
+    /services/           # Service icons and images
+    /slider/             # Technology logos for slider
+  /components            # Reusable UI components
+    /common/             # Shared utility components
+    /layout/             # Layout-specific components (Navbar, Footer)
+    /sections/           # Page section components (Hero, Features, etc.)
+    /services/           # Service-specific components
+    /ui/                 # UI utility components (animations, modals)
+    /utility/            # Helper components
+  /content               # Language-specific JSON content files
+    /en/                 # English content
+      /services/         # Service-specific content
+    /es/                 # Spanish content
+      /services/         # Service-specific content
+  /context               # React context providers
+  /lib                   # Utility functions and data loading
+  /styles                # Global styles and theme configuration
+  /theme                 # Theme configuration files
+/public                  # Public static assets
+  /images/               # Public images
+/memory-bank             # Project documentation and context
+/docs                    # Additional documentation
 ```
 
 ## Components
 
-The landing page is organized into these major sections:
+The landing page is organized into comprehensive sections with reusable components:
 
-- **Navbar**: Responsive navigation with mobile drawer menu
-- **Hero**: Main headline and call-to-action
-- **Features**: Grid of product features with icons
-- **Testimonials**: Customer testimonials with avatars
+### Page Sections
+- **Hero**: Main headline with animated text and call-to-action
+- **Features**: Grid of product features with icons and animations
+- **WhyChoose**: Value proposition with benefits grid
+- **WhyChooseTwo**: Additional benefits with background imagery
+- **Slider/StackSlider**: Technology showcase with animated logos
+- **Testimonials**: Customer testimonials with avatars and ratings
+- **FAQ**: Expandable frequently asked questions
 - **Contact**: Contact form with validation and email sending
-- **Footer**: Site footer with links and information
+- **OurTeam**: Team member profiles and information
+- **OurStory**: Company story and mission
+- **OurApproach**: Development methodology and process
+- **Timeline**: Company milestones and achievements
+
+### Layout Components
+- **Navbar**: Responsive navigation with mobile drawer menu
+- **Footer**: Site footer with links, contact info, and legal pages
+- **Menu**: Desktop navigation menu
+- **MobileMenu**: Mobile-optimized navigation drawer
+- **Sidebar**: Contextual sidebar for additional navigation
+
+### UI Components
+- **Section**: Fundamental building block with consistent styling and animations
+- **TwoColumnSection**: Responsive two-column layout component
+- **FramerWrapper**: Animation wrapper for smooth transitions
+- **ChromaGrid**: Animated background grid effect
+- **ScrollPreserver**: Maintains scroll position during navigation
+- **ThemeToggle**: Light/dark mode switcher
+- **CounterUp**: Animated number counters
+- **SpotlightCard**: Interactive card with spotlight effect
+- **CardSwap**: Animated card transitions
+- **LegalModal**: Modal for terms of service and privacy policy
+
+### Text Components
+- **BlurText**: Text with blur animation effects
+- **GradientText**: Text with gradient color effects
+- **RotatingText**: Rotating text animations
+- **SplitText**: Character-by-character text animations
+
+### Service Components
+- **ServiceOverviewHero**: Hero section for services page
+- **ServiceSection**: Individual service detail sections
+- **ServiceTwoColumnSection**: Two-column service layouts
+- **UnifiedServicesPage**: Complete services page component
 
 ### Reusable Components
 
@@ -93,12 +159,17 @@ Available motion components include:
 
 ## Technologies Used
 
-- **Next.js 15**: React framework with App Router
-- **React 19**: UI library
-- **Chakra UI 3**: Component library for primary UI elements
-- **Material UI 7**: Used for icons and specific components
-- **Framer Motion**: Animation library
-- **TypeScript**: Type-safe JavaScript
+- **Next.js 15**: React framework with App Router and Turbopack
+- **React 19**: UI library with latest features
+- **Material UI 7**: Primary component library with comprehensive theming
+- **Framer Motion 12**: Advanced animation library with page transitions
+- **TypeScript 5**: Type-safe JavaScript with strict configuration
+- **GSAP**: High-performance animations for complex interactions
+- **Swiper**: Touch-enabled slider components
+- **React Hook Form**: Form validation and handling
+- **Nodemailer**: Email sending functionality
+- **ESLint & Prettier**: Code quality and formatting tools
+- **Husky**: Git hooks for code quality enforcement
 
 ## Getting Started
 
@@ -164,10 +235,15 @@ Content for the landing page is stored in JSON files in the `/src/content` direc
 
 ### Styling
 
-- Material UI's prop-based styling is used for component-specific styling through the `sx` prop
-- Global CSS variables for theme properties in `src/theme.ts`
-- Support for both light and dark modes
-- Animation styling through Framer Motion variants and props
+The project uses a comprehensive styling approach:
+
+- **Material UI**: Primary component library with prop-based styling through the `sx` prop
+- **Global CSS Variables**: Theme properties and fundamental styling in `src/styles/globals.css`
+- **Theme Configuration**: Centralized theme management in `src/theme/` directory
+- **Responsive Design**: Mobile-first approach with breakpoint-based styling
+- **Dark/Light Mode**: Automatic theme switching based on system preferences
+- **Animation Styling**: Framer Motion variants and props for smooth transitions
+- **Component Theming**: Consistent styling patterns across all components
 
 #### Animation System
 
@@ -335,6 +411,107 @@ The email template includes:
 - Responsive email design
 - Company branding
 
+## API Documentation
+
+### Contact Form API
+
+The contact form API endpoint provides secure email sending functionality with comprehensive validation and error handling.
+
+#### Endpoint
+```
+POST /api/contact
+```
+
+#### Request Body
+```typescript
+interface ContactPayload {
+  name: string;      // Required: Contact person's name
+  email: string;     // Required: Valid email address
+  message: string;   // Required: Message content
+}
+```
+
+#### Example Request
+```javascript
+const response = await fetch('/api/contact', {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json',
+  },
+  body: JSON.stringify({
+    name: 'John Doe',
+    email: 'john@example.com',
+    message: 'Hello, I would like to learn more about your services.'
+  })
+});
+
+const result = await response.json();
+```
+
+#### Response Format
+
+**Success Response (200)**
+```json
+{
+  "success": true,
+  "message": "Email sent successfully"
+}
+```
+
+**Validation Error (400)**
+```json
+{
+  "success": false,
+  "error": "All fields are required"
+}
+```
+
+```json
+{
+  "success": false,
+  "error": "Invalid email format"
+}
+```
+
+**Server Error (500)**
+```json
+{
+  "success": false,
+  "error": "Email configuration error"
+}
+```
+
+```json
+{
+  "success": false,
+  "error": "Network error, please try again"
+}
+```
+
+```json
+{
+  "success": false,
+  "error": "Failed to send email. Please try again later."
+}
+```
+
+#### Features
+- **Input Validation**: Validates required fields and email format
+- **SMTP Configuration**: Supports any SMTP provider with authentication
+- **Error Handling**: Comprehensive error handling with specific error messages
+- **Security**: Uses environment variables for sensitive configuration
+- **HTML Templates**: Professional email formatting with responsive design
+- **Reply-To Headers**: Proper email headers for easy response handling
+
+#### Environment Variables Required
+```env
+SMTP_HOST=smtp.gmail.com
+SMTP_PORT=587
+SMTP_USER=your-email@gmail.com
+SMTP_PASS=your-app-password
+TO_EMAIL=contact@your-domain.com
+```
+
 ## Deployment
 
 The project is configured for easy deployment on Vercel:
@@ -344,3 +521,273 @@ npm run build
 ```
 
 Changes to the main branch automatically deploy via GitHub Actions.
+
+### Environment Variables for Production
+
+Ensure these environment variables are set in your deployment platform:
+
+```env
+# Required for contact form functionality
+SMTP_HOST=your-smtp-host
+SMTP_PORT=587
+SMTP_USER=your-email@domain.com
+SMTP_PASS=your-app-password
+TO_EMAIL=contact@your-domain.com
+
+# Optional: Analytics and tracking
+NEXT_PUBLIC_GA_ID=your-google-analytics-id
+```
+
+### Build Optimization
+
+The project includes several optimizations for production:
+
+- **Turbopack**: Faster development builds with `--turbopack` flag
+- **Code Splitting**: Automatic code splitting with Next.js App Router
+- **Image Optimization**: Next.js automatic image optimization
+- **Bundle Analysis**: Use `npm run build` to analyze bundle size
+- **Static Generation**: Server components for optimal performance
+
+## Developer Contribution Guidelines
+
+### Getting Started for Contributors
+
+1. **Fork and Clone**
+   ```bash
+   git clone https://github.com/your-username/antigua-digital-landing-page.git
+   cd antigua-digital-landing-page
+   ```
+
+2. **Install Dependencies**
+   ```bash
+   npm install
+   ```
+
+3. **Set Up Environment**
+   ```bash
+   cp .env.local.example .env.local
+   # Edit .env.local with your configuration
+   ```
+
+4. **Start Development**
+   ```bash
+   npm run dev
+   ```
+
+### Code Standards
+
+- **TypeScript**: All new code must be written in TypeScript with proper typing
+- **ESLint**: Code must pass ESLint checks (`npm run lint`)
+- **Prettier**: Code must be formatted with Prettier (`npm run format`)
+- **Husky**: Pre-commit hooks will automatically run linting and formatting
+
+### Component Development Guidelines
+
+1. **Component Structure**
+   ```typescript
+   // Use this template for new components
+   'use client'; // Only if client-side features are needed
+   
+   import { Box, Typography } from '@mui/material';
+   import { motion } from 'framer-motion';
+   
+   interface ComponentProps {
+     // Define props with TypeScript
+   }
+   
+   export default function Component({ ...props }: ComponentProps) {
+     return (
+       <Box component={motion.div} sx={{ /* styling */ }}>
+         {/* Component content */}
+       </Box>
+     );
+   }
+   ```
+
+2. **Styling Guidelines**
+   - Use Material UI's `sx` prop for component styling
+   - Follow the existing color scheme and spacing patterns
+   - Ensure responsive design for all viewport sizes
+   - Use CSS variables for theme-related properties
+
+3. **Animation Guidelines**
+   - Use Framer Motion for animations
+   - Keep animations subtle and purposeful
+   - Ensure animations don't interfere with accessibility
+   - Use existing animation variants when possible
+
+### Content Management
+
+1. **Adding New Content**
+   - Add content to both `/src/content/en/` and `/src/content/es/`
+   - Use consistent JSON structure across languages
+   - Follow existing naming conventions for content files
+
+2. **Content Structure**
+   ```json
+   {
+     "title": "Section Title",
+     "subtitle": "Section Subtitle",
+     "items": [
+       {
+         "title": "Item Title",
+         "description": "Item Description"
+       }
+     ]
+   }
+   ```
+
+### Testing Guidelines
+
+- Test components in both light and dark modes
+- Verify responsive design on multiple screen sizes
+- Test language switching functionality
+- Ensure contact form works with your SMTP configuration
+- Test animations and transitions
+
+### Pull Request Process
+
+1. **Create Feature Branch**
+   ```bash
+   git checkout -b feature/your-feature-name
+   ```
+
+2. **Make Changes**
+   - Follow code standards and guidelines
+   - Add appropriate documentation
+   - Test thoroughly
+
+3. **Commit Changes**
+   ```bash
+   git add .
+   git commit -m "feat: add your feature description"
+   ```
+
+4. **Push and Create PR**
+   ```bash
+   git push origin feature/your-feature-name
+   ```
+
+5. **PR Requirements**
+   - Clear description of changes
+   - Screenshots for UI changes
+   - Confirmation that tests pass
+   - Updated documentation if needed
+
+## Troubleshooting
+
+### Common Issues
+
+#### Development Server Issues
+
+**Issue**: `npm run dev` fails to start
+```bash
+# Solution: Clear cache and reinstall dependencies
+rm -rf node_modules package-lock.json
+npm install
+npm run dev
+```
+
+**Issue**: Port 3000 already in use
+```bash
+# Solution: Use a different port
+npm run dev -- -p 3001
+```
+
+#### Build Issues
+
+**Issue**: TypeScript compilation errors
+```bash
+# Solution: Check for type errors
+npx tsc --noEmit
+# Fix type errors and rebuild
+npm run build
+```
+
+**Issue**: ESLint errors during build
+```bash
+# Solution: Fix linting issues
+npm run lint:fix
+npm run build
+```
+
+#### Email Configuration Issues
+
+**Issue**: Contact form not sending emails
+1. Check environment variables are set correctly
+2. Verify SMTP credentials with your email provider
+3. Check server logs for specific error messages
+4. Test with a simple SMTP testing tool
+
+**Issue**: Gmail authentication errors
+1. Enable 2-factor authentication
+2. Generate an App Password (not your regular password)
+3. Use the App Password in `SMTP_PASS`
+
+#### Styling Issues
+
+**Issue**: Components not displaying correctly
+1. Check Material UI theme configuration
+2. Verify CSS variables are properly defined
+3. Check for conflicting styles
+4. Test in different browsers
+
+**Issue**: Responsive design problems
+1. Test with browser developer tools
+2. Check Material UI breakpoint usage
+3. Verify `sx` prop responsive syntax
+
+#### Language/Content Issues
+
+**Issue**: Content not loading for specific language
+1. Check JSON file structure in `/src/content/[lang]/`
+2. Verify data loading utilities in `/src/lib/data.ts`
+3. Check language routing in middleware
+
+**Issue**: Missing translations
+1. Compare content files between languages
+2. Add missing keys to appropriate language files
+3. Restart development server
+
+### Performance Issues
+
+**Issue**: Slow page loading
+1. Check bundle size with `npm run build`
+2. Optimize images and assets
+3. Review component imports for unnecessary dependencies
+4. Consider code splitting for large components
+
+**Issue**: Animation performance
+1. Use `transform` and `opacity` for animations
+2. Avoid animating layout properties
+3. Use `will-change` CSS property sparingly
+4. Test on lower-end devices
+
+### Getting Help
+
+- **Documentation**: Check this README and inline code comments
+- **Issues**: Create a GitHub issue with detailed description
+- **Discussions**: Use GitHub Discussions for questions
+- **Code Review**: Request review from maintainers
+
+### Debugging Tips
+
+1. **Use Browser DevTools**
+   - Check console for errors
+   - Use Network tab for API issues
+   - Use Elements tab for styling issues
+
+2. **Enable Verbose Logging**
+   ```typescript
+   // Add to components for debugging
+   console.log('Component props:', props);
+   console.log('Component state:', state);
+   ```
+
+3. **Test API Endpoints**
+   ```bash
+   # Test contact form API
+   curl -X POST http://localhost:3000/api/contact \
+     -H "Content-Type: application/json" \
+     -d '{"name":"Test","email":"test@example.com","message":"Test message"}'
+   ```

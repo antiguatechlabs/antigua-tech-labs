@@ -1,7 +1,9 @@
 import { Metadata } from 'next';
 
+import { SEOHead } from '@/components/seo';
 import { UnifiedServicesPage } from '@/components/services';
-import { getUnifiedServicesPageContent } from '@/lib/data';
+import { getUnifiedServicesPageContent, getServicesSEOContent } from '@/lib/data';
+import { contentToSEOConfig, generateSEOMetadata } from '@/lib/seo';
 
 interface ServicesPageProps {
   params: Promise<{
@@ -15,20 +17,10 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: ServicesPageProps): Promise<Metadata> {
   const { lang } = await params;
-  const content = getUnifiedServicesPageContent(lang);
+  const seoContent = getServicesSEOContent(lang);
+  const seoConfig = contentToSEOConfig(seoContent, lang, '/services');
 
-  // Helper function to remove {{gradient:...}} and keep only the text
-  const stripGradient = (str: string) => str.replace(/\{\{gradient:([^}]+)\}\}/g, '$1');
-
-  return {
-    title: stripGradient(content.overview.hero.title),
-    description: content.overview.hero.description,
-    openGraph: {
-      title: stripGradient(content.overview.hero.title),
-      description: content.overview.hero.description,
-      type: 'website',
-    },
-  };
+  return generateSEOMetadata(seoConfig, lang);
 }
 
 export default async function Services({
@@ -38,6 +30,13 @@ export default async function Services({
 }) {
   const { lang } = await params;
   const content = getUnifiedServicesPageContent(lang);
+  const seoContent = getServicesSEOContent(lang);
+  const seoConfig = contentToSEOConfig(seoContent, lang, '/services');
 
-  return <UnifiedServicesPage content={content} language={lang} />;
+  return (
+    <>
+      <SEOHead config={seoConfig} />
+      <UnifiedServicesPage content={content} language={lang} />
+    </>
+  );
 }
