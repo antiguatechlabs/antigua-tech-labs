@@ -13,6 +13,8 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 
+import blenderDark from '@/assets/slider/blender-logo-dark.svg';
+import blenderColor from '@/assets/slider/blender-logo.svg';
 import dockerDark from '@/assets/slider/docker-logo-dark.svg';
 import dockerColor from '@/assets/slider/docker-logo.svg';
 import gcpColor from '@/assets/slider/gcp-logo.svg';
@@ -21,6 +23,8 @@ import graphQLDark from '@/assets/slider/graphql-logo-dark.svg';
 import graphQLColor from '@/assets/slider/graphql-logo.svg';
 import jsDark from '@/assets/slider/js-logo-dark.svg';
 import jsColor from '@/assets/slider/js-logo.svg';
+import laravelDark from '@/assets/slider/laravel-logo-dark.svg';
+import laravelColor from '@/assets/slider/laravel-logo.svg';
 import mongodbDark from '@/assets/slider/mongodb-logo-dark.svg';
 import mongodbColor from '@/assets/slider/mongodb-logo.svg';
 import mysqlDark from '@/assets/slider/mysql-logo-dark.svg';
@@ -29,6 +33,8 @@ import nextjsDark from '@/assets/slider/nextjs-logo-dark.svg';
 import nextjsColor from '@/assets/slider/nextjs-logo.svg';
 import nodejsDark from '@/assets/slider/nodejs-logo-dark.svg';
 import nodejsColor from '@/assets/slider/nodejs-logo.svg';
+import phpDark from '@/assets/slider/php-logo-dark.svg';
+import phpColor from '@/assets/slider/php-logo.svg';
 import reactDark from '@/assets/slider/react-logo-dark.svg';
 import reactColor from '@/assets/slider/react-logo.svg';
 import tailwindDark from '@/assets/slider/tailwindcss-logo-dark.svg';
@@ -50,6 +56,9 @@ const stackData = [
   { name: 'GCP', darkLogo: gcpDark, colorLogo: gcpColor },
   { name: 'GraphQL', darkLogo: graphQLDark, colorLogo: graphQLColor },
   { name: 'Docker', darkLogo: dockerDark, colorLogo: dockerColor },
+  { name: 'Laravel', darkLogo: laravelDark, colorLogo: laravelColor },
+  { name: 'Blender', darkLogo: blenderDark, colorLogo: blenderColor },
+  { name: 'PHP', darkLogo: phpDark, colorLogo: phpColor },
 ];
 
 export const StackSlider: React.FC = () => {
