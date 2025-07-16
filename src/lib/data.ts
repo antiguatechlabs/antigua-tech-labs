@@ -11,6 +11,7 @@ import enHero from '../content/en/hero.json';
 import enNavbar from '../content/en/navbar.json';
 import enOurTeam from '../content/en/ourTeam.json';
 import enPrivacyPolicy from '../content/en/privacy-policy.json';
+import enSeo from '../content/en/seo.json';
 import enModeling3d from '../content/en/services/3d-modeling.json';
 import enApiDevelopment from '../content/en/services/api-development.json';
 import enCodeMaintenance from '../content/en/services/code-maintenance.json';
@@ -35,6 +36,7 @@ import esHero from '../content/es/hero.json';
 import esNavbar from '../content/es/navbar.json';
 import esOurTeam from '../content/es/ourTeam.json';
 import esPrivacyPolicy from '../content/es/privacy-policy.json';
+import esSeo from '../content/es/seo.json';
 import esModeling3d from '../content/es/services/3d-modeling.json';
 import esApiDevelopment from '../content/es/services/api-development.json';
 import esCodeMaintenance from '../content/es/services/code-maintenance.json';
@@ -421,6 +423,27 @@ export interface UnifiedServicesPageContent {
   modeling3d: ServicePageContent;
 }
 
+// SEO content types
+export interface SEOPageContent {
+  title: string;
+  description: string;
+  keywords?: string[];
+  ogTitle?: string;
+  ogDescription?: string;
+  ogImage?: string;
+  twitterTitle?: string;
+  twitterDescription?: string;
+  twitterImage?: string;
+  structuredData?: Record<string, unknown>[];
+}
+
+export interface SEOContent {
+  home: SEOPageContent;
+  about: SEOPageContent;
+  services: SEOPageContent;
+  contact: SEOPageContent;
+}
+
 // Content mapping
 const contentMap = {
   en: {
@@ -448,6 +471,7 @@ const contentMap = {
     servicesOverview: enServicesOverview as ServicesOverviewContent,
     termsOfService: enTermsOfService as LegalContent,
     privacyPolicy: enPrivacyPolicy as LegalContent,
+    seo: enSeo as SEOContent,
   },
   es: {
     hero: esHero as HeroContent,
@@ -474,6 +498,7 @@ const contentMap = {
     servicesOverview: esServicesOverview as ServicesOverviewContent,
     termsOfService: esTermsOfService as LegalContent,
     privacyPolicy: esPrivacyPolicy as LegalContent,
+    seo: esSeo as SEOContent,
   },
 };
 
@@ -599,4 +624,31 @@ export function getTermsOfServiceContent(language: string = 'en'): LegalContent 
 
 export function getPrivacyPolicyContent(language: string = 'en'): LegalContent {
   return getContent<LegalContent>('privacyPolicy', language);
+}
+
+
+// SEO content loading functions
+export function getSEOContent(language: string = 'en'): SEOContent {
+  return getContent<SEOContent>('seo', language);
+}
+
+export function getPageSEOContent(page: keyof SEOContent, language: string = 'en'): SEOPageContent {
+  const seoContent = getSEOContent(language);
+  return seoContent[page];
+}
+
+export function getHomeSEOContent(language: string = 'en'): SEOPageContent {
+  return getPageSEOContent('home', language);
+}
+
+export function getAboutSEOContent(language: string = 'en'): SEOPageContent {
+  return getPageSEOContent('about', language);
+}
+
+export function getServicesSEOContent(language: string = 'en'): SEOPageContent {
+  return getPageSEOContent('services', language);
+}
+
+export function getContactSEOContent(language: string = 'en'): SEOPageContent {
+  return getPageSEOContent('contact', language);
 }

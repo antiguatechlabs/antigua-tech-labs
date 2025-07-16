@@ -1,0 +1,65 @@
+{
+  "home": {
+    "title": "Antigua Digital - Desarrollo de Software Personalizado",
+    "description": "Construimos aplicaciones web y móviles de alto rendimiento que escalan con tu negocio y entregan resultados reales. Desarrollo de software experto en Guatemala.",
+    "keywords": [
+      "desarrollo de software",
+      "aplicaciones web",
+      "aplicaciones móviles",
+      "software personalizado",
+      "soluciones digitales",
+      "Guatemala",
+      "Antigua",
+      "consultoría tecnológica",
+      "desarrollo de apps",
+      "desarrollo web"
+    ],
+    "ogTitle": "Antigua Digital - Software Personalizado que Impulsa tu Crecimiento",
+    "ogDescription": "Transforma tu negocio con aplicaciones web y móviles de alto rendimiento. Equipo experto en desarrollo de software en Guatemala.",
+    "ogImage": "https://antiguadigital.com/images/og-home-es.jpg"
+  },
+  "about": {
+    "title": "Acerca de Nosotros - Antigua Digital",
+    "description": "Conoce la misión de Antigua Digital de entregar soluciones de software innovadoras. Conoce nuestro equipo experto y descubre nuestro enfoque de desarrollo personalizado.",
+    "keywords": [
+      "acerca de antigua digital",
+      "equipo desarrollo software",
+      "misión empresa",
+      "desarrolladores Guatemala",
+      "experiencia tecnológica"
+    ],
+    "ogTitle": "Acerca de Antigua Digital - Equipo Experto en Desarrollo de Software",
+    "ogDescription": "Descubre nuestra pasión por crear soluciones de software innovadoras que impulsan el crecimiento empresarial.",
+    "ogImage": "https://antiguadigital.com/images/og-about-es.jpg"
+  },
+  "services": {
+    "title": "Servicios - Antigua Digital",
+    "description": "Servicios integrales de desarrollo de software incluyendo aplicaciones web, apps móviles, desarrollo de APIs, diseño UX y mantenimiento de código.",
+    "keywords": [
+      "servicios desarrollo software",
+      "desarrollo aplicaciones web",
+      "desarrollo apps móviles",
+      "desarrollo APIs",
+      "diseño UX",
+      "mantenimiento código",
+      "modelado 3D"
+    ],
+    "ogTitle": "Servicios de Desarrollo de Software - Antigua Digital",
+    "ogDescription": "Desde aplicaciones web hasta apps móviles, proporcionamos servicios integrales de desarrollo de software.",
+    "ogImage": "https://antiguadigital.com/images/og-services-es.jpg"
+  },
+  "contact": {
+    "title": "Contáctanos - Antigua Digital",
+    "description": "Ponte en contacto con Antigua Digital para tus necesidades de desarrollo de software. Agenda una consulta y comienza tu viaje de transformación digital.",
+    "keywords": [
+      "contactar antigua digital",
+      "consulta desarrollo software",
+      "agendar demo",
+      "obtener cotización",
+      "empresa software Guatemala"
+    ],
+    "ogTitle": "Contacta Antigua Digital - Comienza tu Proyecto Hoy",
+    "ogDescription": "¿Listo para transformar tu negocio? Contacta nuestro equipo experto para una consulta.",
+    "ogImage": "https://antiguadigital.com/images/og-contact-es.jpg"
+  }
+}
