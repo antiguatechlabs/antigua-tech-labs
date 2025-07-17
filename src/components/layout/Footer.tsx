@@ -178,25 +178,13 @@ export const Footer = ({ content }: { content: FooterContent }) => {
                       display: 'flex',
                       flexDirection: 'column',
                       alignItems: 'center',
-                      // gap: 1,
                       cursor: 'pointer',
                       transition: 'opacity 0.2s ease-in-out',
                       '&:hover': {
                         opacity: 0.8,
                       },
-                      // mb: 5,
                     }}
                   >
-                    {/* <Box
-                      sx={{
-                        position: 'relative',
-                        width: 150,
-                        height: 150,
-                        flexShrink: 0,
-                      }}
-                    >
-                      <Image src={AGLogo} alt={content.companyName} layout="fill" objectFit="contain" />
-                    </Box> */}
                     <Typography
                       variant="h6"
                       sx={{
