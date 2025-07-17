@@ -103,7 +103,7 @@ export const WhyChooseTwo = ({ content }: { content: WhyChooseTwoContent }) => (
                   zIndex: -1,
                 }}
               >
-              Since {content.yearEstablished}
+                {content.yearEstablished}
               </Typography>
             </Box>
           </MotionBox>
