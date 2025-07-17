@@ -5,13 +5,26 @@ import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
 
+import AntiguaVolcanoesCold from '@/assets/components/antigua-volcanoes-cold.png';
 import { Section } from '@/components/common';
 import { slideLeftVariant, slideRightVariant } from '@/lib/animationVariants';
 import { WhyChooseContent } from '@/lib/data';
 import { MotionBox, MotionPaper } from '@/lib/motionComponents';
 import { textWithGradient } from '@/lib/textFormatters';
+import { colors } from '@/theme';
 
-export const WhyChoose = ({ content }: { content: WhyChooseContent }) => (
+const imageMap = {
+  cold: AntiguaVolcanoesCold,
+};
+
+
+type ImageSrcType = keyof typeof imageMap;
+
+interface WhyChooseContentWithImageSrc extends Omit<WhyChooseContent, 'imageSrc'> {
+  imageSrc: ImageSrcType;
+}
+
+export const WhyChoose = ({ content }: { content: WhyChooseContentWithImageSrc }) => (
   <Section id='why-choose'>
     <Box
       sx={{
@@ -110,7 +123,7 @@ export const WhyChoose = ({ content }: { content: WhyChooseContent }) => (
               }}
             >
               <Image
-                src={content.imageSrc}
+                src={imageMap[content.imageSrc]}
                 alt="Why Choose Us"
                 fill
                 style={{ objectFit: 'cover' }}
@@ -126,7 +139,7 @@ export const WhyChoose = ({ content }: { content: WhyChooseContent }) => (
                 right: 16,
                 transform: 'translate(50%, 50%)',
                 width: 180,
-                bgcolor: 'primary.main',
+                bgcolor: colors.blueGray,
                 color: 'white',
                 borderRadius: 2,
                 zIndex: 2,

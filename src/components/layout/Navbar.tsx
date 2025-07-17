@@ -82,7 +82,6 @@ export function Navbar({ content }: { content: NavbarContent }) {
         <Toolbar disableGutters sx={{ py: 1, display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
 
           {/* Logo */}
-          {/* TODO: add logo */}
           <Box sx={{ display: 'flex', alignItems: 'center', mr: { xs: 'auto', sm: 0 } }}>
             <MuiLink
               underline="none"

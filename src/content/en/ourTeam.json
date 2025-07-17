@@ -12,13 +12,13 @@
       "url": "https://github.com/sarahjohnson"
     },
     {
-      "image": "https://i.pravatar.cc/300?img=2",
-       "title": "Iganico Martínez",
-      "subtitle": "Backend Engineer",
+      "image": "ignacio",
+      "title": "Ignacio Martínez",
+      "subtitle": "Frontend Developer",
       "handle": "@ignaciomc_",
-      "borderColor": "#10B981",
-      "gradient": "linear-gradient(180deg, #10B981, #000)",
-      "url": "https://linkedin.com/in/mikechen"
+      "borderColor": "#b429f9",
+      "gradient": "linear-gradient(180deg, #b429f9, #000)",
+      "url": "https://www.linkedin.com/in/ignaciomc20/"
     },
     {
       "image": "https://i.pravatar.cc/300?img=3",
@@ -27,6 +27,15 @@
       "handle": "@cpamech",
       "borderColor": "#F59E0B",
       "gradient": "linear-gradient(135deg, #F59E0B, #000)",
+      "url": "https://dribbble.com/emilyrodriguez"
+    },
+    {
+      "image": "https://i.pravatar.cc/300?img=3",
+      "title": "Pach Lara",
+      "subtitle": "Diseñadora UX/UI",
+      "handle": "@cpamech",
+      "borderColor": "#10B981",
+      "gradient": "linear-gradient(180deg, #10B981, #000)",
       "url": "https://dribbble.com/emilyrodriguez"
     }
   ]
