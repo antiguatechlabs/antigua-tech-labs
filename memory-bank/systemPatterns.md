@@ -1,8 +1,8 @@
-# System Patterns: Antigua Digital Landing Page
+# System Patterns: Aguat Solutions Landing Page
 
 ## Architecture Overview
 
-The Antigua Digital Landing Page follows a modern Next.js 15 architecture with the App Router pattern, leveraging React 19's latest features. The system is designed with a clear separation of concerns and a component-based approach, with language-based routing for multilingual support.
+The Aguat Solutions Landing Page follows a modern Next.js 15 architecture with the App Router pattern, leveraging React 19's latest features. The system is designed with a clear separation of concerns and a component-based approach, with language-based routing for multilingual support.
 
 ```mermaid
 flowchart TD

@@ -1,8 +1,8 @@
-# Project Brief: Antigua Digital Landing Page
+# Project Brief: Aguat Solutions Landing Page
 
 ## Project Overview
 
-The Antigua Digital Landing Page is a modern, responsive web application designed to showcase an AI-powered sales agent solution. The landing page serves as the entry point for potential customers to learn about the product and initiate the onboarding process.
+The Aguat Solutions Landing Page is a modern, responsive web application designed to showcase an AI-powered sales agent solution. The landing page serves as the entry point for potential customers to learn about the product and initiate the onboarding process.
 
 ## Core Requirements
 

@@ -1,8 +1,8 @@
-# Product Context: Antigua Digital Landing Page
+# Product Context: Aguat Solutions Landing Page
 
 ## Product Purpose
 
-The Antigua Digital Landing Page serves as the primary entry point for potential customers interested in an AI-powered sales agent solution. It aims to clearly communicate the value proposition, generate interest, and convert visitors into leads by encouraging them to take the first step in the onboarding process.
+The Aguat Solutions Landing Page serves as the primary entry point for potential customers interested in an AI-powered sales agent solution. It aims to clearly communicate the value proposition, generate interest, and convert visitors into leads by encouraging them to take the first step in the onboarding process.
 
 ## Problem Statement
 

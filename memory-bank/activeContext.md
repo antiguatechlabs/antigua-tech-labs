@@ -1,8 +1,8 @@
-# Active Context: Antigua Digital Landing Page
+# Active Context: Aguat Solutions Landing Page
 
 ## Current Focus
 
-The Antigua Digital Landing Page project has progressed significantly from its initial development phase. The focus is now on enhancing the user experience, optimizing performance, and ensuring cross-browser compatibility.
+The Aguat Solutions Landing Page project has progressed significantly from its initial development phase. The focus is now on enhancing the user experience, optimizing performance, and ensuring cross-browser compatibility.
 
 ## Recent Changes
 

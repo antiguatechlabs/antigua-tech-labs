@@ -4,7 +4,7 @@
 set -e
 
 # Display a message
-echo "🚀 Initializing Antigua Digital Landing Page project..."
+echo "🚀 Initializing Aguat Solutions Landing Page project..."
 
 # Install dependencies
 echo "📦 Installing dependencies..."

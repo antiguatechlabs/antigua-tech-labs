@@ -1,21 +1,21 @@
 import { DefaultSeoProps } from 'next-seo';
 
 export const DEFAULT_SEO: DefaultSeoProps = {
-  defaultTitle: 'Antigua Digital - Custom Software Development',
-  titleTemplate: '%s | Antigua Digital',
+  defaultTitle: 'Aguat Solutions - Custom Software Development',
+  titleTemplate: '%s | Aguat Solutions',
   description: 'We build high-performance web and mobile apps that scale with your business and deliver real-world results.',
   canonical: 'https://antiguadigital.com',
   openGraph: {
     type: 'website',
     locale: 'en_US',
     url: 'https://antiguadigital.com',
-    siteName: 'Antigua Digital',
+    siteName: 'Aguat Solutions',
     images: [
       {
-        url: 'https://antiguadigital.com/og?title=Antigua Digital&description=Custom Software Development',
+        url: 'https://antiguadigital.com/og?title=Aguat Solutions&description=Custom Software Development',
         width: 1200,
         height: 630,
-        alt: 'Antigua Digital - Custom Software Development',
+        alt: 'Aguat Solutions - Custom Software Development',
       },
     ],
   },
@@ -39,7 +39,7 @@ export const DEFAULT_SEO: DefaultSeoProps = {
     },
     {
       name: 'application-name',
-      content: 'Antigua Digital',
+      content: 'Aguat Solutions',
     },
   ],
   additionalLinkTags: [
@@ -61,18 +61,18 @@ export const DEFAULT_SEO: DefaultSeoProps = {
 export const LANGUAGE_CONFIGS = {
   en: {
     locale: 'en_US',
-    defaultTitle: 'Antigua Digital - Custom Software Development',
+    defaultTitle: 'Aguat Solutions - Custom Software Development',
     description: 'We build high-performance web and mobile apps that scale with your business and deliver real-world results.',
   },
   es: {
     locale: 'es_ES',
-    defaultTitle: 'Antigua Digital - Desarrollo de Software Personalizado',
+    defaultTitle: 'Aguat Solutions - Desarrollo de Software Personalizado',
     description: 'Construimos aplicaciones web y móviles de alto rendimiento que escalan con tu negocio y entregan resultados reales.',
   },
 };
 
 export const SITE_CONFIG = {
-  name: 'Antigua Digital',
+  name: 'Aguat Solutions',
   url: 'https://antiguadigital.com',
   ogImage: 'https://antiguadigital.com/og',
   description: 'Custom software development company specializing in web and mobile applications.',
@@ -88,12 +88,12 @@ export const SITE_CONFIG = {
   ],
   authors: [
     {
-      name: 'Antigua Digital',
+      name: 'Aguat Solutions',
       url: 'https://antiguadigital.com',
     },
   ],
-  creator: 'Antigua Digital',
-  publisher: 'Antigua Digital',
+  creator: 'Aguat Solutions',
+  publisher: 'Aguat Solutions',
   formatDetection: {
     email: false,
     address: false,
