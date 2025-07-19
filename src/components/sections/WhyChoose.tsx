@@ -18,13 +18,7 @@ const imageMap = {
 };
 
 
-type ImageSrcType = keyof typeof imageMap;
-
-interface WhyChooseContentWithImageSrc extends Omit<WhyChooseContent, 'imageSrc'> {
-  imageSrc: ImageSrcType;
-}
-
-export const WhyChoose = ({ content }: { content: WhyChooseContentWithImageSrc }) => (
+export const WhyChoose = ({ content }: { content: WhyChooseContent }) => (
   <Section id='why-choose'>
     <Box
       sx={{
