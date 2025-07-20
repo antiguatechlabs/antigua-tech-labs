@@ -3,9 +3,9 @@
   "subtitle": "Conoce a las personas talentosas que hacen realidad nuestra visión",
   "teamMembers": [
     {
-      "image": "https://i.pravatar.cc/300?img=1",
-      "title": "Marco Lara",
-      "subtitle": "Desarrollador Frontend",
+      "image": "ignacio",
+      "title": "Marcos Ovando",
+      "subtitle": "Desarrollador Backend",
       "handle": "@marcospoder",
       "borderColor": "#3B82F6",
       "gradient": "linear-gradient(145deg, #3B82F6, #000)",
@@ -21,22 +21,22 @@
       "url": "https://www.linkedin.com/in/ignaciomc20/"
     },
     {
-      "image": "https://i.pravatar.cc/300?img=3",
-      "title": "Fetch Mamech",
-      "subtitle": "Diseñadora UX/UI",
+      "image": "ignacio",
+      "title": "Carlos Pamech",
+      "subtitle": "Desarrolador Mobile",
       "handle": "@cpamech",
       "borderColor": "#F59E0B",
       "gradient": "linear-gradient(135deg, #F59E0B, #000)",
-      "url": "https://dribbble.com/emilyrodriguez"
+      "url": "https://www.linkedin.com/in/carlos-pamech-41920b283/"
     },
     {
-      "image": "https://i.pravatar.cc/300?img=3",
-      "title": "Pach Lara",
-      "subtitle": "Diseñadora UX/UI",
-      "handle": "@cpamech",
+      "image": "ignacio",
+      "title": "Andrés Ovando",
+      "subtitle": "Desarrollador Frontend",
+      "handle": "@andresovando_",
       "borderColor": "#10B981",
       "gradient": "linear-gradient(180deg, #10B981, #000)",
-      "url": "https://dribbble.com/emilyrodriguez"
+      "url": "https://www.linkedin.com/in/andresovando/"
     }
   ]
 }

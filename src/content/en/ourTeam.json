@@ -3,13 +3,13 @@
   "subtitle": "Meet the talented individuals who make our vision a reality",
   "teamMembers": [
     {
-      "image": "https://i.pravatar.cc/300?img=1",
-      "title": "Marco Lara",
-      "subtitle": "Frontend Developer",
+      "image": "ignacio",
+      "title": "Marcos Ovando",
+      "subtitle": "Backend Developer",
       "handle": "@marcospoder",
       "borderColor": "#3B82F6",
       "gradient": "linear-gradient(145deg, #3B82F6, #000)",
-      "url": "https://github.com/sarahjohnson"
+      "url": "https://www.linkedin.com/in/marcos-ovando-a90608225/"
     },
     {
       "image": "ignacio",
@@ -21,22 +21,22 @@
       "url": "https://www.linkedin.com/in/ignaciomc20/"
     },
     {
-      "image": "https://i.pravatar.cc/300?img=3",
-         "title": "Fetch Mamech",
-      "subtitle": "UX/UI Designer",
+      "image": "ignacio",
+      "title": "Carlos Pamech",
+      "subtitle": "Mobile Developer",
       "handle": "@cpamech",
       "borderColor": "#F59E0B",
       "gradient": "linear-gradient(135deg, #F59E0B, #000)",
-      "url": "https://dribbble.com/emilyrodriguez"
+      "url": "https://www.linkedin.com/in/carlos-pamech-41920b283/"
     },
     {
-      "image": "https://i.pravatar.cc/300?img=3",
-      "title": "Pach Lara",
-      "subtitle": "Diseñadora UX/UI",
-      "handle": "@cpamech",
+      "image": "ignacio",
+      "title": "Andres Ovando",
+      "subtitle": "Frontend Developer",
+      "handle": "@andresovando_",
       "borderColor": "#10B981",
       "gradient": "linear-gradient(180deg, #10B981, #000)",
-      "url": "https://dribbble.com/emilyrodriguez"
+      "url": "https://www.linkedin.com/in/andresovando/"
     }
   ]
 }
