@@ -7,8 +7,8 @@
       "title": "Marcos Ovando",
       "subtitle": "Backend Developer",
       "handle": "@marcospoder",
-      "borderColor": "#3B82F6",
-      "gradient": "linear-gradient(145deg, #3B82F6, #000)",
+      "borderColor": "#9748f7",
+      "gradient": "linear-gradient(145deg, #9748f7, #000)",
       "url": "https://www.linkedin.com/in/marcos-ovando-a90608225/"
     },
     {
@@ -16,8 +16,8 @@
       "title": "Ignacio Martínez",
       "subtitle": "Frontend Developer",
       "handle": "@ignaciomc_",
-      "borderColor": "#b429f9",
-      "gradient": "linear-gradient(180deg, #b429f9, #000)",
+      "borderColor": "#6f74f6",
+      "gradient": "linear-gradient(180deg, #6f74f6, #000)",
       "url": "https://www.linkedin.com/in/ignaciomc20/"
     },
     {
@@ -25,8 +25,8 @@
       "title": "Carlos Pamech",
       "subtitle": "Mobile Developer",
       "handle": "@cpamech",
-      "borderColor": "#F59E0B",
-      "gradient": "linear-gradient(135deg, #F59E0B, #000)",
+      "borderColor": "#5592f5",
+      "gradient": "linear-gradient(135deg, #5592f5, #000)",
       "url": "https://www.linkedin.com/in/carlos-pamech-41920b283/"
     },
     {
@@ -34,8 +34,8 @@
       "title": "Andres Ovando",
       "subtitle": "Frontend Developer",
       "handle": "@andresovando_",
-      "borderColor": "#10B981",
-      "gradient": "linear-gradient(180deg, #10B981, #000)",
+      "borderColor": "#2dc0f3",
+      "gradient": "linear-gradient(180deg, #2dc0f3, #000)",
       "url": "https://www.linkedin.com/in/andresovando/"
     }
   ]
