@@ -1,6 +1,6 @@
 {
   "home": {
-    "title": "Aguat Solutions - Desarrollo de Software Personalizado",
+    "title": "Antigua Tech Solutions - Desarrollo de Software Personalizado",
     "description": "Construimos aplicaciones web y móviles de alto rendimiento que escalan con tu negocio y entregan resultados reales. Desarrollo de software experto en Guatemala.",
     "keywords": [
       "desarrollo de software",
@@ -14,13 +14,13 @@
       "desarrollo de apps",
       "desarrollo web"
     ],
-    "ogTitle": "Aguat Solutions - Software Personalizado que Impulsa tu Crecimiento",
+    "ogTitle": "Antigua Tech Solutions - Software Personalizado que Impulsa tu Crecimiento",
     "ogDescription": "Transforma tu negocio con aplicaciones web y móviles de alto rendimiento. Equipo experto en desarrollo de software en Guatemala.",
     "ogImage": "https://antiguadigital.com/images/og-home-es.jpg"
   },
   "about": {
-    "title": "Acerca de Nosotros - Aguat Solutions",
-    "description": "Conoce la misión de Aguat Solutions de entregar soluciones de software innovadoras. Conoce nuestro equipo experto y descubre nuestro enfoque de desarrollo personalizado.",
+    "title": "Acerca de Nosotros - Antigua Tech Solutions",
+    "description": "Conoce la misión de Antigua Tech Solutions de entregar soluciones de software innovadoras. Conoce nuestro equipo experto y descubre nuestro enfoque de desarrollo personalizado.",
     "keywords": [
       "acerca de antigua digital",
       "equipo desarrollo software",
@@ -28,12 +28,12 @@
       "desarrolladores Guatemala",
       "experiencia tecnológica"
     ],
-    "ogTitle": "Acerca de Aguat Solutions - Equipo Experto en Desarrollo de Software",
+    "ogTitle": "Acerca de Antigua Tech Solutions - Equipo Experto en Desarrollo de Software",
     "ogDescription": "Descubre nuestra pasión por crear soluciones de software innovadoras que impulsan el crecimiento empresarial.",
     "ogImage": "https://antiguadigital.com/images/og-about-es.jpg"
   },
   "services": {
-    "title": "Servicios - Aguat Solutions",
+    "title": "Servicios - Antigua Tech Solutions",
     "description": "Servicios integrales de desarrollo de software incluyendo aplicaciones web, apps móviles, desarrollo de APIs, diseño UX y mantenimiento de código.",
     "keywords": [
       "servicios desarrollo software",
@@ -44,13 +44,13 @@
       "mantenimiento código",
       "modelado 3D"
     ],
-    "ogTitle": "Servicios de Desarrollo de Software - Aguat Solutions",
+    "ogTitle": "Servicios de Desarrollo de Software - Antigua Tech Solutions",
     "ogDescription": "Desde aplicaciones web hasta apps móviles, proporcionamos servicios integrales de desarrollo de software.",
     "ogImage": "https://antiguadigital.com/images/og-services-es.jpg"
   },
   "contact": {
-    "title": "Contáctanos - Aguat Solutions",
-    "description": "Ponte en contacto con Aguat Solutions para tus necesidades de desarrollo de software. Agenda una consulta y comienza tu viaje de transformación digital.",
+    "title": "Contáctanos - Antigua Tech Solutions",
+    "description": "Ponte en contacto con Antigua Tech Solutions para tus necesidades de desarrollo de software. Agenda una consulta y comienza tu viaje de transformación digital.",
     "keywords": [
       "contactar antigua digital",
       "consulta desarrollo software",
@@ -58,7 +58,7 @@
       "obtener cotización",
       "empresa software Guatemala"
     ],
-    "ogTitle": "Contacta Aguat Solutions - Comienza tu Proyecto Hoy",
+    "ogTitle": "Contacta Antigua Tech Solutions - Comienza tu Proyecto Hoy",
     "ogDescription": "¿Listo para transformar tu negocio? Contacta nuestro equipo experto para una consulta.",
     "ogImage": "https://antiguadigital.com/images/og-contact-es.jpg"
   }

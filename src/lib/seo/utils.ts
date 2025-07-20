@@ -149,7 +149,7 @@ export function generateOrganizationStructuredData(lang: string = 'en') {
   return {
     '@context': 'https://schema.org',
     '@type': 'Organization',
-    name: 'Aguat Solutions',
+    name: 'Antigua Tech Solutions',
     url: SITE_CONFIG.url,
     logo: `${SITE_CONFIG.url}/images/logo.png`,
     description:
@@ -181,14 +181,14 @@ export function generateWebsiteStructuredData(lang: string = 'en') {
   return {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
-    name: 'Aguat Solutions',
+    name: 'Antigua Tech Solutions',
     url: SITE_CONFIG.url,
     description:
       LANGUAGE_CONFIGS[lang as keyof typeof LANGUAGE_CONFIGS]?.description ||
       LANGUAGE_CONFIGS.en.description,
     publisher: {
       '@type': 'Organization',
-      name: 'Aguat Solutions',
+      name: 'Antigua Tech Solutions',
     },
     potentialAction: {
       '@type': 'SearchAction',

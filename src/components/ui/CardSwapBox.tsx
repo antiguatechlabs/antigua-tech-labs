@@ -16,12 +16,12 @@ const CardSwapBox = () => (
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>Aguat Solutions</title>
+    <title>Antigua Tech Solutions</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   </head>
   <body>
     <section class="hero">
-      <h1>Welcome to Aguat Solutions</h1>
+      <h1>Welcome to Antigua Tech Solutions</h1>
     </section>
   </body>
 </html>
