@@ -173,7 +173,6 @@ export const Footer = ({ content }: { content: FooterContent }) => {
               <MotionStack spacing={3} alignItems="flex-start">
                 <Link href="/" passHref>
                   <Box
-                    component="a"
                     sx={{
                       display: 'flex',
                       flexDirection: 'column',
