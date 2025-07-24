@@ -3,6 +3,7 @@
 import { Box, Typography } from '@mui/material';
 
 import ignacio from '@/assets/our-team/ignacio.jpg';
+import marcos from '@/assets/our-team/marcos.jpg';
 import { textWithGradient } from '@/lib';
 
 import type { OurTeamContent } from '../../lib/data';
@@ -12,6 +13,7 @@ import Section from '../common/Section';
 
 const imageMap: Record<string, string> = {
   ignacio: ignacio.src,
+  marcos: marcos.src,
   // import and add other images here
 };
 
