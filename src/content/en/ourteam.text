@@ -1,0 +1,21 @@
+TODO: pach agregar su foto y datos
+
+ // {
+    //   "image": "ignacio",
+    //   "title": "Andres Ovando",
+    //   "subtitle": "Frontend Developer",
+    //   "handle": "@andresovando_",
+    //   "borderColor": "#2dc0f3",
+    //   "gradient": "linear-gradient(180deg, #2dc0f3, #000)",
+    //   "url": "https://www.linkedin.com/in/andresovando/"
+    // }
+
+     // {
+    //   "image": "ignacio",
+    //   "title": "Andrés Ovando",
+    //   "subtitle": "Desarrollador Frontend",
+    //   "handle": "@andresovando_",
+    //   "borderColor": "#3eabf4",
+    //   "gradient": "linear-gradient(180deg, #3eabf4, #000)",
+    //   "url": "https://www.linkedin.com/in/andresovando/"
+    // }

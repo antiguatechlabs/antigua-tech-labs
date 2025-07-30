@@ -93,7 +93,7 @@ const OurTeam: React.FC<OurTeamProps> = ({ content }) => {
         <ChromaGrid
           items={teamMembers}
           radius={300}
-          columns={4}
+          columns={3}
           damping={0.45}
           fadeOut={0.6}
           ease="power3.out"

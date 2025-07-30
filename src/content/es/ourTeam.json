@@ -3,15 +3,6 @@
   "subtitle": "Conoce a las personas talentosas que hacen realidad nuestra visión",
   "teamMembers": [
     {
-      "image": "marcos",
-      "title": "Marcos Ovando",
-      "subtitle": "Desarrollador Backend",
-      "handle": "@marcospoder",
-      "borderColor": "#9c43f8",
-      "gradient": "linear-gradient(145deg, #9c43f8, #000)",
-      "url": "https://www.linkedin.com/in/marcos-ovando-a90608225/"
-    },
-    {
       "image": "ignacio",
       "title": "Ignacio Martínez",
       "subtitle": "Desarrollador Frontend",
@@ -21,6 +12,15 @@
       "url": "https://www.linkedin.com/in/ignaciomc20/"
     },
     {
+      "image": "marcos",
+      "title": "Marcos Ovando",
+      "subtitle": "Desarrollador Backend",
+      "handle": "@marcospoder",
+      "borderColor": "#9c43f8",
+      "gradient": "linear-gradient(145deg, #9c43f8, #000)",
+      "url": "https://www.linkedin.com/in/marcos-ovando-a90608225/"
+    },
+    {
       "image": "carlos",
       "title": "Carlos Pamech",
       "subtitle": "Desarrolador Mobile",
@@ -28,15 +28,6 @@
       "borderColor": "#5591f5",
       "gradient": "linear-gradient(135deg, #5591f5, #000)",
       "url": "https://www.linkedin.com/in/carlos-pamech-41920b283/"
-    },
-    {
-      "image": "ignacio",
-      "title": "Andrés Ovando",
-      "subtitle": "Desarrollador Frontend",
-      "handle": "@andresovando_",
-      "borderColor": "#3eabf4",
-      "gradient": "linear-gradient(180deg, #3eabf4, #000)",
-      "url": "https://www.linkedin.com/in/andresovando/"
     }
   ]
 }
