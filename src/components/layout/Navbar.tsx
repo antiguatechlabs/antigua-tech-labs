@@ -82,7 +82,6 @@ export function Navbar({ content }: { content: NavbarContent }) {
         <Toolbar disableGutters sx={{ py: 1, display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
 
           {/* Logo */}
-          {/* TODO: add logo */}
           <Box sx={{ display: 'flex', alignItems: 'center', mr: { xs: 'auto', sm: 0 } }}>
             <MuiLink
               underline="none"
@@ -96,18 +95,14 @@ export function Navbar({ content }: { content: NavbarContent }) {
             >
               <Box
                 sx={{
-                  width: 32,
-                  height: 32,
-                  borderRadius: 1,
-                  // display: { xs: 'none', md: 'flex' },
+                  position: 'relative',
+                  top: 8,         // desplaza 4px hacia abajo
                   alignItems: 'center',
                   justifyContent: 'center',
-                  background: 'linear-gradient(to right, #9c43f8, #26c5f3)',
                   mr: 1,
                 }}
               >
-                {/* <CodeIcon sx={{ color: 'white', fontSize: '1.25rem' }} /> */}
-                <Image src={AGLogo} alt='Antigua Digital Logo' width={35} height={35}/>
+                <Image src={AGLogo} alt={content.companyName} width={70} height={70}/>
               </Box>
               <Typography
                 variant="h6"

@@ -2,14 +2,11 @@
 
 import EmailIcon from '@mui/icons-material/Email';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
-import PhoneIcon from '@mui/icons-material/Phone';
 import { Box, Container, Typography, Link as MuiLink, Stack } from '@mui/material';
 import Image from 'next/image';
-import Link from 'next/link';
 import { useParams, useRouter } from 'next/navigation';
 import React, { useState } from 'react';
 
-// TODO: replace with your actual footer logo
 import FooterShape from '@/assets/footer/footer-shape-1.webp';
 import { LegalModal } from '@/components/ui';
 import { fadeVariant, slideUpVariant, staggerContainerVariant } from '@/lib/animationVariants';
@@ -173,19 +170,32 @@ export const Footer = ({ content }: { content: FooterContent }) => {
               {...fadeVariant}
             >
               <MotionStack spacing={3} alignItems="flex-start">
-                <Link href="/" passHref>
-                  <Box sx={{ height: '60px', position: 'relative', width: '150px' }}>
-                    {/* <Image
-                    src={FooterLogo}
-                    alt={content.companyName}
-                    fill
-                    style={{ objectFit: 'contain' }} /> */}
-                    {/* TODO: add logo */}
-                    <Typography variant="h5">
-                      {content.companyName}
-                    </Typography>
-                  </Box>
-                </Link>
+                <Box
+                  sx={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'center',
+                    cursor: 'pointer',
+                    transition: 'opacity 0.2s ease-in-out',
+                    '&:hover': {
+                      opacity: 0.8,
+                    },
+                  }}
+                >
+                  <Typography
+                    variant="h3"
+                    component="h2"
+                    sx={{
+                      fontWeight: 800,
+                      fontSize: '1.75rem',
+                      lineHeight: 1.2,
+                      color: 'white',
+                      letterSpacing: '0.5px',
+                    }}
+                  >
+                    {content.companyName}
+                  </Typography>
+                </Box>
                 <MotionTypography variant="body2" sx={{ color: 'grey.400' }}>
                   {content.companyDescription}
                 </MotionTypography>
@@ -208,7 +218,7 @@ export const Footer = ({ content }: { content: FooterContent }) => {
                     <LocationOnIcon sx={{ color: 'primary.light' }} fontSize="small" />
                     <Typography variant="body2">{content.address}</Typography>
                   </Stack>
-                  <Stack direction="row" spacing={1} alignItems="center">
+                  {/* <Stack direction="row" spacing={1} alignItems="center">
                     <PhoneIcon sx={{ color: 'primary.light' }} fontSize="small" />
                     <MuiLink
                       href={`tel:${content.phone}`}
@@ -221,7 +231,7 @@ export const Footer = ({ content }: { content: FooterContent }) => {
                     >
                       {content.phone}
                     </MuiLink>
-                  </Stack>
+                  </Stack> */}
                 </Stack>
               </MotionStack>
             </MotionBox>

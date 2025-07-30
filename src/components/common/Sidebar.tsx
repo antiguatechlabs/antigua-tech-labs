@@ -109,7 +109,7 @@ export const Sidebar = ({ isOpen=true, onCloseAction }: SidebarProps) => {
           About Us
         </Typography>
         <Typography variant="body2">
-          Antigua Digital is a software company specializing in the development and maintenance of
+          Antigua Tech Solutions is a software company specializing in the development and maintenance of
           modern web applications. We leverage the latest technologies and follow industry best
           practices to deliver clean, sustainable code and high-quality digital solutions.
         </Typography>

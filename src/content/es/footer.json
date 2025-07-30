@@ -1,5 +1,5 @@
 {
-  "companyName": "Antigua Digital",
+  "companyName": "Antigua Tech Solutions",
   "companyDescription": "Soluciones digitales a la medida que crecen con tu negocio.",
   "email": "info@antiguadigital.com",
   "address": "Antigua Guatemala, Guatemala",
@@ -31,5 +31,5 @@
       "links": ["Política de Privacidad", "Términos de Servicio"]
     }
   },
-  "copyright": "© {year} Antigua Digital. Todos los derechos reservados."
+  "copyright": "© {year} Antigua Tech Solutions. Todos los derechos reservados."
 }

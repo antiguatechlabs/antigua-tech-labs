@@ -1,10 +1,10 @@
 {
-  "title": "Why Choose {{gradient:Antigua Digital}}",
+  "title": "Why Choose {{gradient:Antigua Tech Solutions}}",
   "subtitle": "Your Partner in Digital Transformation",
-  "description": "At Antigua Digital, we blend technical expertise with creative thinking to deliver solutions that drive business growth. Our team of experienced developers and designers works collaboratively to build scalable, user-friendly applications tailored to your unique business needs.",
+  "description": "At Antigua Tech Solutions, we blend technical expertise with creative thinking to deliver solutions that drive business growth. Our team of experienced developers and designers works collaboratively to build scalable, user-friendly applications tailored to your unique business needs.",
   "buttonText": "Learn More",
   "buttonLink": "/about",
-  "imageSrc": "/images/why-choose.jpg",
+  "imageSrc": "cold",
   "yearEstablished": "Since 2020",
   "tagline": "Delivering excellence in digital solutions"
 }

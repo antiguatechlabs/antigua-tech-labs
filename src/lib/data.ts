@@ -175,7 +175,7 @@ export interface WhyChooseContent {
   description: string;
   buttonText: string;
   buttonLink: string;
-  imageSrc: string;
+  imageSrc: 'cold';
   yearEstablished: string;
   tagline: string;
 }

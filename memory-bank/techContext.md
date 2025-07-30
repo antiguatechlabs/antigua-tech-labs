@@ -1,4 +1,4 @@
-# Technical Context: Antigua Digital Landing Page
+# Technical Context: Antigua Tech Solutions Landing Page
 
 ## Technology Stack
 

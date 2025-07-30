@@ -2,12 +2,22 @@
 
 import { Box, Typography } from '@mui/material';
 
+import carlos from '@/assets/our-team/carlos.jpg';
+import ignacio from '@/assets/our-team/ignacio.jpg';
+import marcos from '@/assets/our-team/marcos.jpg';
 import { textWithGradient } from '@/lib';
 
 import type { OurTeamContent } from '../../lib/data';
 import ChromaGrid from '../common/ChromaGrid';
 import type { ChromaItem } from '../common/ChromaGrid';
 import Section from '../common/Section';
+
+const imageMap: Record<string, string> = {
+  ignacio: ignacio.src,
+  marcos: marcos.src,
+  carlos: carlos.src,
+  // import and add other images here
+};
 
 interface OurTeamProps {
   content: OurTeamContent;
@@ -17,7 +27,7 @@ const OurTeam: React.FC<OurTeamProps> = ({ content }) => {
 
   // Convert team members to ChromaItem format
   const teamMembers: ChromaItem[] = content.teamMembers.map(member => ({
-    image: member.image,
+    image: imageMap[member.image],
     title: member.title,
     subtitle: member.subtitle,
     handle: member.handle,

@@ -38,7 +38,6 @@ const eslintConfig = [
       semi: ['error', 'always'],
       'comma-dangle': ['error', 'always-multiline'],
       'arrow-parens': ['error', 'as-needed'],
-      'max-len': ['error', { code: 100, ignoreUrls: true, ignoreStrings: true }],
       'object-curly-spacing': ['error', 'always'],
       'array-bracket-spacing': ['error', 'never'],
       'arrow-spacing': ['error', { before: true, after: true }],

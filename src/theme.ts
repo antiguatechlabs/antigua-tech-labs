@@ -19,12 +19,12 @@ export const colors = {
   purple1: '#4e2c70',
   purple2: '#702b9e',
   magenta: '#b429f9',
-  violet: '#9c43f8',
-  lightViolet: '#c492f7',
+  violet: '#9c43f8', // primary
+  lightViolet: '#c492f7', // secondary
   lavender: '#855df7',
-  periwinkle: '#6d77f6',
-  skyBlue: '#5591f5',
-  lightBlue: '#3eabf4',
+  periwinkle: '#2f303fff',
+  skyBlue: '#5591f5', // tertiary
+  lightBlue: '#3eabf4', // quaternary
   aqua: '#26c5f3',
   transparent: 'rgba(255, 255, 255, 0.7)',
   white: '#ffffff',
