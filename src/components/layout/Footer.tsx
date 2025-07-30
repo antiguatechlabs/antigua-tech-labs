@@ -4,7 +4,6 @@ import EmailIcon from '@mui/icons-material/Email';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import { Box, Container, Typography, Link as MuiLink, Stack } from '@mui/material';
 import Image from 'next/image';
-import Link from 'next/link';
 import { useParams, useRouter } from 'next/navigation';
 import React, { useState } from 'react';
 
@@ -171,32 +170,32 @@ export const Footer = ({ content }: { content: FooterContent }) => {
               {...fadeVariant}
             >
               <MotionStack spacing={3} alignItems="flex-start">
-                <Link href="/" passHref>
-                  <Box
+                <Box
+                  sx={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'center',
+                    cursor: 'pointer',
+                    transition: 'opacity 0.2s ease-in-out',
+                    '&:hover': {
+                      opacity: 0.8,
+                    },
+                  }}
+                >
+                  <Typography
+                    variant="h3"
+                    component="h2"
                     sx={{
-                      display: 'flex',
-                      flexDirection: 'column',
-                      alignItems: 'center',
-                      cursor: 'pointer',
-                      transition: 'opacity 0.2s ease-in-out',
-                      '&:hover': {
-                        opacity: 0.8,
-                      },
+                      fontWeight: 800,
+                      fontSize: '1.75rem',
+                      lineHeight: 1.2,
+                      color: 'white',
+                      letterSpacing: '0.5px',
                     }}
                   >
-                    <Typography
-                      variant="h6"
-                      sx={{
-                        fontWeight: 700,
-                        fontSize: '1.125rem',
-                        color: 'white',
-                        textDecoration: 'none',
-                      }}
-                    >
-                      {content.companyName}
-                    </Typography>
-                  </Box>
-                </Link>
+                    {content.companyName}
+                  </Typography>
+                </Box>
                 <MotionTypography variant="body2" sx={{ color: 'grey.400' }}>
                   {content.companyDescription}
                 </MotionTypography>
