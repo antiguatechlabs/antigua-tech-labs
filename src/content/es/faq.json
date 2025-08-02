@@ -7,27 +7,55 @@
   "faqs": [
     {
       "question": "¿Cuánto tiempo suele tardar el desarrollo de una aplicación web?",
-      "answer": "Depende del alcance del proyecto. Una aplicación sencilla puede tardar entre 4 y 6 semanas, mientras que una solución más compleja puede tomar de 3 a 6 meses. Durante la fase inicial te daremos un cronograma claro adaptado a tus necesidades."
+      "answer": "Depende del alcance del proyecto. Una aplicación sencilla puede tardar entre 2 y 5 semanas, mientras que una solución más compleja puede tomar de 1 a 4 meses. Durante la fase inicial te daremos un cronograma claro adaptado a tus necesidades."
+    },
+    {
+      "question": "¿Desarrollan aplicaciones móviles tanto para iOS como para Android?",
+      "answer": "Sí, desarrollamos soluciones multiplataforma usando React Native."
+    },
+    {
+      "question": "¿Qué incluye su servicio de desarrollo de APIs?",
+      "answer": "Nuestro desarrollo de APIs incluye APIs RESTful y GraphQL, diseño de bases de datos, sistemas de autenticación, documentación, pruebas y despliegue. Garantizamos que tus APIs sean seguras, escalables y bien documentadas para fácil integración."
     },
     {
       "question": "¿Proporcionan soporte continuo después del lanzamiento?",
-      "answer": "Sí. Ofrecemos paquetes de soporte y mantenimiento que incluyen corrección de errores, actualizaciones de seguridad, mejoras de rendimiento y evolución de funcionalidades."
+      "answer": "Sí. Ofrecemos paquetes de soporte y mantenimiento que incluyen corrección de errores, actualizaciones de seguridad, mejoras de rendimiento y evolución de funcionalidades para todos nuestros servicios incluyendo aplicaciones web, móviles y APIs."
+    },
+    {
+      "question": "¿Qué tipos de modelado 3D y visualización ofrecen?",
+      "answer": "Creamos visualizaciones de productos, renders arquitectónicos, experiencias 3D web interactivas, animaciones y contenido AR/VR. Nuestros servicios 3D van desde renders fotorrealistas hasta aplicaciones 3D web en tiempo real usando WebGL y Three.js."
     },
     {
       "question": "¿Qué tecnologías utilizan para el desarrollo?",
-      "answer": "Trabajamos con tecnologías modernas como React, Node.js, TypeScript, Python y servicios cloud. Elegimos las herramientas ideales según cada proyecto para lograr velocidad, seguridad y escalabilidad."
+      "answer": "Trabajamos con tecnologías modernas como React, Node.js, TypeScript, Blender y servicios cloud. Elegimos las herramientas ideales según cada proyecto para lograr velocidad, seguridad y escalabilidad."
     },
     {
       "question": "¿Pueden ayudar con la migración de una aplicación existente?",
-      "answer": "Claro. Tenemos experiencia en migrar desde sistemas heredados a plataformas modernas. Evaluamos tu sistema actual y planificamos una transición por fases para minimizar cualquier interrupción."
+      "answer": "Claro. Tenemos experiencia en migrar desde sistemas heredados a plataformas modernas, incluyendo aplicaciones web, móviles y APIs. Evaluamos tu sistema actual y planificamos una transición por fases para minimizar cualquier interrupción."
+    },
+    {
+      "question": "¿Cuánto cuesta desarrollar una aplicación móvil?",
+      "answer": "Los costos de aplicaciones móviles varían según la complejidad, características y plataformas. Proporcionamos estimaciones detalladas después de entender tus requerimientos."
+    },
+    {
+      "question": "¿Cuál es la diferencia entre desarrollo móvil nativo y multiplataforma?",
+      "answer": "Las apps nativas se construyen específicamente para iOS o Android, ofreciendo el mejor rendimiento y características específicas de la plataforma. Las apps multiplataforma usan frameworks como React Native o Flutter para desplegar en ambas plataformas con código compartido, reduciendo tiempo y costo de desarrollo."
+    },
+    {
+      "question": "¿Pueden crear experiencias 3D interactivas para sitios web?",
+      "answer": "Sí, nos especializamos en experiencias 3D web usando WebGL y Three.js. Estas pueden incluir configuradores de productos, tours virtuales, modelos interactivos y visualizaciones inmersivas que funcionan sin problemas en todos los navegadores modernos."
     },
     {
       "question": "¿Cómo manejan los cambios durante el proyecto?",
-      "answer": "Usamos una metodología ágil que nos permite adaptarnos fácilmente. Evaluamos cada nuevo requerimiento y trabajamos contigo para ajustar prioridades, tiempos y presupuesto según lo necesario."
+      "answer": "Usamos una metodología ágil que nos permite adaptarnos fácilmente. Evaluamos cada nuevo requerimiento y trabajamos contigo para ajustar prioridades, cronograma y presupuesto según lo necesario."
+    },
+    {
+      "question": "¿Ofrecen mantenimiento de código para aplicaciones construidas por otros equipos?",
+      "answer": "Sí, proporcionamos mantenimiento y soporte de código para aplicaciones sin importar quién las haya construido. Nuestros servicios incluyen corrección de errores, actualizaciones de seguridad, optimización de rendimiento, adición de características y actualizaciones tecnológicas."
     },
     {
       "question": "¿Qué hace diferente su forma de desarrollar?",
-      "answer": "No solo programamos: colaboramos contigo desde la estrategia. Aportamos visión técnica y de negocio, manteniendo una comunicación clara, procesos transparentes y un fuerte compromiso con la calidad."
+      "answer": "No solo programamos: colaboramos contigo desde la estrategia. Aportamos visión técnica y de negocio, manteniendo una comunicación clara, procesos transparentes y un fuerte compromiso con la calidad en todos nuestros servicios."
     }
   ]
 }

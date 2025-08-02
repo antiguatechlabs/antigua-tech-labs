@@ -1,9 +1,9 @@
 {
-  "companyName": "Antigua Tech Solutions",
+  "companyName": "Antigua Tech Labs",
   "companyDescription": "Soluciones digitales a la medida que crecen con tu negocio.",
-  "email": "info@antiguadigital.com",
+  "email": "info@antiguatechlabs.com",
   "address": "Antigua Guatemala, Guatemala",
-  "phone": "+1 (234) 567-8901",
+  "phone": "+502 4141-4159",
   "sections": {
     "product": {
       "title": "Servicios",
@@ -31,5 +31,5 @@
       "links": ["Política de Privacidad", "Términos de Servicio"]
     }
   },
-  "copyright": "© {year} Antigua Tech Solutions. Todos los derechos reservados."
+  "copyright": "© {year} Antigua Tech Labs. Todos los derechos reservados."
 }

@@ -47,7 +47,7 @@ export async function POST(request: NextRequest) {
       from: `"${name}" <${process.env.SMTP_USER}>`, // Use authenticated email as sender
       to: process.env.TO_EMAIL,
       replyTo: email, // Set reply-to as the form submitter's email
-      subject: 'New Contact Form Submission - Antigua Tech Solutions',
+      subject: 'New Contact Form Submission - Antigua Tech Labs',
       text: `Name: ${name}\nEmail: ${email}\nMessage: ${message}`,
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
@@ -65,7 +65,7 @@ export async function POST(request: NextRequest) {
             </div>
           </div>
           <p style="color: #666; font-size: 12px; margin-top: 30px;">
-            This message was sent from the Antigua Tech Solutions contact form.
+            This message was sent from the Antigua Tech Labs contact form.
           </p>
         </div>
       `,

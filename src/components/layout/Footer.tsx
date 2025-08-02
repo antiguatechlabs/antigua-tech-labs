@@ -2,6 +2,7 @@
 
 import EmailIcon from '@mui/icons-material/Email';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
+import PhoneIcon from '@mui/icons-material/Phone';
 import { Box, Container, Typography, Link as MuiLink, Stack } from '@mui/material';
 import Image from 'next/image';
 import { useParams, useRouter } from 'next/navigation';
@@ -218,7 +219,7 @@ export const Footer = ({ content }: { content: FooterContent }) => {
                     <LocationOnIcon sx={{ color: 'primary.light' }} fontSize="small" />
                     <Typography variant="body2">{content.address}</Typography>
                   </Stack>
-                  {/* <Stack direction="row" spacing={1} alignItems="center">
+                  <Stack direction="row" spacing={1} alignItems="center">
                     <PhoneIcon sx={{ color: 'primary.light' }} fontSize="small" />
                     <MuiLink
                       href={`tel:${content.phone}`}
@@ -231,7 +232,7 @@ export const Footer = ({ content }: { content: FooterContent }) => {
                     >
                       {content.phone}
                     </MuiLink>
-                  </Stack> */}
+                  </Stack>
                 </Stack>
               </MotionStack>
             </MotionBox>

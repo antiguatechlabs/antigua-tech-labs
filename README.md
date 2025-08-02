@@ -1,10 +1,10 @@
-# Antigua Tech Solutions Landing Page
+# Antigua Tech Labs Landing Page
 
-A modern, mobile-first landing page for Antigua Tech Solutions built with Next.js, Material UI, and Framer Motion. Features multilingual support with English and Spanish versions, comprehensive component library, and advanced animation system.
+A modern, mobile-first landing page for Antigua Tech Labs built with Next.js, Material UI, and Framer Motion. Features multilingual support with English and Spanish versions, comprehensive component library, and advanced animation system.
 
 ## Project Overview
 
-This landing page showcases Antigua Tech Solutions's AI-powered sales agent solution with a clean, professional design. The page is fully responsive and optimized for all device sizes, from mobile phones to desktop computers.
+This landing page showcases Antigua Tech Labs's AI-powered sales agent solution with a clean, professional design. The page is fully responsive and optimized for all device sizes, from mobile phones to desktop computers.
 
 ## Documentation
 
