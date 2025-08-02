@@ -4,15 +4,15 @@ export const DEFAULT_SEO: DefaultSeoProps = {
   defaultTitle: 'Antigua Tech Labs - Custom Software Development',
   titleTemplate: '%s | Antigua Tech Labs',
   description: 'We build high-performance web and mobile apps that scale with your business and deliver real-world results.',
-  canonical: 'https://antiguadigital.com',
+  canonical: 'https://antiguatechlabs.com',
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://antiguadigital.com',
+    url: 'https://antiguatechlabs.com',
     siteName: 'Antigua Tech Labs',
     images: [
       {
-        url: 'https://antiguadigital.com/og?title=Antigua Tech Labs&description=Custom Software Development',
+        url: 'https://antiguatechlabs.com/og?title=Antigua Tech Labs&description=Custom Software Development',
         width: 1200,
         height: 630,
         alt: 'Antigua Tech Labs - Custom Software Development',
@@ -20,8 +20,8 @@ export const DEFAULT_SEO: DefaultSeoProps = {
     ],
   },
   twitter: {
-    handle: '@antiguadigital',
-    site: '@antiguadigital',
+    handle: '@antiguatechlabs',
+    site: '@antiguatechlabs',
     cardType: 'summary_large_image',
   },
   additionalMetaTags: [
@@ -73,8 +73,8 @@ export const LANGUAGE_CONFIGS = {
 
 export const SITE_CONFIG = {
   name: 'Antigua Tech Labs',
-  url: 'https://antiguadigital.com',
-  ogImage: 'https://antiguadigital.com/og',
+  url: 'https://antiguatechlabs.com',
+  ogImage: 'https://antiguatechlabs.com/og',
   description: 'Custom software development company specializing in web and mobile applications.',
   keywords: [
     'software development',
@@ -89,7 +89,7 @@ export const SITE_CONFIG = {
   authors: [
     {
       name: 'Antigua Tech Labs',
-      url: 'https://antiguadigital.com',
+      url: 'https://antiguatechlabs.com',
     },
   ],
   creator: 'Antigua Tech Labs',
