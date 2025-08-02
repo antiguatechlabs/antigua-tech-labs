@@ -121,6 +121,7 @@ The project includes several reusable components that ensure consistency:
 The `Section` component is a fundamental building block that provides consistent styling and animations:
 
 ```tsx
+
 <Section
   id="features"
   animation="fadeInUp"
@@ -129,6 +130,7 @@ The `Section` component is a fundamental building block that provides consistent
 >
   {/* Section content */}
 </Section>
+
 ```
 
 This component handles:
