@@ -1,8 +1,8 @@
-# Active Context: Antigua Tech Solutions Landing Page
+# Active Context: Antigua Tech Labs Landing Page
 
 ## Current Focus
 
-The Antigua Tech Solutions Landing Page project has progressed significantly from its initial development phase. The focus is now on enhancing the user experience, optimizing performance, and ensuring cross-browser compatibility.
+The Antigua Tech Labs Landing Page project has progressed significantly from its initial development phase. The focus is now on enhancing the user experience, optimizing performance, and ensuring cross-browser compatibility.
 
 ## Recent Changes
 

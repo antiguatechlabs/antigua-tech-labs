@@ -1,8 +1,8 @@
-# Product Context: Antigua Tech Solutions Landing Page
+# Product Context: Antigua Tech Labs Landing Page
 
 ## Product Purpose
 
-The Antigua Tech Solutions Landing Page serves as the primary entry point for potential customers interested in an AI-powered sales agent solution. It aims to clearly communicate the value proposition, generate interest, and convert visitors into leads by encouraging them to take the first step in the onboarding process.
+The Antigua Tech Labs Landing Page serves as the primary entry point for potential customers interested in an AI-powered sales agent solution. It aims to clearly communicate the value proposition, generate interest, and convert visitors into leads by encouraging them to take the first step in the onboarding process.
 
 ## Problem Statement
 

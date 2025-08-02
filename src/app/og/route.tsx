@@ -14,7 +14,7 @@ export async function GET(request: NextRequest) {
     const { searchParams } = new URL(request.url);
 
 
-    const rawTitle = searchParams.get('title') || 'Antigua Tech Solutions';
+    const rawTitle = searchParams.get('title') || 'Antigua Tech Labs';
     const title = rawTitle
       .replace(/&/g, '&amp;')
       .replace(/</g, '&lt;')
@@ -106,7 +106,7 @@ export async function GET(request: NextRequest) {
                   AT
                 </div>
               </div>
-              Antigua Tech Solutions
+              Antigua Tech Labs
             </div>
 
             {/* Title */}
