@@ -68,8 +68,8 @@ export function generateSEOMetadata(
       card: seoConfig.twitter?.cardType || 'summary_large_image',
       title: seoConfig.openGraph?.title || title,
       description: seoConfig.openGraph?.description || description,
-      site: seoConfig.twitter?.site || '@antiguadigital',
-      creator: seoConfig.twitter?.handle || '@antiguadigital',
+      site: seoConfig.twitter?.site || '@antiguatechlabs',
+      creator: seoConfig.twitter?.handle || '@antiguatechlabs',
       images: seoConfig.openGraph?.images?.[0]?.url || generateOGImageUrl(title, description, lang),
     },
     robots: {
@@ -156,9 +156,9 @@ export function generateOrganizationStructuredData(lang: string = 'en') {
       LANGUAGE_CONFIGS[lang as keyof typeof LANGUAGE_CONFIGS]?.description ||
       LANGUAGE_CONFIGS.en.description,
     sameAs: [
-      'https://linkedin.com/company/antiguadigital',
-      'https://twitter.com/antiguadigital',
-      'https://github.com/antiguadigital',
+      'https://linkedin.com/company/antiguatechlabs',
+      'https://twitter.com/antiguatechlabs',
+      'https://github.com/antiguatechlabs',
     ],
     contactPoint: {
       '@type': 'ContactPoint',
