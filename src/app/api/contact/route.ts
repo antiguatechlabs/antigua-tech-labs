@@ -30,24 +30,29 @@ export async function POST(request: NextRequest) {
     }
 
     // Create transporter
-    const transporter = nodemailer.createTransport({
-      host: process.env.SMTP_HOST,
-      port: Number(process.env.SMTP_PORT),
-      secure: process.env.SMTP_PORT === '465', // true for 465, false for other ports
-      auth: {
-        user: process.env.SMTP_USER,
-        pass: process.env.SMTP_PASS,
+    const transporter = nodemailer.createTransport(
+      {
+        host: process.env.SMTP_HOST ?? 'smtp.hostinger.com',
+        port: Number(process.env.SMTP_PORT) || 465,
+        secure: (process.env.SMTP_PORT ?? '465') === '465',
+        auth: {
+          user: 'admin@antiguatechlabs.com',
+          pass: ']u1zhRp$mC',
+        },
       },
-    });
+      {
+        from: '"Antigua Tech Labs" <info@antiguatechlabs.com>',
+      },
+    );
 
-    // Verify transporter configuration
+    // Verify the transporter configuration
     await transporter.verify();
 
     const mailOptions = {
-      from: `"${name}" <${process.env.SMTP_USER}>`, // Use authenticated email as sender
+      from: '"Antigua Tech Labs" <info@antiguatechlabs.com>',
       to: process.env.TO_EMAIL,
       replyTo: email, // Set reply-to as the form submitter's email
-      subject: 'New Contact Form Submission - Antigua Tech Labs',
+      subject: 'New Contact Form Submission - Antigua Tech Solutions',
       text: `Name: ${name}\nEmail: ${email}\nMessage: ${message}`,
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
@@ -65,7 +70,7 @@ export async function POST(request: NextRequest) {
             </div>
           </div>
           <p style="color: #666; font-size: 12px; margin-top: 30px;">
-            This message was sent from the Antigua Tech Labs contact form.
+            This message was sent from the Antigua Tech Solutions contact form.
           </p>
         </div>
       `,
