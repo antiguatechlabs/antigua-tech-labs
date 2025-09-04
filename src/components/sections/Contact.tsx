@@ -26,7 +26,7 @@ export function Contact({ content }: { content: ContactContent }) {
         py: { xs: 5, md: 8 },
         bgcolor: 'grey.50',
       }}
-      animation="fadeInRight"
+      animation="fadeIn"
       animationDelay={0.3}
     >
       <MotionStack spacing={{ xs: 3, md: 4 }} sx={{ mb: { xs: 3, md: 4 } }}>
