@@ -36,8 +36,8 @@ export async function POST(request: NextRequest) {
         port: Number(process.env.SMTP_PORT) || 465,
         secure: (process.env.SMTP_PORT ?? '465') === '465',
         auth: {
-          user: 'admin@antiguatechlabs.com',
-          pass: ']u1zhRp$mC',
+          user: process.env.SMTP_USER ?? 'admin@antiguatechlabs.com',
+          pass: process.env.SMTP_PASS,
         },
       },
       {
