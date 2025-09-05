@@ -2,7 +2,7 @@ import type { NextRequest } from 'next/server';
 import { NextResponse } from 'next/server';
 import * as nodemailer from 'nodemailer';
 
-import { getThankYouEmail, NOTIFICATION_EMAIL_TEMPLATE } from '@/lib/api/utils';
+import { getThankYouEmail, getThankYouText, NOTIFICATION_EMAIL_TEMPLATE } from '@/lib/api/utils';
 
 interface ContactPayload {
   name: string;
@@ -52,12 +52,11 @@ export async function POST(request: NextRequest) {
     // Verify the transporter configuration
     await transporter.verify();
 
-    // 1. Send thank you email to the form submitter
     const thankYouMailOptions = {
       from: '"Antigua Tech Labs" <info@antiguatechlabs.com>',
       to: email,
       subject: 'Thank You for Contacting Antigua Tech Labs',
-      text: `Dear ${name},\n\nThank you for reaching out to Antigua Tech Labs. We have received your message and appreciate your interest in our services.\n\nOur team will review your inquiry and get back to you shortly. We typically respond within 24 hours during business days.\n\nIf you have any urgent questions, please feel free to contact us directly at info@antiguatechlabs.com.\n\nBest regards,\nThe Antigua Tech Labs Team`,
+      text: getThankYouText(agLanguage,name),
       html: getThankYouEmail(agLanguage, name),
     };
 
