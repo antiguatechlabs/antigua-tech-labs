@@ -191,3 +191,35 @@ export const getThankYouEmail = (lang: string, name: string) => {
   if(lang === 'es') return THANK_YOU_EMAIL_TEMPLATE_ES(name);
   return THANK_YOU_EMAIL_TEMPLATE(name);
 };
+
+
+export const THANK_YOU_TEXT_TEMPLATE = (name: string) => `
+Dear ${name},
+
+Thank you for reaching out to Antigua Tech Labs. We have received your message and appreciate your interest in our services.
+
+Our team will review your inquiry and get back to you shortly. We typically respond within 24 hours during business days.
+
+If you have any urgent questions, please feel free to contact us directly at info@antiguatechlabs.com.
+
+Best regards,
+The Antigua Tech Labs Team
+`;
+
+export const THANK_YOU_TEXT_TEMPLATE_ES = (name: string) => `
+Estimado/a ${name},
+
+Gracias por comunicarte con Antigua Tech Labs. Hemos recibido tu mensaje y apreciamos tu interés en nuestros servicios.
+
+Nuestro equipo revisará tu solicitud y nos pondremos en contacto contigo en breve. Generalmente respondemos dentro de las 24 horas en días hábiles.
+
+Si tienes alguna consulta urgente, no dudes en escribirnos directamente a info@antiguatechlabs.com.
+
+Atentamente,
+El equipo de Antigua Tech Labs
+`;
+
+export const getThankYouText = (lang: string, name: string) => {
+  if (lang === 'es') return THANK_YOU_TEXT_TEMPLATE_ES(name);
+  return THANK_YOU_TEXT_TEMPLATE(name);
+};
