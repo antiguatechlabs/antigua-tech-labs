@@ -67,7 +67,7 @@ export async function POST(request: NextRequest) {
       from: '"Antigua Tech Labs" <info@antiguatechlabs.com>',
       to: ['info@antiguatechlabs.com', 'jm10cuyun@gmail.com', 'marcosovando9@yahoo.com'],
       replyTo: email, // Set reply-to as the form submitter's email
-      subject: 'New Contact Form Submission - Antigua Tech Labs',
+      subject: `New Contact Form Submission - ATL - ${name} - #${new Date()}`,
       text: `Name: ${name}\nEmail: ${email}\nMessage: ${message}`,
       html: NOTIFICATION_EMAIL_TEMPLATE(name, email, message),
     };
