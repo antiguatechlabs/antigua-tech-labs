@@ -24,7 +24,7 @@ const serviceGradients = {
   apiDevelopment: { start: '#4facfe', end: '#00f2fe' },
   codeMaintenance: { start: '#43e97b', end: '#38f9d7' },
   uxDesign: { start: '#fa709a', end: '#fee140' },
-  modeling3d: { start: '#a8edea', end: '#fed6e3' },
+  modeling3d: { start: '#8000ffcb', end: '#e100ffdc' },
 };
 
 interface UnifiedServicesPageProps {
