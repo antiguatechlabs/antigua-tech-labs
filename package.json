@@ -23,7 +23,7 @@
     "framer-motion": "^12.10.5",
     "gsap": "^3.13.0",
     "highlight.js": "^11.11.1",
-    "next": "15.3.2",
+    "next": "15.3.8",
     "next-seo": "^6.8.0",
     "nodemailer": "^7.0.5",
     "react": "^19.0.0",
