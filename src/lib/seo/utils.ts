@@ -1,3 +1,6 @@
+import { existsSync } from 'node:fs';
+import { join } from 'node:path';
+
 import { Metadata } from 'next';
 
 import { SITE_CONFIG, LANGUAGE_CONFIGS } from './config';
@@ -20,6 +23,27 @@ function generateOGImageUrl(title: string, description: string, lang: string): s
     lang,
   });
   return `${SITE_CONFIG.ogImage}?${params.toString()}`;
+}
+
+function imageExistsInPublic(imageUrl: string): boolean {
+  if (!imageUrl.startsWith(SITE_CONFIG.url)) return true;
+
+  try {
+    const { pathname } = new URL(imageUrl);
+    return existsSync(join(process.cwd(), 'public', pathname));
+  } catch {
+    return false;
+  }
+}
+
+function resolveOGImageUrl(
+  imageUrl: string | undefined,
+  title: string,
+  description: string,
+  lang: string,
+): string {
+  if (imageUrl && imageExistsInPublic(imageUrl)) return imageUrl;
+  return generateOGImageUrl(title, description, lang);
 }
 
 /**
@@ -115,25 +139,30 @@ export function contentToSEOConfig(
   path?: string,
 ): SEOConfig {
   const basePath = path ? `/${lang}${path}` : `/${lang}`;
+  const title = stripGradientSyntax(content.title);
+  const description = stripGradientSyntax(content.description);
+  const ogTitle = stripGradientSyntax(content.ogTitle || content.title);
+  const ogDescription = stripGradientSyntax(content.ogDescription || content.description);
+  const ogImage = resolveOGImageUrl(content.ogImage, ogTitle, ogDescription, lang);
 
   return {
-    title: stripGradientSyntax(content.title),
-    description: stripGradientSyntax(content.description),
+    title,
+    description,
     keywords: content.keywords,
     canonical: `${SITE_CONFIG.url}${basePath}`,
     openGraph: {
-      title: stripGradientSyntax(content.ogTitle || content.title),
-      description: stripGradientSyntax(content.ogDescription || content.description),
+      title: ogTitle,
+      description: ogDescription,
       type: 'website',
       url: `${SITE_CONFIG.url}${basePath}`,
-      images: content.ogImage ? [
+      images: [
         {
-          url: content.ogImage,
+          url: ogImage,
           width: 1200,
           height: 630,
-          alt: stripGradientSyntax(content.ogTitle || content.title),
+          alt: ogTitle,
         },
-      ] : undefined,
+      ],
     },
     twitter: {
       cardType: 'summary_large_image',
@@ -196,6 +225,48 @@ export function generateWebsiteStructuredData(lang: string = 'en') {
       'query-input': 'required name=search_term_string',
     },
   };
+}
+
+export function generatePortfolioStructuredData(lang: string = 'en') {
+  const isSpanish = lang === 'es';
+  const baseUrl = `${SITE_CONFIG.url}/${lang}`;
+  const portfolioUrl = `${baseUrl}/portfolio`;
+  const portfolioName = isSpanish ? 'Portafolio' : 'Portfolio';
+  const homeName = isSpanish ? 'Inicio' : 'Home';
+  const description = isSpanish
+    ? 'Proyectos entregados por Antigua Tech Labs.'
+    : 'Delivered projects by Antigua Tech Labs.';
+
+  return [
+    {
+      '@context': 'https://schema.org',
+      '@type': 'CollectionPage',
+      name: `${portfolioName} - Antigua Tech Labs`,
+      description,
+      url: portfolioUrl,
+      inLanguage: isSpanish ? 'es' : 'en',
+      isPartOf: {
+        '@type': 'WebSite',
+        name: SITE_CONFIG.name,
+        url: SITE_CONFIG.url,
+      },
+      publisher: {
+        '@type': 'Organization',
+        name: SITE_CONFIG.name,
+        url: SITE_CONFIG.url,
+      },
+    },
+    generateBreadcrumbStructuredData([
+      {
+        name: homeName,
+        url: baseUrl,
+      },
+      {
+        name: portfolioName,
+        url: portfolioUrl,
+      },
+    ]),
+  ];
 }
 
 /**

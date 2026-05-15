@@ -42,19 +42,19 @@ const Menu = () => {
     menuItems[servicesIndex].children = [
       {
         label: 'Modern Web Applications',
-        href: '/services/web-applications',
+        href: '/services#web-applications',
       },
       {
         label: 'API Development',
-        href: '/services/api-development',
+        href: '/services#api-development',
       },
       {
         label: 'Code Maintenance',
-        href: '/services/code-maintenance',
+        href: '/services#code-maintenance',
       },
       {
         label: 'UX Design',
-        href: '/services/ux-design',
+        href: '/services#ux-design',
       },
     ];
   }

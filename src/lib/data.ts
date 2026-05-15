@@ -10,6 +10,7 @@ import enFooter from '../content/en/footer.json';
 import enHero from '../content/en/hero.json';
 import enNavbar from '../content/en/navbar.json';
 import enOurTeam from '../content/en/ourTeam.json';
+import enPortfolio from '../content/en/portfolio.json';
 import enPrivacyPolicy from '../content/en/privacy-policy.json';
 import enSeo from '../content/en/seo.json';
 import enModeling3d from '../content/en/services/3d-modeling.json';
@@ -35,6 +36,7 @@ import esFooter from '../content/es/footer.json';
 import esHero from '../content/es/hero.json';
 import esNavbar from '../content/es/navbar.json';
 import esOurTeam from '../content/es/ourTeam.json';
+import esPortfolio from '../content/es/portfolio.json';
 import esPrivacyPolicy from '../content/es/privacy-policy.json';
 import esSeo from '../content/es/seo.json';
 import esModeling3d from '../content/es/services/3d-modeling.json';
@@ -224,6 +226,30 @@ export interface OurTeamContent {
   title: string;
   subtitle: string;
   teamMembers: TeamMember[];
+}
+
+export interface PortfolioProject {
+  title: string;
+  description: string;
+  image: string;
+  imageAlt: string;
+  href: string;
+  tags: string[];
+}
+
+export interface PortfolioContent {
+  hero: {
+    eyebrow: string;
+    title: string;
+    subtitle: string;
+    description: string;
+  };
+  projectsTitle: string;
+  projectsSubtitle: string;
+  ctaLabel: string;
+  comingSoonLabel: string;
+  statusLabel: string;
+  projects: PortfolioProject[];
 }
 
 // About page content types
@@ -441,6 +467,7 @@ export interface SEOContent {
   home: SEOPageContent;
   about: SEOPageContent;
   services: SEOPageContent;
+  portfolio: SEOPageContent;
   contact: SEOPageContent;
 }
 
@@ -458,6 +485,7 @@ const contentMap = {
     faq: enFaq as FAQContent,
     slider: enSlider as SliderContent,
     ourTeam: enOurTeam as OurTeamContent,
+    portfolio: enPortfolio as PortfolioContent,
     aboutHero: enAboutHero as AboutHeroContent,
     aboutStory: enAboutStory as AboutStoryContent,
     aboutApproach: enAboutApproach as AboutApproachContent,
@@ -485,6 +513,7 @@ const contentMap = {
     faq: esFaq as FAQContent,
     slider: esSlider as SliderContent,
     ourTeam: esOurTeam as OurTeamContent,
+    portfolio: esPortfolio as PortfolioContent,
     aboutHero: esAboutHero as AboutHeroContent,
     aboutStory: esAboutStory as AboutStoryContent,
     aboutApproach: esAboutApproach as AboutApproachContent,
@@ -557,6 +586,10 @@ export function getSliderContent(language: string = 'en'): SliderContent {
 
 export function getOurTeamContent(language: string = 'en'): OurTeamContent {
   return getContent<OurTeamContent>('ourTeam', language);
+}
+
+export function getPortfolioContent(language: string = 'en'): PortfolioContent {
+  return getContent<PortfolioContent>('portfolio', language);
 }
 
 // Service content loading functions
@@ -647,6 +680,10 @@ export function getAboutSEOContent(language: string = 'en'): SEOPageContent {
 
 export function getServicesSEOContent(language: string = 'en'): SEOPageContent {
   return getPageSEOContent('services', language);
+}
+
+export function getPortfolioSEOContent(language: string = 'en'): SEOPageContent {
+  return getPageSEOContent('portfolio', language);
 }
 
 export function getContactSEOContent(language: string = 'en'): SEOPageContent {

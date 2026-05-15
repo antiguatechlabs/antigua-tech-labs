@@ -8,6 +8,7 @@ export * from './Hero';
 export * from './OurApproach';
 export * from './OurStory';
 export * from './OurTeam';
+export * from './PortfolioPage';
 export * from './Slider';
 export * from './StackSlider';
 export * from './Testimonials';

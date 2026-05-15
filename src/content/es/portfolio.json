@@ -1,0 +1,47 @@
+{
+  "hero": {
+    "eyebrow": "Portafolio",
+    "title": "Trabajo entregado, listo para explorar",
+    "subtitle": "Una mirada en crecimiento a proyectos que nuestro equipo ya lanzó.",
+    "description": "Estos espacios están pensados para proyectos reales ya entregados. Agrega el enlace público y la imagen cuando cada caso esté aprobado para compartirse."
+  },
+  "projectsTitle": "Proyectos entregados",
+  "projectsSubtitle": "Usa estas cuatro tarjetas para trabajo de clientes que ya está en producción. Mantén el resumen corto, agrega evidencia y publica el enlace cuando esté listo.",
+  "ctaLabel": "Abrir proyecto",
+  "comingSoonLabel": "Enlace pronto",
+  "statusLabel": "Entregado",
+  "projects": [
+    {
+      "title": "Plataforma web para cliente",
+      "description": "Una web app entregada para gestionar flujos complejos con una interfaz clara y datos confiables.",
+      "image": "",
+      "imageAlt": "",
+      "href": "",
+      "tags": ["Web App", "UX", "API"]
+    },
+    {
+      "title": "Experiencia mobile",
+      "description": "Una experiencia mobile-first lanzada para que las acciones clave sean más rápidas, claras y fáciles de usar.",
+      "image": "",
+      "imageAlt": "",
+      "href": "",
+      "tags": ["Mobile", "Diseño", "Frontend"]
+    },
+    {
+      "title": "Plataforma operativa",
+      "description": "Un proyecto de backend e integraciones entregado para reducir trabajo manual y conectar datos del negocio.",
+      "image": "",
+      "imageAlt": "",
+      "href": "",
+      "tags": ["Plataforma", "Cloud", "Backend"]
+    },
+    {
+      "title": "Experiencia interactiva",
+      "description": "Una pieza interactiva pulida para ayudar a usuarios a explorar un producto, servicio o idea con más naturalidad.",
+      "image": "",
+      "imageAlt": "",
+      "href": "",
+      "tags": ["3D", "Interactivo", "WebGL"]
+    }
+  ]
+}
