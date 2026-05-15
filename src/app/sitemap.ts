@@ -6,7 +6,7 @@ import { SITE_CONFIG } from '@/lib/seo/config';
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = SITE_CONFIG.url;
   const languages = ['en', 'es'];
-  const pages = ['', '/about', '/services'];
+  const pages = ['', '/about', '/services', '/portfolio'];
 
   const routes: MetadataRoute.Sitemap = [];
 
@@ -23,34 +23,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
             en: `${baseUrl}/en${page}`,
             es: `${baseUrl}/es${page}`,
             'x-default': `${baseUrl}/en${page}`,
-          },
-        },
-      });
-    });
-  });
-
-  // Add service-specific pages
-  const services = [
-    'web-applications',
-    'mobile-applications',
-    'api-development',
-    'code-maintenance',
-    'ux-design',
-    '3d-modeling',
-  ];
-
-  languages.forEach(lang => {
-    services.forEach(service => {
-      routes.push({
-        url: `${baseUrl}/${lang}/services/${service}`,
-        lastModified: new Date(),
-        changeFrequency: 'monthly',
-        priority: 0.6,
-        alternates: {
-          languages: {
-            en: `${baseUrl}/en/services/${service}`,
-            es: `${baseUrl}/es/services/${service}`,
-            'x-default': `${baseUrl}/en/services/${service}`,
           },
         },
       });

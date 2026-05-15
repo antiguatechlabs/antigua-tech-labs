@@ -49,6 +49,21 @@
     "ogDescription": "From web applications to mobile apps, we provide comprehensive software development services.",
     "ogImage": "https://antiguatechlabs.com/images/og-services.jpg"
   },
+  "portfolio": {
+    "title": "Portfolio - Antigua Tech Labs",
+    "description": "Explore delivered Antigua Tech Labs projects, including web apps, mobile experiences, platforms, and interactive work.",
+    "keywords": [
+      "software portfolio",
+      "project case studies",
+      "web application examples",
+      "mobile app examples",
+      "Guatemala software projects",
+      "Antigua Tech Labs portfolio"
+    ],
+    "ogTitle": "Portfolio - Antigua Tech Labs",
+    "ogDescription": "A simple home for delivered Antigua Tech Labs project stories.",
+    "ogImage": "https://antiguatechlabs.com/images/og-portfolio.jpg"
+  },
   "contact": {
     "title": "Contact Us - Antigua Tech Labs",
     "description": "Get in touch with Antigua Tech Labs for your software development needs. Book a consultation and start your digital transformation journey.",
