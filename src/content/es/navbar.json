@@ -45,6 +45,10 @@
       ]
     },
     {
+      "name": "Artículos",
+      "href": "/articles"
+    },
+    {
       "name": "Contacto",
       "href": "/#contact"
     }

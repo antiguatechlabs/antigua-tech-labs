@@ -1,12 +1,13 @@
 import { MetadataRoute } from 'next';
 
+import { getArticles } from '@/lib/data';
 import { SITE_CONFIG } from '@/lib/seo/config';
 // ---------- Build metadata ----------
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = SITE_CONFIG.url;
   const languages = ['en', 'es'];
-  const pages = ['', '/about', '/services'];
+  const pages = ['', '/about', '/services', '/articles'];
 
   const routes: MetadataRoute.Sitemap = [];
 
@@ -51,6 +52,26 @@ export default function sitemap(): MetadataRoute.Sitemap {
             en: `${baseUrl}/en/services/${service}`,
             es: `${baseUrl}/es/services/${service}`,
             'x-default': `${baseUrl}/en/services/${service}`,
+          },
+        },
+      });
+    });
+  });
+
+  // Add article detail pages
+  languages.forEach(lang => {
+    const articles = getArticles(lang);
+    articles.forEach(article => {
+      routes.push({
+        url: `${baseUrl}/${lang}/articles/${article.slug}`,
+        lastModified: new Date(article.updatedAt || article.publishedAt),
+        changeFrequency: 'monthly',
+        priority: 0.7,
+        alternates: {
+          languages: {
+            en: `${baseUrl}/en/articles/${article.slug}`,
+            es: `${baseUrl}/es/articles/${article.slug}`,
+            'x-default': `${baseUrl}/en/articles/${article.slug}`,
           },
         },
       });

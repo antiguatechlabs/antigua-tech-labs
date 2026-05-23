@@ -1,5 +1,7 @@
 import { NextResponse } from 'next/server';
 
+import { getArticles } from '@/lib/data';
+
 export async function GET() {
   const baseUrl = 'https://antiguatechlabs.com';
 
@@ -7,6 +9,7 @@ export async function GET() {
     '',
     '/about',
     '/services',
+    '/articles',
     '/services/web-applications',
     '/services/mobile-applications',
     '/services/api-development',
@@ -30,6 +33,17 @@ export async function GET() {
       xml += `    <lastmod>${now}</lastmod>\n`;
       xml += `    <changefreq>${path === '' ? 'weekly' : 'monthly'}</changefreq>\n`;
       xml += `    <priority>${path === '' ? '1.0' : '0.6'}</priority>\n`;
+      xml += '  </url>\n';
+    }
+
+    const articles = getArticles(lang);
+    for (const article of articles) {
+      const url = `${baseUrl}/${lang}/articles/${article.slug}`;
+      xml += '  <url>\n';
+      xml += `    <loc>${url}</loc>\n`;
+      xml += `    <lastmod>${new Date(article.updatedAt || article.publishedAt).toISOString()}</lastmod>\n`;
+      xml += '    <changefreq>monthly</changefreq>\n';
+      xml += '    <priority>0.7</priority>\n';
       xml += '  </url>\n';
     }
   }

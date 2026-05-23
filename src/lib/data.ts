@@ -3,6 +3,7 @@ import enAboutApproach from '../content/en/about-approach.json';
 import enAboutCta from '../content/en/about-cta.json';
 import enAboutHero from '../content/en/about-hero.json';
 import enAboutStory from '../content/en/about-story.json';
+import enArticles from '../content/en/articles.json';
 import enContact from '../content/en/contact.json';
 import enFaq from '../content/en/faq.json';
 import enFeatures from '../content/en/features.json';
@@ -28,6 +29,7 @@ import esAboutApproach from '../content/es/about-approach.json';
 import esAboutCta from '../content/es/about-cta.json';
 import esAboutHero from '../content/es/about-hero.json';
 import esAboutStory from '../content/es/about-story.json';
+import esArticles from '../content/es/articles.json';
 import esContact from '../content/es/contact.json';
 import esFaq from '../content/es/faq.json';
 import esFeatures from '../content/es/features.json';
@@ -444,6 +446,60 @@ export interface SEOContent {
   contact: SEOPageContent;
 }
 
+export interface ArticleInternalLink {
+  label: string;
+  href: string;
+}
+
+export interface ArticleSection {
+  heading: string;
+  paragraphs: string[];
+  bullets?: string[];
+  internalLinks?: ArticleInternalLink[];
+}
+
+export interface ArticleCTA {
+  title: string;
+  description: string;
+  buttonText: string;
+  buttonHref: string;
+}
+
+export interface ArticleFAQItem {
+  question: string;
+  answer: string;
+}
+
+export interface ArticleContent {
+  slug: string;
+  publishedAt: string;
+  updatedAt: string;
+  readingTime: string;
+  author: string;
+  category: string;
+  heroImage?: string;
+  heroImageAlt?: string;
+  title: string;
+  excerpt: string;
+  seo: SEOPageContent;
+  toc: string[];
+  sections: ArticleSection[];
+  cta: ArticleCTA;
+  faq?: ArticleFAQItem[];
+}
+
+export interface ArticlesListingContent {
+  title: string;
+  subtitle: string;
+  cta: ArticleCTA;
+  seo: SEOPageContent;
+}
+
+export interface ArticlesContent {
+  listing: ArticlesListingContent;
+  articles: ArticleContent[];
+}
+
 // Content mapping
 const contentMap = {
   en: {
@@ -472,6 +528,7 @@ const contentMap = {
     termsOfService: enTermsOfService as LegalContent,
     privacyPolicy: enPrivacyPolicy as LegalContent,
     seo: enSeo as SEOContent,
+    articles: enArticles as ArticlesContent,
   },
   es: {
     hero: esHero as HeroContent,
@@ -499,6 +556,7 @@ const contentMap = {
     termsOfService: esTermsOfService as LegalContent,
     privacyPolicy: esPrivacyPolicy as LegalContent,
     seo: esSeo as SEOContent,
+    articles: esArticles as ArticlesContent,
   },
 };
 
@@ -651,4 +709,22 @@ export function getServicesSEOContent(language: string = 'en'): SEOPageContent {
 
 export function getContactSEOContent(language: string = 'en'): SEOPageContent {
   return getPageSEOContent('contact', language);
+}
+
+// Articles content loading functions
+export function getArticlesContent(language: string = 'en'): ArticlesContent {
+  return getContent<ArticlesContent>('articles', language);
+}
+
+export function getArticlesListingContent(language: string = 'en'): ArticlesListingContent {
+  return getArticlesContent(language).listing;
+}
+
+export function getArticles(language: string = 'en'): ArticleContent[] {
+  return getArticlesContent(language).articles;
+}
+
+export function getArticleBySlug(slug: string, language: string = 'en'): ArticleContent | null {
+  const article = getArticles(language).find(item => item.slug === slug);
+  return article ?? null;
 }
