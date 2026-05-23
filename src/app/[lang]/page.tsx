@@ -9,9 +9,10 @@ import {
   Hero,
   Features,
 } from '@/components';
+import { HomeArticlesSection } from '@/components/sections';
 import OurTeam from '@/components/sections/OurTeam';
 import { SEOHead } from '@/components/seo';
-import { getHomeSEOContent } from '@/lib/data';
+import { getArticles, getHomeSEOContent } from '@/lib/data';
 import { getHomePageContent } from '@/lib/pageContent';
 import { contentToSEOConfig, generateSEOMetadata } from '@/lib/seo';
 
@@ -36,6 +37,7 @@ export default async function Home({
 }) {
   const { lang } = await params;
   const content = getHomePageContent(lang);
+  const articles = getArticles(lang);
   const seoContent = getHomeSEOContent(lang);
   const seoConfig = contentToSEOConfig(seoContent, lang);
 
@@ -47,6 +49,7 @@ export default async function Home({
       <Slider content={content.slider} />
       <Features content={content.features} />
       <WhyChoose content={content.whyChoose} />
+      <HomeArticlesSection articles={articles} lang={lang} />
       <OurTeam content={content.ourTeam} />
       <Contact content={content.contact} />
       <FAQ content={content.faq} />

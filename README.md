@@ -10,6 +10,8 @@ This landing page showcases Antigua Tech Labs's AI-powered sales agent solution 
 
 - **[Component Documentation](docs/COMPONENTS.md)**: Comprehensive guide to all components
 - **[Development Guide](docs/DEVELOPMENT.md)**: Detailed development workflow and standards
+- **[SEO Content Workflow](docs/SEO_CONTENT_PRODUCTION_WORKFLOW.md)**: End-to-end bilingual SEO article process
+- **[SEO Article Brief Template](docs/SEO_ARTICLE_BRIEF_TEMPLATE.md)**: Reusable brief for new EN/ES blog entries
 - **[API Documentation](#api-documentation)**: Contact form API reference
 - **[Troubleshooting](#troubleshooting)**: Common issues and solutions
 

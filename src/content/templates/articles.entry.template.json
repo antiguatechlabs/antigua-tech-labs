@@ -1,0 +1,61 @@
+{
+  "slug": "replace-with-slug-same-in-en-and-es",
+  "publishedAt": "2026-05-21",
+  "updatedAt": "2026-05-21",
+  "readingTime": "24 min read",
+  "author": "Antigua Tech Labs",
+  "category": "Strategy",
+  "heroImage": "/images/articles/replace-with-slug/hero.webp",
+  "heroImageAlt": "Replace with descriptive alt text",
+  "title": "Replace with article title",
+  "excerpt": "Replace with a practical summary that includes business value and local relevance.",
+  "seo": {
+    "title": "Replace with SEO title",
+    "description": "Replace with SEO meta description",
+    "keywords": [
+      "primary keyword",
+      "secondary keyword",
+      "local keyword variant"
+    ],
+    "ogTitle": "Replace with OG title",
+    "ogDescription": "Replace with OG description",
+    "ogImage": "/images/articles/replace-with-slug/hero.webp"
+  },
+  "toc": [
+    "Section one",
+    "Section two",
+    "Section three"
+  ],
+  "sections": [
+    {
+      "heading": "Section one",
+      "paragraphs": [
+        "Paragraph 1",
+        "Paragraph 2",
+        "Paragraph 3"
+      ],
+      "bullets": [
+        "Optional bullet 1",
+        "Optional bullet 2"
+      ],
+      "internalLinks": [
+        {
+          "label": "Explore our services",
+          "href": "/services"
+        }
+      ]
+    }
+  ],
+  "cta": {
+    "title": "Replace with CTA title",
+    "description": "Replace with CTA description",
+    "buttonText": "Contact Antigua Tech Labs",
+    "buttonHref": "/#contact"
+  },
+  "faq": [
+    {
+      "question": "Replace with FAQ question",
+      "answer": "Replace with FAQ answer"
+    }
+  ]
+}
