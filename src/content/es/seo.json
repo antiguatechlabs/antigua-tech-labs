@@ -48,6 +48,21 @@
     "ogDescription": "Desde aplicaciones web hasta apps móviles, proporcionamos servicios integrales de desarrollo de software.",
     "ogImage": "https://antiguatechlabs.com/images/og-services-es.jpg"
   },
+  "portfolio": {
+    "title": "Portafolio - Antigua Tech Labs",
+    "description": "Explora proyectos entregados por Antigua Tech Labs, incluyendo web apps, experiencias móviles, plataformas y trabajo interactivo.",
+    "keywords": [
+      "portafolio software",
+      "casos de estudio",
+      "ejemplos aplicaciones web",
+      "ejemplos apps móviles",
+      "proyectos software Guatemala",
+      "portafolio Antigua Tech Labs"
+    ],
+    "ogTitle": "Portafolio - Antigua Tech Labs",
+    "ogDescription": "Un lugar simple para historias de proyectos entregados por Antigua Tech Labs.",
+    "ogImage": "https://antiguatechlabs.com/images/og-portfolio-es.jpg"
+  },
   "contact": {
     "title": "Contáctanos - Antigua Tech Labs",
     "description": "Ponte en contacto con Antigua Tech Labs para tus necesidades de desarrollo de software. Agenda una consulta y comienza tu viaje de transformación digital.",

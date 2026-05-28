@@ -45,6 +45,10 @@
       ]
     },
     {
+      "name": "Portafolio",
+      "href": "/portfolio"
+    },
+    {
       "name": "Contacto",
       "href": "/#contact"
     }

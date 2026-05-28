@@ -8,10 +8,8 @@ import {
   DialogTitle,
   IconButton,
   Typography,
-  useMediaQuery,
-  useTheme,
 } from '@mui/material';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 import { MotionBox } from '@/lib/motionComponents';
 
@@ -34,8 +32,21 @@ export const LegalModal: React.FC<LegalModalProps> = ({
   title,
   content,
 }) => {
-  const theme = useTheme();
-  const fullScreen = useMediaQuery(theme.breakpoints.down('md'));
+  const [fullScreen, setFullScreen] = useState(false);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia('(max-width: 899.95px)');
+    const handleChange = () => {
+      setFullScreen(mediaQuery.matches);
+    };
+
+    handleChange();
+    mediaQuery.addEventListener('change', handleChange);
+
+    return () => {
+      mediaQuery.removeEventListener('change', handleChange);
+    };
+  }, []);
 
   return (
     <Dialog

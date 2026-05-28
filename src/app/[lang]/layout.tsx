@@ -13,6 +13,7 @@ import { getNavbarContent, getFooterContent } from '@/lib/data';
 import { supportedLanguages } from '@/lib/i18n/config';
 import type { Language } from '@/lib/i18n/config';
 import { generateOrganizationStructuredData, generateWebsiteStructuredData } from '@/lib/seo';
+import { SITE_CONFIG } from '@/lib/seo/config';
 import '@/styles/globals.css';
 
 
@@ -26,7 +27,7 @@ export function generateStaticParams() {
 
 export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }) {
   const { lang } = await params;
-  const baseUrl = 'https://localhost:3000';
+  const baseUrl = SITE_CONFIG.url;
 
   return {
     alternates: {
@@ -78,7 +79,7 @@ export default async function LocaleLayout({
     <html lang={lang} className={inter.variable}>
       <body style={{ overflowX: 'hidden', width: '100%', scrollBehavior: 'smooth' }} className={inter.className}>
         <DefaultSEOClient lang={lang as 'en' | 'es'} />
-        <StructuredData data={[organizationData, websiteData]} />
+        <StructuredData data={[organizationData, websiteData]} idPrefix="site-structured-data" />
         <LanguageProvider initialLanguage={lang as Language}>
           <ThemeProvider>
             <SidebarProvider>

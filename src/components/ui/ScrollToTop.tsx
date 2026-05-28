@@ -1,6 +1,7 @@
 'use client';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import { Box, Fab, useScrollTrigger, Zoom, SxProps, Theme } from '@mui/material';
+import { Variants } from 'framer-motion';
 import { useEffect, useState } from 'react';
 
 import { MotionDiv } from '@/lib/motionComponents';
@@ -50,7 +51,7 @@ export default function ScrollToTop({
   };
 
   // Define animation variants
-  const fabVariants = {
+  const fabVariants: Variants = {
     hidden: { opacity: 0, scale: 0.8 },
     visible: {
       opacity: 1,
