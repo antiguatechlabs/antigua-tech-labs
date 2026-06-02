@@ -74,7 +74,7 @@ export function OurStory({ content, lang: _lang }: OurStoryProps) {
           sx={{
             p: 6,
             borderRadius: 4,
-            // eslint-disable-next-line max-len
+
             // background: 'linear-gradient(135deg, rgba(156, 67, 248, 0.05), rgba(38, 197, 243, 0.05))',
             // border: '1px solid rgba(156, 67, 248, 0.1)',
             backdropFilter: 'blur(10px)',
@@ -161,16 +161,21 @@ export function OurStory({ content, lang: _lang }: OurStoryProps) {
                 whileTap={{ scale: 0.98 }}
                 sx={{
                   backdropFilter: 'blur(12px)',
-                  background: 'rgba(255, 255, 255, 0.6)',
+                  background: theme => theme.palette.mode === 'dark'
+                    ? 'rgba(18, 23, 34, 0.72)'
+                    : 'rgba(255, 255, 255, 0.72)',
                   borderRadius: 3,
                   p: 4,
                   display: 'flex',
                   flexDirection: 'column',
                   alignItems: 'center',
                   textAlign: 'center',
-                  boxShadow: '0 4px 16px rgba(0,0,0,0.08)',
+                  boxShadow: theme => theme.palette.mode === 'dark'
+                    ? '0 18px 36px rgba(0,0,0,0.28)'
+                    : '0 4px 16px rgba(0,0,0,0.08)',
                   transition: 'transform 0.3s ease',
-                  border: '1px solid rgba(255, 255, 255, 0.2)',
+                  border: '1px solid',
+                  borderColor: 'divider',
                 }}
               >
                 <Box

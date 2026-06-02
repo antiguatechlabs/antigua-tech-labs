@@ -109,7 +109,7 @@ export function AboutCTA({ content, contactContent, lang: _lang }: AboutCTAProps
     <Section
       id="about-cta"
       sx={{
-        bgcolor: 'grey.50',
+        bgcolor: theme => theme.palette.mode === 'dark' ? 'background.default' : 'grey.50',
         py: { xs: 8, md: 12 },
         px: { xs: 3, md: 6 },
         position: 'relative',

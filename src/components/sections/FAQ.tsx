@@ -66,12 +66,17 @@ export function FAQ({ content }: { content: FAQContent }) {
             disableGutters
             elevation={0}
             sx={{
+              bgcolor: 'transparent',
+              boxShadow: 'none',
               borderTop: index === 0 ? 'none' : '1px solid',
               borderColor: 'divider',
               borderRadius: '0 !important',
-              overflow: 'hidden',
+              overflow: 'visible',
               '&:before': {
                 display: 'none',
+              },
+              '&.Mui-expanded': {
+                margin: 0,
               },
               '&:not(:last-child)': {
               },
@@ -84,8 +89,12 @@ export function FAQ({ content }: { content: FAQContent }) {
               sx={{
                 px: 0,
                 py: 3,
+                bgcolor: 'transparent',
                 '& .MuiAccordionSummary-content': {
                   margin: 0,
+                },
+                '& .MuiAccordionSummary-expandIconWrapper': {
+                  color: 'text.secondary',
                 },
               }}
             >
@@ -98,7 +107,7 @@ export function FAQ({ content }: { content: FAQContent }) {
                 px: 0,
                 pt: 0,
                 pb: 4,
-
+                bgcolor: 'transparent',
               }}
             >
               <Typography sx={{ color: 'text.secondary', fontSize: 15 }}>{faq.answer}</Typography>

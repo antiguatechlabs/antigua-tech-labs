@@ -47,7 +47,9 @@ function PortfolioCard({ project, index, ctaLabel, comingSoonLabel }: PortfolioC
         borderColor: 'divider',
         bgcolor: 'background.paper',
         borderRadius: 1,
-        boxShadow: '0 18px 44px rgba(43, 45, 66, 0.07)',
+        boxShadow: theme => theme.palette.mode === 'dark'
+          ? '0 18px 44px rgba(0, 0, 0, 0.34)'
+          : '0 18px 44px rgba(43, 45, 66, 0.07)',
         animation: 'portfolioCardIn 420ms cubic-bezier(0.16, 1, 0.3, 1) both',
         transition: 'transform 240ms cubic-bezier(0.16, 1, 0.3, 1), box-shadow 240ms ease, border-color 240ms ease',
         '@keyframes portfolioCardIn': {
@@ -60,7 +62,9 @@ function PortfolioCard({ project, index, ctaLabel, comingSoonLabel }: PortfolioC
         },
         '&:hover': {
           transform: 'translateY(-3px)',
-          boxShadow: '0 24px 56px rgba(43, 45, 66, 0.11)',
+          boxShadow: theme => theme.palette.mode === 'dark'
+            ? '0 24px 56px rgba(0, 0, 0, 0.46)'
+            : '0 24px 56px rgba(43, 45, 66, 0.11)',
           borderColor: 'rgba(156, 67, 248, 0.28)',
         },
         '&:active': {
@@ -78,7 +82,7 @@ function PortfolioCard({ project, index, ctaLabel, comingSoonLabel }: PortfolioC
           aspectRatio: '16 / 10',
           minHeight: 190,
           overflow: 'hidden',
-          bgcolor: '#f7f4fb',
+          bgcolor: theme => theme.palette.mode === 'dark' ? 'rgba(196, 146, 247, 0.08)' : '#f7f4fb',
         }}
       >
         {hasImage ? (
@@ -100,7 +104,9 @@ function PortfolioCard({ project, index, ctaLabel, comingSoonLabel }: PortfolioC
               alignItems: 'center',
               justifyContent: 'center',
               position: 'relative',
-              background: 'linear-gradient(135deg, rgba(240, 231, 255, 0.96) 0%, rgba(255, 255, 255, 0.94) 100%)',
+              background: theme => theme.palette.mode === 'dark'
+                ? 'linear-gradient(135deg, rgba(36, 19, 102, 0.66) 0%, rgba(18, 23, 34, 0.96) 100%)'
+                : 'linear-gradient(135deg, rgba(240, 231, 255, 0.96) 0%, rgba(255, 255, 255, 0.94) 100%)',
               '&::before': {
                 content: '""',
                 position: 'absolute',
@@ -180,8 +186,8 @@ function PortfolioCard({ project, index, ctaLabel, comingSoonLabel }: PortfolioC
               label={tag}
               size="small"
               sx={{
-                color: colors.purple2,
-                bgcolor: 'rgba(156, 67, 248, 0.08)',
+                color: theme => theme.palette.mode === 'dark' ? 'primary.light' : colors.purple2,
+                bgcolor: 'action.hover',
                 border: '1px solid rgba(156, 67, 248, 0.16)',
                 fontWeight: 600,
               }}
@@ -226,7 +232,7 @@ function PortfolioCard({ project, index, ctaLabel, comingSoonLabel }: PortfolioC
               '&.Mui-disabled': {
                 color: 'text.secondary',
                 borderColor: 'divider',
-                bgcolor: 'rgba(43, 45, 66, 0.04)',
+                bgcolor: 'action.hover',
               },
             }}
           >
@@ -246,7 +252,9 @@ export function PortfolioPage({ content }: PortfolioPageProps) {
         sx={{
           position: 'relative',
           py: { xs: 7, md: 11 },
-          background: 'linear-gradient(180deg, rgba(248, 247, 251, 0.96) 0%, rgba(255, 255, 255, 0.98) 100%)',
+          background: theme => theme.palette.mode === 'dark'
+            ? 'linear-gradient(180deg, rgba(11, 13, 20, 0.98) 0%, rgba(18, 23, 34, 0.96) 100%)'
+            : 'linear-gradient(180deg, rgba(248, 247, 251, 0.96) 0%, rgba(255, 255, 255, 0.98) 100%)',
           borderBottom: '1px solid',
           borderColor: 'divider',
         }}
@@ -314,9 +322,13 @@ export function PortfolioPage({ content }: PortfolioPageProps) {
               sx={{
                 border: '1px solid',
                 borderColor: 'rgba(156, 67, 248, 0.16)',
-                bgcolor: 'rgba(255, 255, 255, 0.78)',
+                bgcolor: theme => theme.palette.mode === 'dark'
+                  ? 'rgba(18, 23, 34, 0.78)'
+                  : 'rgba(255, 255, 255, 0.78)',
                 backdropFilter: 'blur(10px)',
-                boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.75), 0 24px 60px rgba(43, 45, 66, 0.08)',
+                boxShadow: theme => theme.palette.mode === 'dark'
+                  ? 'inset 0 1px 0 rgba(255,255,255,0.08), 0 24px 60px rgba(0, 0, 0, 0.28)'
+                  : 'inset 0 1px 0 rgba(255,255,255,0.75), 0 24px 60px rgba(43, 45, 66, 0.08)',
                 borderRadius: 1,
                 p: { xs: 2.5, md: 3 },
               }}

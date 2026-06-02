@@ -60,6 +60,13 @@ export const Section = forwardRef<HTMLDivElement, SectionProps>(
 
     const waveColor = getWaveColor(sx);
     const selectedWave = waves ? getRandomWave() : null;
+    const resolveWaveFill = (theme: Theme) => {
+      if (waveColor === 'background.paper') return theme.palette.background.paper;
+      if (waveColor === 'background.default') return theme.palette.background.default;
+      if (waveColor === 'grey.50') return theme.palette.grey[50];
+      if (waveColor === 'transparent') return 'transparent';
+      return waveColor;
+    };
 
     // If noAnimation is true, use static props instead of animation props
     const motionProps = noAnimation
@@ -92,9 +99,10 @@ export const Section = forwardRef<HTMLDivElement, SectionProps>(
               // transform: 'rotate(180deg)',
             }}
           >
-            <path
+            <Box
+              component="path"
               d={selectedWave.path}
-              fill={waveColor}
+              sx={{ fill: resolveWaveFill }}
             />
           </Box>
         )}
@@ -122,9 +130,10 @@ export const Section = forwardRef<HTMLDivElement, SectionProps>(
               transform: 'rotate(180deg)',
             }}
           >
-            <path
+            <Box
+              component="path"
               d={selectedWave.path}
-              fill={waveColor}
+              sx={{ fill: resolveWaveFill }}
             />
           </Box>
         )}
