@@ -83,7 +83,7 @@ export default async function LocaleLayout({
         <LanguageProvider initialLanguage={lang as Language}>
           <ThemeProvider>
             <SidebarProvider>
-              <CssBaseline />
+              <CssBaseline enableColorScheme />
               <Navbar content={navbarContent} />
               {children}
               <Footer content={footerContent} />

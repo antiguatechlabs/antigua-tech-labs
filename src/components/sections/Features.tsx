@@ -83,13 +83,16 @@ export function Features({ content }: { content: FeaturesContent }) {
               <MotionCard
                 sx={{
                   height: '100%',
-                  border: '1px solid red',
+                  border: '1px solid',
                   borderColor: 'divider',
                   transition: 'all 0.3s ease',
-                  background:
-                        'linear-gradient(145deg, rgba(255,255,255,0.9), rgba(240,240,245,0.4))',
+                  background: theme => theme.palette.mode === 'dark'
+                    ? 'linear-gradient(145deg, rgba(18, 23, 34, 0.98), rgba(36, 19, 102, 0.24))'
+                    : 'linear-gradient(145deg, rgba(255,255,255,0.9), rgba(240,240,245,0.4))',
                   '&:hover': {
-                    boxShadow: '0 8px 16px rgba(0,0,0,0.1)',
+                    boxShadow: theme => theme.palette.mode === 'dark'
+                      ? '0 18px 36px rgba(0,0,0,0.34)'
+                      : '0 8px 16px rgba(0,0,0,0.1)',
                     transform: 'translateY(-5px)',
                   },
                   minHeight: { xs: '280px', md: '320px' },

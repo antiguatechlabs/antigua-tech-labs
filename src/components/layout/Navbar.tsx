@@ -16,6 +16,7 @@ import { useParams } from 'next/navigation';
 import React, { useState, useLayoutEffect } from 'react';
 
 import AGLogo from '@/assets/aglogo.png';
+import { ThemeToggle } from '@/components/ui';
 import { useLanguage } from '@/context/languageContext';
 import { useSidebar } from '@/context/sidebarContext';
 import { NavbarContent } from '@/lib/data';
@@ -147,9 +148,11 @@ export function Navbar({ content }: { content: NavbarContent }) {
           <Box sx={{
             display: { xs: 'none', md: 'flex' },
             alignItems: 'center',
+            gap: 1,
             mr: { xs: 2, md: 3 },
             order: { xs: 1, md: 2 },
           }}>
+            <ThemeToggle size="small" />
             <IconButton
               onClick={() => {
                 // Toggle language and update URL
@@ -169,7 +172,7 @@ export function Navbar({ content }: { content: NavbarContent }) {
                 color: 'text.primary',
                 transition: 'all 0.2s ease',
                 '&:hover': {
-                  bgcolor: 'rgba(156, 67, 248, 0.1)',
+                  bgcolor: 'action.hover',
                   borderColor: 'primary.main',
                 },
               }}

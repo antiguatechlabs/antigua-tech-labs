@@ -21,6 +21,7 @@ import {
 import Link from 'next/link';
 import { useParams } from 'next/navigation';
 
+import { ThemeToggle } from '@/components/ui';
 import { useLanguage } from '@/context/languageContext';
 import { useSidebar } from '@/context/sidebarContext';
 import { NavbarContent } from '@/lib/data';
@@ -81,40 +82,45 @@ export const MobileMenu = ({ isOpen, onClose, content }: MobileMenuProps) => {
         '& .MuiDrawer-paper': {
           width: { xs: '100%', sm: 350 },
           boxSizing: 'border-box',
+          bgcolor: 'background.paper',
+          color: 'text.primary',
         },
       }}
     >
       <Box sx={{ p: 2, display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
         <Typography variant="h6">{content.companyName}</Typography>
-        <IconButton
-          onClick={() => {
-            // Toggle language and update URL
-            const newLang = language === 'en' ? 'es' : 'en';
-            setLanguage(newLang);
-          }}
-          aria-label="Toggle language"
-          sx={{
-            border: '1px solid',
-            borderColor: 'divider',
-            borderRadius: 1,
-            p: 1,
-            minWidth: 60,
-            height: 40,
-            fontSize: '0.875rem',
-            fontWeight: 600,
-            color: 'text.primary',
-            transition: 'all 0.2s ease',
-            '&:hover': {
-              bgcolor: 'rgba(156, 67, 248, 0.1)',
-              borderColor: 'primary.main',
-            },
-          }}
-        >
-          {content.languageToggle[language]}
-        </IconButton>
-        <IconButton onClick={onClose} aria-label="Close menu">
-          <CloseIcon />
-        </IconButton>
+        <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+          <IconButton
+            onClick={() => {
+              // Toggle language and update URL
+              const newLang = language === 'en' ? 'es' : 'en';
+              setLanguage(newLang);
+            }}
+            aria-label="Toggle language"
+            sx={{
+              border: '1px solid',
+              borderColor: 'divider',
+              borderRadius: 1,
+              p: 1,
+              minWidth: 60,
+              height: 40,
+              fontSize: '0.875rem',
+              fontWeight: 600,
+              color: 'text.primary',
+              transition: 'all 0.2s ease',
+              '&:hover': {
+                bgcolor: 'action.hover',
+                borderColor: 'primary.main',
+              },
+            }}
+          >
+            {content.languageToggle[language]}
+          </IconButton>
+          <ThemeToggle size="small" />
+          <IconButton onClick={onClose} aria-label="Close menu" sx={{ color: 'text.primary' }}>
+            <CloseIcon />
+          </IconButton>
+        </Box>
       </Box>
 
       <Divider />
@@ -132,7 +138,8 @@ export const MobileMenu = ({ isOpen, onClose, content }: MobileMenuProps) => {
                     onClick={onClose}
                     sx={{
                       py: 1.5,
-                      borderBottom: '1px solid rgba(242, 242, 242)',
+                      borderBottom: '1px solid',
+                      borderColor: 'divider',
                       color: 'text.secondary',
                       '&:hover': { color: 'primary.main' },
                       cursor: 'pointer',
@@ -157,7 +164,8 @@ export const MobileMenu = ({ isOpen, onClose, content }: MobileMenuProps) => {
                   }}
                   sx={{
                     py: 1.5,
-                    borderBottom: '1px solid rgba(242, 242, 242)',
+                    borderBottom: '1px solid',
+                    borderColor: 'divider',
                     color: 'text.secondary',
                     '&:hover': { color: 'primary.main' },
                     cursor: 'pointer',

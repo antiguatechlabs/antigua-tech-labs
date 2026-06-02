@@ -73,7 +73,9 @@ export default function Testimonials() {
             <MotionPaper
               sx={{
                 p: { xs: 2.5, md: 3 },
-                bgcolor: 'grey.50',
+                bgcolor: 'background.paper',
+                border: '1px solid',
+                borderColor: 'divider',
                 borderRadius: 1,
                 height: '100%',
                 display: 'flex',

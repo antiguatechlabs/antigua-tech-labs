@@ -4,7 +4,6 @@ import {
   TextField,
   FormControl,
   FormLabel,
-  TextareaAutosize,
   Alert,
   CircularProgress,
 } from '@mui/material';
@@ -180,24 +179,41 @@ export function ContactForm({ content }: { content: ContactContent }) {
               <FormLabel sx={{ fontSize: { xs: '0.875rem', md: '1rem' } }}>
                 {content.formLabels.message}
               </FormLabel>
-              <TextareaAutosize
+              <Box
+                component="textarea"
                 name="message"
                 value={formData.message}
                 onChange={handleChange}
                 placeholder={content.placeholders.message}
-                minRows={4}
+                rows={4}
                 required
                 disabled={status === 'sending'}
-                style={{
+                sx={{
                   width: '100%',
                   padding: '10px',
                   borderRadius: '4px',
-                  borderColor: status === 'sending' ? '#ccc' : '#E2E8F0',
+                  border: '1px solid',
+                  borderColor: status === 'sending' ? 'divider' : 'divider',
                   marginTop: '8px',
                   fontSize: '1rem',
                   minHeight: '6rem',
-                  transition: 'border-color 0.2s ease-in-out',
-                  backgroundColor: status === 'sending' ? '#f5f5f5' : 'transparent',
+                  fontFamily: 'inherit',
+                  resize: 'vertical',
+                  color: 'text.primary',
+                  bgcolor: status === 'sending' ? 'action.hover' : 'background.paper',
+                  transition: 'border-color 0.2s ease-in-out, background-color 0.2s ease-in-out',
+                  '&::placeholder': {
+                    color: 'text.secondary',
+                    opacity: 0.8,
+                  },
+                  '&:hover': {
+                    borderColor: 'primary.dark',
+                  },
+                  '&:focus': {
+                    borderColor: 'primary.dark',
+                    borderWidth: 2,
+                    outline: 'none',
+                  },
                 }}
               />
             </FormControl>

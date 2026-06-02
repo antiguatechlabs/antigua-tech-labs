@@ -121,14 +121,20 @@ export function OurApproach({ content, lang: _lang }: OurApproachProps) {
               whileTap={{ scale: 0.98 }}
               sx={{
                 backdropFilter: 'blur(12px)',
-                background: 'rgba(255, 255, 255, 0.6)',
+                background: theme => theme.palette.mode === 'dark'
+                  ? 'rgba(18, 23, 34, 0.72)'
+                  : 'rgba(255, 255, 255, 0.72)',
+                border: '1px solid',
+                borderColor: 'divider',
                 borderRadius: 3,
                 p: 4,
                 display: 'flex',
                 flexDirection: 'column',
                 alignItems: 'center',
                 textAlign: 'center',
-                boxShadow: '0 4px 16px rgba(0,0,0,0.08)',
+                boxShadow: theme => theme.palette.mode === 'dark'
+                  ? '0 18px 36px rgba(0,0,0,0.28)'
+                  : '0 4px 16px rgba(0,0,0,0.08)',
                 transition: 'transform 0.2s ease',
               }}
             >
