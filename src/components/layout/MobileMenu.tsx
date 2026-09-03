@@ -1,241 +1,127 @@
 'use client';
 
-import CloseIcon from '@mui/icons-material/Close';
-import EmailIcon from '@mui/icons-material/Email';
-import FacebookIcon from '@mui/icons-material/Facebook';
-import InstagramIcon from '@mui/icons-material/Instagram';
-import LinkedInIcon from '@mui/icons-material/LinkedIn';
-import {
-  Drawer,
-  Box,
-  Typography,
-  Button,
-  IconButton,
-  List,
-  ListItem,
-  ListItemText,
-  Divider,
-  Link as MuiLink,
-  Stack,
-} from '@mui/material';
+import { Box, ButtonBase, Grow, Link as MuiLink, Typography, useMediaQuery } from '@mui/material';
 import Link from 'next/link';
 import { useParams } from 'next/navigation';
+import { useEffect } from 'react';
 
 import { useLanguage } from '@/context/languageContext';
-import { useSidebar } from '@/context/sidebarContext';
 import { NavbarContent } from '@/lib/data';
 
 interface MobileMenuProps {
   isOpen: boolean;
   onClose: () => void;
   content: NavbarContent;
+  activeHref?: string;
 }
 
-interface MenuItem {
-  label: string;
-  href: string;
-  children?: MenuItem[];
-}
-
-export const MobileMenu = ({ isOpen, onClose, content }: MobileMenuProps) => {
-  const { handleSidebar } = useSidebar();
+export const MobileMenu = ({ isOpen, onClose, content, activeHref }: MobileMenuProps) => {
   const { language, setLanguage } = useLanguage();
   const params = useParams();
   const currentLang = params.lang as string || 'en';
+  const prefersReducedMotion = useMediaQuery('(prefers-reduced-motion: reduce)');
 
-  // Smooth scroll handler for anchor links
-  const handleSmoothScroll = (href: string) => {
-    if (href.startsWith('#')) {
-      const element = document.querySelector(href);
-      if (element) {
-        const navbarHeight = 64; // Approximate navbar height
-        const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
-        const offsetPosition = elementPosition - navbarHeight;
+  useEffect(() => {
+    if (!isOpen) return;
 
-        onClose();
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') onClose();
+    };
 
-        window.scrollTo({
-          top: offsetPosition,
-          behavior: 'smooth',
-        });
-      }
-    }
-  };
-
-  // Use menu items from content with language prefix
-  const menuItems: MenuItem[] = content.menuItems.map(item => ({
-    label: item.name,
-    href: `/${currentLang}${item.href}`,
-    children: item.mobileSubmenu?.map(subItem => ({
-      label: subItem.name,
-      href: `/${currentLang}${subItem.href}`,
-    })),
-  }));
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [isOpen, onClose]);
 
   return (
-    <Drawer
-      anchor="right"
-      open={isOpen}
-      onClose={onClose}
-      sx={{
-        '& .MuiDrawer-paper': {
-          width: { xs: '100%', sm: 350 },
-          boxSizing: 'border-box',
-        },
-      }}
-    >
-      <Box sx={{ p: 2, display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-        <Typography variant="h6">{content.companyName}</Typography>
-        <IconButton
-          onClick={() => {
-            // Toggle language and update URL
-            const newLang = language === 'en' ? 'es' : 'en';
-            setLanguage(newLang);
-          }}
-          aria-label="Toggle language"
-          sx={{
-            border: '1px solid',
-            borderColor: 'divider',
-            borderRadius: 1,
-            p: 1,
-            minWidth: 60,
-            height: 40,
-            fontSize: '0.875rem',
-            fontWeight: 600,
-            color: 'text.primary',
-            transition: 'all 0.2s ease',
-            '&:hover': {
-              bgcolor: 'rgba(156, 67, 248, 0.1)',
-              borderColor: 'primary.main',
-            },
-          }}
-        >
-          {content.languageToggle[language]}
-        </IconButton>
-        <IconButton onClick={onClose} aria-label="Close menu">
-          <CloseIcon />
-        </IconButton>
-      </Box>
+    <Grow in={isOpen} timeout={prefersReducedMotion ? 0 : 240} style={{ transformOrigin: 'top center' }} unmountOnExit>
+      <Box
+        id="mobile-navigation"
+        component="nav"
+        aria-label={content.menuTitle}
+        sx={{
+          position: 'absolute',
+          top: 'calc(100% + 10px)',
+          right: 0,
+          left: 0,
+          display: { xs: 'block', md: 'none' },
+          overflow: 'hidden',
+          border: '1px solid rgba(255, 255, 255, 0.4)',
+          borderRadius: '1.125rem',
+          bgcolor: 'rgba(241, 244, 255, 0.28)',
+          backgroundImage: 'linear-gradient(145deg, rgba(255, 255, 255, 0.34), rgba(183, 195, 255, 0.12))',
+          boxShadow: '0 14px 32px rgba(43, 45, 66, 0.16), inset 0 1px 0 rgba(255, 255, 255, 0.42)',
+          backdropFilter: 'blur(20px) saturate(155%) brightness(1.03)',
+          WebkitBackdropFilter: 'blur(20px) saturate(155%) brightness(1.03)',
+          '@supports not (backdrop-filter: blur(1px))': { bgcolor: 'rgba(245, 247, 255, 0.94)' },
+        }}
+      >
+        <Box sx={{ p: 0.75 }}>
+          {content.menuItems.map(item => {
+            const isActive = item.href === activeHref;
 
-      <Divider />
+            return (
+              <MuiLink
+                key={item.href}
+                component={Link}
+                href={`/${currentLang}${item.href}`}
+                onClick={onClose}
+                aria-current={isActive ? 'page' : undefined}
+                underline="none"
+                sx={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  minHeight: 46,
+                  px: 1.5,
+                  border: '1px solid',
+                  borderColor: isActive ? 'rgba(164, 171, 255, 0.42)' : 'transparent',
+                  borderRadius: '0.75rem',
+                  bgcolor: isActive ? 'rgba(255, 255, 255, 0.2)' : 'transparent',
+                  boxShadow: isActive ? '0 5px 14px rgba(90, 48, 255, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.32)' : 'none',
+                  color: isActive ? 'primary.main' : 'text.primary',
+                  fontSize: '0.93rem',
+                  fontWeight: isActive ? 650 : 550,
+                  transition: 'color 180ms ease, background-color 180ms ease, box-shadow 180ms ease',
+                  '&:hover': { bgcolor: 'rgba(255, 255, 255, 0.18)', color: 'primary.main' },
+                  '&:focus-visible': { outline: '2px solid', outlineColor: 'primary.main', outlineOffset: 2 },
+                  '@media (prefers-reduced-motion: reduce)': { transition: 'none' },
+                }}
+              >
+                {item.name}
+              </MuiLink>
+            );
+          })}
+        </Box>
 
-      <Box sx={{ p: 2, flex: 1, overflow: 'auto' }}>
-        {/* Navigation Menu */}
-        <List disablePadding>
-          {menuItems.map((item, index) => (
-            <Box key={index}>
-              {item.children ? (
-                <>
-                  <ListItem
-                    component={Link}
-                    href={item.href}
-                    onClick={onClose}
-                    sx={{
-                      py: 1.5,
-                      borderBottom: '1px solid rgba(242, 242, 242)',
-                      color: 'text.secondary',
-                      '&:hover': { color: 'primary.main' },
-                      cursor: 'pointer',
-                    }}
-                  >
-                    <ListItemText
-                      primary={item.label}
-                      primaryTypographyProps={{ fontWeight: 500 }}
-                    />
-                  </ListItem>
-                </>
-              ) : (
-                <ListItem
-                  onClick={() => {
-                    if (item.href.startsWith('#')) {
-                      handleSmoothScroll(item.href);
-                    } else {
-                      // For non-anchor links, use regular navigation
-                      window.location.href = item.href;
-                      onClose();
-                    }
-                  }}
+        <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', px: 2.25, py: 1.5, borderTop: '1px solid rgba(113, 110, 160, 0.12)' }}>
+          <Typography variant="caption" sx={{ color: 'text.secondary', fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.08em' }}>
+            LANGUAGE
+          </Typography>
+          <Box sx={{ display: 'flex', gap: 0.5, p: 0.5, borderRadius: '0.875rem', bgcolor: 'rgba(255, 255, 255, 0.14)', border: '1px solid rgba(255, 255, 255, 0.32)' }}>
+            {(['en', 'es'] as const).map(itemLanguage => {
+              const isActive = language === itemLanguage;
+
+              return (
+                <ButtonBase
+                  key={itemLanguage}
+                  onClick={() => setLanguage(itemLanguage)}
+                  aria-pressed={isActive}
                   sx={{
-                    py: 1.5,
-                    borderBottom: '1px solid rgba(242, 242, 242)',
-                    color: 'text.secondary',
-                    '&:hover': { color: 'primary.main' },
-                    cursor: 'pointer',
+                    minWidth: 38,
+                    minHeight: 30,
+                    borderRadius: '0.5rem',
+                    color: isActive ? 'primary.main' : 'text.secondary',
+                    fontSize: '0.75rem',
+                    fontWeight: 800,
+                    ...(isActive && { bgcolor: 'rgba(255, 255, 255, 0.24)', boxShadow: '0 3px 9px rgba(90, 48, 255, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.32)' }),
                   }}
                 >
-                  <ListItemText primary={item.label} primaryTypographyProps={{ fontWeight: 500 }} />
-                </ListItem>
-              )}
-            </Box>
-          ))}
-        </List>
-
-        {/* Social Media Links */}
-        <Box sx={{ my: 4 }}>
-          <Typography fontWeight="bold" variant="h6" sx={{ mb: 2 }}>
-            {content.mobileMenu.followTitle}
-          </Typography>
-          <Stack direction="row" spacing={1}>
-            <IconButton
-              color="primary"
-              component={MuiLink}
-              href={content.contactInfo.socialLinks.facebook}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <FacebookIcon />
-            </IconButton>
-            <IconButton
-              color="primary"
-              component={MuiLink}
-              href={content.contactInfo.socialLinks.instagram}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <InstagramIcon />
-            </IconButton>
-            <IconButton
-              color="primary"
-              component={MuiLink}
-              href={content.contactInfo.socialLinks.linkedin}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <LinkedInIcon />
-            </IconButton>
-
-          </Stack>
-        </Box>
-        <Divider/>
-        <Box sx={{ mt: 3 }}>
-          <Stack spacing={2}>
-            <Box sx={{ display: 'flex', alignItems: 'center' }}>
-              <IconButton size="small" color="primary" sx={{ mr: 1 }}>
-                <EmailIcon />
-              </IconButton>
-              <MuiLink href={`mailto:${content.contactInfo.email}`} sx={{ textDecoration: 'none', color: 'text.primary' }}>
-                {content.contactInfo.email}
-              </MuiLink>
-            </Box>
-          </Stack>
-        </Box>
-
-        {/* Contact Form Button */}
-        <Box sx={{ mt: 5 }}>
-          <Button
-            onClick={() => {
-              onClose();
-              handleSidebar();
-            }}
-            variant="contained"
-            color="primary"
-            size="large"
-            fullWidth
-          >
-            {content.mobileMenu.contactFormButton}
-          </Button>
+                  {content.languageToggle[itemLanguage]}
+                </ButtonBase>
+              );
+            })}
+          </Box>
         </Box>
       </Box>
-    </Drawer>
+    </Grow>
   );
 };
