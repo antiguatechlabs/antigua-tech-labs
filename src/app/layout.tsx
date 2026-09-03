@@ -1,4 +1,3 @@
-
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return <>
     {/* react-scan script */}

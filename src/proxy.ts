@@ -28,7 +28,7 @@ function getLanguageCookieFromRequest(request: NextRequest): 'en' | 'es' | null 
   return null;
 }
 
-export function middleware(request: NextRequest) {
+export function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
   const pathnameHasLanguage = supportedLanguages.some(

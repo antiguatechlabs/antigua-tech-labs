@@ -3,6 +3,7 @@ import MessageIcon from '@mui/icons-material/Message';
 import { Box, Typography } from '@mui/material';
 import React from 'react';
 
+import { DecorativePattern } from '@/components/common/DecorativePattern';
 import Section from '@/components/common/Section';
 import { ServiceHeroContent } from '@/lib/data';
 import { MotionButton } from '@/lib/motionComponents';
@@ -16,7 +17,7 @@ export function ServiceOverviewHero({ content }: ServiceOverviewHeroProps) {
   const handleScrollToContact = () => {
     const contactSection = document.getElementById('contact');
     if (contactSection) {
-      const navbarHeight = 64; // Approximate navbar height
+      const navbarHeight = window.innerWidth >= 900 ? 144 : 88;
       const elementPosition = contactSection.getBoundingClientRect().top + window.pageYOffset;
       const offsetPosition = elementPosition - navbarHeight;
 
@@ -30,7 +31,16 @@ export function ServiceOverviewHero({ content }: ServiceOverviewHeroProps) {
   console.log(content);
 
   return (
-    <Section noAnimation id="services-overview-hero">
+    <Section
+      noAnimation
+      id="services-overview-hero"
+      sx={{
+        overflow: 'hidden',
+        position: 'relative',
+        paddingTop: { xs: 'calc(70px + 2rem)', md: 'calc(116px + 3.5rem)' },
+      }}
+    >
+      <DecorativePattern color="rgba(38, 197, 243, 0.14)" variant="contours" />
       <Box
         display="flex"
         flexDirection="column"
@@ -38,6 +48,8 @@ export function ServiceOverviewHero({ content }: ServiceOverviewHeroProps) {
         justifyContent="center"
         textAlign="center"
         py={8}
+        position="relative"
+        zIndex={1}
       >
         <Typography variant="h2" fontWeight={700} gutterBottom>
           {textWithGradient(content.title)}

@@ -114,4 +114,3 @@ export const WhyChooseTwo = ({ content }: { content: WhyChooseTwoContent }) => (
     </Container>
   </Section>
 );
-

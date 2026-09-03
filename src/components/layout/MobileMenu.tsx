@@ -50,8 +50,8 @@ export const MobileMenu = ({ isOpen, onClose, content, activeHref }: MobileMenuP
           bgcolor: 'rgba(241, 244, 255, 0.28)',
           backgroundImage: 'linear-gradient(145deg, rgba(255, 255, 255, 0.34), rgba(183, 195, 255, 0.12))',
           boxShadow: '0 14px 32px rgba(43, 45, 66, 0.16), inset 0 1px 0 rgba(255, 255, 255, 0.42)',
-          backdropFilter: 'blur(20px) saturate(155%) brightness(1.03)',
-          WebkitBackdropFilter: 'blur(20px) saturate(155%) brightness(1.03)',
+          backdropFilter: 'blur(6px) saturate(155%) brightness(1.03)',
+          WebkitBackdropFilter: 'blur(6px) saturate(155%) brightness(1.03)',
           '@supports not (backdrop-filter: blur(1px))': { bgcolor: 'rgba(245, 247, 255, 0.94)' },
         }}
       >
@@ -77,6 +77,8 @@ export const MobileMenu = ({ isOpen, onClose, content, activeHref }: MobileMenuP
                   borderRadius: '0.75rem',
                   bgcolor: isActive ? 'rgba(255, 255, 255, 0.2)' : 'transparent',
                   boxShadow: isActive ? '0 5px 14px rgba(90, 48, 255, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.32)' : 'none',
+                  backdropFilter: 'blur(6px) saturate(150%) brightness(1.03)',
+                  WebkitBackdropFilter: 'blur(6px) saturate(150%) brightness(1.03)',
                   color: isActive ? 'primary.main' : 'text.primary',
                   fontSize: '0.93rem',
                   fontWeight: isActive ? 650 : 550,
@@ -96,7 +98,18 @@ export const MobileMenu = ({ isOpen, onClose, content, activeHref }: MobileMenuP
           <Typography variant="caption" sx={{ color: 'text.secondary', fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.08em' }}>
             LANGUAGE
           </Typography>
-          <Box sx={{ display: 'flex', gap: 0.5, p: 0.5, borderRadius: '0.875rem', bgcolor: 'rgba(255, 255, 255, 0.14)', border: '1px solid rgba(255, 255, 255, 0.32)' }}>
+          <Box
+            sx={{
+              display: 'flex',
+              gap: 0.5,
+              p: 0.5,
+              borderRadius: '0.875rem',
+              bgcolor: 'rgba(255, 255, 255, 0.14)',
+              border: '1px solid rgba(255, 255, 255, 0.32)',
+              backdropFilter: 'blur(6px) saturate(150%) brightness(1.03)',
+              WebkitBackdropFilter: 'blur(6px) saturate(150%) brightness(1.03)',
+            }}
+          >
             {(['en', 'es'] as const).map(itemLanguage => {
               const isActive = language === itemLanguage;
 
@@ -112,6 +125,8 @@ export const MobileMenu = ({ isOpen, onClose, content, activeHref }: MobileMenuP
                     color: isActive ? 'primary.main' : 'text.secondary',
                     fontSize: '0.75rem',
                     fontWeight: 800,
+                    backdropFilter: 'blur(6px) saturate(150%) brightness(1.03)',
+                    WebkitBackdropFilter: 'blur(6px) saturate(150%) brightness(1.03)',
                     ...(isActive && { bgcolor: 'rgba(255, 255, 255, 0.24)', boxShadow: '0 3px 9px rgba(90, 48, 255, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.32)' }),
                   }}
                 >

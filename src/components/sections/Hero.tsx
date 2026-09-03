@@ -10,10 +10,9 @@ import { Section } from '@/components/common';
 import { slideLeftVariant } from '@/lib/animationVariants';
 import { HeroContent } from '@/lib/data';
 import { MotionBox, MotionTypography, MotionButton } from '@/lib/motionComponents';
-import { textWithGradient } from '@/lib/textFormatters';
-import { colors } from '@/theme';
 
 const CardSwapBox = dynamic(() => import('@/components/ui/CardSwapBox'), { ssr: false });
+const HeroShaderGradient = dynamic(() => import('./HeroShaderGradient'), { ssr: false });
 
 export function Hero({ content }: { content: HeroContent }) {
 
@@ -22,7 +21,7 @@ export function Hero({ content }: { content: HeroContent }) {
   const handleScrollToContact = () => {
     const contactSection = document.getElementById('contact');
     if (contactSection) {
-      const navbarHeight = 64; // Approximate navbar height
+      const navbarHeight = window.innerWidth >= 900 ? 144 : 88;
       const elementPosition = contactSection.getBoundingClientRect().top + window.pageYOffset;
       const offsetPosition = elementPosition - navbarHeight;
 
@@ -38,12 +37,27 @@ export function Hero({ content }: { content: HeroContent }) {
       id="hero"
       animation='fadeIn'
       sx={{
-        paddingTop: { xs: 8, md: 10, lg: 12 },
         paddingBottom: { xs: 8, md: 10, lg: 12 },
         paddingX: { xs: 2, md: 10, lg: 15 },
-        backgroundColor: colors.gradientMain,
+        backgroundColor: '#16072b',
+        overflow: 'hidden',
+        position: 'relative',
+        minHeight: '100dvh',
+        paddingTop: { xs: 'calc(70px + 2rem)', md: 'calc(116px + 3.5rem)' },
       }}
     >
+      <Box
+        aria-hidden
+        sx={{
+          inset: 0,
+          overflow: 'hidden',
+          pointerEvents: 'none',
+          position: 'absolute',
+          zIndex: 0,
+        }}
+      >
+        <HeroShaderGradient />
+      </Box>
       <Box
         sx={{
           display: 'flex',
@@ -51,6 +65,8 @@ export function Hero({ content }: { content: HeroContent }) {
           alignItems: { xs: 'center', lg: 'stretch' }, // Center on mobile, stretch on desktop
           width: '100%',
           gap: { xs: 4, md: 2 }, // Add spacing between elements
+          position: 'relative',
+          zIndex: 1,
         }}
       >
         {/* Text section */}
@@ -63,7 +79,7 @@ export function Hero({ content }: { content: HeroContent }) {
             display={'flex'}
             flexDirection={'column'}
             justifyContent={'space-evenly'}
-            sx={{ maxWidth: '48rem', flex: 1 }}
+            sx={{ color: '#fff', maxWidth: '48rem', flex: 1 }}
           >
             <MotionTypography
               variant="h1"
@@ -75,7 +91,7 @@ export function Hero({ content }: { content: HeroContent }) {
                 mb: 3,
               }}
             >
-              {textWithGradient(content.title, true)}
+              {content.title}
             </MotionTypography>
 
             <Box>
@@ -83,7 +99,6 @@ export function Hero({ content }: { content: HeroContent }) {
                 variant="body1"
                 sx={{
                   fontSize: { xs: '1.125rem', md: '1.25rem' },
-                  color: 'text.secondary',
                   mb: 4,
                   maxWidth: '42rem',
                 }}

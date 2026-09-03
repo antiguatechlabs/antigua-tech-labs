@@ -105,6 +105,8 @@ export const createAppTheme = (mode: 'light') =>
         styleOverrides: {
           root: {
             borderRadius: '0.375rem',
+            backdropFilter: 'blur(6px) saturate(150%) brightness(1.03)',
+            WebkitBackdropFilter: 'blur(6px) saturate(150%) brightness(1.03)',
           },
         },
       },

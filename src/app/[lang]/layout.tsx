@@ -16,7 +16,6 @@ import { generateOrganizationStructuredData, generateWebsiteStructuredData } fro
 import { SITE_CONFIG } from '@/lib/seo/config';
 import '@/styles/globals.css';
 
-
 // Cookie configuration
 const LANGUAGE_COOKIE_NAME = 'aglanguage';
 

@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev --turbopack",
+    "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "eslint \"**/*.{js,jsx,ts,tsx}\"",
@@ -18,28 +18,33 @@
     "@million/lint": "^1.0.14",
     "@mui/icons-material": "^7.1.0",
     "@mui/material": "^7.1.0",
+    "@react-three/fiber": "^9.7.0",
+    "@shadergradient/react": "^2.4.20",
     "@shikijs/engine-oniguruma": "^3.6.0",
     "@types/nodemailer": "^6.4.17",
+    "camera-controls": "^3.1.2",
     "framer-motion": "^12.10.5",
     "gsap": "^3.13.0",
     "highlight.js": "^11.11.1",
-    "next": "15.3.2",
+    "next": "16.3.4",
     "next-seo": "^6.8.0",
     "nodemailer": "^7.0.5",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
+    "react": "19.2.8",
+    "react-dom": "19.2.8",
     "react-hook-form": "^7.56.3",
     "react-icons": "^5.5.0",
     "react-scan": "^0.4.3",
-    "swiper": "^11.2.6"
+    "swiper": "^11.2.6",
+    "three": "^0.185.1",
+    "three-stdlib": "^2.36.1"
   },
   "devDependencies": {
-    "@eslint/eslintrc": "^3",
     "@types/node": "^20",
-    "@types/react": "^19",
-    "@types/react-dom": "^19",
-    "eslint": "^9",
-    "eslint-config-next": "15.3.2",
+    "@types/react": "19.2.18",
+    "@types/react-dom": "19.2.5",
+    "@types/three": "^0.185.4",
+    "eslint": "^9.39.5",
+    "eslint-config-next": "16.3.4",
     "eslint-config-prettier": "^10.1.5",
     "eslint-plugin-css": "^0.11.0",
     "eslint-plugin-json": "^4.0.1",
@@ -56,5 +61,9 @@
     "*.{js,jsx,ts,tsx,json,css,md}": [
       "eslint --fix"
     ]
+  },
+  "overrides": {
+    "@types/react": "19.2.18",
+    "@types/react-dom": "19.2.5"
   }
 }

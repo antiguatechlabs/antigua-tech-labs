@@ -19,6 +19,8 @@ import React from 'react';
 import { PortfolioContent, PortfolioProject } from '@/lib/data';
 import { colors } from '@/theme';
 
+import { DecorativePattern } from '../common/DecorativePattern';
+
 interface PortfolioPageProps {
   content: PortfolioContent;
 }
@@ -245,13 +247,16 @@ export function PortfolioPage({ content }: PortfolioPageProps) {
         component="section"
         sx={{
           position: 'relative',
-          py: { xs: 7, md: 11 },
+          pt: { xs: 'calc(70px + 3.5rem)', md: 'calc(116px + 5.5rem)' },
+          pb: { xs: 7, md: 11 },
           background: 'linear-gradient(180deg, rgba(248, 247, 251, 0.96) 0%, rgba(255, 255, 255, 0.98) 100%)',
           borderBottom: '1px solid',
           borderColor: 'divider',
+          overflow: 'hidden',
         }}
       >
-        <Container maxWidth="xl" sx={{ position: 'relative' }}>
+        <DecorativePattern color="rgba(112, 43, 158, 0.12)" variant="horizontal-lines" />
+        <Container maxWidth="xl" sx={{ position: 'relative', zIndex: 1 }}>
           <Box
             sx={{
               display: 'grid',
@@ -367,7 +372,10 @@ export function PortfolioPage({ content }: PortfolioPageProps) {
         </Container>
       </Box>
 
-      <Box component="section" sx={{ py: { xs: 7, md: 11 }, bgcolor: 'background.paper' }}>
+      <Box
+        component="section"
+        sx={{ bgcolor: 'background.paper', overflow: 'hidden', position: 'relative', py: { xs: 7, md: 11 } }}
+      >
         <Container maxWidth="xl">
           <Stack spacing={2} sx={{ mb: { xs: 4, md: 6 }, maxWidth: 680 }}>
             <Typography
