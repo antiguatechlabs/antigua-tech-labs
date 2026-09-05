@@ -1,4 +1,5 @@
 import { CssBaseline } from '@mui/material';
+import { AppRouterCacheProvider } from '@mui/material-nextjs/v16-appRouter';
 import { Inter } from 'next/font/google';
 import { cookies } from 'next/headers';
 import { notFound } from 'next/navigation';
@@ -77,19 +78,21 @@ export default async function LocaleLayout({
   return (
     <html lang={lang} className={inter.variable}>
       <body style={{ overflowX: 'hidden', width: '100%', scrollBehavior: 'smooth' }} className={inter.className}>
-        <DefaultSEOClient lang={lang as 'en' | 'es'} />
-        <StructuredData data={[organizationData, websiteData]} idPrefix="site-structured-data" />
-        <LanguageProvider initialLanguage={lang as Language}>
-          <ThemeProvider>
-            <SidebarProvider>
-              <CssBaseline enableColorScheme />
-              <Navbar content={navbarContent} />
-              {children}
-              <Footer content={footerContent} />
-              <ScrollToTop />
-            </SidebarProvider>
-          </ThemeProvider>
-        </LanguageProvider>
+        <AppRouterCacheProvider>
+          <DefaultSEOClient lang={lang as 'en' | 'es'} />
+          <StructuredData data={[organizationData, websiteData]} idPrefix="site-structured-data" />
+          <LanguageProvider initialLanguage={lang as Language}>
+            <ThemeProvider>
+              <SidebarProvider>
+                <CssBaseline enableColorScheme />
+                <Navbar content={navbarContent} />
+                {children}
+                <Footer content={footerContent} />
+                <ScrollToTop />
+              </SidebarProvider>
+            </ThemeProvider>
+          </LanguageProvider>
+        </AppRouterCacheProvider>
       </body>
     </html>
   );
