@@ -1,5 +1,6 @@
 .hljs {
-  background: white;
+  background: transparent;
+  color: inherit;
   /* padding: 1rem; */
   /* border-radius: 8px; */
   /* font-family: 'Fira Code', monospace; */

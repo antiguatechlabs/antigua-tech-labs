@@ -1,5 +1,7 @@
 import { createTheme } from '@mui/material/styles';
 
+export type ThemeMode = 'light' | 'dark';
+
 // Define the brand colors
 export const brandColors = {
   50: '#f0e7ff',
@@ -35,9 +37,31 @@ export const colors = {
   gradientBackground: 'linear-gradient(180deg, rgba(72, 70, 79, 0.33), rgba(90, 48, 255, 0.01))',
 };
 
-// Create a base theme function that can be used with light mode
-export const createAppTheme = (mode: 'light') =>
-  createTheme({
+const lightPalette = {
+  backgroundDefault: colors.transparent,
+  backgroundPaper: colors.white,
+  textPrimary: colors.text,
+  textSecondary: colors.textLight,
+  divider: 'rgba(43, 45, 66, 0.14)',
+  actionHover: 'rgba(156, 67, 248, 0.08)',
+  cardShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
+};
+
+const darkPalette = {
+  backgroundDefault: '#0b0d14',
+  backgroundPaper: '#121722',
+  textPrimary: '#f4f7fb',
+  textSecondary: '#aeb8c8',
+  divider: 'rgba(174, 184, 200, 0.18)',
+  actionHover: 'rgba(196, 146, 247, 0.14)',
+  cardShadow: '0 18px 44px rgba(0, 0, 0, 0.36)',
+};
+
+// Create a base theme function that can be used with light or dark mode
+export const createAppTheme = (mode: ThemeMode = 'light') => {
+  const modePalette = mode === 'dark' ? darkPalette : lightPalette;
+
+  return createTheme({
     palette: {
       mode,
       primary: {
@@ -58,12 +82,16 @@ export const createAppTheme = (mode: 'light') =>
         contrastText: colors.white,
       },
       background: {
-        default: colors.transparent,
-        paper: colors.white,
+        default: modePalette.backgroundDefault,
+        paper: modePalette.backgroundPaper,
       },
       text: {
-        primary: colors.text,
-        secondary: colors.textLight,
+        primary: modePalette.textPrimary,
+        secondary: modePalette.textSecondary,
+      },
+      divider: modePalette.divider,
+      action: {
+        hover: modePalette.actionHover,
       },
     },
     typography: {
@@ -98,6 +126,9 @@ export const createAppTheme = (mode: 'light') =>
           body: {
             margin: 0,
             padding: 0,
+            backgroundColor: modePalette.backgroundDefault,
+            color: modePalette.textPrimary,
+            transition: 'background-color 0.2s ease, color 0.2s ease',
           },
         },
       },
@@ -121,7 +152,7 @@ export const createAppTheme = (mode: 'light') =>
         styleOverrides: {
           root: {
             borderRadius: '0.5rem',
-            boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
+            boxShadow: modePalette.cardShadow,
           },
         },
       },
@@ -144,6 +175,7 @@ export const createAppTheme = (mode: 'light') =>
       },
     },
   });
+};
 
 // Default theme (light mode)
 const theme = createAppTheme('light');

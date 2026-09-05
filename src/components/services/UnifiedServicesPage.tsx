@@ -47,7 +47,7 @@ export function UnifiedServicesPage({ content, language = 'en' }: UnifiedService
         index={0}
         heroImage={webApplicationsHero}
         gradientColors={serviceGradients.webApplications}
-        backgroundColor={'#e9ecef'}
+        backgroundColor="background.paper"
         waves
       />
 
@@ -68,7 +68,7 @@ export function UnifiedServicesPage({ content, language = 'en' }: UnifiedService
         heroImage={apiDevelopmentHero}
         gradientColors={serviceGradients.apiDevelopment}
         waves
-        backgroundColor={'#e9ecef'}
+        backgroundColor="background.paper"
       />
 
       {/* Code Maintenance Service Section */}
@@ -88,7 +88,7 @@ export function UnifiedServicesPage({ content, language = 'en' }: UnifiedService
         heroImage={uxDesignHero}
         gradientColors={serviceGradients.uxDesign}
         waves
-        backgroundColor={'#e9ecef'}
+        backgroundColor="background.paper"
       />
 
       {/* 3D Modeling Service Section */}

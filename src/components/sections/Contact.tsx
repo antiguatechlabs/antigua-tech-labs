@@ -24,7 +24,7 @@ export function Contact({ content }: { content: ContactContent }) {
       ref={ref}
       sx={{
         py: { xs: 5, md: 8 },
-        bgcolor: 'grey.50',
+        bgcolor: theme => theme.palette.mode === 'dark' ? 'background.default' : 'grey.50',
       }}
       animation="fadeIn"
       animationDelay={0.3}

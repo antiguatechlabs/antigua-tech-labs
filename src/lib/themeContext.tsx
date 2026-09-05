@@ -1,26 +1,64 @@
 'use client';
 import { ThemeProvider as MuiThemeProvider } from '@mui/material/styles';
-import { createContext, useContext, ReactNode } from 'react';
+import { createContext, useCallback, useContext, useEffect, useMemo, useState, ReactNode } from 'react';
 
-import { createAppTheme } from '@/theme';
+import { createAppTheme, ThemeMode } from '@/theme';
 
-type ThemeMode = 'light';
+const THEME_STORAGE_KEY = 'atl-theme-mode';
 
 interface ThemeContextType {
   themeMode: ThemeMode;
+  toggleTheme: () => void;
+  setThemeMode: (mode: ThemeMode) => void;
 }
 
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
 export function ThemeProvider({ children }: { children: ReactNode }) {
-  // Fixed light theme
-  const themeMode: ThemeMode = 'light';
+  const [themeMode, setThemeModeState] = useState<ThemeMode>('light');
 
-  // Create MUI theme based on light mode
-  const muiTheme = createAppTheme(themeMode);
+  useEffect(() => {
+    const storedTheme = window.localStorage.getItem(THEME_STORAGE_KEY);
+
+    if (storedTheme === 'light' || storedTheme === 'dark') {
+      setThemeModeState(storedTheme);
+      return;
+    }
+
+    const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+    setThemeModeState(mediaQuery.matches ? 'dark' : 'light');
+
+    const handleSystemThemeChange = (event: MediaQueryListEvent) => {
+      if (!window.localStorage.getItem(THEME_STORAGE_KEY)) {
+        setThemeModeState(event.matches ? 'dark' : 'light');
+      }
+    };
+
+    mediaQuery.addEventListener('change', handleSystemThemeChange);
+
+    return () => {
+      mediaQuery.removeEventListener('change', handleSystemThemeChange);
+    };
+  }, []);
+
+  const setThemeMode = useCallback((mode: ThemeMode) => {
+    setThemeModeState(mode);
+    window.localStorage.setItem(THEME_STORAGE_KEY, mode);
+  }, []);
+
+  const toggleTheme = useCallback(() => {
+    setThemeMode(themeMode === 'dark' ? 'light' : 'dark');
+  }, [setThemeMode, themeMode]);
+
+  const muiTheme = useMemo(() => createAppTheme(themeMode), [themeMode]);
+
+  const contextValue = useMemo(
+    () => ({ themeMode, toggleTheme, setThemeMode }),
+    [setThemeMode, themeMode, toggleTheme],
+  );
 
   return (
-    <ThemeContext.Provider value={{ themeMode }}>
+    <ThemeContext.Provider value={contextValue}>
       <MuiThemeProvider theme={muiTheme}>{children}</MuiThemeProvider>
     </ThemeContext.Provider>
   );

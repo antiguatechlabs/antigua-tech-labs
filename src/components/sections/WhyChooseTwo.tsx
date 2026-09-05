@@ -13,7 +13,10 @@ export const WhyChooseTwo = ({ content }: { content: WhyChooseTwoContent }) => (
     sx={{
       position: 'relative',
       overflow: 'hidden',
-      backgroundColor: 'text.primary',
+      backgroundColor: theme => theme.palette.mode === 'dark' ? 'background.default' : 'grey.50',
+      borderTop: '1px solid',
+      borderBottom: '1px solid',
+      borderColor: 'divider',
     }}
   >
     {/* Content */}
@@ -54,7 +57,7 @@ export const WhyChooseTwo = ({ content }: { content: WhyChooseTwoContent }) => (
               sx={{
                 fontSize: { xs: '2rem', md: '2.5rem' },
                 mb: 3,
-                color: 'primary.contrastText',
+                color: 'text.primary',
                 lineHeight: 1.2,
               }}
             >
@@ -66,7 +69,7 @@ export const WhyChooseTwo = ({ content }: { content: WhyChooseTwoContent }) => (
               sx={{
                 fontSize: '1.125rem',
                 mb: 4,
-                color: 'primary.contrastText',
+                color: 'text.secondary',
               }}
             >
               {content.description}
@@ -97,7 +100,9 @@ export const WhyChooseTwo = ({ content }: { content: WhyChooseTwoContent }) => (
                 sx={{
                   fontSize: { xs: '4rem', md: '6rem' },
                   fontWeight: 'bold',
-                  color: 'rgba(255, 255, 255, 0.15)',
+                  color: theme => theme.palette.mode === 'dark'
+                    ? 'rgba(255, 255, 255, 0.12)'
+                    : 'rgba(43, 45, 66, 0.08)',
                   lineHeight: 1,
                   position: 'relative',
                   zIndex: -1,

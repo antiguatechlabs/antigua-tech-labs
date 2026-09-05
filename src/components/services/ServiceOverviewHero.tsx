@@ -28,8 +28,6 @@ export function ServiceOverviewHero({ content }: ServiceOverviewHeroProps) {
     }
   };
 
-  console.log(content);
-
   return (
     <Section
       noAnimation

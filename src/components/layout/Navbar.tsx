@@ -9,6 +9,7 @@ import { useParams, usePathname } from 'next/navigation';
 import React, { useEffect, useState } from 'react';
 
 import AGLogo from '@/assets/aglogo.png';
+import { ThemeToggle } from '@/components/ui';
 import { useLanguage } from '@/context/languageContext';
 import { NavbarContent } from '@/lib/data';
 
@@ -104,15 +105,22 @@ export function Navbar({ content }: { content: NavbarContent }) {
             mx: { xs: 1.5, md: 3 },
             width: { xs: 'calc(100% - 24px)', md: 'calc(100% - 48px)' },
             overflow: 'hidden',
-            bgcolor: isScrolled ? 'rgba(241, 244, 255, 0.3)' : 'rgba(241, 244, 255, 0.18)',
-            backgroundImage: isScrolled
-              ? 'radial-gradient(120% 170% at var(--glass-highlight-x) var(--glass-highlight-y), rgba(255, 255, 255, 0.42), rgba(255, 255, 255, 0.13) 30%, transparent 60%), linear-gradient(130deg, rgba(255, 255, 255, 0.18), rgba(219, 225, 255, 0.08) 55%, rgba(176, 187, 255, 0.16))'
-              : 'radial-gradient(120% 170% at var(--glass-highlight-x) var(--glass-highlight-y), rgba(255, 255, 255, 0.34), rgba(255, 255, 255, 0.1) 30%, transparent 60%), linear-gradient(130deg, rgba(255, 255, 255, 0.14), rgba(219, 225, 255, 0.05) 55%, rgba(176, 187, 255, 0.11))',
-            border: '1px solid rgba(255, 255, 255, 0.44)',
+            bgcolor: theme => theme.palette.mode === 'dark'
+              ? isScrolled ? 'rgba(18, 23, 34, 0.78)' : 'rgba(18, 23, 34, 0.62)'
+              : isScrolled ? 'rgba(241, 244, 255, 0.3)' : 'rgba(241, 244, 255, 0.18)',
+            backgroundImage: theme => theme.palette.mode === 'dark'
+              ? 'radial-gradient(120% 170% at var(--glass-highlight-x) var(--glass-highlight-y), rgba(196, 146, 247, 0.22), rgba(18, 23, 34, 0.18) 35%, transparent 65%), linear-gradient(130deg, rgba(36, 19, 102, 0.42), rgba(18, 23, 34, 0.26) 55%, rgba(85, 145, 245, 0.18))'
+              : isScrolled
+                ? 'radial-gradient(120% 170% at var(--glass-highlight-x) var(--glass-highlight-y), rgba(255, 255, 255, 0.42), rgba(255, 255, 255, 0.13) 30%, transparent 60%), linear-gradient(130deg, rgba(255, 255, 255, 0.18), rgba(219, 225, 255, 0.08) 55%, rgba(176, 187, 255, 0.16))'
+                : 'radial-gradient(120% 170% at var(--glass-highlight-x) var(--glass-highlight-y), rgba(255, 255, 255, 0.34), rgba(255, 255, 255, 0.1) 30%, transparent 60%), linear-gradient(130deg, rgba(255, 255, 255, 0.14), rgba(219, 225, 255, 0.05) 55%, rgba(176, 187, 255, 0.11))',
+            border: '1px solid',
+            borderColor: theme => theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, 0.16)' : 'rgba(255, 255, 255, 0.44)',
             borderRadius: { xs: '1.125rem', md: '1.5rem' },
-            boxShadow: isScrolled
-              ? '0 14px 34px rgba(43, 45, 66, 0.18), inset 0 1px 0 rgba(255, 255, 255, 0.5), inset 0 -1px 0 rgba(61, 64, 105, 0.1)'
-              : '0 8px 24px rgba(43, 45, 66, 0.13), inset 0 1px 0 rgba(255, 255, 255, 0.42), inset 0 -1px 0 rgba(61, 64, 105, 0.08)',
+            boxShadow: theme => theme.palette.mode === 'dark'
+              ? isScrolled ? '0 14px 34px rgba(0, 0, 0, 0.38), inset 0 1px 0 rgba(255, 255, 255, 0.12)' : '0 8px 24px rgba(0, 0, 0, 0.28), inset 0 1px 0 rgba(255, 255, 255, 0.1)'
+              : isScrolled
+                ? '0 14px 34px rgba(43, 45, 66, 0.18), inset 0 1px 0 rgba(255, 255, 255, 0.5), inset 0 -1px 0 rgba(61, 64, 105, 0.1)'
+                : '0 8px 24px rgba(43, 45, 66, 0.13), inset 0 1px 0 rgba(255, 255, 255, 0.42), inset 0 -1px 0 rgba(61, 64, 105, 0.08)',
             backdropFilter: isScrolled ? 'blur(7px) saturate(165%) brightness(1.04)' : 'blur(5px) saturate(150%) brightness(1.03)',
             WebkitBackdropFilter: isScrolled ? 'blur(7px) saturate(165%) brightness(1.04)' : 'blur(5px) saturate(150%) brightness(1.03)',
             transition: 'background-color 220ms ease, box-shadow 220ms ease, backdrop-filter 220ms ease',
@@ -176,6 +184,7 @@ export function Navbar({ content }: { content: NavbarContent }) {
               </Box>
 
               <Box sx={{ display: { xs: 'none', md: 'flex' }, alignItems: 'center' }}>
+                <ThemeToggle size="small" />
                 <IconButton
                   onClick={handleLanguageToggle}
                   aria-label="Toggle language"

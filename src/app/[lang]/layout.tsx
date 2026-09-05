@@ -8,7 +8,7 @@ import { Navbar, Footer } from '@/components';
 import { StructuredData } from '@/components/seo';
 import DefaultSEOClient from '@/components/seo/DefaultSEOClient';
 import { ScrollToTop } from '@/components/ui';
-import { LanguageProvider, ThemeProvider } from '@/context';
+import { LanguageProvider, SidebarProvider, ThemeProvider } from '@/context';
 import { getNavbarContent, getFooterContent } from '@/lib/data';
 import { supportedLanguages } from '@/lib/i18n/config';
 import type { Language } from '@/lib/i18n/config';
@@ -81,11 +81,13 @@ export default async function LocaleLayout({
         <StructuredData data={[organizationData, websiteData]} idPrefix="site-structured-data" />
         <LanguageProvider initialLanguage={lang as Language}>
           <ThemeProvider>
-            <CssBaseline />
-            <Navbar content={navbarContent} />
-            {children}
-            <Footer content={footerContent} />
-            <ScrollToTop />
+            <SidebarProvider>
+              <CssBaseline enableColorScheme />
+              <Navbar content={navbarContent} />
+              {children}
+              <Footer content={footerContent} />
+              <ScrollToTop />
+            </SidebarProvider>
           </ThemeProvider>
         </LanguageProvider>
       </body>

@@ -41,17 +41,21 @@ const CodeWindow: React.FC<CodeWindowProps> = ({
 }) => (
   <Box
     sx={{
-      border: '1px solid #e6e6e6',
+      border: '1px solid',
+      borderColor: 'divider',
       borderRadius: '8px',
       overflow: 'hidden',
       fontFamily: '"Noto Sans", sans-serif',
       mb: 4,
+      bgcolor: 'background.paper',
     }}
   >
     {/* Header with Mac buttons */}
     <Box
       sx={{
-        borderBottom: '1px solid #e6e6e6',
+        borderBottom: '1px solid',
+        borderColor: 'divider',
+        bgcolor: theme => theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, 0.04)' : 'rgba(43, 45, 66, 0.04)',
         height: '2rem',
         px: 2,
         display: 'flex',
@@ -68,7 +72,7 @@ const CodeWindow: React.FC<CodeWindowProps> = ({
     </Box>
 
     <Box sx={{ width: '100%', display: 'flex', flexDirection: 'column' }}>
-      <Box sx={{ borderBottom: '1px solid #e6e6e6' }}>
+      <Box sx={{ borderBottom: '1px solid', borderColor: 'divider' }}>
         <CodeBlock
           language={language}
           code={code}

@@ -19,7 +19,6 @@ interface ServiceSectionProps {
 export function ServiceSection({
   id,
   content,
-  index = 0,
   heroImage,
   gradientColors,
   backgroundColor,
@@ -33,7 +32,7 @@ export function ServiceSection({
       waves={waves}
       sx={{
         scrollMarginTop: '80px',
-        backgroundColor: backgroundColor || (index % 2 === 0 ? 'background.default' : 'background.paper'),
+        backgroundColor: backgroundColor || (waves ? 'background.paper' : 'background.default'),
         py: 4,
         pt: 4,
         pb: 4,
