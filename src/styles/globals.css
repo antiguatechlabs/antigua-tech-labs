@@ -10,5 +10,5 @@ html {
 
 /* Improve scroll behavior for anchor links */
 :target {
-  scroll-margin-top: 100px; /* Account for sticky navbar height + extra padding */
+  scroll-margin-top: 150px;
 }

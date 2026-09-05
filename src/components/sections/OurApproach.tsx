@@ -14,6 +14,7 @@ import { Section } from '@/components/common';
 import { AboutApproachContent } from '@/lib/data';
 import { MotionBox } from '@/lib/motionComponents';
 import { textWithGradient } from '@/lib/textFormatters';
+import { DecorativePattern } from '../common/DecorativePattern';
 
 const iconMap = {
   SearchIcon: SearchIcon,
@@ -59,6 +60,7 @@ export function OurApproach({ content, lang: _lang }: OurApproachProps) {
             {content.subtitle}
           </Typography>
         </MotionBox>
+
 
         {/* Process Steps: Vertical Timeline */}
         <Box sx={{ position: 'relative', pl: 4, '&::before': { content: '""', position: 'absolute', left: 20, top: 0, bottom: 0, width: 2, bgcolor: 'divider' } }}>

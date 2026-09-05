@@ -38,7 +38,6 @@ export function ServiceSection({
         pb: 4,
       }}
     >
-      {/* Service Hero */}
       <ServiceTwoColumnSection
         content={content.hero}
         heroImage={heroImage}

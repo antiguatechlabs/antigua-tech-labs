@@ -103,7 +103,8 @@ export default function ScrollToTop({
             sx={{
               bgcolor: 'background.default',
               color: 'var(--button-text)',
-              backdropFilter: 'blur(4px)',
+              backdropFilter: 'blur(6px) saturate(150%) brightness(1.03)',
+              WebkitBackdropFilter: 'blur(6px) saturate(150%) brightness(1.03)',
             }}
           >
             <KeyboardArrowUpIcon />

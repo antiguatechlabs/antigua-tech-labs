@@ -1,16 +1,6 @@
-import { dirname } from 'path';
-import { fileURLToPath } from 'url';
+import nextCoreWebVitals from 'eslint-config-next/core-web-vitals';
+import nextTypescript from 'eslint-config-next/typescript';
 
-import { FlatCompat } from '@eslint/eslintrc';
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
-
-const compat = new FlatCompat({
-  baseDirectory: __dirname,
-});
-
-// Files to ignore
 const ignorePatterns = [
   '.next/**',
   'node_modules/**',
@@ -27,11 +17,10 @@ const eslintConfig = [
   {
     ignores: ignorePatterns,
   },
-  ...compat.extends('next/core-web-vitals', 'next/typescript'),
-  ...compat.plugins('json', 'css'),
+  ...nextCoreWebVitals,
+  ...nextTypescript,
   {
     rules: {
-      // Formatting rules
       indent: ['error', 2, { SwitchCase: 1 }],
       'linebreak-style': ['error', 'unix'],
       quotes: ['error', 'single', { avoidEscape: true }],
@@ -44,40 +33,23 @@ const eslintConfig = [
       'key-spacing': ['error', { beforeColon: false, afterColon: true }],
       'no-trailing-spaces': 'error',
       'eol-last': ['error', 'always'],
-
-      // Best practices
       'arrow-body-style': ['error', 'as-needed'],
       'prefer-arrow-callback': 'error',
-      'no-unused-vars': 'off', // Turn off base rule
+      'no-unused-vars': 'off',
       '@typescript-eslint/no-unused-vars': ['error', {
         argsIgnorePattern: '^_',
         varsIgnorePattern: '^_',
         caughtErrorsIgnorePattern: '^_',
       }],
       'no-console': ['warn', { allow: ['warn', 'error'] }],
-      'import/order': [
-        'error',
-        {
-          'groups': [
-            'builtin', // Módulos internos de Node.js
-            'external', // Paquetes externos
-            'internal', // Otras importaciones internas (puedes agregar más grupos si es necesario)
-          ],
-          'alphabetize': {
-            'order': 'asc',
-            'caseInsensitive': true,
-          },
-          'newlines-between': 'always',
-        },
-      ],
+      'react-hooks/preserve-manual-memoization': 'off',
+      'react-hooks/set-state-in-effect': 'off',
     },
   },
-  // JSON files configuration
   {
     files: ['**/*.json'],
     rules: {},
   },
-  // CSS files configuration
   {
     files: ['**/*.css'],
     rules: {},

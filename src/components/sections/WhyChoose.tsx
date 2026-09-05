@@ -120,6 +120,7 @@ export const WhyChoose = ({ content }: { content: WhyChooseContent }) => (
                 src={imageMap[content.imageSrc]}
                 alt="Why Choose Us"
                 fill
+                sizes="(max-width: 900px) 100vw, 50vw"
                 style={{ objectFit: 'cover' }}
               />
             </Box>

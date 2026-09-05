@@ -4,9 +4,9 @@ import { Box, Typography, Button } from '@mui/material';
 import React from 'react';
 
 import { Section } from '@/components/common';
+import { DecorativePattern } from '@/components/common/DecorativePattern';
 import { AboutHeroContent } from '@/lib/data';
 import { textWithGradient } from '@/lib/textFormatters';
-import { colors } from '@/theme';
 
 interface AboutHeroProps {
   content: AboutHeroContent;
@@ -17,7 +17,7 @@ export function AboutHero({ content, lang: _lang }: AboutHeroProps) {
   const handleScrollToNext = () => {
     const nextSection = document.getElementById(content.ctaLink.replace('#', ''));
     if (nextSection) {
-      const navbarHeight = 64;
+      const navbarHeight = window.innerWidth >= 900 ? 144 : 88;
       const elementPosition = nextSection.getBoundingClientRect().top + window.pageYOffset;
       const offsetPosition = elementPosition - navbarHeight;
 
@@ -33,15 +33,17 @@ export function AboutHero({ content, lang: _lang }: AboutHeroProps) {
       id="about-hero"
       noAnimation={true}
       sx={{
-        paddingTop: { xs: 8, md: 10, lg: 12 },
+        paddingTop: { xs: 'calc(70px + 2rem)', md: 'calc(116px + 3.5rem)' },
         paddingBottom: { xs: 8, md: 10, lg: 12 },
         paddingX: { xs: 2, md: 10, lg: 15 },
-        backgroundColor: colors.gradientMain,
         minHeight: { xs: '60vh', md: '70vh' },
         display: 'flex',
         alignItems: 'center',
+        overflow: 'hidden',
+        position: 'relative',
       }}
     >
+      <DecorativePattern color="#f0e7ff" variant="grid" />
       <Box
         sx={{
           display: 'flex',
@@ -51,6 +53,8 @@ export function AboutHero({ content, lang: _lang }: AboutHeroProps) {
           width: '100%',
           maxWidth: '56rem',
           margin: '0 auto',
+          position: 'relative',
+          zIndex: 1,
         }}
       >
         <Box
