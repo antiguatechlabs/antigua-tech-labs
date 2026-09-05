@@ -9,7 +9,9 @@ import { useParams, usePathname } from 'next/navigation';
 import { useEffect, useRef, useState } from 'react';
 
 import AGLogo from '@/assets/aglogo.png';
+import AGLogoDark from '@/assets/aglogo-dark.png';
 import { ThemeToggle } from '@/components/ui';
+import { useTheme } from '@/context';
 import { useLanguage } from '@/context/languageContext';
 import { NavbarContent } from '@/lib/data';
 
@@ -24,6 +26,7 @@ export function Navbar({ content }: { content: NavbarContent }) {
   const params = useParams();
   const pathname = usePathname();
   const { language, setLanguage } = useLanguage();
+  const { themeMode } = useTheme();
   const currentLang = params.lang as string || 'en';
   const normalizedPathname = pathname.replace(/\/$/, '') || '/';
   const isHomeRoute = normalizedPathname === `/${currentLang}`;
@@ -255,7 +258,7 @@ export function Navbar({ content }: { content: NavbarContent }) {
             <Toolbar disableGutters sx={{ minHeight: { xs: '56px', md: '68px' }, display: 'flex', justifyContent: 'space-between' }}>
               <MuiLink component={Link} href={`/${currentLang}`} underline="none" sx={{ display: 'flex', alignItems: 'center', color: 'text.primary', minWidth: 0 }}>
                 <Box sx={{ display: 'flex', alignItems: 'center', mr: { xs: 0.5, md: 1 } }}>
-                  <Image src={AGLogo} alt={content.companyName} width={51} height={36} priority />
+                  <Image src={themeMode === 'dark' ? AGLogoDark : AGLogo} alt={content.companyName} width={51} height={36} priority />
                 </Box>
                 <Typography variant="h6" sx={{ fontSize: { xs: '0.9rem', md: '1.15rem' }, fontWeight: 700, letterSpacing: '-0.04em', whiteSpace: 'nowrap' }}>
                   {content.companyName}
