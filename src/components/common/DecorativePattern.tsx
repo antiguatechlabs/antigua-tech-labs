@@ -1,9 +1,9 @@
-import { Box } from '@mui/material';
+import { Box, type Theme } from '@mui/material';
 
 type DecorativePatternVariant = 'grid' | 'dots' | 'contours' | 'horizontal-lines';
 
 interface DecorativePatternProps {
-  color: string;
+  color: string | ((theme: Theme) => string);
   variant: DecorativePatternVariant;
 }
 
@@ -29,13 +29,13 @@ export function DecorativePattern({ color, variant }: DecorativePatternProps) {
   return (
     <Box
       aria-hidden
-      sx={{
-        ...patternStyles[variant](color),
+      sx={theme => ({
+        ...patternStyles[variant](typeof color === 'function' ? color(theme) : color),
         inset: 0,
         pointerEvents: 'none',
         position: 'absolute',
         zIndex: 0,
-      }}
+      })}
     />
   );
 }

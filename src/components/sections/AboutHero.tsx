@@ -43,7 +43,10 @@ export function AboutHero({ content, lang: _lang }: AboutHeroProps) {
         position: 'relative',
       }}
     >
-      <DecorativePattern color="#f0e7ff" variant="grid" />
+      <DecorativePattern
+        color={theme => theme.palette.mode === 'dark' ? theme.palette.divider : '#f0e7ff'}
+        variant="grid"
+      />
       <Box
         sx={{
           display: 'flex',
