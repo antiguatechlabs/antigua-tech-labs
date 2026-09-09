@@ -1,0 +1,48 @@
+{
+  "hero": {
+    "eyebrow": "Plataforma para desarrolladores",
+    "title": "Construye con Antigua Tech Labs",
+    "description": "Usa nuestro contrato de API público, errores estructurados y modo seguro de validación para integrar consultas de proyectos en flujos automatizados.",
+    "openApiLabel": "Abrir especificación OpenAPI",
+    "quickstartLabel": "Ver guía rápida"
+  },
+  "overview": {
+    "title": "Una API pequeña y explícita",
+    "description": "La API pública se enfoca actualmente en consultas de contacto. Cada comportamiento implementado está documentado en OpenAPI y devuelve respuestas legibles por máquinas."
+  },
+  "authentication": {
+    "title": "Autenticación",
+    "status": "No requiere API key",
+    "description": "El endpoint público de contacto no requiere credenciales actualmente. No envíes tokens Bearer ni API keys. Si agregamos APIs autenticadas, actualizaremos primero este portal y el contrato OpenAPI."
+  },
+  "endpoint": {
+    "title": "API de contacto",
+    "description": "Envía una consulta de proyecto a nuestro equipo o valida el mismo payload de forma segura con el modo dry-run.",
+    "fieldsTitle": "Campos de la solicitud",
+    "fields": [
+      { "name": "name", "type": "string", "description": "Nombre de la persona que envía la consulta." },
+      { "name": "email", "type": "email", "description": "Dirección válida para responder." },
+      { "name": "message", "type": "string", "description": "Consulta sobre un proyecto o servicio." }
+    ]
+  },
+  "quickstart": {
+    "title": "Guía rápida",
+    "description": "Comienza con el modo seguro de validación. Usa el esquema y contrato de errores de producción sin enviar correo."
+  },
+  "sandbox": {
+    "title": "Sandbox seguro",
+    "status": "No envía correo",
+    "description": "Agrega dryRun=true para validar una solicitud. Una respuesta exitosa incluye sandbox: true y confirma que no se entregó ningún mensaje.",
+    "warning": "Elimina dryRun únicamente cuando quieras enviar una consulta real a Antigua Tech Labs."
+  },
+  "errors": {
+    "title": "Errores estructurados",
+    "description": "Los errores siempre incluyen un código estable, un mensaje legible, una sugerencia de solución y detalles opcionales por campo."
+  },
+  "cli": {
+    "title": "Paquete CLI oficial",
+    "status": "Preparado para publicar en npm",
+    "description": "La CLI atl permite consultar la documentación, obtener el contrato OpenAPI y enviar o validar solicitudes de contacto. El código fuente ya está disponible; la instalación desde npm se documentará después de publicarlo.",
+    "sourceLabel": "Ver código de la CLI"
+  }
+}

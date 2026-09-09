@@ -1,0 +1,28 @@
+{
+  "name": "@antiguatechlabs/cli",
+  "version": "0.1.0",
+  "description": "Official command-line interface for the Antigua Tech Labs public API.",
+  "type": "module",
+  "bin": {
+    "atl": "bin/atl.mjs"
+  },
+  "files": [
+    "bin",
+    "README.md"
+  ],
+  "engines": {
+    "node": ">=18.17"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/antiguatechlabs/antigua-tech-labs.git",
+    "directory": "cli"
+  },
+  "homepage": "https://antiguatechlabs.com/developers",
+  "bugs": {
+    "url": "https://github.com/antiguatechlabs/antigua-tech-labs/issues"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

@@ -332,6 +332,38 @@ export const Footer = ({ content }: { content: FooterContent }) => {
                 </MotionStack>
               </Stack>
             </MotionBox>
+
+            {/* Developer resources */}
+            <MotionBox {...fadeVariant}>
+              <Stack spacing={3} alignItems="flex-start">
+                <MotionBox
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 0.4 }}
+                >
+                  <Typography variant="h6" component="h3" sx={{ mb: 1 }}>
+                    {content.sections.developers.title}
+                  </Typography>
+                </MotionBox>
+                <MotionStack spacing={1.5} alignItems="flex-start" {...staggerContainerVariant}>
+                  {content.sections.developers.links.map(item => (
+                    <MotionBox key={item.href} {...slideUpVariant}>
+                      <MuiLink
+                        href={item.href}
+                        sx={{
+                          color: 'white',
+                          textDecoration: 'none',
+                          transition: 'color 0.3s ease',
+                          '&:hover': { color: colors.violet },
+                        }}
+                      >
+                        {item.title}
+                      </MuiLink>
+                    </MotionBox>
+                  ))}
+                </MotionStack>
+              </Stack>
+            </MotionBox>
           </Box>
         </MotionBox>
 

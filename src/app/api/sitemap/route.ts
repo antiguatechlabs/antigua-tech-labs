@@ -1,5 +1,7 @@
 import { NextResponse } from 'next/server';
 
+import { methodNotAllowed, optionsResponse } from '@/lib/api/errors';
+
 export async function GET() {
   const baseUrl = 'https://antiguatechlabs.com';
 
@@ -8,6 +10,7 @@ export async function GET() {
     '/about',
     '/services',
     '/portfolio',
+    '/developers',
   ];
 
   const languages = ['en', 'es'];
@@ -43,4 +46,26 @@ export async function GET() {
       'Content-Type': 'application/xml',
     },
   });
+}
+
+const allowedMethods = ['GET'];
+
+export function POST() {
+  return methodNotAllowed(allowedMethods);
+}
+
+export function PUT() {
+  return methodNotAllowed(allowedMethods);
+}
+
+export function PATCH() {
+  return methodNotAllowed(allowedMethods);
+}
+
+export function DELETE() {
+  return methodNotAllowed(allowedMethods);
+}
+
+export function OPTIONS() {
+  return optionsResponse(allowedMethods);
 }
