@@ -3,6 +3,7 @@ import { join } from 'node:path';
 
 import { Metadata } from 'next';
 
+import atlIcon from '@/assets/atl-ico-dark.png';
 import { SITE_CONFIG, LANGUAGE_CONFIGS } from './config';
 import { SEOConfig, PageSEOContent, LanguageAlternates } from './types';
 
@@ -180,7 +181,7 @@ export function generateOrganizationStructuredData(lang: string = 'en') {
     '@type': 'Organization',
     name: 'Antigua Tech Labs',
     url: SITE_CONFIG.url,
-    logo: `${SITE_CONFIG.url}/favicon.ico`,
+    logo: new URL(atlIcon.src, SITE_CONFIG.url).toString(),
     description:
       LANGUAGE_CONFIGS[lang as keyof typeof LANGUAGE_CONFIGS]?.description ||
       LANGUAGE_CONFIGS.en.description,

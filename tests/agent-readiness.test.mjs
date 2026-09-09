@@ -127,7 +127,13 @@ describe('agent-readable HTTP responses', () => {
       assert.equal(schema.name, 'Antigua Tech Labs');
       assert.ok(schema.description);
       assert.ok(schema.url);
+      if (type === 'Organization') assert.match(schema.logo, /\.png$/i);
     }
+
+    const iconLink = [...response.body.matchAll(/<link\b[^>]*>/gi)]
+      .map(match => match[0])
+      .find(tag => /\brel=["']icon["']/i.test(tag) && /\.png(?:[?"'])/i.test(tag));
+    assert.ok(iconLink, 'Homepage should use the PNG site icon');
   });
 
   test('Markdown negotiation supports every localized sitemap page', async () => {
