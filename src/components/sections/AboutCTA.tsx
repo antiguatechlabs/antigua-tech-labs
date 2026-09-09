@@ -5,9 +5,9 @@ import Link from 'next/link';
 import React from 'react';
 
 import { Section } from '@/components/common';
-import { slideLeftVariant, cardHoverVariant } from '@/lib/animationVariants';
+import { slideLeftVariant } from '@/lib/animationVariants';
 import { AboutCTAContent, ContactContent } from '@/lib/data';
-import { MotionPaper, MotionDiv } from '@/lib/motionComponents';
+import { MotionBox, MotionDiv } from '@/lib/motionComponents';
 import { textWithGradient } from '@/lib/textFormatters';
 
 import { ContactForm } from './ContactForm';
@@ -82,26 +82,27 @@ const ContactCard = ({
 }: {
   contactContent: ContactContent;
 }) => (
-  <MotionPaper
-    elevation={3}
+  <MotionBox
     sx={{
       position: 'relative',
-      p: { xs: 2, md: 3 },
-      borderRadius: 3,
-      bgcolor: 'background.paper',
+      p: { xs: 1, md: 1.5 },
+      borderRadius: '1.25rem',
+      bgcolor: 'transparent',
+      boxShadow: 'none',
       mx: 'auto',
       maxWidth: 500,
       transform: { xs: 'rotate(0deg)', md: 'rotate(-2deg)' },
       transition: 'transform 0.3s',
       '&:hover': { transform: 'rotate(0deg)' },
     }}
-    {...cardHoverVariant}
-    initial="initial"
-    whileInView="hover"
+    initial={{ opacity: 0, y: 10 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    whileHover={{ y: -5 }}
+    whileTap={{ scale: 0.99 }}
     viewport={{ once: true }}
   >
     <ContactForm content={contactContent} />
-  </MotionPaper>
+  </MotionBox>
 );
 
 export function AboutCTA({ content, contactContent, lang: _lang }: AboutCTAProps) {

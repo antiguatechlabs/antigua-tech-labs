@@ -170,7 +170,7 @@ const ChromaGrid: React.FC<ChromaGridProps> = ({
             />
           </Box>
           <Box sx={{ p: 2, color: '#fff' }}>
-            <Typography variant="h6">{c.title}</Typography>
+            <Typography variant="h6" component="h3">{c.title}</Typography>
             {c.handle && (
               <Typography variant="body2" color="#aaa">
                 {c.handle}
@@ -219,5 +219,4 @@ const ChromaGrid: React.FC<ChromaGridProps> = ({
 };
 
 export default ChromaGrid;
-
 

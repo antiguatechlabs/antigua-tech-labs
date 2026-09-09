@@ -2,6 +2,7 @@
 import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
 
+import { appendVaryAccept, preferredRepresentation } from '@/lib/accept';
 import { supportedLanguages, defaultLanguage } from '@/lib/i18n/config';
 
 // Cookie configuration
@@ -31,6 +32,34 @@ function getLanguageCookieFromRequest(request: NextRequest): 'en' | 'es' | null 
 export function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
+  const isDocumentRequest = request.method === 'GET' || request.method === 'HEAD';
+  const isNextRouterRequest = ['RSC', 'Next-Router-Prefetch', 'Next-Router-State-Tree'].some(
+    header => request.headers.has(header),
+  );
+
+  if (!isDocumentRequest || isNextRouterRequest) return NextResponse.next();
+
+  const representation = preferredRepresentation(request.headers.get('accept'));
+
+  if (representation === 'text/markdown') {
+    const markdownPath = pathname === '/' ? `/${defaultLanguage}` : pathname;
+    const url = request.nextUrl.clone();
+    url.pathname = `/api/markdown${markdownPath}`;
+    const response = NextResponse.rewrite(url);
+    appendVaryAccept(response.headers);
+    return response;
+  }
+
+  if (representation === null && request.headers.has('accept')) {
+    return new Response('Not Acceptable\n\nAvailable: text/html, text/markdown\n', {
+      status: 406,
+      headers: {
+        'Content-Type': 'text/plain; charset=utf-8',
+        Vary: 'Accept',
+      },
+    });
+  }
+
   const pathnameHasLanguage = supportedLanguages.some(
     lang => pathname.startsWith(`/${lang}/`) || pathname === `/${lang}`,
   );
@@ -39,12 +68,16 @@ export function proxy(request: NextRequest) {
     // Read language preference from cookie
     const preferredLanguage = getLanguageCookieFromRequest(request) || defaultLanguage;
 
-    return NextResponse.redirect(
+    const response = NextResponse.redirect(
       new URL(`/${preferredLanguage}${pathname === '/' ? '' : pathname}`, request.url),
     );
+    appendVaryAccept(response.headers);
+    return response;
   }
 
-  return NextResponse.next();
+  const response = NextResponse.next();
+  appendVaryAccept(response.headers);
+  return response;
 }
 
 export const config = {
@@ -57,6 +90,6 @@ export const config = {
      * - Archivos de iconos y mapas del sitio
      * - generador de imagenes OG
      */
-    '/((?!api|_next/static|_next/image|favicon.ico|sitemap.xml|robots.txt|og).*)',
+    '/((?!api|_next/static|_next/image|favicon.ico|sitemap.xml|robots.txt|llms.txt|og).*)',
   ],
 };

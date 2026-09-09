@@ -1,5 +1,5 @@
 'use client';
-import { Box, Button, Container } from '@mui/material';
+import { Box, Button, Container, Typography } from '@mui/material';
 import Link from 'next/link';
 
 import { GradientText } from '@/components/ui';
@@ -13,6 +13,16 @@ const content = {
     description:
       'The page you are looking for might have been removed, had its name changed, or is temporarily unavailable.',
     buttonText: 'Go to Homepage',
+    recoveryHeading: 'Where to look next',
+    recoveryLinks: [
+      { label: 'English homepage', href: '/en' },
+      { label: 'Spanish homepage', href: '/es' },
+      { label: 'About Antigua Tech Labs', href: '/en/about' },
+      { label: 'Services', href: '/en/services' },
+      { label: 'Portfolio', href: '/en/portfolio' },
+      { label: 'Sitemap', href: '/sitemap.xml' },
+      { label: 'Agent instructions', href: '/llms.txt' },
+    ],
   },
   es: {
     title: '404',
@@ -20,6 +30,16 @@ const content = {
     description:
       'La página que estás buscando puede haber sido eliminada, su nombre ha cambiado o no está disponible temporalmente.',
     buttonText: 'Ir a la Página Principal',
+    recoveryHeading: 'Dónde buscar después',
+    recoveryLinks: [
+      { label: 'Página principal en inglés', href: '/en' },
+      { label: 'Página principal en español', href: '/es' },
+      { label: 'Sobre Antigua Tech Labs', href: '/es/about' },
+      { label: 'Servicios', href: '/es/services' },
+      { label: 'Portafolio', href: '/es/portfolio' },
+      { label: 'Mapa del sitio', href: '/sitemap.xml' },
+      { label: 'Instrucciones para agentes', href: '/llms.txt' },
+    ],
   },
 } as const;
 
@@ -63,19 +83,23 @@ export default function NotFound() {
               </GradientText>
             </MotionBox>
 
-            <MotionTypography
-              variant="h3"
+            <MotionBox
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              sx={{
-                fontWeight: 700,
-                mb: 3,
-                fontSize: { xs: '1.75rem', md: '2.5rem' },
-              }}
             >
-              {pageContent.heading}
-            </MotionTypography>
+              <Typography
+                variant="h3"
+                component="h2"
+                sx={{
+                  fontWeight: 700,
+                  mb: 3,
+                  fontSize: { xs: '1.75rem', md: '2.5rem' },
+                }}
+              >
+                {pageContent.heading}
+              </Typography>
+            </MotionBox>
 
             <MotionTypography
               variant="body1"
@@ -91,6 +115,25 @@ export default function NotFound() {
             >
               {pageContent.description}
             </MotionTypography>
+
+            <Box component="nav" aria-label={pageContent.recoveryHeading} sx={{ maxWidth: '600px', mb: 4 }}>
+              <MotionTypography
+                variant="body2"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.5, delay: 0.5 }}
+                sx={{ mb: 1, color: 'text.secondary' }}
+              >
+                {pageContent.recoveryHeading}
+              </MotionTypography>
+              <Box component="ul" sx={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: 1.5, p: 0, m: 0, listStyle: 'none' }}>
+                {pageContent.recoveryLinks.map(link => (
+                  <Box component="li" key={link.href}>
+                    <Link href={link.href}>{link.label}</Link>
+                  </Box>
+                ))}
+              </Box>
+            </Box>
 
             <MotionBox
               initial={{ opacity: 0, y: 20 }}

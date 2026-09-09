@@ -14,7 +14,6 @@ import { Section } from '@/components/common';
 import { AboutApproachContent } from '@/lib/data';
 import { MotionBox } from '@/lib/motionComponents';
 import { textWithGradient } from '@/lib/textFormatters';
-import { DecorativePattern } from '../common/DecorativePattern';
 
 const iconMap = {
   SearchIcon: SearchIcon,

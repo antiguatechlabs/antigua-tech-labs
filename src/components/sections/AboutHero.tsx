@@ -1,6 +1,6 @@
 'use client';
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
-import { Box, Typography, Button } from '@mui/material';
+import { Box, Typography, Button, useTheme } from '@mui/material';
 import React from 'react';
 
 import { Section } from '@/components/common';
@@ -14,6 +14,8 @@ interface AboutHeroProps {
 }
 
 export function AboutHero({ content, lang: _lang }: AboutHeroProps) {
+  const theme = useTheme();
+
   const handleScrollToNext = () => {
     const nextSection = document.getElementById(content.ctaLink.replace('#', ''));
     if (nextSection) {
@@ -44,8 +46,9 @@ export function AboutHero({ content, lang: _lang }: AboutHeroProps) {
       }}
     >
       <DecorativePattern
-        color={theme => theme.palette.mode === 'dark' ? theme.palette.divider : '#f0e7ff'}
+        color={theme.palette.mode === 'dark' ? 'rgba(196, 146, 247, 0.16)' : '#f0e7ff'}
         variant="grid"
+        motion="grid-drift"
       />
       <Box
         sx={{
