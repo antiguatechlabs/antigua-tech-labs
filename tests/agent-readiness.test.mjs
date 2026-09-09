@@ -32,9 +32,15 @@ async function getFreePort() {
   return port;
 }
 
-async function request(requestPath, requestHeaders = {}, { followRedirects = false } = {}) {
+async function request(
+  requestPath,
+  requestHeaders = {},
+  { followRedirects = false, method = 'GET', body } = {},
+) {
   const response = await fetch(`${baseUrl}${requestPath}`, {
     headers: requestHeaders,
+    method,
+    body,
     redirect: followRedirects ? 'follow' : 'manual',
   });
 
@@ -51,6 +57,17 @@ function assertVaryAccept(response) {
 
 function assertContentType(response, type) {
   assert.match(response.headers['content-type'] || '', new RegExp(`^${type}(?:;|$)`, 'i'));
+}
+
+function assertStructuredApiError(response, status, code) {
+  assert.equal(response.status, status);
+  assertContentType(response, 'application/json');
+  const error = JSON.parse(response.body);
+  assert.equal(error.success, false);
+  assert.equal(error.code, code);
+  assert.equal(error.error, error.message);
+  assert.ok(error.hint);
+  return error;
 }
 
 async function waitForServer() {
@@ -83,12 +100,11 @@ after(async () => {
 });
 
 describe('agent-readable HTTP responses', () => {
-  test('localized HTML pages remain available and advertise content negotiation', async () => {
-    for (const page of ['/en', '/es', '/en/about', '/es/about', '/en/services', '/es/services', '/en/portfolio', '/es/portfolio']) {
+  test('localized HTML pages remain available', async () => {
+    for (const page of ['/en', '/es', '/en/about', '/es/about', '/en/services', '/es/services', '/en/portfolio', '/es/portfolio', '/en/developers', '/es/developers']) {
       const response = await request(page, { Accept: 'text/html' });
       assert.equal(response.status, 200, page);
       assertContentType(response, 'text/html');
-      assertVaryAccept(response);
     }
   });
 
@@ -142,13 +158,136 @@ describe('agent-readable HTTP responses', () => {
     assertContentType(root, 'text/markdown');
     assertVaryAccept(root);
 
-    for (const page of ['/en', '/es', '/en/about', '/es/about', '/en/services', '/es/services', '/en/portfolio', '/es/portfolio']) {
+    for (const page of ['/en', '/es', '/en/about', '/es/about', '/en/services', '/es/services', '/en/portfolio', '/es/portfolio', '/en/developers', '/es/developers']) {
       const response = await request(page, { Accept: 'text/markdown' });
       assert.equal(response.status, 200, page);
       assertContentType(response, 'text/markdown');
       assertVaryAccept(response);
       assert.match(response.body, /^# /);
       assert.doesNotMatch(response.body, /<html[\s>]/i);
+    }
+  });
+
+  test('OpenAPI publishes the implemented public API contract', async () => {
+    const response = await request('/openapi.json', { Accept: 'text/markdown' });
+    assert.equal(response.status, 200);
+    assertContentType(response, 'application/json');
+
+    const document = JSON.parse(response.body);
+    assert.equal(document.openapi, '3.1.0');
+    assert.ok(document.servers.some(serverEntry => serverEntry.url === 'https://antiguatechlabs.com'));
+
+    const operation = document.paths['/api/contact'].post;
+    assert.equal(operation.operationId, 'submitContactInquiry');
+    assert.deepEqual(operation.security, []);
+    assert.ok(operation.parameters.some(parameter => parameter.name === 'dryRun' && parameter.schema.type === 'boolean'));
+    assert.deepEqual(
+      document.components.schemas.ContactRequest.required,
+      ['name', 'email', 'message'],
+    );
+    assert.ok(document.components.schemas.ApiError.required.includes('hint'));
+    assert.doesNotMatch(response.body, /bearer|api[_ -]?key/i);
+  });
+
+  test('contact API returns structured errors and supports a safe dry-run sandbox', async () => {
+    const unsupported = await request(
+      '/api/contact',
+      { 'Content-Type': 'text/plain' },
+      { method: 'POST', body: '{}' },
+    );
+    assertStructuredApiError(unsupported, 415, 'UNSUPPORTED_MEDIA_TYPE');
+
+    const malformed = await request(
+      '/api/contact',
+      { 'Content-Type': 'application/json' },
+      { method: 'POST', body: '{' },
+    );
+    assertStructuredApiError(malformed, 400, 'INVALID_JSON');
+
+    for (const payload of [null, [], { name: 42, email: 'invalid', message: '' }]) {
+      const invalid = await request(
+        '/api/contact?dryRun=true',
+        { 'Content-Type': 'application/json' },
+        { method: 'POST', body: JSON.stringify(payload) },
+      );
+      const error = assertStructuredApiError(invalid, 400, 'VALIDATION_ERROR');
+      assert.ok(error.details?.length);
+    }
+
+    const invalidQuery = await request(
+      '/api/contact?dryRun=yes',
+      { 'Content-Type': 'application/json' },
+      {
+        method: 'POST',
+        body: JSON.stringify({ name: 'Ada', email: 'ada@example.com', message: 'Hello' }),
+      },
+    );
+    assertStructuredApiError(invalidQuery, 400, 'VALIDATION_ERROR');
+
+    const dryRun = await request(
+      '/api/contact?dryRun=true',
+      { 'Content-Type': 'application/json' },
+      {
+        method: 'POST',
+        body: JSON.stringify({ name: ' Ada ', email: 'ada@example.com', message: ' Project inquiry ' }),
+      },
+    );
+    assert.equal(dryRun.status, 200);
+    assertContentType(dryRun, 'application/json');
+    assert.deepEqual(JSON.parse(dryRun.body), {
+      success: true,
+      message: 'Contact payload is valid. No email was sent.',
+      sandbox: true,
+    });
+
+    const methodError = await request('/api/contact');
+    assertStructuredApiError(methodError, 405, 'METHOD_NOT_ALLOWED');
+    assert.match(methodError.headers.allow || '', /POST/);
+
+    const options = await request('/api/contact', {}, { method: 'OPTIONS' });
+    assert.equal(options.status, 204);
+    assert.match(options.headers.allow || '', /POST/);
+  });
+
+  test('API root, unknown routes, and unsupported known methods return JSON', async () => {
+    for (const page of ['/api', '/api/path-that-does-not-exist']) {
+      const response = await request(page);
+      assertStructuredApiError(response, 404, 'API_NOT_FOUND');
+      assert.match(response.body, /\/openapi\.json/);
+    }
+
+    const sitemapMethod = await request('/api/sitemap', { 'Content-Type': 'application/json' }, { method: 'POST', body: '{}' });
+    assertStructuredApiError(sitemapMethod, 405, 'METHOD_NOT_ALLOWED');
+
+    const markdownMethod = await request('/api/markdown/en', { 'Content-Type': 'application/json' }, { method: 'POST', body: '{}' });
+    assertStructuredApiError(markdownMethod, 405, 'METHOD_NOT_ALLOWED');
+  });
+
+  test('developer portal is localized, discoverable, and available as Markdown', async () => {
+    const root = await request('/developers');
+    assert.ok([307, 308].includes(root.status));
+    assert.match(root.headers.location || '', /\/en\/developers$/);
+
+    for (const language of ['en', 'es']) {
+      const response = await request(`/${language}/developers`);
+      assert.equal(response.status, 200);
+      assert.match(response.body, /\/openapi\.json/);
+      assert.match(response.body, /\/api\/contact\?dryRun=true/);
+      assert.match(response.body, /@antiguatechlabs\/cli/);
+
+      const markdown = await request(`/${language}/developers`, { Accept: 'text/markdown' });
+      assert.equal(markdown.status, 200);
+      assertContentType(markdown, 'text/markdown');
+      assertVaryAccept(markdown);
+      assert.match(markdown.body, /^# /);
+      assert.match(markdown.body, /POST \/api\/contact/);
+    }
+
+    for (const language of ['en', 'es']) {
+      const homepage = await request(`/${language}`);
+      assert.match(homepage.body, /href=["']\/developers["']/);
+      assert.match(homepage.body, /href=["']\/openapi\.json["']/);
+      assert.match(homepage.body, /href=["']\/llms\.txt["']/);
     }
   });
 
@@ -259,6 +398,9 @@ describe('agent-readable HTTP responses', () => {
     assert.match(response.body, /^## Machine-readable resources$/m);
     assert.match(response.body, /Accept: text\/markdown/);
     assert.match(response.body, /https:\/\/antiguatechlabs\.com\/sitemap\.xml/);
+    assert.match(response.body, /https:\/\/antiguatechlabs\.com\/openapi\.json/);
+    assert.match(response.body, /https:\/\/antiguatechlabs\.com\/developers/);
+    assert.match(response.body, /CLI source/);
 
     const negotiated = await request('/llms.txt', { Accept: 'text/markdown' });
     assert.equal(negotiated.status, 200);
@@ -270,7 +412,7 @@ describe('agent-readable HTTP responses', () => {
     const sitemap = await request('/sitemap.xml');
     assert.equal(sitemap.status, 200);
     assertContentType(sitemap, 'application/xml');
-    for (const page of ['/en', '/es', '/en/about', '/es/about', '/en/services', '/es/services', '/en/portfolio', '/es/portfolio']) {
+    for (const page of ['/en', '/es', '/en/about', '/es/about', '/en/services', '/es/services', '/en/portfolio', '/es/portfolio', '/en/developers', '/es/developers']) {
       assert.match(sitemap.body, new RegExp(`https://antiguatechlabs\\.com${page.replaceAll('/', '\\/')}`));
     }
 
@@ -282,5 +424,9 @@ describe('agent-readable HTTP responses', () => {
     assert.equal(robots.status, 200);
     assertContentType(robots, 'text/plain');
     assert.match(robots.body, /Sitemap:\s+https:\/\/antiguatechlabs\.com\/sitemap\.xml/);
+
+    const openGraphImage = await request('/og?title=Agent%20Readiness');
+    assert.equal(openGraphImage.status, 200);
+    assertContentType(openGraphImage, 'image/png');
   });
 });

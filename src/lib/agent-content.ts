@@ -1,9 +1,11 @@
 import {
   getAboutPageContent,
   getAllServicesContent,
+  getDeveloperPortalContent,
   getPortfolioContent,
   getServicesOverviewContent,
 } from './data';
+import { CONTACT_API, DEVELOPER_RESOURCES } from './api/catalog';
 import { defaultLanguage, supportedLanguages, type Language } from './i18n/config';
 import { getHomePageContent } from './pageContent';
 import { SITE_CONFIG } from './seo/config';
@@ -167,6 +169,55 @@ function renderPortfolio(language: Language): string {
   return `${lines.join('\n').trim()}\n`;
 }
 
+function renderDevelopers(language: Language): string {
+  const content = getDeveloperPortalContent(language);
+  const lines = [
+    `# ${clean(content.hero.title)}`,
+    '',
+    `> ${clean(content.hero.description)}`,
+    '',
+    `## ${clean(content.overview.title)}`,
+    clean(content.overview.description),
+    '',
+    `## ${clean(content.authentication.title)}`,
+    `**${clean(content.authentication.status)}.** ${clean(content.authentication.description)}`,
+    '',
+    `## ${clean(content.endpoint.title)}`,
+    `**${CONTACT_API.method} ${CONTACT_API.path}**`,
+    '',
+    clean(content.endpoint.description),
+    '',
+    `### ${clean(content.endpoint.fieldsTitle)}`,
+    ...content.endpoint.fields.map(field => `- **${field.name}** (${field.type}): ${clean(field.description)}`),
+    '',
+    `## ${clean(content.quickstart.title)}`,
+    clean(content.quickstart.description),
+    '',
+    '```bash',
+    `curl -X POST "${SITE_CONFIG.url}${CONTACT_API.path}?${CONTACT_API.sandboxQuery}" \\`,
+    `  -H "Content-Type: ${CONTACT_API.contentType}" \\`,
+    '  -d \'{"name":"Ada Lovelace","email":"ada@example.com","message":"Project inquiry"}\'',
+    '```',
+    '',
+    `## ${clean(content.sandbox.title)}`,
+    `**${clean(content.sandbox.status)}.** ${clean(content.sandbox.description)}`,
+    '',
+    clean(content.sandbox.warning),
+    '',
+    `## ${clean(content.errors.title)}`,
+    clean(content.errors.description),
+    '',
+    markdownLink('OpenAPI specification', `${SITE_CONFIG.url}${DEVELOPER_RESOURCES.openApi}`),
+    '',
+    `## ${clean(content.cli.title)}`,
+    `**${clean(content.cli.status)}.** ${clean(content.cli.description)}`,
+    '',
+    markdownLink(content.cli.sourceLabel, DEVELOPER_RESOURCES.cliSource),
+  ];
+
+  return `${lines.join('\n').trim()}\n`;
+}
+
 export function renderAgentNotFound(): string {
   const links = [
     markdownLink('English homepage', pageUrl('en')),
@@ -174,6 +225,7 @@ export function renderAgentNotFound(): string {
     markdownLink('About Antigua Tech Labs', pageUrl('en', '/about')),
     markdownLink('Services', pageUrl('en', '/services')),
     markdownLink('Portfolio', pageUrl('en', '/portfolio')),
+    markdownLink('Developer portal', pageUrl('en', '/developers')),
     markdownLink('Sitemap', `${SITE_CONFIG.url}/sitemap.xml`),
     markdownLink('Agent instructions', `${SITE_CONFIG.url}/llms.txt`),
   ];
@@ -201,6 +253,8 @@ export function renderAgentDocument(pathSegments: string[]): string | null {
       return renderServices(language);
     case 'portfolio':
       return renderPortfolio(language);
+    case 'developers':
+      return renderDevelopers(language);
     default:
       return null;
   }
@@ -213,6 +267,7 @@ export function renderLlmsTxt(): string {
     markdownLink('About', pageUrl('en', '/about'), 'Company story, values, process, and team context.'),
     markdownLink('Services', pageUrl('en', '/services'), 'Detailed service descriptions, capabilities, and technologies.'),
     markdownLink('Portfolio', pageUrl('en', '/portfolio'), 'Delivered projects and technology tags.'),
+    markdownLink('Developer portal', pageUrl('en', '/developers'), 'API contract, quickstart, sandbox, structured errors, and CLI status.'),
   ];
   const servicePages = SERVICE_LINKS.map(([label, slug, note]) =>
     markdownLink(label, pageUrl('en', `/services#${slug}`), note),
@@ -232,6 +287,9 @@ export function renderLlmsTxt(): string {
     '## Machine-readable resources',
     markdownLink('Sitemap', `${SITE_CONFIG.url}/sitemap.xml`, 'Complete list of indexable pages.'),
     markdownLink('Robots policy', `${SITE_CONFIG.url}/robots.txt`, 'Crawler access rules.'),
+    markdownLink('OpenAPI specification', `${SITE_CONFIG.url}${DEVELOPER_RESOURCES.openApi}`, 'OpenAPI 3.1 contract for the public API.'),
+    markdownLink('Developer portal', `${SITE_CONFIG.url}${DEVELOPER_RESOURCES.portal}`, 'Human-readable API documentation and quickstart.'),
+    markdownLink('CLI source', DEVELOPER_RESOURCES.cliSource, 'Official CLI package source; npm publication is pending.'),
     markdownLink('English homepage in Markdown', pageUrl('en'), 'Request with Accept: text/markdown.'),
     markdownLink('Spanish homepage in Markdown', pageUrl('es'), 'Request with Accept: text/markdown.'),
     markdownLink('English services in Markdown', pageUrl('en', '/services'), 'Request with Accept: text/markdown.'),

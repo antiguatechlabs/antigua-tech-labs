@@ -29,6 +29,14 @@
     "legal": {
       "title": "Legal",
       "links": ["Privacy Policy", "Terms of Service"]
+    },
+    "developers": {
+      "title": "Developers",
+      "links": [
+        { "title": "Developer Portal", "href": "/developers" },
+        { "title": "OpenAPI Specification", "href": "/openapi.json" },
+        { "title": "Agent Instructions", "href": "/llms.txt" }
+      ]
     }
   },
   "copyright": "© {year} Antigua Tech Labs. All rights reserved."

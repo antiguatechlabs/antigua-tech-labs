@@ -6,7 +6,7 @@ import { SITE_CONFIG } from '@/lib/seo/config';
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = SITE_CONFIG.url;
   const languages = ['en', 'es'];
-  const pages = ['', '/about', '/services', '/portfolio'];
+  const pages = ['', '/about', '/services', '/portfolio', '/developers'];
 
   const routes: MetadataRoute.Sitemap = [];
 

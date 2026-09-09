@@ -1,0 +1,48 @@
+{
+  "hero": {
+    "eyebrow": "Developer platform",
+    "title": "Build with Antigua Tech Labs",
+    "description": "Use our public API contract, structured errors, and safe validation mode to integrate project inquiries into automated workflows.",
+    "openApiLabel": "Open OpenAPI spec",
+    "quickstartLabel": "View quickstart"
+  },
+  "overview": {
+    "title": "A small, explicit API surface",
+    "description": "The public API currently focuses on contact inquiries. Every implemented behavior is documented in OpenAPI and designed to return machine-readable responses."
+  },
+  "authentication": {
+    "title": "Authentication",
+    "status": "No API key required",
+    "description": "The public contact endpoint does not currently require credentials. Do not send bearer tokens or API keys. If authenticated APIs are introduced, this portal and the OpenAPI contract will be updated first."
+  },
+  "endpoint": {
+    "title": "Contact API",
+    "description": "Submit a project inquiry for delivery to our team, or validate the same payload safely with dry-run mode.",
+    "fieldsTitle": "Request fields",
+    "fields": [
+      { "name": "name", "type": "string", "description": "Name of the person submitting the inquiry." },
+      { "name": "email", "type": "email", "description": "Valid reply address." },
+      { "name": "message", "type": "string", "description": "Project or service inquiry." }
+    ]
+  },
+  "quickstart": {
+    "title": "Quickstart",
+    "description": "Start with the safe validation mode. It uses the production schema and error contract without sending email."
+  },
+  "sandbox": {
+    "title": "Safe sandbox",
+    "status": "No email sent",
+    "description": "Add dryRun=true to validate a request. A successful response includes sandbox: true and confirms that no message was delivered.",
+    "warning": "Remove dryRun only when you intend to send a real inquiry to Antigua Tech Labs."
+  },
+  "errors": {
+    "title": "Structured errors",
+    "description": "Errors always include a stable code, a readable message, a resolution hint, and optional field-level details."
+  },
+  "cli": {
+    "title": "Official CLI package",
+    "status": "Prepared for npm publication",
+    "description": "The atl CLI can inspect documentation, retrieve the OpenAPI contract, and submit or validate contact requests. The package source is available now; npm installation will be documented after publication.",
+    "sourceLabel": "View CLI source"
+  }
+}

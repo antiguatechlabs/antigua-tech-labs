@@ -2,6 +2,7 @@ export * from './AboutCTA';
 export * from './AboutHero';
 export * from './Contact';
 export * from './ContactForm';
+export * from './DevelopersPage';
 export * from './FAQ';
 export * from './Features';
 export * from './Hero';

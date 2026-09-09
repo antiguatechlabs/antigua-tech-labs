@@ -4,6 +4,7 @@ import enAboutCta from '../content/en/about-cta.json';
 import enAboutHero from '../content/en/about-hero.json';
 import enAboutStory from '../content/en/about-story.json';
 import enContact from '../content/en/contact.json';
+import enDevelopers from '../content/en/developers.json';
 import enFaq from '../content/en/faq.json';
 import enFeatures from '../content/en/features.json';
 import enFooter from '../content/en/footer.json';
@@ -30,6 +31,7 @@ import esAboutCta from '../content/es/about-cta.json';
 import esAboutHero from '../content/es/about-hero.json';
 import esAboutStory from '../content/es/about-story.json';
 import esContact from '../content/es/contact.json';
+import esDevelopers from '../content/es/developers.json';
 import esFaq from '../content/es/faq.json';
 import esFeatures from '../content/es/features.json';
 import esFooter from '../content/es/footer.json';
@@ -132,8 +134,64 @@ export interface FooterContent {
       title: string;
       links: string[];
     };
+    developers: {
+      title: string;
+      links: Array<{
+        title: string;
+        href: string;
+      }>;
+    };
   };
   copyright: string;
+}
+
+export interface DeveloperPortalContent {
+  hero: {
+    eyebrow: string;
+    title: string;
+    description: string;
+    openApiLabel: string;
+    quickstartLabel: string;
+  };
+  overview: {
+    title: string;
+    description: string;
+  };
+  authentication: {
+    title: string;
+    status: string;
+    description: string;
+  };
+  endpoint: {
+    title: string;
+    description: string;
+    fieldsTitle: string;
+    fields: Array<{
+      name: string;
+      type: string;
+      description: string;
+    }>;
+  };
+  quickstart: {
+    title: string;
+    description: string;
+  };
+  sandbox: {
+    title: string;
+    status: string;
+    description: string;
+    warning: string;
+  };
+  errors: {
+    title: string;
+    description: string;
+  };
+  cli: {
+    title: string;
+    status: string;
+    description: string;
+    sourceLabel: string;
+  };
 }
 
 export interface NavbarContent {
@@ -478,6 +536,7 @@ const contentMap = {
     features: enFeatures as FeaturesContent,
     testimonials: enTestimonials as TestimonialsContent,
     contact: enContact as ContactContent,
+    developers: enDevelopers as DeveloperPortalContent,
     footer: enFooter as FooterContent,
     navbar: enNavbar as NavbarContent,
     whyChoose: enWhyChoose as WhyChooseContent,
@@ -506,6 +565,7 @@ const contentMap = {
     features: esFeatures as FeaturesContent,
     testimonials: esTestimonials as TestimonialsContent,
     contact: esContact as ContactContent,
+    developers: esDevelopers as DeveloperPortalContent,
     footer: esFooter as FooterContent,
     navbar: esNavbar as NavbarContent,
     whyChoose: esWhyChoose as WhyChooseContent,
@@ -558,6 +618,10 @@ export function getTestimonialsContent(language: string = 'en'): TestimonialsCon
 
 export function getContactContent(language: string = 'en'): ContactContent {
   return getContent<ContactContent>('contact', language);
+}
+
+export function getDeveloperPortalContent(language: string = 'en'): DeveloperPortalContent {
+  return getContent<DeveloperPortalContent>('developers', language);
 }
 
 export function getFooterContent(language: string = 'en'): FooterContent {
