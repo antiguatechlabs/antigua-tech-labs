@@ -38,7 +38,7 @@ export function ServiceOverviewHero({ content }: ServiceOverviewHeroProps) {
         paddingTop: { xs: 'calc(70px + 2rem)', md: 'calc(116px + 3.5rem)' },
       }}
     >
-      <DecorativePattern color="rgba(38, 197, 243, 0.14)" variant="contours" />
+      <DecorativePattern color="rgba(38, 197, 243, 0.14)" variant="contours" motion="contour-drift" />
       <Box
         display="flex"
         flexDirection="column"

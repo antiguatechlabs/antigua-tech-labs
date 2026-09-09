@@ -12,7 +12,7 @@ import StarIcon from '@mui/icons-material/Star';
 import { Box, Typography } from '@mui/material';
 import React from 'react';
 
-import { Section } from '@/components/common';
+import { LiquidGlassCard, Section } from '@/components/common';
 import { AboutStoryContent } from '@/lib/data';
 import { MotionBox } from '@/lib/motionComponents';
 import { textWithGradient } from '@/lib/textFormatters';
@@ -151,7 +151,7 @@ export function OurStory({ content, lang: _lang }: OurStoryProps) {
             }}
           >
             {content.values.items.map((value, i) => (
-              <MotionBox
+              <LiquidGlassCard
                 key={i}
                 initial={{ opacity: 0, scale: 0.9 }}
                 whileInView={{ opacity: 1, scale: 1 }}
@@ -160,22 +160,11 @@ export function OurStory({ content, lang: _lang }: OurStoryProps) {
                 whileHover={{ y: -8 }}
                 whileTap={{ scale: 0.98 }}
                 sx={{
-                  backdropFilter: 'blur(12px)',
-                  background: theme => theme.palette.mode === 'dark'
-                    ? 'rgba(18, 23, 34, 0.72)'
-                    : 'rgba(255, 255, 255, 0.72)',
-                  borderRadius: 3,
                   p: 4,
                   display: 'flex',
                   flexDirection: 'column',
                   alignItems: 'center',
                   textAlign: 'center',
-                  boxShadow: theme => theme.palette.mode === 'dark'
-                    ? '0 18px 36px rgba(0,0,0,0.28)'
-                    : '0 4px 16px rgba(0,0,0,0.08)',
-                  transition: 'transform 0.3s ease',
-                  border: '1px solid',
-                  borderColor: 'divider',
                 }}
               >
                 <Box
@@ -198,7 +187,7 @@ export function OurStory({ content, lang: _lang }: OurStoryProps) {
                 <Typography variant="body2" sx={{ color: 'text.secondary', lineHeight: 1.6 }}>
                   {value.description}
                 </Typography>
-              </MotionBox>
+              </LiquidGlassCard>
             ))}
           </Box>
         </MotionBox>

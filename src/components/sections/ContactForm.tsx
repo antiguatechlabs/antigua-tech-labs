@@ -11,10 +11,10 @@ import { useInView } from 'framer-motion';
 import { useRef, useState } from 'react';
 
 import { staggerContainerVariant, fadeVariant, buttonHoverVariant } from '@/lib/animationVariants';
+import { LiquidGlassCard } from '@/components/common';
 import { ContactContent } from '@/lib/data';
 import {
   MotionStack,
-  MotionPaper,
   MotionButton,
   MotionDiv,
 } from '@/lib/motionComponents';
@@ -83,21 +83,13 @@ export function ContactForm({ content }: { content: ContactContent }) {
         mx: 'auto',
       }}
     >
-      <MotionPaper
+      <LiquidGlassCard
         sx={{
-          borderRadius: 1,
-          border: 'none',
-          boxShadow: 'none',
-          bgcolor: 'background.paper',
+          borderRadius: '1.25rem',
         }}
         {...staggerContainerVariant}
         initial="hidden"
         animate={isInView ? 'visible' : 'hidden'}
-        elevation={2}
-        whileHover={{
-          boxShadow: '0px 8px 30px rgba(0, 0, 0, 0.1)',
-          transition: { duration: 0.3 },
-        }}
       >
         <MotionStack spacing={{ xs: 2, sm: 3 }} padding={{ xs: 3, sm: 6 }}>
           {status === 'success' && (
@@ -246,7 +238,7 @@ export function ContactForm({ content }: { content: ContactContent }) {
             </MotionButton>
           </Box>
         </MotionStack>
-      </MotionPaper>
+      </LiquidGlassCard>
     </Box>
   );
 }

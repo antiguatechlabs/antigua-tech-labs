@@ -263,7 +263,7 @@ export function PortfolioPage({ content }: PortfolioPageProps) {
           overflow: 'hidden',
         }}
       >
-        <DecorativePattern color="rgba(112, 43, 158, 0.12)" variant="horizontal-lines" />
+        <DecorativePattern color="rgba(112, 43, 158, 0.12)" variant="horizontal-lines" motion="horizontal-slide" />
         <Container maxWidth="xl" sx={{ position: 'relative', zIndex: 1 }}>
           <Box
             sx={{

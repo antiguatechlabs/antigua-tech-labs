@@ -211,6 +211,41 @@ describe('agent-readable HTTP responses', () => {
     assert.match(markdown.body, /\/llms\.txt/);
   });
 
+  test('portfolio WIP links are hidden while direct routes remain available', async () => {
+    for (const language of ['en', 'es']) {
+      for (const page of ['', '/about', '/services']) {
+        const response = await request(`/${language}${page}`);
+        assert.equal(response.status, 200, `/${language}${page}`);
+        assert.doesNotMatch(response.body, new RegExp(`href=["']\/${language}\/portfolio["']`));
+      }
+
+      const portfolio = await request(`/${language}/portfolio`);
+      assert.equal(portfolio.status, 200, `/${language}/portfolio`);
+    }
+  });
+
+  test('selected cards use liquid glass and hero patterns expose reduced-motion-safe CSS animation', async () => {
+    const home = await request('/en');
+    const homeGlassCards = home.body.match(/data-liquid-glass="true"/g) || [];
+    assert.ok(homeGlassCards.length >= 7, 'Homepage should expose six feature cards and one contact card');
+    assert.match(home.body, /backdrop-filter:blur\(7px\)/i);
+    assert.match(home.body, /prefers-reduced-motion/i);
+
+    const about = await request('/en/about');
+    const aboutGlassCards = about.body.match(/data-liquid-glass="true"/g) || [];
+    assert.ok(aboutGlassCards.length >= 5, 'About page should expose four value cards and one contact card');
+    assert.match(about.body, /data-pattern-motion="grid-drift"/);
+    assert.match(about.body, /decorativeGridDrift/);
+
+    const services = await request('/en/services');
+    assert.match(services.body, /data-pattern-motion="contour-drift"/);
+    assert.match(services.body, /decorativeContourDrift/);
+
+    const portfolio = await request('/en/portfolio');
+    assert.match(portfolio.body, /data-pattern-motion="horizontal-slide"/);
+    assert.match(portfolio.body, /decorativeHorizontalSlide/);
+  });
+
   test('llms.txt follows the required heading, summary, and linked-section structure', async () => {
     const response = await request('/llms.txt');
     assert.equal(response.status, 200);

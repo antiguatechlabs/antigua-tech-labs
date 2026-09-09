@@ -10,11 +10,11 @@ import ViewInArIcon from '@mui/icons-material/ViewInAr';
 import { Box, Typography, CardContent } from '@mui/material';
 import React from 'react';
 
-import { Section } from '@/components/common';
+import { LiquidGlassCard, Section } from '@/components/common';
 import { DecorativePattern } from '@/components/common/DecorativePattern';
 import { fadeVariant, staggerContainerVariant } from '@/lib';
 import { FeaturesContent, FeatureItem } from '@/lib/data';
-import { MotionCard, MotionDiv } from '@/lib/motionComponents';
+import { MotionDiv } from '@/lib/motionComponents';
 import { textWithGradient } from '@/lib/textFormatters';
 
 
@@ -84,24 +84,26 @@ export function Features({ content }: { content: FeaturesContent }) {
           >
             {content.items.map((feature: FeatureItem, index: number) => (
               <MotionDiv key={index} {...fadeVariant}>
-                <MotionCard
+                <LiquidGlassCard
                   sx={{
                     height: '100%',
-                    border: '1px solid',
-                    borderColor: 'divider',
-                    transition: 'all 0.3s ease',
-                    background: theme => theme.palette.mode === 'dark'
-                      ? 'linear-gradient(145deg, rgba(18, 23, 34, 0.96), rgba(36, 19, 102, 0.42))'
-                      : 'linear-gradient(145deg, rgba(255,255,255,0.9), rgba(240,240,245,0.4))',
+                    transition: 'transform 240ms cubic-bezier(0.16, 1, 0.3, 1), box-shadow 240ms ease, border-color 240ms ease',
                     '&:hover': {
                       boxShadow: theme => theme.palette.mode === 'dark'
-                        ? '0 18px 36px rgba(0, 0, 0, 0.34)'
-                        : '0 8px 16px rgba(0,0,0,0.1)',
+                        ? '0 22px 46px rgba(0, 0, 0, 0.42), inset 0 1px 0 rgba(255, 255, 255, 0.18), inset 0 -1px 0 rgba(116, 135, 196, 0.18)'
+                        : '0 22px 46px rgba(43, 45, 66, 0.16), inset 0 1px 0 rgba(255, 255, 255, 0.56), inset 0 -1px 0 rgba(61, 64, 105, 0.1)',
+                      borderColor: theme => theme.palette.mode === 'dark'
+                        ? 'rgba(220, 207, 255, 0.38)'
+                        : 'rgba(164, 171, 255, 0.58)',
                       transform: 'translateY(-5px)',
                     },
                     minHeight: { xs: '280px', md: '320px' },
                     display: 'flex',
                     flexDirection: 'column',
+                    '@media (prefers-reduced-motion: reduce)': {
+                      transition: 'none',
+                      '&:hover': { transform: 'none' },
+                    },
                   }}
                 >
                   <CardContent sx={{ p: 5, display: 'flex', flexDirection: 'column', height: '100%' }}>
@@ -137,7 +139,7 @@ export function Features({ content }: { content: FeaturesContent }) {
                       {feature.description}
                     </Typography>
                   </CardContent>
-                </MotionCard>
+                </LiquidGlassCard>
               </MotionDiv>
 
             ))}

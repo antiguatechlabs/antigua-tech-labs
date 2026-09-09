@@ -1,10 +1,12 @@
 import { Box } from '@mui/material';
 
 type DecorativePatternVariant = 'grid' | 'dots' | 'contours' | 'horizontal-lines';
+type DecorativePatternMotion = 'grid-drift' | 'contour-drift' | 'horizontal-slide';
 
 interface DecorativePatternProps {
   color: string;
   variant: DecorativePatternVariant;
+  motion?: DecorativePatternMotion;
 }
 
 const patternStyles: Record<DecorativePatternVariant, (color: string) => object> = {
@@ -25,16 +27,49 @@ const patternStyles: Record<DecorativePatternVariant, (color: string) => object>
   }),
 };
 
-export function DecorativePattern({ color, variant }: DecorativePatternProps) {
+const motionStyles: Record<DecorativePatternMotion, object> = {
+  'grid-drift': {
+    animation: 'decorativeGridDrift 22s ease-in-out infinite alternate',
+    willChange: 'background-position',
+    '@keyframes decorativeGridDrift': {
+      '0%': { backgroundPosition: '0 0' },
+      '100%': { backgroundPosition: '36px 36px' },
+    },
+  },
+  'contour-drift': {
+    animation: 'decorativeContourDrift 18s ease-in-out infinite alternate',
+    willChange: 'background-position',
+    '@keyframes decorativeContourDrift': {
+      '0%': { backgroundPosition: '0 0' },
+      '100%': { backgroundPosition: '42px 24px' },
+    },
+  },
+  'horizontal-slide': {
+    animation: 'decorativeHorizontalSlide 18s linear infinite',
+    willChange: 'background-position',
+    '@keyframes decorativeHorizontalSlide': {
+      '0%': { backgroundPosition: '0 0' },
+      '100%': { backgroundPosition: '120px 0' },
+    },
+  },
+};
+
+export function DecorativePattern({ color, variant, motion }: DecorativePatternProps) {
   return (
     <Box
       aria-hidden
+      data-pattern-motion={motion}
       sx={{
         ...patternStyles[variant](color),
+        ...(motion ? motionStyles[motion] : {}),
         inset: 0,
         pointerEvents: 'none',
         position: 'absolute',
         zIndex: 0,
+        '@media (prefers-reduced-motion: reduce)': {
+          animation: 'none',
+          willChange: 'auto',
+        },
       }}
     />
   );

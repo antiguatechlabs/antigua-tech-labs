@@ -5,3 +5,4 @@ export * from './Section';
 export * from './TwoColumnSection';
 export * from './ScrollPreserver';
 export * from './FramerWrapper';
+export * from './LiquidGlassSurface';
