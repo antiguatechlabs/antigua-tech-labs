@@ -1,10 +1,10 @@
-import { Box } from '@mui/material';
+import { Box, type Theme } from '@mui/material';
 
 type DecorativePatternVariant = 'grid' | 'dots' | 'contours' | 'horizontal-lines';
 type DecorativePatternMotion = 'grid-drift' | 'contour-drift' | 'horizontal-slide';
 
 interface DecorativePatternProps {
-  color: string;
+  color: string | ((theme: Theme) => string);
   variant: DecorativePatternVariant;
   motion?: DecorativePatternMotion;
 }
@@ -59,8 +59,8 @@ export function DecorativePattern({ color, variant, motion }: DecorativePatternP
     <Box
       aria-hidden
       data-pattern-motion={motion}
-      sx={{
-        ...patternStyles[variant](color),
+      sx={theme => ({
+        ...patternStyles[variant](typeof color === 'function' ? color(theme) : color),
         ...(motion ? motionStyles[motion] : {}),
         inset: 0,
         pointerEvents: 'none',
@@ -70,7 +70,7 @@ export function DecorativePattern({ color, variant, motion }: DecorativePatternP
           animation: 'none',
           willChange: 'auto',
         },
-      }}
+      })}
     />
   );
 }
