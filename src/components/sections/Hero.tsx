@@ -1,7 +1,7 @@
 'use client';
 import MessageIcon from '@mui/icons-material/Message';
 import PlayArrowIcon from '@mui/icons-material/PlayArrow';
-import { Box, Stack } from '@mui/material';
+import { Box, Stack, Typography } from '@mui/material';
 import dynamic from 'next/dynamic';
 import { useRouter } from 'next/navigation';
 import React from 'react';
@@ -81,18 +81,22 @@ export function Hero({ content }: { content: HeroContent }) {
             justifyContent={'space-evenly'}
             sx={{ color: '#fff', maxWidth: '48rem', flex: 1 }}
           >
-            <MotionTypography
-              variant="h1"
+            <MotionBox
               {...slideLeftVariant}
-              sx={{
-                fontSize: { xs: '2.25rem', md: '3rem', lg: '3.75rem' },
-                fontWeight: 'bold',
-                lineHeight: 1.2,
-                mb: 3,
-              }}
             >
-              {content.title}
-            </MotionTypography>
+              <Typography
+                variant="h1"
+                component="h1"
+                sx={{
+                  fontSize: { xs: '2.25rem', md: '3rem', lg: '3.75rem' },
+                  fontWeight: 'bold',
+                  lineHeight: 1.2,
+                  mb: 3,
+                }}
+              >
+                {content.title}
+              </Typography>
+            </MotionBox>
 
             <Box>
               <MotionTypography

@@ -1,5 +1,3 @@
-import Script from 'next/script';
-
 interface StructuredDataProps {
   data: Record<string, unknown> | Record<string, unknown>[];
   idPrefix?: string;
@@ -11,12 +9,12 @@ export default function StructuredData({ data, idPrefix = 'structured-data' }: S
   return (
     <>
       {jsonLd.map((item, index) => (
-        <Script
+        <script
           key={index}
           id={`${idPrefix}-${index}`}
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify(item),
+            __html: JSON.stringify(item).replace(/</g, '\\u003c'),
           }}
         />
       ))}

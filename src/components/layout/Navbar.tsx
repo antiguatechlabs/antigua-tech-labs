@@ -260,7 +260,7 @@ export function Navbar({ content }: { content: NavbarContent }) {
                 <Box sx={{ display: 'flex', alignItems: 'center', mr: { xs: 0.5, md: 1 } }}>
                   <Image src={themeMode === 'dark' ? AGLogoDark : AGLogo} alt={content.companyName} width={51} height={36} priority />
                 </Box>
-                <Typography variant="h6" sx={{ fontSize: { xs: '0.9rem', md: '1.15rem' }, fontWeight: 700, letterSpacing: '-0.04em', whiteSpace: 'nowrap' }}>
+                <Typography component="span" variant="h6" sx={{ fontSize: { xs: '0.9rem', md: '1.15rem' }, fontWeight: 700, letterSpacing: '-0.04em', whiteSpace: 'nowrap' }}>
                   {content.companyName}
                 </Typography>
               </MuiLink>

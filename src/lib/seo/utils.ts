@@ -180,7 +180,7 @@ export function generateOrganizationStructuredData(lang: string = 'en') {
     '@type': 'Organization',
     name: 'Antigua Tech Labs',
     url: SITE_CONFIG.url,
-    logo: `${SITE_CONFIG.url}/images/logo.png`,
+    logo: `${SITE_CONFIG.url}/favicon.ico`,
     description:
       LANGUAGE_CONFIGS[lang as keyof typeof LANGUAGE_CONFIGS]?.description ||
       LANGUAGE_CONFIGS.en.description,

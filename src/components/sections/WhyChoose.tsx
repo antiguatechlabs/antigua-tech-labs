@@ -40,6 +40,7 @@ export const WhyChoose = ({ content }: { content: WhyChooseContent }) => (
             color="primary.main"
             fontWeight="bold"
             variant="subtitle1"
+            component="p"
             sx={{
               mb: 1.5,
             }}
@@ -158,7 +159,7 @@ export const WhyChoose = ({ content }: { content: WhyChooseContent }) => (
                 },
               }}
             >
-              <Typography variant="h6" component="h4" sx={{ mb: 0.5 }}>
+              <Typography variant="h6" component="span" sx={{ mb: 0.5 }}>
                 {content.yearEstablished}
               </Typography>
               <Typography variant="body2">{content.tagline}</Typography>

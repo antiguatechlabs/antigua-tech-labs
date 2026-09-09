@@ -120,7 +120,7 @@ export function Features({ content }: { content: FeaturesContent }) {
                     >
                       {iconMap[feature.icon] || <StarIcon fontSize="large" />}
                     </Box>
-                    <Typography variant="h5" sx={{ fontWeight: 600, mb: 1.5 }}>
+                    <Typography variant="h5" component="h3" sx={{ fontWeight: 600, mb: 1.5 }}>
                       {feature.title}
                     </Typography>
                     <Typography

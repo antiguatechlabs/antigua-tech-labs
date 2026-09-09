@@ -242,15 +242,15 @@ export const Footer = ({ content }: { content: FooterContent }) => {
               {...fadeVariant}
             >
               <Stack spacing={3} alignItems="flex-start">
-                <MotionTypography
-                  variant="h6"
-                  sx={{ mb: 1 }}
+                <MotionBox
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ delay: 0.2 }}
                 >
-                  {content.sections.company.title}
-                </MotionTypography>
+                  <Typography variant="h6" component="h3" sx={{ mb: 1 }}>
+                    {content.sections.company.title}
+                  </Typography>
+                </MotionBox>
                 <MotionStack
                   spacing={1.5}
                   alignItems="flex-start"
@@ -287,15 +287,15 @@ export const Footer = ({ content }: { content: FooterContent }) => {
               {...fadeVariant}
             >
               <Stack spacing={3} alignItems="flex-start">
-                <MotionTypography
-                  variant="h6"
-                  sx={{ mb: 1 }}
+                <MotionBox
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ delay: 0.3 }}
                 >
-                  {content.sections.product.title}
-                </MotionTypography>
+                  <Typography variant="h6" component="h3" sx={{ mb: 1 }}>
+                    {content.sections.product.title}
+                  </Typography>
+                </MotionBox>
                 <MotionStack
                   spacing={1.5}
                   alignItems="flex-start"

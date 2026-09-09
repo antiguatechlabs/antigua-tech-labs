@@ -6,6 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
+    "test:agent-readiness": "npm run build && node --test tests/agent-readiness.test.mjs",
     "lint": "eslint \"**/*.{js,jsx,ts,tsx}\"",
     "lint:fix": "eslint --fix \"**/*.{js,jsx,ts,tsx}\"",
     "format": "npm run lint:fix",

@@ -40,6 +40,7 @@ export const WhyChooseTwo = ({ content }: { content: WhyChooseTwoContent }) => (
             <Typography
               display={{ xs: 'block' }}
               variant="subtitle1"
+              component="p"
               sx={{
                 color: 'primary.main',
                 fontWeight: 'bold',
@@ -97,6 +98,7 @@ export const WhyChooseTwo = ({ content }: { content: WhyChooseTwoContent }) => (
 
               <Typography
                 variant="h1"
+                component="span"
                 sx={{
                   fontSize: { xs: '4rem', md: '6rem' },
                   fontWeight: 'bold',
