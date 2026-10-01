@@ -1,5 +1,6 @@
 import assert from 'node:assert/strict';
 import { execFile } from 'node:child_process';
+import { readFileSync } from 'node:fs';
 import { promisify } from 'node:util';
 import { after, before, describe, test } from 'node:test';
 import net from 'node:net';
@@ -105,6 +106,105 @@ describe('agent-readable HTTP responses', () => {
       const response = await request(page, { Accept: 'text/html' });
       assert.equal(response.status, 200, page);
       assertContentType(response, 'text/html');
+    }
+  });
+
+  test('AI automation and IoT services stay bilingual across site and agent content', async () => {
+    const existingIds = [
+      'web-applications',
+      'mobile-applications',
+      'api-development',
+      'code-maintenance',
+      'ux-design',
+      '3d-modeling',
+    ];
+    const offerIds = ['ai-automation', 'iot-solutions'];
+    const expectedIds = [...existingIds, ...offerIds];
+    const loadJson = (language, ...segments) =>
+      JSON.parse(readFileSync(path.join(root, 'src', 'content', language, ...segments), 'utf8'));
+    const shape = value => Array.isArray(value)
+      ? value.map(shape)
+      : value && typeof value === 'object'
+        ? Object.fromEntries(Object.entries(value).map(([key, child]) => [key, shape(child)]))
+        : typeof value;
+    const visibleText = markup => markup
+      .replace(/<script[\s\S]*?<\/script>/gi, ' ')
+      .replace(/<style[\s\S]*?<\/style>/gi, ' ')
+      .replace(/<[^>]+>/g, ' ')
+      .replace(/&amp;/g, '&')
+      .replace(/\s+/g, ' ')
+      .trim();
+    const cleanTitle = title => title.replace(/\{\{gradient:([^}]+)\}\}/g, '$1');
+    const localizedServices = Object.fromEntries(['en', 'es'].map(language => [
+      language,
+      Object.fromEntries(offerIds.map(id => [id, loadJson(language, 'services', `${id}.json`)])),
+    ]));
+
+    for (const id of offerIds) {
+      assert.deepEqual(shape(localizedServices.en[id]), shape(localizedServices.es[id]), `${id} content shape`);
+    }
+
+    for (const language of ['en', 'es']) {
+      const overview = loadJson(language, 'services-overview.json');
+      const footer = loadJson(language, 'footer.json');
+      assert.deepEqual(overview.navigation.items.map(item => item.id), expectedIds, `${language} service IDs`);
+      assert.deepEqual(footer.sections.product.links, overview.navigation.items.map(item => item.title));
+
+      const home = await request(`/${language}`, { Accept: 'text/html' });
+      const homeText = visibleText(home.body);
+      const homepageFeatures = loadJson(language, 'features.json').items;
+      for (const id of offerIds) {
+        const service = localizedServices[language][id];
+        const title = cleanTitle(service.hero.title);
+        const feature = homepageFeatures.find(item => item.title === title);
+        assert.ok(feature, `${language} homepage feature for ${id}`);
+        assert.ok(homeText.includes(feature.title), `${language} homepage title for ${id}`);
+        assert.ok(homeText.includes(feature.description), `${language} homepage description for ${id}`);
+      }
+
+      const page = await request(`/${language}/services`, { Accept: 'text/html' });
+      const pageMarkup = page.body
+        .replace(/<script[\s\S]*?<\/script>/gi, ' ')
+        .replace(/<style[\s\S]*?<\/style>/gi, ' ');
+      const pageText = visibleText(pageMarkup);
+      assert.ok(pageText.includes(overview.hero.description), `${language} services overview`);
+
+      for (const { id } of overview.navigation.items) {
+        assert.ok(pageMarkup.includes(`id="${id}"`), `${language} rendered section ${id}`);
+      }
+      for (const id of offerIds) {
+        const service = localizedServices[language][id];
+        const title = cleanTitle(service.hero.title);
+        const anchorIndex = pageMarkup.indexOf(`id="${id}"`);
+        const sectionStart = pageMarkup.lastIndexOf('<section', anchorIndex);
+        const sectionEnd = pageMarkup.indexOf('</section>', anchorIndex);
+        assert.ok(sectionStart >= 0 && sectionEnd > anchorIndex, `${language} section markup for ${id}`);
+        const sectionText = visibleText(pageMarkup.slice(sectionStart, sectionEnd));
+        assert.ok(sectionText.includes(title), `${language} service title for ${id}`);
+        assert.ok(sectionText.includes(service.hero.description), `${language} service description for ${id}`);
+
+        const footerLink = [...pageMarkup.matchAll(/<a\b[^>]*href=["']([^"']+)["'][^>]*>([\s\S]*?)<\/a>/gi)]
+          .find(([, href]) => href === `/${language}/services#${id}`);
+        assert.ok(footerLink, `${language} footer href for ${id}`);
+        assert.ok(visibleText(footerLink[2]).includes(title), `${language} footer title for ${id}`);
+      }
+
+      const markdown = await request(`/${language}/services`, { Accept: 'text/markdown' });
+      assert.equal(markdown.status, 200);
+      for (const id of offerIds) {
+        const service = localizedServices[language][id];
+        const title = cleanTitle(service.hero.title);
+        assert.ok(markdown.body.includes(`### [${title}](https://antiguatechlabs.com/${language}/services#${id})`));
+        assert.ok(markdown.body.includes(service.hero.description));
+      }
+      assert.ok(markdown.body.includes(language === 'es' ? '**Capacidades:**' : '**Capabilities:**'));
+      assert.ok(markdown.body.includes(language === 'es' ? '**Tecnologías:**' : '**Technologies:**'));
+    }
+
+    const llms = await request('/llms.txt');
+    for (const id of offerIds) {
+      const title = cleanTitle(localizedServices.en[id].hero.title);
+      assert.ok(llms.body.includes(`[${title}](https://antiguatechlabs.com/en/services#${id})`));
     }
   });
 

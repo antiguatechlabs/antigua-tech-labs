@@ -2,7 +2,7 @@
   "hero": {
     "title": "Our {{gradient:Services}}",
     "subtitle": "Comprehensive Digital Solutions",
-    "description": "From web applications to 3D modeling, we provide end-to-end digital services to transform your business ideas into reality. Explore our full range of services and discover how we can help bring your vision to life.",
+    "description": "From web and mobile applications to AI automation, IoT solutions, and 3D modeling, we provide digital services that help businesses improve their operations. Explore our services and discuss how they can support your goals.",
     "ctaText": "Get Started Today"
   },
   "navigation": {
@@ -43,6 +43,18 @@
         "title": "3D Modeling",
         "description": "3D visualization",
         "icon": "3d"
+      },
+      {
+        "id": "ai-automation",
+        "title": "AI Automation & Agents",
+        "description": "AI-assisted business workflows",
+        "icon": "automation"
+      },
+      {
+        "id": "iot-solutions",
+        "title": "IoT Solutions",
+        "description": "Connected devices and operational data",
+        "icon": "iot"
       }
     ]
   }

@@ -7,7 +7,7 @@
   "sections": {
     "product": {
       "title": "Servicios",
-      "links": ["Aplicaciones Web", "Aplicaciones Móviles", "Desarrollo de APIs", "Mantenimiento de Código", "Diseño UX", "Modelado 3D"]
+      "links": ["Aplicaciones Web", "Aplicaciones Móviles", "Desarrollo de APIs", "Mantenimiento de Código", "Diseño UX", "Modelado 3D", "Automatización y agentes de IA", "Soluciones IoT"]
     },
     "company": {
       "title": "Empresa",

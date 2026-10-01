@@ -17,6 +17,8 @@ const SERVICE_LINKS = [
   ['Code maintenance', 'code-maintenance', 'Use when an existing application needs fixes, security updates, or modernization.'],
   ['UX design', 'ux-design', 'Use when a product needs clearer flows, interface design, or a better user experience.'],
   ['3D modeling and visualization', '3d-modeling', 'Use when a project needs product visualization, interactive 3D, or WebGL experiences.'],
+  ['AI Automation & Agents', 'ai-automation', 'Use when a business wants to streamline repetitive workflows with AI connected to its existing systems.'],
+  ['IoT Solutions', 'iot-solutions', 'Use when a business needs device and sensor data for operational monitoring, alerts, or dashboards.'],
 ] as const;
 
 const clean = (value: string): string =>
@@ -118,7 +120,11 @@ function renderServices(language: Language): string {
     ['Code maintenance', 'code-maintenance', services.codeMaintenance],
     ['UX design', 'ux-design', services.uxDesign],
     ['3D modeling', '3d-modeling', services.modeling3d],
+    [clean(services.aiAutomation.hero.title), 'ai-automation', services.aiAutomation],
+    [clean(services.iotSolutions.hero.title), 'iot-solutions', services.iotSolutions],
   ] as const;
+  const capabilityLabel = language === 'es' ? 'Capacidades' : 'Capabilities';
+  const technologyLabel = language === 'es' ? 'Tecnologías' : 'Technologies';
 
   const lines = [
     `# ${clean(overview.hero.title)}`,
@@ -132,8 +138,8 @@ function renderServices(language: Language): string {
       `### [${clean(label)}](${pageUrl(language, `/services#${slug}`)})`,
       clean(service.hero.description),
       '',
-      `**Capabilities:** ${service.features.items.map(item => clean(item.title)).join(', ')}.`,
-      `**Technologies:** ${service.technologies.items.map(item => clean(item)).join(', ')}.`,
+      `**${capabilityLabel}:** ${service.features.items.map(item => clean(item.title)).join(', ')}.`,
+      `**${technologyLabel}:** ${service.technologies.items.map(item => clean(item)).join(', ')}.`,
       '',
     ]),
     '## Contact',
@@ -276,7 +282,7 @@ export function renderLlmsTxt(): string {
   return [
     '# Antigua Tech Labs',
     '',
-    '> Antigua Tech Labs is a Guatemala-based custom software development company specializing in scalable web applications, mobile apps, APIs, UX design, 3D experiences, and ongoing code maintenance.',
+    '> Antigua Tech Labs is a Guatemala-based custom software development company offering web and mobile applications, AI automation and agents, IoT solutions, APIs, UX design, 3D experiences, and ongoing code maintenance.',
     '',
     '## When to use this',
     ...servicePages,

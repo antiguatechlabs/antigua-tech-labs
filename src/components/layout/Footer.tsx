@@ -5,19 +5,18 @@ import LocationOnIcon from '@mui/icons-material/LocationOn';
 import PhoneIcon from '@mui/icons-material/Phone';
 import { Box, Container, Typography, Link as MuiLink, Stack } from '@mui/material';
 import Image from 'next/image';
-import { useParams, useRouter } from 'next/navigation';
+import { useParams } from 'next/navigation';
 import React, { useState } from 'react';
 
 import FooterShape from '@/assets/footer/footer-shape-1.webp';
 import { LegalModal } from '@/components/ui';
 import { fadeVariant, slideUpVariant, staggerContainerVariant } from '@/lib/animationVariants';
-import { FooterContent, getPrivacyPolicyContent, getTermsOfServiceContent, LegalContent } from '@/lib/data';
+import { FooterContent, getPrivacyPolicyContent, getServicesOverviewContent, getTermsOfServiceContent, LegalContent } from '@/lib/data';
 import { MotionBox, MotionStack, MotionTypography } from '@/lib/motionComponents';
 import { colors } from '@/theme';
 
 export const Footer = ({ content }: { content: FooterContent }) => {
   const params = useParams();
-  const router = useRouter();
   const [modalOpen, setModalOpen] = useState(false);
   const [modalContent, setModalContent] = useState<LegalContent | null>(null);
   const [modalTitle, setModalTitle] = useState('');
@@ -25,12 +24,9 @@ export const Footer = ({ content }: { content: FooterContent }) => {
   // Get current language from URL
   const currentLang = params.lang as string || 'en';
 
-  // Smooth scroll handler for service links
-  const handleSmoothScroll = (serviceName: string) => {
-    const serviceId = serviceName.toLowerCase().replace(/\s+/g, '-');
-    const targetUrl = `/${currentLang}/services#${serviceId}`;
-    router.push(targetUrl);
-  };
+  const serviceIdsByTitle = new Map(
+    getServicesOverviewContent(currentLang).navigation.items.map(({ title, id }) => [title, id]),
+  );
 
   // Handle legal document modal opening
   const handleLegalClick = (type: 'terms' | 'privacy') => {
@@ -301,34 +297,24 @@ export const Footer = ({ content }: { content: FooterContent }) => {
                   alignItems="flex-start"
                   {...staggerContainerVariant}
                 >
-                  {content.sections.product.links.map((item, index) => (
-                    <MotionBox
-                      key={index}
-                      {...slideUpVariant}
-                    >
-                      <MuiLink
-                        component="button"
-                        onClick={() => handleSmoothScroll(item)}
-                        sx={{
-                          color: 'white',
-                          textDecoration: 'none',
-                          transition: 'all 0.3s ease',
-                          background: 'none',
-                          border: 'none',
-                          cursor: 'pointer',
-                          fontSize: 'inherit',
-                          fontFamily: 'inherit',
-                          textAlign: 'left',
-                          padding: 0,
-                          '&:hover': {
-                            color: colors.violet,
-                          },
-                        }}
-                      >
-                        {item}
-                      </MuiLink>
-                    </MotionBox>
-                  ))}
+                  {content.sections.product.links.map(item => {
+                    const serviceId = serviceIdsByTitle.get(item);
+                    return (
+                      <MotionBox key={item} {...slideUpVariant}>
+                        <MuiLink
+                          href={serviceId ? `/${currentLang}/services#${serviceId}` : `/${currentLang}/services`}
+                          sx={{
+                            color: 'white',
+                            textDecoration: 'none',
+                            transition: 'all 0.3s ease',
+                            '&:hover': { color: colors.violet },
+                          }}
+                        >
+                          {item}
+                        </MuiLink>
+                      </MotionBox>
+                    );
+                  })}
                 </MotionStack>
               </Stack>
             </MotionBox>

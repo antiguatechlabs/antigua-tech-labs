@@ -7,7 +7,7 @@
   "sections": {
     "product": {
       "title": "Services",
-      "links": ["Web Applications", "Mobile Applications", "API Development", "Code Maintenance", "UX Design", "3D Modeling"]
+      "links": ["Web Applications", "Mobile Applications", "API Development", "Code Maintenance", "UX Design", "3D Modeling", "AI Automation & Agents", "IoT Solutions"]
     },
     "company": {
       "title": "Company",
