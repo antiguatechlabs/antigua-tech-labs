@@ -35,7 +35,7 @@
   },
   "services": {
     "title": "Services - Antigua Tech Labs",
-    "description": "Comprehensive software development services including web applications, mobile apps, API development, UX design, and code maintenance.",
+    "description": "Software development services including web and mobile applications, AI automation and agents, IoT solutions, API development, UX design, and code maintenance.",
     "keywords": [
       "software development services",
       "web application development",
@@ -43,10 +43,13 @@
       "API development",
       "UX design",
       "code maintenance",
-      "3D modeling"
+      "3D modeling",
+      "AI automation",
+      "AI agents",
+      "IoT solutions"
     ],
     "ogTitle": "Software Development Services - Antigua Tech Labs",
-    "ogDescription": "From web applications to mobile apps, we provide comprehensive software development services.",
+    "ogDescription": "Explore web and mobile applications, AI automation, IoT solutions, and other software services for your business.",
     "ogImage": "https://antiguatechlabs.com/images/og-services.jpg"
   },
   "portfolio": {

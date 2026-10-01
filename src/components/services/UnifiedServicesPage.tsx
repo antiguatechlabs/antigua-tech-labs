@@ -3,7 +3,9 @@ import { Box } from '@mui/material';
 import React from 'react';
 
 import modeling3dHero from '@/assets/services/3d-modeling-hero.svg';
+import aiAutomationHero from '@/assets/services/ai-automation-hero.svg';
 import apiDevelopmentHero from '@/assets/services/api-development-hero.svg';
+import iotSolutionsHero from '@/assets/services/iot-solutions-hero.svg';
 import codeMaintenanceHero from '@/assets/services/code-maintenance-hero.svg';
 import mobileApplicationsHero from '@/assets/services/mobile-applications-hero.svg';
 import uxDesignHero from '@/assets/services/ux-design-hero.svg';
@@ -25,6 +27,8 @@ const serviceGradients = {
   codeMaintenance: { start: '#43e97b', end: '#38f9d7' },
   uxDesign: { start: '#fa709a', end: '#fee140' },
   modeling3d: { start: '#8000ffcb', end: '#e100ffdc' },
+  aiAutomation: { start: '#c026d3', end: '#2563eb' },
+  iotSolutions: { start: '#0f766e', end: '#2563eb' },
 };
 
 interface UnifiedServicesPageProps {
@@ -98,6 +102,24 @@ export function UnifiedServicesPage({ content, language = 'en' }: UnifiedService
         index={5}
         heroImage={modeling3dHero}
         gradientColors={serviceGradients.modeling3d}
+      />
+
+      <ServiceSection
+        id="ai-automation"
+        content={content.aiAutomation}
+        index={6}
+        heroImage={aiAutomationHero}
+        gradientColors={serviceGradients.aiAutomation}
+        waves
+        backgroundColor="background.paper"
+      />
+
+      <ServiceSection
+        id="iot-solutions"
+        content={content.iotSolutions}
+        index={7}
+        heroImage={iotSolutionsHero}
+        gradientColors={serviceGradients.iotSolutions}
       />
 
       {/* Slider Section */}

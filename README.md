@@ -11,6 +11,8 @@ This landing page showcases Antigua Tech Labs's AI-powered sales agent solution 
 - **[Component Documentation](docs/COMPONENTS.md)**: Comprehensive guide to all components
 - **[Development Guide](docs/DEVELOPMENT.md)**: Detailed development workflow and standards
 - **[API Documentation](#api-documentation)**: Contact form API reference
+- **[Developer Portal](https://antiguatechlabs.com/developers)**: Quickstart, sandbox, errors, and CLI status
+- **[OpenAPI Specification](https://antiguatechlabs.com/openapi.json)**: Machine-readable public API contract
 - **[Troubleshooting](#troubleshooting)**: Common issues and solutions
 
 ## Features
@@ -222,6 +224,8 @@ This project uses several tools to maintain code quality:
 - `npm run build`: Build for production
 - `npm run start`: Start production server
 - `npm run lint`: Check for linting issues
+- `npm run test:agent-readiness`: Build and verify public agent-facing endpoints
+- `npm run test:cli`: Verify CLI metadata and behavior
 - `npm run lint:fix`: Fix linting issues and format code automatically
 - `npm run format`: Alias for lint:fix
 
@@ -390,7 +394,7 @@ The contact form includes:
 - **Loading states**: Visual feedback during submission
 - **Success/error messages**: User-friendly status updates
 - **Responsive design**: Works on all device sizes
-- **Spam protection**: Server-side validation and rate limiting ready
+- **Server-side validation**: Required fields, JSON types, and email format checks
 
 ### 4. API Endpoint
 
@@ -415,104 +419,40 @@ The email template includes:
 
 ## API Documentation
 
-### Contact Form API
+The canonical API reference is published at `/openapi.json`, with a human-readable guide at `/developers`. The current public API contains one unauthenticated endpoint:
 
-The contact form API endpoint provides secure email sending functionality with comprehensive validation and error handling.
-
-#### Endpoint
-```
+```text
 POST /api/contact
 ```
 
-#### Request Body
-```typescript
-interface ContactPayload {
-  name: string;      // Required: Contact person's name
-  email: string;     // Required: Valid email address
-  message: string;   // Required: Message content
-}
+Send `name`, `email`, and `message` as JSON. To validate safely without sending email, use `POST /api/contact?dryRun=true`.
+
+```bash
+curl -X POST "https://antiguatechlabs.com/api/contact?dryRun=true" \
+  -H "Content-Type: application/json" \
+  -d '{"name":"Ada Lovelace","email":"ada@example.com","message":"Project inquiry"}'
 ```
 
-#### Example Request
-```javascript
-const response = await fetch('/api/contact', {
-  method: 'POST',
-  headers: {
-    'Content-Type': 'application/json',
-  },
-  body: JSON.stringify({
-    name: 'John Doe',
-    email: 'john@example.com',
-    message: 'Hello, I would like to learn more about your services.'
-  })
-});
-
-const result = await response.json();
-```
-
-#### Response Format
-
-**Success Response (200)**
-```json
-{
-  "success": true,
-  "message": "Email sent successfully"
-}
-```
-
-**Validation Error (400)**
-```json
-{
-  "success": false,
-  "error": "All fields are required"
-}
-```
+API errors are structured for agents and integrations:
 
 ```json
 {
   "success": false,
-  "error": "Invalid email format"
+  "error": "Contact payload validation failed",
+  "code": "VALIDATION_ERROR",
+  "message": "Contact payload validation failed",
+  "hint": "Correct the fields listed in details and retry the request.",
+  "details": [
+    {
+      "field": "email",
+      "issue": "format",
+      "message": "email must be a valid email address."
+    }
+  ]
 }
 ```
 
-**Server Error (500)**
-```json
-{
-  "success": false,
-  "error": "Email configuration error"
-}
-```
-
-```json
-{
-  "success": false,
-  "error": "Network error, please try again"
-}
-```
-
-```json
-{
-  "success": false,
-  "error": "Failed to send email. Please try again later."
-}
-```
-
-#### Features
-- **Input Validation**: Validates required fields and email format
-- **SMTP Configuration**: Supports any SMTP provider with authentication
-- **Error Handling**: Comprehensive error handling with specific error messages
-- **Security**: Uses environment variables for sensitive configuration
-- **HTML Templates**: Professional email formatting with responsive design
-- **Reply-To Headers**: Proper email headers for easy response handling
-
-#### Environment Variables Required
-```env
-SMTP_HOST=smtp.gmail.com
-SMTP_PORT=587
-SMTP_USER=your-email@gmail.com
-SMTP_PASS=your-app-password
-TO_EMAIL=contact@your-domain.com
-```
+The CLI source lives in `cli/` and can be exercised locally with `node cli/bin/atl.mjs help`. The `@antiguatechlabs/cli` package is prepared for npm publication but is not published yet.
 
 ## Deployment
 

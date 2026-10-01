@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600" fill="none">
+  <defs>
+    <linearGradient id="iot-gradient" x1="0" y1="0" x2="800" y2="600" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0f766e" />
+      <stop offset="1" stop-color="#2563eb" />
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#iot-gradient)" />
+  <g stroke="#fff" stroke-width="10" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="400" cy="300" r="66" />
+    <path d="M369 285q31-30 62 0m-49 18q18-17 36 0" />
+    <path d="m350 255-73-66m173 66 73-66M340 330l-88 39m208-39 88 39M400 366v52" />
+    <rect x="204" y="112" width="78" height="96" rx="16" />
+    <path d="M228 139h30m-30 22h30m-22 24h14" />
+    <rect x="518" y="112" width="78" height="96" rx="16" />
+    <path d="M545 171v-29a12 12 0 0 1 24 0v29a20 20 0 1 1-24 0z" />
+    <rect x="170" y="350" width="86" height="68" rx="14" />
+    <path d="M194 392v-16m19 16v-25m19 25v-10M213 418v24m-24 0h48" />
+    <rect x="544" y="350" width="86" height="68" rx="14" />
+    <path d="m562 382 14-13 15 23 18-22M587 418v24m-24 0h48" />
+    <rect x="356" y="420" width="88" height="60" rx="14" />
+    <path d="M375 450h50" />
+  </g>
+  <circle cx="400" cy="324" r="7" fill="#fff" />
+</svg>

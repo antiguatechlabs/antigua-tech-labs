@@ -4,15 +4,17 @@ import hljs from 'highlight.js';
 import React, { useEffect } from 'react';
 import '@/styles/custom-highlight.css';
 
+type CodeLanguage = 'html' | 'css' | 'javascript' | 'bash' | 'json';
+
 type CodeBlockProps = {
-  language: 'html' | 'css' | 'javascript'
-  code: string
-}
+  language: CodeLanguage;
+  code: string;
+};
 
 const CodeBlock: React.FC<CodeBlockProps> = ({ language, code }) => {
   useEffect(() => {
     hljs.highlightAll();
-  }, []);
+  }, [code, language]);
 
   return (
     <Box
@@ -20,7 +22,7 @@ const CodeBlock: React.FC<CodeBlockProps> = ({ language, code }) => {
       sx={{
         m: 0,
         p: 5,
-        overflowX: 'hidden',
+        overflowX: 'auto',
         fontFamily: 'monospace',
         fontSize: '1rem',
       }}
@@ -31,9 +33,9 @@ const CodeBlock: React.FC<CodeBlockProps> = ({ language, code }) => {
 };
 
 type CodeWindowProps = {
-  code: string
-  language?: 'html' | 'css' | 'javascript'
-}
+  code: string;
+  language?: CodeLanguage;
+};
 
 const CodeWindow: React.FC<CodeWindowProps> = ({
   code,

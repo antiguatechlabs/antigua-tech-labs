@@ -1,0 +1,77 @@
+{
+  "hero": {
+    "title": "{{gradient:Automatización y agentes de IA}}",
+    "subtitle": "Automatización con IA para operaciones empresariales",
+    "description": "Ayudamos a las empresas a identificar procesos repetitivos que pueden agilizarse con IA, conectar automatizaciones con sus sistemas actuales e incluir pasos de revisión cuando las personas necesitan mantener el control. Los casos de uso pueden incluir clasificación de prospectos, priorización de consultas de atención al cliente y procesamiento de documentos para reducir tareas repetitivas y ofrecer información más clara para decidir.",
+    "image": "/src/assets/services/ai-automation-hero.svg",
+    "textPosition": "left"
+  },
+  "features": {
+    "title": "Automatización empresarial con IA",
+    "items": [
+      {
+        "title": "Automatización de procesos repetitivos",
+        "description": "Identificamos pasos rutinarios de los flujos empresariales que la IA puede realizar o apoyar.",
+        "icon": "automation"
+      },
+      {
+        "title": "Integración con sistemas actuales",
+        "description": "Conectamos los pasos del flujo con el software empresarial y las APIs que tu equipo ya utiliza.",
+        "icon": "integration"
+      },
+      {
+        "title": "Agentes de IA para flujos de equipo",
+        "description": "Aplicamos clasificación asistida por IA, priorización de consultas y procesamiento de documentos en tareas seleccionadas.",
+        "icon": "agents"
+      },
+      {
+        "title": "Revisión y control humano",
+        "description": "Incluimos pasos de revisión y aprobación cuando el equipo necesita validar el trabajo asistido por IA.",
+        "icon": "review"
+      }
+    ]
+  },
+  "process": {
+    "title": "Proceso de automatización con IA",
+    "steps": [
+      {
+        "number": 1,
+        "title": "Mapear el flujo de trabajo",
+        "description": "Entendemos el proceso actual, las tareas repetitivas, los sistemas y las decisiones que requieren intervención humana."
+      },
+      {
+        "number": 2,
+        "title": "Planear integraciones y revisiones",
+        "description": "Definimos las conexiones entre sistemas, el acceso a datos y los puntos de revisión del flujo propuesto."
+      },
+      {
+        "number": 3,
+        "title": "Desarrollar y probar",
+        "description": "Implementamos la automatización seleccionada y la probamos con escenarios empresariales representativos."
+      },
+      {
+        "number": 4,
+        "title": "Preparar la operación",
+        "description": "Documentamos cómo funciona el flujo y dónde el equipo puede revisar o gestionar sus resultados."
+      }
+    ]
+  },
+  "technologies": {
+    "title": "Tecnologías para automatización con IA",
+    "items": [
+      "Integraciones con modelos de lenguaje",
+      "Orquestación de flujos de trabajo",
+      "APIs de sistemas empresariales",
+      "Controles de revisión humana"
+    ]
+  },
+  "portfolio": {
+    "title": "Proyectos de automatización con IA",
+    "projects": []
+  },
+  "cta": {
+    "title": "Conversemos sobre automatización con IA",
+    "description": "Cuéntanos sobre un proceso repetitivo del negocio y los sistemas que utiliza tu equipo.",
+    "buttonText": "Conversemos sobre tu proceso"
+  }
+}

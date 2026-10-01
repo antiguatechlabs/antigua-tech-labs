@@ -1,0 +1,77 @@
+{
+  "hero": {
+    "title": "{{gradient:Soluciones IoT}}",
+    "subtitle": "Dispositivos conectados para operaciones empresariales",
+    "description": "Conecta dispositivos y sensores con el software del negocio para recopilar datos operativos, monitorear condiciones y apoyar alertas y tableros. Diseñamos el flujo de datos según los equipos y la información que tu equipo necesita consultar y utilizar.",
+    "image": "/src/assets/services/iot-solutions-hero.svg",
+    "textPosition": "right"
+  },
+  "features": {
+    "title": "Soluciones IoT conectadas",
+    "items": [
+      {
+        "title": "Conectividad de dispositivos y sensores",
+        "description": "Conectamos los dispositivos y sensores relevantes con el software que se usa para gestionar las operaciones.",
+        "icon": "devices"
+      },
+      {
+        "title": "Recopilación de datos operativos",
+        "description": "Integramos las lecturas de dispositivos en un flujo de datos central para que el equipo las consulte.",
+        "icon": "data"
+      },
+      {
+        "title": "Monitoreo y alertas",
+        "description": "Facilitamos el monitoreo de condiciones operativas seleccionadas y su seguimiento.",
+        "icon": "monitoring"
+      },
+      {
+        "title": "Tableros empresariales",
+        "description": "Presentamos la información de dispositivos conectados en tableros útiles para las decisiones del día a día.",
+        "icon": "dashboard"
+      }
+    ]
+  },
+  "process": {
+    "title": "Proceso de soluciones IoT",
+    "steps": [
+      {
+        "number": 1,
+        "title": "Definir las señales",
+        "description": "Identificamos los equipos, lecturas de sensores y condiciones operativas que el equipo necesita monitorear."
+      },
+      {
+        "number": 2,
+        "title": "Planear conectividad y flujo de datos",
+        "description": "Elegimos cómo conectar los datos de dispositivos con el software empresarial y dónde estarán disponibles."
+      },
+      {
+        "number": 3,
+        "title": "Desarrollar vistas de monitoreo",
+        "description": "Implementamos la recopilación de datos, el monitoreo y los tableros para el caso seleccionado."
+      },
+      {
+        "number": 4,
+        "title": "Probar con el equipo",
+        "description": "Revisamos los datos y las alertas con las personas que los utilizarán en las operaciones diarias."
+      }
+    ]
+  },
+  "technologies": {
+    "title": "Tecnologías IoT",
+    "items": [
+      "Interfaces para dispositivos y sensores",
+      "MQTT",
+      "APIs HTTP",
+      "Tableros operativos"
+    ]
+  },
+  "portfolio": {
+    "title": "Proyectos de soluciones IoT",
+    "projects": []
+  },
+  "cta": {
+    "title": "Conversemos sobre un proyecto IoT",
+    "description": "Cuéntanos qué dispositivos, condiciones operativas o datos necesita monitorear tu equipo.",
+    "buttonText": "Conversemos sobre tu proyecto IoT"
+  }
+}

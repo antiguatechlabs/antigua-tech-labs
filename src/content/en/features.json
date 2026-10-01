@@ -31,6 +31,16 @@
       "title": "Security & Maintenance",
       "description": "Ongoing support, security patches, and performance improvements to keep your app running smoothly.",
       "icon": "SecurityIcon"
+    },
+    {
+      "title": "AI Automation & Agents",
+      "description": "Reduce repetitive business work with AI-assisted workflows connected to the systems your team already uses.",
+      "icon": "RefreshIcon"
+    },
+    {
+      "title": "IoT Solutions",
+      "description": "Connect devices and sensors to business software for operational data, monitoring, and alerts.",
+      "icon": "BarChartIcon"
     }
   ]
 }

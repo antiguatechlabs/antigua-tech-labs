@@ -1,0 +1,77 @@
+{
+  "hero": {
+    "title": "{{gradient:AI Automation}} & Agents",
+    "subtitle": "AI Automation for Business Operations",
+    "description": "We help businesses identify repetitive processes that can be streamlined with AI, connect automations to existing systems, and add review steps where people need control. Use cases can include lead classification, customer support triage, and document processing to reduce repetitive work and give teams clearer information for decisions.",
+    "image": "/src/assets/services/ai-automation-hero.svg",
+    "textPosition": "left"
+  },
+  "features": {
+    "title": "Business AI Automation",
+    "items": [
+      {
+        "title": "Repetitive Process Automation",
+        "description": "Identify routine steps in business workflows that may be handled or assisted by AI.",
+        "icon": "automation"
+      },
+      {
+        "title": "Existing System Integration",
+        "description": "Connect workflow steps with the business software and APIs your team already uses.",
+        "icon": "integration"
+      },
+      {
+        "title": "AI Agents for Team Workflows",
+        "description": "Apply AI-assisted classification, support triage, and document processing to selected tasks.",
+        "icon": "agents"
+      },
+      {
+        "title": "Human Review and Controls",
+        "description": "Include review and approval steps where teams need to check AI-assisted work.",
+        "icon": "review"
+      }
+    ]
+  },
+  "process": {
+    "title": "AI Automation Process",
+    "steps": [
+      {
+        "number": 1,
+        "title": "Map the Workflow",
+        "description": "Understand the current process, repetitive tasks, systems, and decisions that need human input."
+      },
+      {
+        "number": 2,
+        "title": "Plan Integrations and Reviews",
+        "description": "Define the system connections, data access, and review points for the proposed workflow."
+      },
+      {
+        "number": 3,
+        "title": "Build and Test",
+        "description": "Implement the selected automation and test it against representative business scenarios."
+      },
+      {
+        "number": 4,
+        "title": "Prepare for Operation",
+        "description": "Document how the workflow runs and where team members can review or manage its output."
+      }
+    ]
+  },
+  "technologies": {
+    "title": "AI Automation Technologies",
+    "items": [
+      "Language model integrations",
+      "Workflow orchestration",
+      "Business system APIs",
+      "Human review controls"
+    ]
+  },
+  "portfolio": {
+    "title": "AI Automation Projects",
+    "projects": []
+  },
+  "cta": {
+    "title": "Discuss an AI Automation Project",
+    "description": "Tell us about a repetitive business workflow and the systems your team uses.",
+    "buttonText": "Discuss Your Workflow"
+  }
+}
