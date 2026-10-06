@@ -4,6 +4,7 @@ import enAboutCta from '../content/en/about-cta.json';
 import enAboutHero from '../content/en/about-hero.json';
 import enAboutStory from '../content/en/about-story.json';
 import enContact from '../content/en/contact.json';
+import enDevelopers from '../content/en/developers.json';
 import enFaq from '../content/en/faq.json';
 import enFeatures from '../content/en/features.json';
 import enFooter from '../content/en/footer.json';
@@ -14,9 +15,11 @@ import enPortfolio from '../content/en/portfolio.json';
 import enPrivacyPolicy from '../content/en/privacy-policy.json';
 import enSeo from '../content/en/seo.json';
 import enModeling3d from '../content/en/services/3d-modeling.json';
+import enAiAutomation from '../content/en/services/ai-automation.json';
 import enApiDevelopment from '../content/en/services/api-development.json';
 import enCodeMaintenance from '../content/en/services/code-maintenance.json';
 import enMobileApplications from '../content/en/services/mobile-applications.json';
+import enIotSolutions from '../content/en/services/iot-solutions.json';
 import enUxDesign from '../content/en/services/ux-design.json';
 import enWebApplications from '../content/en/services/web-applications.json';
 import enServicesOverview from '../content/en/services-overview.json';
@@ -30,6 +33,7 @@ import esAboutCta from '../content/es/about-cta.json';
 import esAboutHero from '../content/es/about-hero.json';
 import esAboutStory from '../content/es/about-story.json';
 import esContact from '../content/es/contact.json';
+import esDevelopers from '../content/es/developers.json';
 import esFaq from '../content/es/faq.json';
 import esFeatures from '../content/es/features.json';
 import esFooter from '../content/es/footer.json';
@@ -40,9 +44,11 @@ import esPortfolio from '../content/es/portfolio.json';
 import esPrivacyPolicy from '../content/es/privacy-policy.json';
 import esSeo from '../content/es/seo.json';
 import esModeling3d from '../content/es/services/3d-modeling.json';
+import esAiAutomation from '../content/es/services/ai-automation.json';
 import esApiDevelopment from '../content/es/services/api-development.json';
 import esCodeMaintenance from '../content/es/services/code-maintenance.json';
 import esMobileApplications from '../content/es/services/mobile-applications.json';
+import esIotSolutions from '../content/es/services/iot-solutions.json';
 import esUxDesign from '../content/es/services/ux-design.json';
 import esWebApplications from '../content/es/services/web-applications.json';
 import esServicesOverview from '../content/es/services-overview.json';
@@ -132,8 +138,64 @@ export interface FooterContent {
       title: string;
       links: string[];
     };
+    developers: {
+      title: string;
+      links: Array<{
+        title: string;
+        href: string;
+      }>;
+    };
   };
   copyright: string;
+}
+
+export interface DeveloperPortalContent {
+  hero: {
+    eyebrow: string;
+    title: string;
+    description: string;
+    openApiLabel: string;
+    quickstartLabel: string;
+  };
+  overview: {
+    title: string;
+    description: string;
+  };
+  authentication: {
+    title: string;
+    status: string;
+    description: string;
+  };
+  endpoint: {
+    title: string;
+    description: string;
+    fieldsTitle: string;
+    fields: Array<{
+      name: string;
+      type: string;
+      description: string;
+    }>;
+  };
+  quickstart: {
+    title: string;
+    description: string;
+  };
+  sandbox: {
+    title: string;
+    status: string;
+    description: string;
+    warning: string;
+  };
+  errors: {
+    title: string;
+    description: string;
+  };
+  cli: {
+    title: string;
+    status: string;
+    description: string;
+    sourceLabel: string;
+  };
 }
 
 export interface NavbarContent {
@@ -447,6 +509,8 @@ export interface UnifiedServicesPageContent {
   codeMaintenance: ServicePageContent;
   uxDesign: ServicePageContent;
   modeling3d: ServicePageContent;
+  aiAutomation: ServicePageContent;
+  iotSolutions: ServicePageContent;
 }
 
 // SEO content types
@@ -478,6 +542,7 @@ const contentMap = {
     features: enFeatures as FeaturesContent,
     testimonials: enTestimonials as TestimonialsContent,
     contact: enContact as ContactContent,
+    developers: enDevelopers as DeveloperPortalContent,
     footer: enFooter as FooterContent,
     navbar: enNavbar as NavbarContent,
     whyChoose: enWhyChoose as WhyChooseContent,
@@ -496,6 +561,8 @@ const contentMap = {
     modeling3d: enModeling3d as ServicePageContent,
     uxDesign: enUxDesign as ServicePageContent,
     webApplications: enWebApplications as ServicePageContent,
+    aiAutomation: enAiAutomation as ServicePageContent,
+    iotSolutions: enIotSolutions as ServicePageContent,
     servicesOverview: enServicesOverview as ServicesOverviewContent,
     termsOfService: enTermsOfService as LegalContent,
     privacyPolicy: enPrivacyPolicy as LegalContent,
@@ -506,6 +573,7 @@ const contentMap = {
     features: esFeatures as FeaturesContent,
     testimonials: esTestimonials as TestimonialsContent,
     contact: esContact as ContactContent,
+    developers: esDevelopers as DeveloperPortalContent,
     footer: esFooter as FooterContent,
     navbar: esNavbar as NavbarContent,
     whyChoose: esWhyChoose as WhyChooseContent,
@@ -524,6 +592,8 @@ const contentMap = {
     modeling3d: esModeling3d as ServicePageContent,
     uxDesign: esUxDesign as ServicePageContent,
     webApplications: esWebApplications as ServicePageContent,
+    aiAutomation: esAiAutomation as ServicePageContent,
+    iotSolutions: esIotSolutions as ServicePageContent,
     servicesOverview: esServicesOverview as ServicesOverviewContent,
     termsOfService: esTermsOfService as LegalContent,
     privacyPolicy: esPrivacyPolicy as LegalContent,
@@ -558,6 +628,10 @@ export function getTestimonialsContent(language: string = 'en'): TestimonialsCon
 
 export function getContactContent(language: string = 'en'): ContactContent {
   return getContent<ContactContent>('contact', language);
+}
+
+export function getDeveloperPortalContent(language: string = 'en'): DeveloperPortalContent {
+  return getContent<DeveloperPortalContent>('developers', language);
 }
 
 export function getFooterContent(language: string = 'en'): FooterContent {
@@ -621,6 +695,8 @@ export function getAllServicesContent(language: string = 'en'): {
   codeMaintenance: ServicePageContent;
   uxDesign: ServicePageContent;
   modeling3d: ServicePageContent;
+  aiAutomation: ServicePageContent;
+  iotSolutions: ServicePageContent;
 } {
   return {
     webApplications: getWebApplicationsContent(language),
@@ -629,6 +705,8 @@ export function getAllServicesContent(language: string = 'en'): {
     codeMaintenance: getContent<ServicePageContent>('codeMaintenance', language),
     uxDesign: getContent<ServicePageContent>('uxDesign', language),
     modeling3d: getContent<ServicePageContent>('modeling3d', language),
+    aiAutomation: getContent<ServicePageContent>('aiAutomation', language),
+    iotSolutions: getContent<ServicePageContent>('iotSolutions', language),
   };
 }
 

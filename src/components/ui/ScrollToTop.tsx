@@ -1,10 +1,11 @@
 'use client';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
-import { Box, Fab, useScrollTrigger, Zoom, SxProps, Theme } from '@mui/material';
+import { alpha, Box, Fab, useScrollTrigger, Zoom, SxProps, Theme } from '@mui/material';
 import { Variants } from 'framer-motion';
 import { useEffect, useState } from 'react';
 
 import { MotionDiv } from '@/lib/motionComponents';
+import { liquidGlassSx } from '@/components/common/LiquidGlassSurface';
 
 /**
  * ScrollToTop component props
@@ -100,12 +101,22 @@ export default function ScrollToTop({
             onClick={handleClick}
             size="medium"
             aria-label="scroll back to top"
-            sx={{
-              bgcolor: 'background.default',
-              color: 'var(--button-text)',
-              backdropFilter: 'blur(6px) saturate(150%) brightness(1.03)',
-              WebkitBackdropFilter: 'blur(6px) saturate(150%) brightness(1.03)',
-            }}
+            data-liquid-glass="true"
+            sx={theme => ({
+              ...liquidGlassSx,
+              bgcolor: alpha(theme.palette.background.paper, 0.8),
+              color: theme.palette.mode === 'dark' ? 'primary.light' : 'primary.dark',
+              borderRadius: '50%',
+              '&:hover': {
+                bgcolor: alpha(theme.palette.background.paper, 0.86),
+                borderColor: 'primary.main',
+              },
+              '&.Mui-focusVisible': {
+                outline: '2px solid',
+                outlineColor: 'primary.main',
+                outlineOffset: 3,
+              },
+            })}
           >
             <KeyboardArrowUpIcon />
           </Fab>

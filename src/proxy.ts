@@ -90,6 +90,6 @@ export const config = {
      * - Archivos de iconos y mapas del sitio
      * - generador de imagenes OG
      */
-    '/((?!api|_next/static|_next/image|favicon.ico|sitemap.xml|robots.txt|llms.txt|og).*)',
+    '/((?!api|_next/static|_next/image|favicon.ico|sitemap.xml|robots.txt|llms.txt|openapi.json|og).*)',
   ],
 };

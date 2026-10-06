@@ -2,7 +2,7 @@
   "hero": {
     "title": "Nuestros {{gradient:Servicios}}",
     "subtitle": "Soluciones Digitales Integrales",
-    "description": "Desde aplicaciones web hasta modelado 3D, ofrecemos servicios digitales completos para transformar las ideas de tu negocio en realidad. Explora nuestra gama completa de servicios y descubre cómo podemos ayudar a dar vida a tu visión.",
+    "description": "Desde aplicaciones web y móviles hasta automatización con IA, soluciones IoT y modelado 3D, ofrecemos servicios digitales que ayudan a las empresas a mejorar sus operaciones. Explora nuestros servicios y conversemos sobre cómo pueden apoyar tus objetivos.",
     "ctaText": "Comienza Hoy"
   },
   "navigation": {
@@ -43,6 +43,18 @@
         "title": "Modelado 3D",
         "description": "Visualización 3D",
         "icon": "3d"
+      },
+      {
+        "id": "ai-automation",
+        "title": "Automatización y agentes de IA",
+        "description": "Flujos empresariales asistidos por IA",
+        "icon": "automation"
+      },
+      {
+        "id": "iot-solutions",
+        "title": "Soluciones IoT",
+        "description": "Dispositivos conectados y datos operativos",
+        "icon": "iot"
       }
     ]
   }

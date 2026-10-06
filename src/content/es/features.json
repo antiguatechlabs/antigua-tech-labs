@@ -31,6 +31,16 @@
       "title": "Seguridad y Mantenimiento",
       "description": "Soporte continuo, actualizaciones de seguridad y mejoras de rendimiento para un funcionamiento estable.",
       "icon": "SecurityIcon"
+    },
+    {
+      "title": "Automatización y agentes de IA",
+      "description": "Reduce tareas repetitivas del negocio con flujos de trabajo asistidos por IA conectados a los sistemas que tu equipo ya utiliza.",
+      "icon": "RefreshIcon"
+    },
+    {
+      "title": "Soluciones IoT",
+      "description": "Conecta dispositivos y sensores con el software del negocio para recopilar datos operativos, monitorear y generar alertas.",
+      "icon": "BarChartIcon"
     }
   ]
 }

@@ -1,0 +1,77 @@
+{
+  "hero": {
+    "title": "{{gradient:IoT}} Solutions",
+    "subtitle": "Connected Devices for Business Operations",
+    "description": "Connect devices and sensors to business software to collect operational data, monitor conditions, and support alerts and dashboards. We shape the data flow around the equipment and information your team needs to track and act on.",
+    "image": "/src/assets/services/iot-solutions-hero.svg",
+    "textPosition": "right"
+  },
+  "features": {
+    "title": "Connected IoT Solutions",
+    "items": [
+      {
+        "title": "Device and Sensor Connectivity",
+        "description": "Connect relevant devices and sensors with the software used to manage business operations.",
+        "icon": "devices"
+      },
+      {
+        "title": "Operational Data Collection",
+        "description": "Bring device readings into a central data flow for teams to review.",
+        "icon": "data"
+      },
+      {
+        "title": "Monitoring and Alerts",
+        "description": "Make selected operating conditions easier to monitor and flag for follow-up.",
+        "icon": "monitoring"
+      },
+      {
+        "title": "Business Dashboards",
+        "description": "Present connected-device information in dashboards that support day-to-day decisions.",
+        "icon": "dashboard"
+      }
+    ]
+  },
+  "process": {
+    "title": "IoT Solutions Process",
+    "steps": [
+      {
+        "number": 1,
+        "title": "Define the Signals",
+        "description": "Identify the equipment, sensor readings, and operational conditions the team needs to track."
+      },
+      {
+        "number": 2,
+        "title": "Plan Connectivity and Data Flow",
+        "description": "Choose how device data connects to business software and where it should be available."
+      },
+      {
+        "number": 3,
+        "title": "Build Monitoring Views",
+        "description": "Implement data collection, monitoring, and dashboard views for the selected use case."
+      },
+      {
+        "number": 4,
+        "title": "Test with the Team",
+        "description": "Review the data and alerts with the people who will use them in daily operations."
+      }
+    ]
+  },
+  "technologies": {
+    "title": "IoT Technologies",
+    "items": [
+      "Device and sensor interfaces",
+      "MQTT",
+      "HTTP APIs",
+      "Operational dashboards"
+    ]
+  },
+  "portfolio": {
+    "title": "IoT Solutions Projects",
+    "projects": []
+  },
+  "cta": {
+    "title": "Discuss an IoT Project",
+    "description": "Tell us which devices, operating conditions, or data your team wants to monitor.",
+    "buttonText": "Discuss Your IoT Project"
+  }
+}

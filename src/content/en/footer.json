@@ -7,7 +7,7 @@
   "sections": {
     "product": {
       "title": "Services",
-      "links": ["Web Applications", "Mobile Applications", "API Development", "Code Maintenance", "UX Design", "3D Modeling"]
+      "links": ["Web Applications", "Mobile Applications", "API Development", "Code Maintenance", "UX Design", "3D Modeling", "AI Automation & Agents", "IoT Solutions"]
     },
     "company": {
       "title": "Company",
@@ -29,6 +29,14 @@
     "legal": {
       "title": "Legal",
       "links": ["Privacy Policy", "Terms of Service"]
+    },
+    "developers": {
+      "title": "Developers",
+      "links": [
+        { "title": "Developer Portal", "href": "/developers" },
+        { "title": "OpenAPI Specification", "href": "/openapi.json" },
+        { "title": "Agent Instructions", "href": "/llms.txt" }
+      ]
     }
   },
   "copyright": "© {year} Antigua Tech Labs. All rights reserved."

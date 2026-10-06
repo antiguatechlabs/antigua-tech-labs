@@ -34,7 +34,7 @@
   },
   "services": {
     "title": "Servicios - Antigua Tech Labs",
-    "description": "Servicios integrales de desarrollo de software incluyendo aplicaciones web, apps móviles, desarrollo de APIs, diseño UX y mantenimiento de código.",
+    "description": "Servicios de desarrollo de software que incluyen aplicaciones web y móviles, automatización y agentes de IA, soluciones IoT, desarrollo de APIs, diseño UX y mantenimiento de código.",
     "keywords": [
       "servicios desarrollo software",
       "desarrollo aplicaciones web",
@@ -42,10 +42,13 @@
       "desarrollo APIs",
       "diseño UX",
       "mantenimiento código",
-      "modelado 3D"
+      "modelado 3D",
+      "automatización con IA",
+      "agentes de IA",
+      "soluciones IoT"
     ],
     "ogTitle": "Servicios de Desarrollo de Software - Antigua Tech Labs",
-    "ogDescription": "Desde aplicaciones web hasta apps móviles, proporcionamos servicios integrales de desarrollo de software.",
+    "ogDescription": "Conoce nuestros servicios web y móviles, automatización con IA, soluciones IoT y otras soluciones de software para empresas.",
     "ogImage": "https://antiguatechlabs.com/images/og-services-es.jpg"
   },
   "portfolio": {
