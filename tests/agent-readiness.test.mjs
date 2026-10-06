@@ -1,13 +1,11 @@
 import assert from 'node:assert/strict';
 import { execFile } from 'node:child_process';
 import { readFileSync } from 'node:fs';
-import { promisify } from 'node:util';
 import { after, before, describe, test } from 'node:test';
 import net from 'node:net';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-const execFileAsync = promisify(execFile);
 const root = path.resolve(fileURLToPath(new URL('..', import.meta.url)));
 const nextBin = path.join(root, 'node_modules', 'next', 'dist', 'bin', 'next');
 
@@ -172,10 +170,25 @@ describe('agent-readable HTTP responses', () => {
       for (const { id } of overview.navigation.items) {
         assert.ok(pageMarkup.includes(`id="${id}"`), `${language} rendered section ${id}`);
       }
+      const tabs = [...pageMarkup.matchAll(/<button\b[^>]*role="tab"[^>]*>/g)].map(([tag]) => tag);
+      const panels = [...pageMarkup.matchAll(/<section\b[^>]*role="tabpanel"[^>]*>/g)].map(([tag]) => tag);
+      assert.equal(tabs.length, expectedIds.length, `${language} service tabs`);
+      assert.equal(panels.length, expectedIds.length, `${language} service panels`);
+      for (const [index, id] of expectedIds.entries()) {
+        assert.ok(tabs[index].includes(`id="${id}"`), `${language} tab order for ${id}`);
+        assert.ok(tabs[index].includes(`aria-controls="${id}-panel"`), `${language} tab control for ${id}`);
+        assert.ok(tabs[index].includes(`aria-selected="${index === 0}"`), `${language} selected tab for ${id}`);
+        assert.ok(panels[index].includes(`id="${id}-panel"`), `${language} panel for ${id}`);
+        assert.ok(panels[index].includes(`aria-labelledby="${id}"`), `${language} panel label for ${id}`);
+        assert.ok(panels[index].includes(`aria-hidden="${index !== 0}"`), `${language} hidden panel for ${id}`);
+        if (index !== 0) assert.match(panels[index], /\binert=""/, `${language} inactive panel for ${id}`);
+        const service = loadJson(language, 'services', `${id}.json`);
+        assert.ok(pageText.includes(service.hero.description), `${language} rendered description for ${id}`);
+      }
       for (const id of offerIds) {
         const service = localizedServices[language][id];
         const title = cleanTitle(service.hero.title);
-        const anchorIndex = pageMarkup.indexOf(`id="${id}"`);
+        const anchorIndex = pageMarkup.indexOf(`id="${id}-panel"`);
         const sectionStart = pageMarkup.lastIndexOf('<section', anchorIndex);
         const sectionEnd = pageMarkup.indexOf('</section>', anchorIndex);
         assert.ok(sectionStart >= 0 && sectionEnd > anchorIndex, `${language} section markup for ${id}`);
