@@ -1,9 +1,9 @@
 'use client';
 
-import { alpha, Box, darken, Tab, Tabs, Typography, useMediaQuery, useTheme } from '@mui/material';
-import { motion, useReducedMotion } from 'framer-motion';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import { Accordion, AccordionDetails, AccordionSummary, alpha, Box, darken, Typography, useTheme } from '@mui/material';
+import { useReducedMotion } from 'framer-motion';
 import Image from 'next/image';
-import React, { useEffect, useState } from 'react';
 
 import modeling3dHero from '@/assets/services/3d-modeling-hero.svg';
 import aiAutomationHero from '@/assets/services/ai-automation-hero.svg';
@@ -39,30 +39,12 @@ interface UnifiedServicesPageProps {
 
 export function UnifiedServicesPage({ content, language = 'en' }: UnifiedServicesPageProps) {
   const theme = useTheme();
-  const isDesktop = useMediaQuery(theme.breakpoints.up('md'));
   const reducedMotion = useReducedMotion();
   const items = content.overview.navigation.items;
-  const [selectedId, setSelectedId] = useState(items[0].id);
   const overview = content.overview.hero;
   const titleGradient = theme.palette.mode === 'dark'
     ? colors.gradientMain
     : `linear-gradient(to right, ${theme.palette.primary.main}, ${darken(theme.palette.info.main, 0.3)})`;
-
-  useEffect(() => {
-    const syncHash = () => {
-      const id = window.location.hash.slice(1);
-      if (items.some(item => item.id === id)) setSelectedId(id);
-    };
-
-    syncHash();
-    window.addEventListener('hashchange', syncHash);
-    return () => window.removeEventListener('hashchange', syncHash);
-  }, [items]);
-
-  const handleSelection = (_event: React.SyntheticEvent, id: string) => {
-    setSelectedId(id);
-    window.history.replaceState(window.history.state, '', `#${id}`);
-  };
 
   return (
     <Box>
@@ -73,6 +55,7 @@ export function UnifiedServicesPage({ content, language = 'en' }: UnifiedService
           position: 'relative',
           overflow: 'hidden',
           bgcolor: theme.palette.mode === 'dark' ? 'background.default' : 'grey.50',
+          backgroundImage: `radial-gradient(ellipse at 12% 15%, ${alpha(theme.palette.primary.main, theme.palette.mode === 'dark' ? 0.2 : 0.1)}, transparent 55%), radial-gradient(ellipse at 90% 65%, ${alpha(theme.palette.info.main, theme.palette.mode === 'dark' ? 0.14 : 0.08)}, transparent 55%)`,
           pt: { xs: 'calc(70px + 3rem)', md: 'calc(116px + 4rem)' },
           pb: { xs: 7, md: 10 },
           px: { xs: 2, sm: 4, lg: 6 },
@@ -82,181 +65,135 @@ export function UnifiedServicesPage({ content, language = 'en' }: UnifiedService
           },
         }}
       >
-        <DecorativePattern color="rgba(38, 197, 243, 0.09)" variant="contours" motion="contour-drift" />
+        <DecorativePattern
+          color={alpha(theme.palette.primary.main, theme.palette.mode === 'dark' ? 0.16 : 0.1)}
+          variant="dots"
+        />
         <Box sx={{ position: 'relative', zIndex: 1, maxWidth: '1440px', mx: 'auto' }}>
-          <Box
-            sx={{
-              display: 'grid',
-              gridTemplateColumns: { xs: 'minmax(0, 1fr)', md: '1.2fr 1fr' },
-              gap: { xs: 3, md: 8 },
-              alignItems: 'end',
-              mb: { xs: 5, md: 8 },
-            }}
-          >
+          <Box sx={{ maxWidth: '52rem', mx: 'auto', textAlign: 'center', mb: { xs: 5, md: 8 } }}>
             <Typography
               component="h1"
               sx={{
-                fontSize: 'clamp(2.75rem, 6vw, 6rem)',
+                fontSize: 'clamp(2.5rem, 5vw, 4.5rem)',
                 fontWeight: 600,
-                lineHeight: 1.04,
-                letterSpacing: '-0.04em',
-                textTransform: 'uppercase',
-                '& > span': {
-                  display: 'block',
-                  ml: { xs: 3, md: 6 },
-                  backgroundImage: titleGradient,
-                },
+                lineHeight: 1.1,
+                letterSpacing: '-0.03em',
+                textWrap: 'balance',
+                mb: 3,
+                '& > span': { backgroundImage: titleGradient },
               }}
             >
               {textWithGradient(overview.title)}
             </Typography>
-            <Box sx={{ maxWidth: '40rem', pb: { md: 0.5 } }}>
-              <Typography component="p" sx={{ fontSize: { xs: '1.125rem', md: '1.375rem' }, mb: 2 }}>
-                {overview.subtitle}
-              </Typography>
-              <Typography color="text.secondary" sx={{ lineHeight: 1.7 }}>
-                {overview.description}
-              </Typography>
-            </Box>
+            <Typography component="p" sx={{ fontSize: { xs: '1.125rem', md: '1.375rem' }, mb: 2 }}>
+              {overview.subtitle}
+            </Typography>
+            <Typography color="text.secondary" sx={{ lineHeight: 1.7, maxWidth: '65ch', mx: 'auto' }}>
+              {overview.description}
+            </Typography>
           </Box>
 
-          <LiquidGlassCard
+          <Box
             sx={{
               display: 'grid',
-              gridTemplateColumns: { xs: 'minmax(0, 1fr)', md: 'minmax(15rem, 0.9fr) minmax(0, 2fr)' },
-              alignItems: 'start',
+              gridTemplateColumns: { xs: 'minmax(0, 1fr)', sm: 'repeat(2, minmax(0, 1fr))', lg: 'repeat(4, minmax(0, 1fr))' },
+              gap: 3,
             }}
           >
-            <Tabs
-              aria-label={content.overview.navigation.title}
-              value={selectedId}
-              onChange={handleSelection}
-              orientation={isDesktop ? 'vertical' : 'horizontal'}
-              variant="scrollable"
-              selectionFollowsFocus
-              scrollButtons="auto"
-              allowScrollButtonsMobile
-              slotProps={{ indicator: { sx: { display: 'none' } } }}
-              sx={{
-                minWidth: 0,
-                bgcolor: 'transparent',
-                p: 1,
-                '& .MuiTab-root': {
-                  alignItems: 'flex-start',
-                  minHeight: { xs: 64, md: 76 },
-                  maxWidth: 'none',
-                  px: { xs: 2.5, md: 3 },
-                  py: 2,
-                  fontSize: { xs: '1rem', md: '1.125rem', lg: '1.375rem' },
-                  fontWeight: 400,
-                  lineHeight: 1.35,
-                  textAlign: 'left',
-                  color: 'text.secondary',
-                  whiteSpace: { xs: 'nowrap', md: 'normal' },
-                  borderRadius: '0.75rem',
-                  transition: reducedMotion ? 'none' : 'background-color 350ms ease, color 350ms ease',
-                  scrollMarginTop: '160px',
-                  '&:hover': { bgcolor: 'action.hover', color: 'text.primary' },
-                  '&.Mui-selected': {
-                    bgcolor: alpha(theme.palette.primary.main, theme.palette.mode === 'dark' ? 0.2 : 0.12),
-                    color: 'text.primary',
-                    fontWeight: 600,
-                  },
-                  '&.Mui-focusVisible': { outline: '2px solid', outlineColor: 'primary.main', outlineOffset: -3 },
-                },
-              }}
-            >
-              {items.map(item => (
-                <Tab
+            {items.map(item => {
+              const asset = serviceAssets[item.id as keyof typeof serviceAssets];
+              const hero = content[asset.key].hero;
+
+              return (
+                <Box
                   key={item.id}
+                  component="section"
                   id={item.id}
-                  value={item.id}
-                  label={item.title}
-                  aria-controls={`${item.id}-panel`}
-                  disableRipple
-                />
-              ))}
-            </Tabs>
-
-            <Box
-              sx={{
-                display: 'grid',
-                gridTemplateColumns: 'minmax(0, 1fr)',
-                p: { xs: 3, sm: 4, lg: 5 },
-                bgcolor: 'transparent',
-                minWidth: 0,
-              }}
-            >
-              <Box sx={{ display: 'grid', minWidth: 0 }}>
-                {items.map((item, index) => {
-                  const asset = serviceAssets[item.id as keyof typeof serviceAssets];
-                  const hero = content[asset.key].hero;
-                  const active = selectedId === item.id;
-
-                  return (
-                    <Box
-                      key={item.id}
-                      component={motion.section}
-                      role="tabpanel"
-                      id={`${item.id}-panel`}
-                      aria-labelledby={item.id}
-                      aria-hidden={!active}
-                      inert={!active}
-                      tabIndex={active ? 0 : -1}
-                      initial={false}
-                      animate={{ opacity: active ? 1 : 0, y: active || reducedMotion ? 0 : 12 }}
-                      transition={{ duration: reducedMotion ? 0 : 0.35, ease: [0.16, 1, 0.3, 1] }}
+                  aria-labelledby={`${item.id}-title`}
+                  sx={{ minWidth: 0, scrollMarginTop: { xs: '104px', md: '160px' } }}
+                >
+                  <LiquidGlassCard
+                    whileHover={reducedMotion ? undefined : { y: -4 }}
+                    transition={{ duration: reducedMotion ? 0 : 0.24, ease: [0.16, 1, 0.3, 1] }}
+                    sx={{ height: '100%', minHeight: '22rem', p: 3, display: 'flex', flexDirection: 'column' }}
+                  >
+                    <Image
+                      src={asset.image}
+                      alt=""
+                      width={80}
+                      height={60}
+                      style={{ display: 'block', width: 80, height: 60, objectFit: 'contain', borderRadius: 12, marginBottom: 24 }}
+                    />
+                    <Typography
+                      component="h2"
+                      id={`${item.id}-title`}
                       sx={{
-                        gridArea: '1 / 1',
-                        display: 'grid',
-                        gridTemplateRows: '1fr auto',
-                        gap: 4,
-                        minWidth: 0,
-                        visibility: active ? 'visible' : 'hidden',
-                        '&:focus-visible': { outline: '2px solid', outlineColor: 'primary.main', outlineOffset: 6 },
+                        fontSize: '1.375rem',
+                        lineHeight: 1.2,
+                        fontWeight: 600,
+                        textWrap: 'balance',
+                        mb: 2,
+                        '& > span': { backgroundImage: titleGradient },
                       }}
                     >
-                      <Box>
-                        <Box sx={{ display: 'flex', alignItems: 'start', justifyContent: 'space-between', gap: 2, mb: 2 }}>
-                          <Typography
-                            component="h2"
-                            sx={{
-                              fontSize: { xs: '1.5rem', lg: '1.875rem' },
-                              lineHeight: 1.2,
-                              fontWeight: 600,
-                              textWrap: 'balance',
-                              '& > span': { backgroundImage: titleGradient },
-                            }}
-                          >
-                            {textWithGradient(hero.title)}
-                          </Typography>
-                          <Typography component="span" aria-hidden sx={{ color: 'text.secondary', fontVariantNumeric: 'tabular-nums', pt: 0.5 }}>
-                            {String(index + 1).padStart(2, '0')}
-                          </Typography>
-                        </Box>
-                        <Typography component="p" sx={{ fontSize: '1rem', fontWeight: 500, mb: 2 }}>
-                          {hero.subtitle}
-                        </Typography>
-                        <Typography color="text.secondary" sx={{ lineHeight: 1.7, maxWidth: '65ch' }}>
+                      {textWithGradient(hero.title)}
+                    </Typography>
+                    <Typography component="p" sx={{ fontSize: '1rem', fontWeight: 500, lineHeight: 1.5, mb: 2 }}>
+                      {hero.subtitle}
+                    </Typography>
+                    <Accordion
+                      defaultExpanded={false}
+                      disableGutters
+                      elevation={0}
+                      slots={{ heading: 'div' }}
+                      slotProps={{ transition: { timeout: reducedMotion ? 0 : { enter: 280, exit: 200 }, easing: 'cubic-bezier(0.16, 1, 0.3, 1)' } }}
+                      sx={{
+                        mt: 1,
+                        bgcolor: 'transparent',
+                        backgroundImage: 'none',
+                        '&.MuiAccordion-root': { position: 'static' },
+                        '&::before': { display: 'none' },
+                      }}
+                    >
+                      <AccordionSummary
+                        id={`${item.id}-toggle`}
+                        aria-controls={`${item.id}-description`}
+                        aria-label={`${language === 'es' ? 'Detalles de' : 'Details for'} ${item.title}`}
+                        expandIcon={<ExpandMoreIcon sx={{ color: theme.palette.mode === 'dark' ? 'common.white' : 'common.black' }} />}
+                        sx={{
+                          position: 'absolute',
+                          inset: 0,
+                          width: '100%',
+                          height: '100%',
+                          zIndex: 2,
+                          px: 0,
+                          borderRadius: '1.25rem',
+                          '&.Mui-focusVisible': { outline: '2px solid', outlineColor: 'primary.main', outlineOffset: -3 },
+                          '& .MuiAccordionSummary-content': { display: 'none' },
+                          '& .MuiAccordionSummary-expandIconWrapper': {
+                            position: 'absolute',
+                            top: 16,
+                            right: 16,
+                            width: 44,
+                            height: 44,
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            pointerEvents: 'none',
+                            transition: reducedMotion ? 'none' : 'transform 280ms cubic-bezier(0.16, 1, 0.3, 1)',
+                          },
+                        }}
+                      />
+                      <AccordionDetails sx={{ px: 0, pt: 1, pb: 0 }}>
+                        <Typography color="text.secondary" sx={{ lineHeight: 1.7 }}>
                           {hero.description}
                         </Typography>
-                      </Box>
-                      <Image
-                        src={asset.image}
-                        alt={hero.subtitle}
-                        width={800}
-                        height={600}
-                        sizes="(min-width: 900px) 45vw, 100vw"
-                        loading={active ? 'eager' : 'lazy'}
-                        style={{ display: 'block', width: '100%', height: 'auto', aspectRatio: '4 / 3', objectFit: 'contain', borderRadius: 16 }}
-                      />
-                    </Box>
-                  );
-                })}
-              </Box>
-
-            </Box>
-          </LiquidGlassCard>
+                      </AccordionDetails>
+                    </Accordion>
+                  </LiquidGlassCard>
+                </Box>
+              );
+            })}
+          </Box>
         </Box>
       </Box>
       <Slider content={getSliderContent(language)} />

@@ -167,28 +167,41 @@ describe('agent-readable HTTP responses', () => {
       const pageText = visibleText(pageMarkup);
       assert.ok(pageText.includes(overview.hero.description), `${language} services overview`);
 
-      for (const { id } of overview.navigation.items) {
-        assert.ok(pageMarkup.includes(`id="${id}"`), `${language} rendered section ${id}`);
-      }
-      const tabs = [...pageMarkup.matchAll(/<button\b[^>]*role="tab"[^>]*>/g)].map(([tag]) => tag);
-      const panels = [...pageMarkup.matchAll(/<section\b[^>]*role="tabpanel"[^>]*>/g)].map(([tag]) => tag);
-      assert.equal(tabs.length, expectedIds.length, `${language} service tabs`);
-      assert.equal(panels.length, expectedIds.length, `${language} service panels`);
-      for (const [index, id] of expectedIds.entries()) {
-        assert.ok(tabs[index].includes(`id="${id}"`), `${language} tab order for ${id}`);
-        assert.ok(tabs[index].includes(`aria-controls="${id}-panel"`), `${language} tab control for ${id}`);
-        assert.ok(tabs[index].includes(`aria-selected="${index === 0}"`), `${language} selected tab for ${id}`);
-        assert.ok(panels[index].includes(`id="${id}-panel"`), `${language} panel for ${id}`);
-        assert.ok(panels[index].includes(`aria-labelledby="${id}"`), `${language} panel label for ${id}`);
-        assert.ok(panels[index].includes(`aria-hidden="${index !== 0}"`), `${language} hidden panel for ${id}`);
-        if (index !== 0) assert.match(panels[index], /\binert=""/, `${language} inactive panel for ${id}`);
+      const cards = [...pageMarkup.matchAll(/<section\b[^>]*id="([^"]+)"[^>]*>/g)]
+        .filter(([, id]) => expectedIds.includes(id));
+      assert.deepEqual(cards.map(([, id]) => id), expectedIds, `${language} ordered service cards`);
+      assert.doesNotMatch(pageMarkup, /role="(?:tab|tabpanel)"/, `${language} carousel removed`);
+      for (const [tag, id] of cards) {
+        assert.ok(tag.includes(`aria-labelledby="${id}-title"`), `${language} card label for ${id}`);
+        assert.doesNotMatch(tag, /aria-hidden="true"|\binert/, `${language} visible card for ${id}`);
+        const start = pageMarkup.indexOf(tag);
+        const end = pageMarkup.indexOf('</section>', start);
+        const cardMarkup = pageMarkup.slice(start, end);
+        const cardText = visibleText(cardMarkup);
         const service = loadJson(language, 'services', `${id}.json`);
-        assert.ok(pageText.includes(service.hero.description), `${language} rendered description for ${id}`);
+        assert.match(cardMarkup, /data-liquid-glass="true"/, `${language} glass card for ${id}`);
+        assert.match(cardMarkup, /<img\b[^>]*width="80"[^>]*height="60"[^>]*src="[^"]+\.svg"/, `${language} SVG badge for ${id}`);
+        assert.ok(cardMarkup.includes(`id="${id}-title"`), `${language} heading for ${id}`);
+        assert.ok(cardText.includes(cleanTitle(service.hero.title)), `${language} full title for ${id}`);
+        assert.ok(cardText.includes(service.hero.subtitle), `${language} full subtitle for ${id}`);
+        assert.ok(cardText.includes(service.hero.description), `${language} full description for ${id}`);
+        const toggles = [...cardMarkup.matchAll(/<button\b[^>]*>/g)].map(([button]) => button);
+        assert.equal(toggles.length, 1, `${language} description toggle for ${id}`);
+        assert.ok(toggles[0].includes(`id="${id}-toggle"`), `${language} toggle ID for ${id}`);
+        assert.ok(toggles[0].includes(`aria-controls="${id}-description"`), `${language} toggle target for ${id}`);
+        assert.ok(toggles[0].includes('aria-expanded="false"'), `${language} description closed initially for ${id}`);
+        assert.match(cardMarkup, /MuiCollapse-hidden/, `${language} description hidden initially for ${id}`);
+        assert.ok(cardMarkup.includes(`id="${id}-description"`), `${language} description region for ${id}`);
+        assert.ok(toggles[0].includes(`aria-label="${language === 'es' ? 'Detalles de' : 'Details for'} `), `${language} accessible description label for ${id}`);
+        const toggleStart = cardMarkup.indexOf(toggles[0]);
+        const toggleEnd = cardMarkup.indexOf('</button>', toggleStart);
+        assert.equal(visibleText(cardMarkup.slice(toggleStart, toggleEnd)), '', `${language} icon-only toggle for ${id}`);
+        assert.doesNotMatch(cardMarkup, /<a\b/, `${language} card has no project CTA for ${id}`);
       }
       for (const id of offerIds) {
         const service = localizedServices[language][id];
         const title = cleanTitle(service.hero.title);
-        const anchorIndex = pageMarkup.indexOf(`id="${id}-panel"`);
+        const anchorIndex = pageMarkup.indexOf(`id="${id}"`);
         const sectionStart = pageMarkup.lastIndexOf('<section', anchorIndex);
         const sectionEnd = pageMarkup.indexOf('</section>', anchorIndex);
         assert.ok(sectionStart >= 0 && sectionEnd > anchorIndex, `${language} section markup for ${id}`);
@@ -490,8 +503,10 @@ describe('agent-readable HTTP responses', () => {
     assert.match(about.body, /decorativeGridDrift/);
 
     const services = await request('/en/services');
-    assert.match(services.body, /data-pattern-motion="contour-drift"/);
-    assert.match(services.body, /decorativeContourDrift/);
+    assert.match(services.body, /background-image:radial-gradient\(ellipse at 12% 15%/);
+    assert.match(services.body, /background-size:22px 22px/);
+    assert.doesNotMatch(services.body, /data-pattern-motion="contour-drift"/);
+    assert.match(services.body, /prefers-reduced-motion/);
 
     const portfolio = await request('/en/portfolio');
     assert.match(portfolio.body, /data-pattern-motion="horizontal-slide"/);
