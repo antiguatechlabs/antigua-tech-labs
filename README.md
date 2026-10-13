@@ -11,8 +11,8 @@ This landing page showcases Antigua Tech Labs's AI-powered sales agent solution 
 - **[Component Documentation](docs/COMPONENTS.md)**: Comprehensive guide to all components
 - **[Development Guide](docs/DEVELOPMENT.md)**: Detailed development workflow and standards
 - **[API Documentation](#api-documentation)**: Contact form API reference
-- **[Developer Portal](https://antiguatechlabs.com/developers)**: Quickstart, sandbox, errors, and CLI status
-- **[OpenAPI Specification](https://antiguatechlabs.com/openapi.json)**: Machine-readable public API contract
+- **[Developer Portal](https://www.antiguatechlabs.com/developers)**: Quickstart, sandbox, errors, and CLI status
+- **[OpenAPI Specification](https://www.antiguatechlabs.com/openapi.json)**: Machine-readable public API contract
 - **[Troubleshooting](#troubleshooting)**: Common issues and solutions
 
 ## Features
@@ -428,7 +428,7 @@ POST /api/contact
 Send `name`, `email`, and `message` as JSON. To validate safely without sending email, use `POST /api/contact?dryRun=true`.
 
 ```bash
-curl -X POST "https://antiguatechlabs.com/api/contact?dryRun=true" \
+curl -X POST "https://www.antiguatechlabs.com/api/contact?dryRun=true" \
   -H "Content-Type: application/json" \
   -d '{"name":"Ada Lovelace","email":"ada@example.com","message":"Project inquiry"}'
 ```

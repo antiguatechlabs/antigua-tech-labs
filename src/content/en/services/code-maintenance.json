@@ -2,7 +2,7 @@
   "hero": {
     "title": "{{gradient:Code Maintenance}} & System Optimization",
     "subtitle": "Ongoing Support & Legacy System Modernization",
-    "description": "Keep your applications running smoothly with our comprehensive maintenance services. From bug fixes to performance optimization and legacy system modernization, we ensure your code stays current and secure.",
+    "description": "Code maintenance can include bug fixes, dependency and security updates, performance reviews, and modernization planning. Work is prioritized according to the application's condition and agreed scope.",
     "image": "/src/assets/services/code-maintenance-hero.svg",
     "textPosition": "right"
   },
@@ -87,27 +87,8 @@
     ]
   },
   "portfolio": {
-    "title": "Code Maintenance Success Stories",
-    "projects": [
-      {
-        "title": "Legacy Banking System Modernization",
-        "description": "Migrated 20-year-old COBOL system to modern microservices architecture",
-        "image": "/images/portfolio/legacy-modernization.jpg",
-        "technologies": ["Microservices", "Docker", "Cloud Migration"]
-      },
-      {
-        "title": "E-commerce Platform Optimization",
-        "description": "Improved page load times by 60% and reduced server costs by 40%",
-        "image": "/images/portfolio/performance-optimization.jpg",
-        "technologies": ["Performance Tuning", "Database Optimization", "CDN"]
-      },
-      {
-        "title": "Healthcare System Security Update",
-        "description": "Implemented HIPAA compliance and security hardening for patient data protection",
-        "image": "/images/portfolio/security-update.jpg",
-        "technologies": ["Security Patches", "Compliance", "Monitoring"]
-      }
-    ]
+    "title": "Public case studies",
+    "projects": []
   },
   "cta": {
     "title": "Ready to Optimize Your Code?",

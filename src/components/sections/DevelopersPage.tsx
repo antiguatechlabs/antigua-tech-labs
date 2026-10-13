@@ -21,8 +21,9 @@ import { Section } from '@/components/common/Section';
 import CodeWindow from '@/components/layout/CodeWindow';
 import type { DeveloperPortalContent } from '@/lib/data';
 import { CONTACT_API, DEVELOPER_RESOURCES } from '@/lib/api/catalog';
+import { SITE_CONFIG } from '@/lib/seo/config';
 
-const curlExample = `curl -X POST "https://antiguatechlabs.com${CONTACT_API.path}?${CONTACT_API.sandboxQuery}" \\
+const curlExample = `curl -X POST "${SITE_CONFIG.url}${CONTACT_API.path}?${CONTACT_API.sandboxQuery}" \\
   -H "Content-Type: ${CONTACT_API.contentType}" \\
   -d '{
     "name": "Ada Lovelace",

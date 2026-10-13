@@ -4,6 +4,7 @@ import {
   getDeveloperPortalContent,
   getPortfolioContent,
   getServicesOverviewContent,
+  COMPANY_FACTS,
 } from './data';
 import { CONTACT_API, DEVELOPER_RESOURCES } from './api/catalog';
 import { defaultLanguage, supportedLanguages, type Language } from './i18n/config';
@@ -31,28 +32,37 @@ const markdownLink = (label: string, url: string, note?: string): string =>
 
 function renderHome(language: Language): string {
   const content = getHomePageContent(language);
+  const isSpanish = language === 'es';
+  const aboutHeading = isSpanish ? 'Acerca de Antigua Tech Labs' : 'About Antigua Tech Labs';
+  const servicesHeading = isSpanish ? 'Servicios' : 'Services';
+  const teamHeading = isSpanish ? 'Equipo' : 'Team';
+  const contactHeading = isSpanish ? 'Contacto' : 'Contact';
+  const faqHeading = isSpanish ? 'Preguntas frecuentes' : 'Frequently asked questions';
+  const companySummary = isSpanish
+    ? `${COMPANY_FACTS.name} es una startup de desarrollo de software fundada en ${COMPANY_FACTS.foundingYear} en ${COMPANY_FACTS.locality}, ${COMPANY_FACTS.country}.`
+    : `${COMPANY_FACTS.name} is a software development startup founded in ${COMPANY_FACTS.foundingYear} in ${COMPANY_FACTS.locality}, ${COMPANY_FACTS.country}.`;
   const lines = [
     `# ${clean(content.hero.title)}`,
     '',
     `> ${clean(content.hero.subtitle)}`,
     '',
-    'Antigua Tech Labs is a Guatemala-based software development company building scalable web and mobile applications for growing businesses.',
+    companySummary,
     '',
-    '## About Antigua Tech Labs',
+    `## ${aboutHeading}`,
     clean(content.whyChooseTwo.description),
     '',
     markdownLink('Learn more about the company', pageUrl(language, '/about')),
     '',
-    '## Services',
+    `## ${servicesHeading}`,
     clean(content.features.subtitle || ''),
     '',
     ...content.features.items.flatMap(item => [`### ${clean(item.title)}`, clean(item.description), '']),
     markdownLink('See all services', pageUrl(language, '/services')),
     '',
-    '## Why choose Antigua Tech Labs',
+    `## ${isSpanish ? 'Por qué elegir Antigua Tech Labs' : 'Why choose Antigua Tech Labs'}`,
     clean(content.whyChoose.description),
     '',
-    '## Team',
+    `## ${teamHeading}`,
     clean(content.ourTeam.subtitle),
     '',
     ...content.ourTeam.teamMembers.flatMap(member => [
@@ -60,12 +70,12 @@ function renderHome(language: Language): string {
       `${clean(member.subtitle)}${member.handle ? ` (${clean(member.handle)})` : ''}`,
       '',
     ]),
-    '## Contact',
+    `## ${contactHeading}`,
     clean(content.contact.subtitle),
     '',
-    markdownLink('Start a project', `${pageUrl(language)}#contact`),
+    markdownLink(isSpanish ? 'Iniciar un proyecto' : 'Start a project', `${pageUrl(language)}#contact`),
     '',
-    '## Frequently asked questions',
+    `## ${faqHeading}`,
     clean(content.faq.subtitle),
     '',
     ...content.faq.faqs.flatMap(faq => [`### ${clean(faq.question)}`, clean(faq.answer), '']),
@@ -76,24 +86,25 @@ function renderHome(language: Language): string {
 
 function renderAbout(language: Language): string {
   const content = getAboutPageContent(language);
+  const isSpanish = language === 'es';
   const lines = [
     `# ${clean(content.hero.headline)}`,
     '',
     `> ${clean(content.hero.subheading)}`,
     '',
-    '## Our story',
+    `## ${isSpanish ? 'Nuestra historia' : 'Our story'}`,
     `### ${clean(content.story.summary.title)}`,
-    clean(content.story.summary.description),
+    ...content.story.summary.paragraphs.map(clean),
     '',
-    '### Timeline',
+    `### ${isSpanish ? 'Cronología' : 'Timeline'}`,
     ...content.story.timeline.map(item => `- **${clean(item.year)} — ${clean(item.title)}:** ${clean(item.description)}`),
     '',
-    '## Our values',
+    `## ${isSpanish ? 'Nuestros valores' : 'Our values'}`,
     clean(content.story.values.subtitle),
     '',
     ...content.story.values.items.map(item => `- **${clean(item.title)}:** ${clean(item.description)}`),
     '',
-    '## Our approach',
+    `## ${isSpanish ? 'Nuestro enfoque' : 'Our approach'}`,
     clean(content.approach.subtitle),
     '',
     ...content.approach.steps.map(step => `- **${clean(step.number)} ${clean(step.title)}:** ${clean(step.description)}`),
@@ -101,10 +112,10 @@ function renderAbout(language: Language): string {
     `### ${clean(content.approach.methodology.title)}`,
     ...content.approach.methodology.points.map(point => `- ${clean(point)}`),
     '',
-    '## Contact',
+    `## ${isSpanish ? 'Contacto' : 'Contact'}`,
     clean(content.cta.description),
     '',
-    markdownLink('Start a project', `${pageUrl(language)}#contact`),
+    markdownLink(isSpanish ? 'Iniciar un proyecto' : 'Start a project', `${pageUrl(language)}#contact`),
   ];
 
   return `${lines.join('\n').trim()}\n`;
@@ -125,6 +136,7 @@ function renderServices(language: Language): string {
   ] as const;
   const capabilityLabel = language === 'es' ? 'Capacidades' : 'Capabilities';
   const technologyLabel = language === 'es' ? 'Tecnologías' : 'Technologies';
+  const contactLabel = language === 'es' ? 'Contacto' : 'Contact';
 
   const lines = [
     `# ${clean(overview.hero.title)}`,
@@ -133,7 +145,7 @@ function renderServices(language: Language): string {
     '',
     clean(overview.hero.description),
     '',
-    '## Services',
+    `## ${language === 'es' ? 'Servicios' : 'Services'}`,
     ...serviceEntries.flatMap(([label, slug, service]) => [
       `### [${clean(label)}](${pageUrl(language, `/services#${slug}`)})`,
       clean(service.hero.description),
@@ -142,10 +154,10 @@ function renderServices(language: Language): string {
       `**${technologyLabel}:** ${service.technologies.items.map(item => clean(item)).join(', ')}.`,
       '',
     ]),
-    '## Contact',
+    `## ${contactLabel}`,
     clean(overview.hero.ctaText || 'Contact Antigua Tech Labs to discuss your project.'),
     '',
-    markdownLink('Start a project', `${pageUrl(language)}#contact`),
+    markdownLink(language === 'es' ? 'Iniciar un proyecto' : 'Start a project', `${pageUrl(language)}#contact`),
   ];
 
   return `${lines.join('\n').trim()}\n`;
@@ -153,6 +165,7 @@ function renderServices(language: Language): string {
 
 function renderPortfolio(language: Language): string {
   const content = getPortfolioContent(language);
+  const isSpanish = language === 'es';
   const lines = [
     `# ${clean(content.hero.title)}`,
     '',
@@ -163,13 +176,14 @@ function renderPortfolio(language: Language): string {
     `## ${clean(content.projectsTitle)}`,
     clean(content.projectsSubtitle),
     '',
+    ...(content.projects.length === 0 ? [clean(content.emptyState), ''] : []),
     ...content.projects.flatMap(project => [
       `### ${clean(project.title)}`,
       clean(project.description),
       project.tags.length > 0 ? `**Technologies:** ${project.tags.map(tag => clean(tag)).join(', ')}.` : '',
       '',
     ]),
-    markdownLink('Contact the team', `${pageUrl(language)}#contact`),
+    markdownLink(isSpanish ? 'Contactar al equipo' : 'Contact the team', `${pageUrl(language)}#contact`),
   ];
 
   return `${lines.join('\n').trim()}\n`;
@@ -272,7 +286,7 @@ export function renderLlmsTxt(): string {
     markdownLink('Spanish homepage', pageUrl('es'), 'Spanish-language company overview and capabilities.'),
     markdownLink('About', pageUrl('en', '/about'), 'Company story, values, process, and team context.'),
     markdownLink('Services', pageUrl('en', '/services'), 'Detailed service descriptions, capabilities, and technologies.'),
-    markdownLink('Portfolio', pageUrl('en', '/portfolio'), 'Delivered projects and technology tags.'),
+    markdownLink('Portfolio', pageUrl('en', '/portfolio'), 'Public case studies, when available.'),
     markdownLink('Developer portal', pageUrl('en', '/developers'), 'API contract, quickstart, sandbox, structured errors, and CLI status.'),
   ];
   const servicePages = SERVICE_LINKS.map(([label, slug, note]) =>
@@ -282,7 +296,7 @@ export function renderLlmsTxt(): string {
   return [
     '# Antigua Tech Labs',
     '',
-    '> Antigua Tech Labs is a Guatemala-based custom software development company offering web and mobile applications, AI automation and agents, IoT solutions, APIs, UX design, 3D experiences, and ongoing code maintenance.',
+    `> ${COMPANY_FACTS.name} is a software development startup founded in ${COMPANY_FACTS.foundingYear} in ${COMPANY_FACTS.locality}, ${COMPANY_FACTS.country}. Capabilities include web and mobile applications, AI automation and agents, IoT solutions, APIs, UX design, 3D experiences, and code maintenance.`,
     '',
     '## When to use this',
     ...servicePages,

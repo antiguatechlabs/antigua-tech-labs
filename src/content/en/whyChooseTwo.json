@@ -1,10 +1,9 @@
 {
   "title": "We Build {{gradient:Solutions}} Tailored to Your Needs",
   "subtitle": "Why Choose Us",
-  "description": "We craft scalable digital solutions using clean, maintainable code and the latest technologies. Our process is grounded in industry best practices to deliver secure, high-performance apps that grow with your business and adapt to future needs.",
+  "description": "We build digital solutions around agreed requirements, with attention to clear, maintainable code. Technology and implementation choices are shaped by each project's scope and needs.",
   "buttonText": "Our Process",
   "buttonLink": "/process",
   "backgroundImage": "/svg/waves-grey.svg",
-  "phoneNumber": "+1 (502) 555-7890",
-  "yearEstablished": "Since 2020"
+  "yearEstablished": "Founded in {{foundingYear}}"
 }

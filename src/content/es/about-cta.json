@@ -1,21 +1,20 @@
 {
   "title": "¿Listo para Transformar Tus Ideas?",
-  "subtitle": "Trabajemos juntos para dar vida a tu visión digital con soluciones innovadoras que generen resultados reales.",
-  "description": "Ya sea que necesites una aplicación web, aplicación móvil o transformación digital completa, nuestro equipo está listo para entregar resultados excepcionales que superen tus expectativas.",
+  "subtitle": "Cuéntanos qué software necesita tu empresa.",
+  "description": "Comparte con nuestro equipo los objetivos y requisitos de tu proyecto para conversar sobre un siguiente paso adecuado.",
   "primaryCta": {
     "text": "Inicia Tu Proyecto",
-    "link": "/contact",
+    "link": "/#contact",
     "variant": "primary"
   },
   "secondaryCta": {
     "text": "Agenda una Consulta",
-    "link": "/contact?type=consultation",
+    "link": "/#contact",
     "variant": "outline"
   },
   "contactPreview": {
     "heading": "Contáctanos Hoy",
-    "email": "hello@antiguatechlabs.com",
-    "phone": "+502 1234-5678",
-    "location": "Antigua Guatemala"
+    "email": "{{companyEmail}}",
+    "location": "{{companyLocality}}"
   }
 }

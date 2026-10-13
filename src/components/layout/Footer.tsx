@@ -2,7 +2,6 @@
 
 import EmailIcon from '@mui/icons-material/Email';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
-import PhoneIcon from '@mui/icons-material/Phone';
 import { Box, Container, Typography, Link as MuiLink, Stack } from '@mui/material';
 import Image from 'next/image';
 import { useParams } from 'next/navigation';
@@ -215,20 +214,6 @@ export const Footer = ({ content }: { content: FooterContent }) => {
                     <LocationOnIcon sx={{ color: 'primary.light' }} fontSize="small" />
                     <Typography variant="body2">{content.address}</Typography>
                   </Stack>
-                  <Stack direction="row" spacing={1} alignItems="center">
-                    <PhoneIcon sx={{ color: 'primary.light' }} fontSize="small" />
-                    <MuiLink
-                      href={`tel:${content.phone}`}
-                      sx={{
-                        color: 'white',
-                        textDecoration: 'none',
-                        transition: 'color 0.2s ease',
-                        '&:hover': { color: 'primary.light' },
-                      }}
-                    >
-                      {content.phone}
-                    </MuiLink>
-                  </Stack>
                 </Stack>
               </MotionStack>
             </MotionBox>
@@ -370,14 +355,12 @@ export const Footer = ({ content }: { content: FooterContent }) => {
               {content.copyright.replace('{year}', new Date().getFullYear().toString())}
             </Typography>
             <Stack direction="row" spacing={3}>
-              {content.sections.legal.links.map((item, index) => (
+              {content.sections.legal.links.map(item => (
                 <MuiLink
-                  key={index}
+                  key={item.id}
                   component="button"
-                  onClick={() => {
-                    const type = item.toLowerCase().includes('privacy') ? 'privacy' : 'terms';
-                    handleLegalClick(type);
-                  }}
+                  onClick={() => handleLegalClick(item.id)}
+                  aria-haspopup="dialog"
                   sx={{
                     fontSize: '0.875rem',
                     color: 'grey.500',
@@ -391,7 +374,7 @@ export const Footer = ({ content }: { content: FooterContent }) => {
                     '&:hover': { color: 'primary.light' },
                   }}
                 >
-                  {item}
+                  {item.title}
                 </MuiLink>
               ))}
             </Stack>

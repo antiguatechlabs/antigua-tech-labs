@@ -1,7 +1,7 @@
 {
   "home": {
     "title": "Antigua Tech Labs - Custom Software Development",
-    "description": "We build high-performance web and mobile apps that scale with your business and deliver real-world results. Expert software development in Guatemala.",
+    "description": "{{companyName}} is a software development startup based in {{companyLocality}}, {{companyCountry}}, building web and mobile applications for business needs.",
     "keywords": [
       "software development",
       "web applications",
@@ -14,14 +14,14 @@
       "app development",
       "web development"
     ],
-    "ogTitle": "Antigua Tech Labs - Custom Software That Drives Your Growth",
-    "ogDescription": "Transform your business with high-performance web and mobile applications. Expert software development team in Guatemala.",
-    "ogImage": "https://antiguatechlabs.com/images/og-home.jpg"
+    "ogTitle": "Antigua Tech Labs - Software Development in Guatemala",
+    "ogDescription": "A software development startup based in Antigua Guatemala, Guatemala.",
+    "ogImage": "/images/og-home.jpg"
    
   },
   "about": {
     "title": "About Us - Antigua Tech Labs",
-    "description": "Learn about Antigua Tech Labs's mission to deliver innovative software solutions. Meet our expert team and discover our approach to custom development.",
+    "description": "Learn about {{companyName}}, a software development startup founded in {{foundingYear}} in {{companyLocality}}, and the experience and approach of its team.",
     "keywords": [
       "about antigua digital",
       "software development team",
@@ -29,9 +29,9 @@
       "Guatemala developers",
       "technology expertise"
     ],
-    "ogTitle": "About Antigua Tech Labs - Expert Software Development Team",
-    "ogDescription": "Discover our passion for creating innovative software solutions that drive business growth.",
-    "ogImage": "https://antiguatechlabs.com/images/og-about.jpg"
+    "ogTitle": "About Antigua Tech Labs",
+    "ogDescription": "Learn about the company's story, team experience, and approach to software development.",
+    "ogImage": "/images/og-about.jpg"
   },
   "services": {
     "title": "Services - Antigua Tech Labs",
@@ -50,11 +50,11 @@
     ],
     "ogTitle": "Software Development Services - Antigua Tech Labs",
     "ogDescription": "Explore web and mobile applications, AI automation, IoT solutions, and other software services for your business.",
-    "ogImage": "https://antiguatechlabs.com/images/og-services.jpg"
+    "ogImage": "/images/og-services.jpg"
   },
   "portfolio": {
     "title": "Portfolio - Antigua Tech Labs",
-    "description": "Explore delivered Antigua Tech Labs projects, including web apps, mobile experiences, platforms, and interactive work.",
+    "description": "Public software project case studies from Antigua Tech Labs, when available.",
     "keywords": [
       "software portfolio",
       "project case studies",
@@ -64,12 +64,12 @@
       "Antigua Tech Labs portfolio"
     ],
     "ogTitle": "Portfolio - Antigua Tech Labs",
-    "ogDescription": "A simple home for delivered Antigua Tech Labs project stories.",
-    "ogImage": "https://antiguatechlabs.com/images/og-portfolio.jpg"
+    "ogDescription": "Public project case studies will be added when they are available and approved for sharing.",
+    "ogImage": "/images/og-portfolio.jpg"
   },
   "contact": {
     "title": "Contact Us - Antigua Tech Labs",
-    "description": "Get in touch with Antigua Tech Labs for your software development needs. Book a consultation and start your digital transformation journey.",
+    "description": "Contact Antigua Tech Labs in Antigua Guatemala to discuss a software development project.",
     "keywords": [
       "contact antigua digital",
       "software development consultation",
@@ -77,8 +77,8 @@
       "get quote",
       "Guatemala software company"
     ],
-    "ogTitle": "Contact Antigua Tech Labs - Start Your Project Today",
-    "ogDescription": "Ready to transform your business? Contact our expert team for a consultation.",
-    "ogImage": "https://antiguatechlabs.com/images/og-contact.jpg"
+    "ogTitle": "Contact Antigua Tech Labs",
+    "ogDescription": "Discuss your software development project with Antigua Tech Labs.",
+    "ogImage": "/images/og-contact.jpg"
   }
 }

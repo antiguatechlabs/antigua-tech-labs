@@ -2,7 +2,7 @@
   "hero": {
     "title": "{{gradient:API Development}} & Backend Services",
     "subtitle": "Robust Backend Services & Integrations",
-    "description": "Build scalable, secure APIs that power your applications and enable seamless integrations. Our expert team creates RESTful and GraphQL APIs with comprehensive documentation and enterprise-grade security.",
+    "description": "API development can include REST or GraphQL endpoints, integrations, and documentation. Architecture, security controls, and performance requirements are defined according to each project's scope.",
     "image": "/src/assets/services/api-development-hero.svg",
     "textPosition": "left"
   },
@@ -87,27 +87,8 @@
     ]
   },
   "portfolio": {
-    "title": "API Development Success Stories",
-    "projects": [
-      {
-        "title": "E-commerce API Platform",
-        "description": "Microservices architecture handling 1M+ daily transactions with 99.9% uptime",
-        "image": "/images/portfolio/ecommerce-api.jpg",
-        "technologies": ["Node.js", "GraphQL", "MongoDB"]
-      },
-      {
-        "title": "Financial Services API",
-        "description": "Secure banking API with real-time transactions and regulatory compliance",
-        "image": "/images/portfolio/fintech-api.jpg",
-        "technologies": ["Express.js", "PostgreSQL", "Redis"]
-      },
-      {
-        "title": "IoT Data Processing API",
-        "description": "Real-time data ingestion and processing for smart device networks",
-        "image": "/images/portfolio/iot-api.jpg",
-        "technologies": ["Microservices", "Docker", "AWS"]
-      }
-    ]
+    "title": "Public case studies",
+    "projects": []
   },
   "cta": {
     "title": "Ready to Build Your API?",

@@ -2,7 +2,7 @@
   "hero": {
     "title": "{{gradient:3D Modeling}} & Visualization",
     "subtitle": "Immersive 3D Visualization & Interactive Experiences",
-    "description": "Bring your ideas to life with stunning 3D models, animations, and interactive experiences. From product visualization to architectural renders and web-based 3D applications, we create immersive digital experiences.",
+    "description": "3D modeling work can include product visualizations, architectural renders, animations, and interactive web-based experiences. The deliverables and technical approach depend on each project's scope.",
     "image": "/src/assets/services/3d-modeling-hero.svg",
     "textPosition": "right"
   },
@@ -87,27 +87,8 @@
     ]
   },
   "portfolio": {
-    "title": "3D Modeling Success Stories",
-    "projects": [
-      {
-        "title": "Interactive Product Configurator",
-        "description": "3D car configurator with real-time customization and AR preview functionality",
-        "image": "/images/portfolio/3d-car-configurator.jpg",
-        "technologies": ["Three.js", "WebGL", "AR.js"]
-      },
-      {
-        "title": "Architectural Visualization",
-        "description": "Photorealistic renders and virtual tour for luxury real estate development",
-        "image": "/images/portfolio/architectural-viz.jpg",
-        "technologies": ["Blender", "Cycles", "Virtual Tours"]
-      },
-      {
-        "title": "Medical Device Animation",
-        "description": "Educational 3D animation explaining complex medical device functionality",
-        "image": "/images/portfolio/medical-animation.jpg",
-        "technologies": ["Maya", "Arnold", "After Effects"]
-      }
-    ]
+    "title": "Public case studies",
+    "projects": []
   },
   "cta": {
     "title": "Ready to Create Stunning 3D Experiences?",

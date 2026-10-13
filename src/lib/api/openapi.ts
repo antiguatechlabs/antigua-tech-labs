@@ -1,4 +1,5 @@
 import { CONTACT_API, DEVELOPER_RESOURCES } from './catalog';
+import { COMPANY, SITE_CONFIG } from '@/lib/seo/config';
 
 const contactExample = {
   name: 'Ada Lovelace',
@@ -20,18 +21,18 @@ export const openApiDocument = {
     version: '1.0.0',
     description: 'Public endpoints for interacting with Antigua Tech Labs. The contact endpoint does not require authentication.',
     contact: {
-      name: 'Antigua Tech Labs',
-      email: 'info@antiguatechlabs.com',
-      url: 'https://antiguatechlabs.com/en',
+      name: COMPANY.name,
+      email: COMPANY.email,
+      url: `${SITE_CONFIG.url}/en`,
     },
   },
   externalDocs: {
     description: 'Developer portal',
-    url: `https://antiguatechlabs.com${DEVELOPER_RESOURCES.portal}`,
+    url: `${SITE_CONFIG.url}${DEVELOPER_RESOURCES.portal}`,
   },
   servers: [
     {
-      url: 'https://antiguatechlabs.com',
+      url: SITE_CONFIG.url,
       description: 'Production',
     },
     {

@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-const DEFAULT_BASE_URL = 'https://antiguatechlabs.com';
+const DEFAULT_BASE_URL = 'https://www.antiguatechlabs.com';
 
 const helpText = `Antigua Tech Labs CLI
 

@@ -130,6 +130,8 @@ describe('agent-readable HTTP responses', () => {
       .replace(/<style[\s\S]*?<\/style>/gi, ' ')
       .replace(/<[^>]+>/g, ' ')
       .replace(/&amp;/g, '&')
+      .replace(/&#x27;|&#39;/gi, "'")
+      .replace(/&quot;/g, '"')
       .replace(/\s+/g, ' ')
       .trim();
     const cleanTitle = title => title.replace(/\{\{gradient:([^}]+)\}\}/g, '$1');
@@ -220,7 +222,7 @@ describe('agent-readable HTTP responses', () => {
       for (const id of offerIds) {
         const service = localizedServices[language][id];
         const title = cleanTitle(service.hero.title);
-        assert.ok(markdown.body.includes(`### [${title}](https://antiguatechlabs.com/${language}/services#${id})`));
+        assert.ok(markdown.body.includes(`### [${title}](https://www.antiguatechlabs.com/${language}/services#${id})`));
         assert.ok(markdown.body.includes(service.hero.description));
       }
       assert.ok(markdown.body.includes(language === 'es' ? '**Capacidades:**' : '**Capabilities:**'));
@@ -230,7 +232,7 @@ describe('agent-readable HTTP responses', () => {
     const llms = await request('/llms.txt');
     for (const id of offerIds) {
       const title = cleanTitle(localizedServices.en[id].hero.title);
-      assert.ok(llms.body.includes(`[${title}](https://antiguatechlabs.com/en/services#${id})`));
+      assert.ok(llms.body.includes(`[${title}](https://www.antiguatechlabs.com/en/services#${id})`));
     }
   });
 
@@ -272,6 +274,20 @@ describe('agent-readable HTTP responses', () => {
       if (type === 'Organization') assert.match(schema.logo, /\.png$/i);
     }
 
+    const organization = jsonLd.find(item => item['@type'] === 'Organization');
+    assert.equal(organization.url, 'https://www.antiguatechlabs.com');
+    assert.equal(organization.foundingDate, '2024');
+    assert.equal(organization.contactPoint.email, 'info@antiguatechlabs.com');
+    assert.equal('telephone' in organization.contactPoint, false);
+    assert.equal(organization.address.addressLocality, 'Antigua Guatemala');
+    assert.equal(organization.address.addressCountry, 'GT');
+
+    const canonical = [...response.body.matchAll(/<link\b[^>]*>/gi)]
+      .map(match => match[0])
+      .find(tag => /\brel=["']canonical["']/i.test(tag));
+    assert.ok(canonical);
+    assert.match(canonical, /href=["']https:\/\/www\.antiguatechlabs\.com\/en["']/i);
+
     const iconLink = [...response.body.matchAll(/<link\b[^>]*>/gi)]
       .map(match => match[0])
       .find(tag => /\brel=["']icon["']/i.test(tag) && /\.png(?:[?"'])/i.test(tag));
@@ -301,7 +317,7 @@ describe('agent-readable HTTP responses', () => {
 
     const document = JSON.parse(response.body);
     assert.equal(document.openapi, '3.1.0');
-    assert.ok(document.servers.some(serverEntry => serverEntry.url === 'https://antiguatechlabs.com'));
+    assert.ok(document.servers.some(serverEntry => serverEntry.url === 'https://www.antiguatechlabs.com'));
 
     const operation = document.paths['/api/contact'].post;
     assert.equal(operation.operationId, 'submitContactInquiry');
@@ -486,6 +502,8 @@ describe('agent-readable HTTP responses', () => {
 
       const portfolio = await request(`/${language}/portfolio`);
       assert.equal(portfolio.status, 200, `/${language}/portfolio`);
+      assert.match(portfolio.body, /Public case studies|casos de estudio públicos/i);
+      assert.doesNotMatch(portfolio.body, /Client web platform|Sarah Johnson|1M\+|99\.9%/i);
     }
   });
 
@@ -525,9 +543,9 @@ describe('agent-readable HTTP responses', () => {
     assert.match(response.body, /^## Core pages$/m);
     assert.match(response.body, /^## Machine-readable resources$/m);
     assert.match(response.body, /Accept: text\/markdown/);
-    assert.match(response.body, /https:\/\/antiguatechlabs\.com\/sitemap\.xml/);
-    assert.match(response.body, /https:\/\/antiguatechlabs\.com\/openapi\.json/);
-    assert.match(response.body, /https:\/\/antiguatechlabs\.com\/developers/);
+    assert.match(response.body, /https:\/\/www\.antiguatechlabs\.com\/sitemap\.xml/);
+    assert.match(response.body, /https:\/\/www\.antiguatechlabs\.com\/openapi\.json/);
+    assert.match(response.body, /https:\/\/www\.antiguatechlabs\.com\/developers/);
     assert.match(response.body, /CLI source/);
 
     const negotiated = await request('/llms.txt', { Accept: 'text/markdown' });
@@ -541,7 +559,7 @@ describe('agent-readable HTTP responses', () => {
     assert.equal(sitemap.status, 200);
     assertContentType(sitemap, 'application/xml');
     for (const page of ['/en', '/es', '/en/about', '/es/about', '/en/services', '/es/services', '/en/portfolio', '/es/portfolio', '/en/developers', '/es/developers']) {
-      assert.match(sitemap.body, new RegExp(`https://antiguatechlabs\\.com${page.replaceAll('/', '\\/')}`));
+      assert.match(sitemap.body, new RegExp(`https://www\\.antiguatechlabs\\.com${page.replaceAll('/', '\\/')}`));
     }
 
     const apiSitemap = await request('/api/sitemap');
@@ -551,7 +569,7 @@ describe('agent-readable HTTP responses', () => {
     const robots = await request('/robots.txt');
     assert.equal(robots.status, 200);
     assertContentType(robots, 'text/plain');
-    assert.match(robots.body, /Sitemap:\s+https:\/\/antiguatechlabs\.com\/sitemap\.xml/);
+    assert.match(robots.body, /Sitemap:\s+https:\/\/www\.antiguatechlabs\.com\/sitemap\.xml/);
 
     const openGraphImage = await request('/og?title=Agent%20Readiness');
     assert.equal(openGraphImage.status, 200);

@@ -119,7 +119,7 @@ export const WhyChoose = ({ content }: { content: WhyChooseContent }) => (
             >
               <Image
                 src={imageMap[content.imageSrc]}
-                alt="Why Choose Us"
+                alt={content.imageAlt}
                 fill
                 sizes="(max-width: 900px) 100vw, 50vw"
                 style={{ objectFit: 'cover' }}

@@ -28,6 +28,8 @@ export default function Testimonials() {
     setTestimonials(getTestimonialsContent(language));
   }, [language]);
 
+  if (testimonials.items.length === 0) return null;
+
   // Generate avatar URLs using UI Avatars service
   const getAvatarUrl = (name: string) =>
     `https://ui-avatars.com/api/?name=${encodeURIComponent(name)}&background=0D8ABC&color=fff`;

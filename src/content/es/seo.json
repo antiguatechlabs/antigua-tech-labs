@@ -1,7 +1,7 @@
 {
   "home": {
     "title": "Antigua Tech Labs - Desarrollo de Software Personalizado",
-    "description": "Construimos aplicaciones web y móviles de alto rendimiento que escalan con tu negocio y entregan resultados reales. Desarrollo de software experto en Guatemala.",
+    "description": "{{companyName}} es una startup de desarrollo de software con sede en {{companyLocality}}, {{companyCountry}}, que crea aplicaciones web y móviles para empresas.",
     "keywords": [
       "desarrollo de software",
       "aplicaciones web",
@@ -14,13 +14,13 @@
       "desarrollo de apps",
       "desarrollo web"
     ],
-    "ogTitle": "Antigua Tech Labs - Software Personalizado que Impulsa tu Crecimiento",
-    "ogDescription": "Transforma tu negocio con aplicaciones web y móviles de alto rendimiento. Equipo experto en desarrollo de software en Guatemala.",
-    "ogImage": "https://antiguatechlabs.com/images/og-home-es.jpg"
+    "ogTitle": "Antigua Tech Labs - Desarrollo de Software en Guatemala",
+    "ogDescription": "Una startup de desarrollo de software con sede en Antigua Guatemala.",
+    "ogImage": "/images/og-home-es.jpg"
   },
   "about": {
     "title": "Acerca de Nosotros - Antigua Tech Labs",
-    "description": "Conoce la misión de Antigua Tech Labs de entregar soluciones de software innovadoras. Conoce nuestro equipo experto y descubre nuestro enfoque de desarrollo personalizado.",
+    "description": "Conoce {{companyName}}, una startup de desarrollo de software fundada en {{foundingYear}} en {{companyLocality}}, y la experiencia y el enfoque de su equipo.",
     "keywords": [
       "acerca de antigua digital",
       "equipo desarrollo software",
@@ -28,9 +28,9 @@
       "desarrolladores Guatemala",
       "experiencia tecnológica"
     ],
-    "ogTitle": "Acerca de Antigua Tech Labs - Equipo Experto en Desarrollo de Software",
-    "ogDescription": "Descubre nuestra pasión por crear soluciones de software innovadoras que impulsan el crecimiento empresarial.",
-    "ogImage": "https://antiguatechlabs.com/images/og-about-es.jpg"
+    "ogTitle": "Acerca de Antigua Tech Labs",
+    "ogDescription": "Conoce la historia de la empresa, la experiencia del equipo y su enfoque de desarrollo de software.",
+    "ogImage": "/images/og-about-es.jpg"
   },
   "services": {
     "title": "Servicios - Antigua Tech Labs",
@@ -49,11 +49,11 @@
     ],
     "ogTitle": "Servicios de Desarrollo de Software - Antigua Tech Labs",
     "ogDescription": "Conoce nuestros servicios web y móviles, automatización con IA, soluciones IoT y otras soluciones de software para empresas.",
-    "ogImage": "https://antiguatechlabs.com/images/og-services-es.jpg"
+    "ogImage": "/images/og-services-es.jpg"
   },
   "portfolio": {
     "title": "Portafolio - Antigua Tech Labs",
-    "description": "Explora proyectos entregados por Antigua Tech Labs, incluyendo web apps, experiencias móviles, plataformas y trabajo interactivo.",
+    "description": "Casos de estudio públicos de proyectos de software de Antigua Tech Labs, cuando estén disponibles.",
     "keywords": [
       "portafolio software",
       "casos de estudio",
@@ -63,12 +63,12 @@
       "portafolio Antigua Tech Labs"
     ],
     "ogTitle": "Portafolio - Antigua Tech Labs",
-    "ogDescription": "Un lugar simple para historias de proyectos entregados por Antigua Tech Labs.",
-    "ogImage": "https://antiguatechlabs.com/images/og-portfolio-es.jpg"
+    "ogDescription": "Se publicarán casos de estudio cuando estén disponibles y aprobados para compartir.",
+    "ogImage": "/images/og-portfolio-es.jpg"
   },
   "contact": {
     "title": "Contáctanos - Antigua Tech Labs",
-    "description": "Ponte en contacto con Antigua Tech Labs para tus necesidades de desarrollo de software. Agenda una consulta y comienza tu viaje de transformación digital.",
+    "description": "Contacta a Antigua Tech Labs en Antigua Guatemala para conversar sobre un proyecto de desarrollo de software.",
     "keywords": [
       "contactar antigua digital",
       "consulta desarrollo software",
@@ -76,8 +76,8 @@
       "obtener cotización",
       "empresa software Guatemala"
     ],
-    "ogTitle": "Contacta Antigua Tech Labs - Comienza tu Proyecto Hoy",
-    "ogDescription": "¿Listo para transformar tu negocio? Contacta nuestro equipo experto para una consulta.",
-    "ogImage": "https://antiguatechlabs.com/images/og-contact-es.jpg"
+    "ogTitle": "Contacta a Antigua Tech Labs",
+    "ogDescription": "Conversa con Antigua Tech Labs sobre tu proyecto de desarrollo de software.",
+    "ogImage": "/images/og-contact-es.jpg"
   }
 }

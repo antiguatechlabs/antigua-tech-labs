@@ -1,79 +1,54 @@
 {
   "title": "Nuestra {{gradient:Historia}}",
-  "subtitle": "Desde una visión de transformar el panorama digital de Guatemala hasta convertirnos en un socio confiable para empresas en todo el mundo",
+  "subtitle": "Una startup de desarrollo de software fundada en {{companyLocality}}",
   "summary": {
-    "title": "Nuestro Recorrido",
-    "description": "Desde nuestra fundación en 2020 en la histórica ciudad de Antigua Guatemala, hemos crecido de ser un equipo apasionado de desarrolladores locales a convertirnos en un líder reconocido en desarrollo de software en Centroamérica. Nuestro recorrido abarca desde la entrega de nuestras primeras aplicaciones empresariales para negocios de turismo locales hasta servir clientes internacionales con integraciones de IA de vanguardia y arquitecturas en la nube. Con más de 50 proyectos exitosos completados y un compromiso con la innovación, calidad y orgullo cultural, continuamos cerrando la brecha entre tecnología de clase mundial e impacto empresarial significativo. Hoy, nos erigimos como un testimonio del creciente ecosistema tecnológico de Guatemala, representando con orgullo nuestro patrimonio mientras construimos soluciones que compiten en el escenario global."
+    "title": "Nuestra Historia",
+    "paragraphs": [
+      "{{companyName}} nació en {{foundingYear}} en {{companyLocality}}, {{companyCountry}}, como una startup de desarrollo de software formada por profesionales de tecnología con experiencia adquirida antes de la creación de la empresa.",
+      "Diseñamos y desarrollamos aplicaciones web y móviles, plataformas de software a medida, integraciones backend y automatizaciones apoyadas en inteligencia artificial, adaptadas a diferentes necesidades empresariales. Nuestro enfoque combina ingeniería práctica, comunicación clara y aprendizaje continuo, con el objetivo de entregar soluciones digitales confiables y fáciles de mantener."
+    ]
   },
   "timeline": [
     {
-      "year": "2020",
-      "title": "El Comienzo",
-      "description": "Fundada en Antigua Guatemala con la misión de cerrar la brecha entre la tecnología innovadora y las empresas locales. Comenzamos como un pequeño equipo de desarrolladores apasionados con grandes sueños.",
-      "milestone": "Empresa Fundada",
+      "year": "{{foundingYear}}",
+      "title": "Inicio de la empresa",
+      "description": "{{companyName}} nació en {{companyLocality}}, formada por profesionales de tecnología con experiencia adquirida antes de la creación de la empresa.",
+      "milestone": "Fundación de {{companyName}}",
       "icon": "RocketLaunchIcon"
-    },
-    {
-      "year": "2021",
-      "title": "Primeros Proyectos Importantes",
-      "description": "Entregamos nuestras primeras aplicaciones web de nivel empresarial para negocios locales de turismo y retail, estableciendo nuestra reputación de calidad y confiabilidad en el mercado guatemalteco.",
-      "milestone": "10+ Proyectos Completados",
-      "icon": "BusinessCenterIcon"
-    },
-    {
-      "year": "2022",
-      "title": "Expansión Internacional",
-      "description": "Expandimos nuestros servicios para atender clientes en Centroamérica y Norteamérica, construyendo un portafolio diverso de aplicaciones móviles e integraciones de API.",
-      "milestone": "Clientes Internacionales",
-      "icon": "PublicIcon"
-    },
-    {
-      "year": "2023",
-      "title": "Innovación Tecnológica",
-      "description": "Invertimos fuertemente en tecnologías de vanguardia incluyendo integración de IA, arquitectura en la nube y frameworks de desarrollo modernos para mantenernos a la vanguardia de las tendencias de la industria.",
-      "milestone": "Modernización del Stack Tecnológico",
-      "icon": "AutoAwesomeIcon"
-    },
-    {
-      "year": "2024",
-      "title": "Crecimiento y Reconocimiento",
-      "description": "Logramos un crecimiento significativo con 50+ proyectos exitosos y reconocimiento como una empresa líder en desarrollo de software en Guatemala, sirviendo clientes desde startups hasta empresas.",
-      "milestone": "50+ Proyectos Entregados",
-      "icon": "EmojiEventsIcon"
     }
   ],
   "values": {
-    "title": "Nuestros Valores Fundamentales",
-    "subtitle": "Los principios que guían todo lo que hacemos",
+    "title": "Nuestros {{gradient:Valores Fundamentales}}",
+    "subtitle": "Los principios que guían nuestro trabajo",
     "items": [
       {
-        "title": "Innovación Primero",
-        "description": "Adoptamos tecnologías de vanguardia y soluciones creativas para resolver problemas complejos.",
+        "title": "Innovación Práctica",
+        "description": "Consideramos tecnologías y enfoques que respondan a las necesidades de cada proyecto.",
         "icon": "LightbulbIcon"
       },
       {
-        "title": "Excelencia en Calidad",
-        "description": "Cada línea de código, cada elemento de diseño y cada interacción del usuario se elabora con meticulosa atención al detalle.",
+        "title": "Calidad Mantenible",
+        "description": "Valoramos el código claro, el diseño cuidadoso y las pruebas adecuadas al alcance del proyecto.",
         "icon": "StarIcon"
       },
       {
-        "title": "Asociación con Clientes",
-        "description": "Construimos relaciones a largo plazo basadas en confianza, transparencia y éxito mutuo.",
+        "title": "Colaboración Clara",
+        "description": "Buscamos construir relaciones de trabajo con comunicación clara y expectativas compartidas.",
         "icon": "HandshakeIcon"
       },
       {
-        "title": "Orgullo Cultural",
-        "description": "Representando con orgullo a Guatemala en el escenario global mientras apoyamos a nuestra comunidad local.",
+        "title": "Raíces Locales",
+        "description": "Tenemos nuestra sede en {{companyCountry}} y aportamos esa perspectiva a nuestro trabajo.",
         "icon": "FavoriteIcon"
       }
     ]
   },
   "mission": {
     "title": "Nuestra Misión",
-    "description": "Empoderar a las empresas con soluciones digitales innovadoras que impulsen el crecimiento, mejoren las experiencias del usuario y creen valor duradero en un mundo cada vez más conectado.",
+    "description": "Ayudar a las empresas a resolver necesidades concretas mediante software confiable, mantenible y una colaboración clara.",
     "vision": {
       "title": "Nuestra Visión",
-      "description": "Ser la empresa líder en desarrollo de software en Centroamérica, conocida por la calidad excepcional, innovación y el impacto positivo que creamos para nuestros clientes y comunidad."
+      "description": "Crecer como una startup de desarrollo de software confiable desde Guatemala, mediante ingeniería responsable y aprendizaje continuo."
     }
   }
 }

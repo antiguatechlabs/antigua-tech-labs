@@ -2,7 +2,7 @@
   "hero": {
     "title": "{{gradient:UX Design}} & User Experience",
     "subtitle": "User-Centered Design & Experience Optimization",
-    "description": "Create intuitive, engaging user experiences that delight your customers and drive business results. Our UX design team combines research, strategy, and creative design to build products users love.",
+    "description": "UX design can include user-flow reviews, interface concepts, prototypes, and usability considerations. Activities and deliverables are agreed according to the product and project scope.",
     "image": "/src/assets/services/ux-design-hero.svg",
     "textPosition": "left"
   },
@@ -87,27 +87,8 @@
     ]
   },
   "portfolio": {
-    "title": "UX Design Success Stories",
-    "projects": [
-      {
-        "title": "SaaS Dashboard Redesign",
-        "description": "Increased user engagement by 85% and reduced support tickets by 60%",
-        "image": "/images/portfolio/saas-dashboard.jpg",
-        "technologies": ["Figma", "User Testing", "Analytics"]
-      },
-      {
-        "title": "E-commerce Mobile App",
-        "description": "Improved conversion rate by 40% with streamlined checkout process",
-        "image": "/images/portfolio/ecommerce-mobile-ux.jpg",
-        "technologies": ["Sketch", "Prototyping", "A/B Testing"]
-      },
-      {
-        "title": "Healthcare Patient Portal",
-        "description": "Enhanced accessibility and reduced task completion time by 50%",
-        "image": "/images/portfolio/healthcare-portal.jpg",
-        "technologies": ["Adobe XD", "Accessibility", "User Research"]
-      }
-    ]
+    "title": "Public case studies",
+    "projects": []
   },
   "cta": {
     "title": "Ready to Improve Your User Experience?",

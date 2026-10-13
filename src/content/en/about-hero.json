@@ -1,6 +1,6 @@
 {
   "headline": "{{gradient:Transforming Ideas}} into Digital Reality",
-  "subheading": "We are Antigua Tech Labs, a Guatemala-based software development company specializing in creating innovative web and mobile applications that drive business growth and deliver exceptional user experiences.",
+  "subheading": "{{companyName}} is a software development startup based in {{companyLocality}}, {{companyCountry}}, founded in {{foundingYear}}. Our team brings professional experience gained before the company's launch.",
   "ctaText": "Let's Work Together",
   "ctaLink": "#about-cta",
   "backgroundImage": "/images/about/team-workspace.jpg"

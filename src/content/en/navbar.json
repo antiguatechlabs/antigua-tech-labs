@@ -1,5 +1,4 @@
 {
-  "companyName": "Antigua Tech Labs",
   "menuTitle": "Menu",
   "languageToggle": {
     "en": "EN",
@@ -50,7 +49,7 @@
     }
   ],
   "contactInfo": {
-    "email": "contact@antiguatechlabs.com",
+    "email": "{{companyEmail}}",
     "socialLinks": {
       "facebook": "https://facebook.com",
       "instagram": "https://instagram.com",
@@ -60,6 +59,9 @@
   "mobileMenu": {
     "contactTitle": "Contact Us",
     "followTitle": "Follow Us",
-    "contactFormButton": "Contact Form"
+    "contactFormButton": "Contact Form",
+    "languageLabel": "Language",
+    "openMenuLabel": "Open menu",
+    "closeMenuLabel": "Close menu"
   }
 }

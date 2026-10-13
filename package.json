@@ -62,7 +62,7 @@
     "webpack": "^5.99.9"
   },
   "lint-staged": {
-    "*.{js,jsx,ts,tsx,json,css,md}": [
+    "*.{js,jsx,ts,tsx}": [
       "eslint --fix"
     ]
   },

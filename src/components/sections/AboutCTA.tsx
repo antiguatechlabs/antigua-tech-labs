@@ -105,7 +105,12 @@ const ContactCard = ({
   </MotionBox>
 );
 
-export function AboutCTA({ content, contactContent, lang: _lang }: AboutCTAProps) {
+export function AboutCTA({ content, contactContent, lang }: AboutCTAProps) {
+  const primaryCta = {
+    ...content.primaryCta,
+    link: `/${lang}${content.primaryCta.link}`,
+  };
+
   return (
     <Section
       id="about-cta"
@@ -153,7 +158,7 @@ export function AboutCTA({ content, contactContent, lang: _lang }: AboutCTAProps
               {content.subtitle}
             </Typography>
 
-            <CTAButtons primaryCta={content.primaryCta} secondaryCta={content.secondaryCta} />
+            <CTAButtons primaryCta={primaryCta} secondaryCta={content.secondaryCta} />
           </MotionDiv>
         </Box>
 

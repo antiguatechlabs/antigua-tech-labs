@@ -1,41 +1,41 @@
 {
   "title": "Nuestro Enfoque",
-  "subtitle": "Cómo entregamos resultados excepcionales a través de metodologías probadas y procesos colaborativos",
+  "subtitle": "Un proceso colaborativo para definir, desarrollar y mantener soluciones digitales",
   "steps": [
     {
       "number": "01",
       "title": "Descubrimiento y Planificación",
-      "description": "Comenzamos entendiendo profundamente tus objetivos comerciales, audiencia objetivo y requisitos técnicos a través de consulta y análisis integral.",
+      "description": "Conversamos sobre tus objetivos, usuarios, limitaciones y requisitos técnicos para definir el alcance inicial del proyecto.",
       "icon": "search"
     },
     {
       "number": "02", 
       "title": "Diseño y Arquitectura",
-      "description": "Nuestro equipo crea wireframes detallados, diseños de experiencia de usuario y planes de arquitectura técnica que se alinean con tu visión y objetivos.",
+      "description": "Preparamos diseños y planes técnicos adecuados a los requisitos acordados y al alcance del proyecto.",
       "icon": "architecture"
     },
     {
       "number": "03",
       "title": "Desarrollo Ágil",
-      "description": "Construimos tu solución usando sprints Agile, proporcionando actualizaciones regulares e incorporando tu retroalimentación durante todo el proceso de desarrollo.",
+      "description": "Desarrollamos la solución acordada, compartiendo avances e incorporando comentarios en revisiones planificadas.",
       "icon": "code"
     },
     {
       "number": "04",
       "title": "Aseguramiento de Calidad",
-      "description": "Pruebas rigurosas en múltiples dispositivos y escenarios aseguran que tu aplicación funcione perfectamente antes del lanzamiento.",
+      "description": "Probamos la funcionalidad acordada en dispositivos y escenarios relevantes para identificar problemas antes del lanzamiento.",
       "icon": "bug_report"
     },
     {
       "number": "05",
       "title": "Despliegue y Lanzamiento",
-      "description": "Manejamos el proceso completo de despliegue, asegurando un lanzamiento suave y rendimiento óptimo en tu entorno de producción.",
+      "description": "Preparamos y coordinamos los pasos de despliegue definidos para tu proyecto y entorno de producción.",
       "icon": "rocket_launch"
     },
     {
       "number": "06",
       "title": "Soporte Continuo",
-      "description": "El soporte post-lanzamiento incluye monitoreo, mantenimiento, actualizaciones y optimización continua para asegurar el éxito a largo plazo.",
+      "description": "Cualquier mantenimiento o soporte posterior al lanzamiento se conversa y acuerda como parte del alcance del proyecto.",
       "icon": "support_agent"
     }
   ],

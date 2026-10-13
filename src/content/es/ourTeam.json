@@ -1,33 +1,24 @@
 {
   "title": "Nuestro {{gradient:Equipo}}",
-  "subtitle": "Conoce a las personas talentosas que hacen realidad nuestra visión",
+  "subtitle": "Nuestro equipo aporta experiencia profesional adquirida antes de la fundación de {{companyName}} en {{foundingYear}}.",
   "teamMembers": [
     {
-      "image": "ignacio",
-      "title": "Ignacio Martínez",
-      "subtitle": "Desarrollador Frontend",
-      "handle": "@ignaciomc_",
+      "id": "ignacio",
+      "role": "Desarrollador Frontend",
       "borderColor": "#c492f7",
-      "gradient": "linear-gradient(180deg, #c492f7, #000)",
-      "url": "https://www.linkedin.com/in/ignaciomc20/"
+      "gradient": "linear-gradient(180deg, #c492f7, #000)"
     },
     {
-      "image": "marcos",
-      "title": "Marcos Ovando",
-      "subtitle": "Desarrollador Backend",
-      "handle": "@marcospoder",
+      "id": "marcos",
+      "role": "Desarrollador Backend",
       "borderColor": "#9c43f8",
-      "gradient": "linear-gradient(145deg, #9c43f8, #000)",
-      "url": "https://www.linkedin.com/in/marcos-ovando-a90608225/"
+      "gradient": "linear-gradient(145deg, #9c43f8, #000)"
     },
     {
-      "image": "carlos",
-      "title": "Carlos Pamech",
-      "subtitle": "Desarrolador Mobile",
-      "handle": "@carlospamech",
+      "id": "carlos",
+      "role": "Desarrollador Mobile",
       "borderColor": "#5591f5",
-      "gradient": "linear-gradient(135deg, #5591f5, #000)",
-      "url": "https://www.linkedin.com/in/carlos-pamech-41920b283/"
+      "gradient": "linear-gradient(135deg, #5591f5, #000)"
     }
   ]
 }
