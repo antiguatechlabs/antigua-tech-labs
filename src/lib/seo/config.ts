@@ -1,21 +1,25 @@
 import type { DefaultSeoProps } from 'next-seo';
 
+import company from '../../content/shared/company.json';
+
+export const COMPANY = company;
+
 export const DEFAULT_SEO: DefaultSeoProps = {
-  defaultTitle: 'Antigua Tech Labs - Custom Software Development',
-  titleTemplate: '%s | Antigua Tech Labs',
-  description: 'We build high-performance web and mobile apps that scale with your business and deliver real-world results.',
-  canonical: 'https://antiguatechlabs.com',
+  defaultTitle: `${company.name} - Custom Software Development`,
+  titleTemplate: `%s | ${company.name}`,
+  description: `${company.name} is a software development startup based in ${company.locality}, ${company.country}.`,
+  canonical: company.url,
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://antiguatechlabs.com',
-    siteName: 'Antigua Tech Labs',
+    url: company.url,
+    siteName: company.name,
     images: [
       {
-        url: 'https://antiguatechlabs.com/og?title=Antigua Tech Labs&description=Custom Software Development',
+        url: `${company.url}/og?title=Antigua%20Tech%20Labs&description=Custom%20Software%20Development`,
         width: 1200,
         height: 630,
-        alt: 'Antigua Tech Labs - Custom Software Development',
+        alt: `${company.name} - Custom Software Development`,
       },
     ],
   },
@@ -39,7 +43,7 @@ export const DEFAULT_SEO: DefaultSeoProps = {
     },
     {
       name: 'application-name',
-      content: 'Antigua Tech Labs',
+      content: company.name,
     },
   ],
   additionalLinkTags: [
@@ -61,21 +65,21 @@ export const DEFAULT_SEO: DefaultSeoProps = {
 export const LANGUAGE_CONFIGS = {
   en: {
     locale: 'en_US',
-    defaultTitle: 'Antigua Tech Labs - Custom Software Development',
-    description: 'We build high-performance web and mobile apps that scale with your business and deliver real-world results.',
+    defaultTitle: `${company.name} - Custom Software Development`,
+    description: `A software development startup based in ${company.locality}, ${company.country}.`,
   },
   es: {
     locale: 'es_ES',
-    defaultTitle: 'Antigua Tech Labs - Desarrollo de Software Personalizado',
-    description: 'Construimos aplicaciones web y móviles de alto rendimiento que escalan con tu negocio y entregan resultados reales.',
+    defaultTitle: `${company.name} - Desarrollo de Software Personalizado`,
+    description: `Una startup de desarrollo de software con sede en ${company.locality}, ${company.country}.`,
   },
 };
 
 export const SITE_CONFIG = {
-  name: 'Antigua Tech Labs',
-  url: 'https://antiguatechlabs.com',
-  ogImage: 'https://antiguatechlabs.com/og',
-  description: 'Custom software development company specializing in web and mobile applications.',
+  name: company.name,
+  url: company.url,
+  ogImage: `${company.url}/og`,
+  description: `Software development startup based in ${company.locality}, ${company.country}.`,
   keywords: [
     'software development',
     'web applications',
@@ -88,12 +92,12 @@ export const SITE_CONFIG = {
   ],
   authors: [
     {
-      name: 'Antigua Tech Labs',
-      url: 'https://antiguatechlabs.com',
+      name: company.name,
+      url: company.url,
     },
   ],
-  creator: 'Antigua Tech Labs',
-  publisher: 'Antigua Tech Labs',
+  creator: company.name,
+  publisher: company.name,
   formatDetection: {
     email: false,
     address: false,

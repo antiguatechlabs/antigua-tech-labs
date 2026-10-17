@@ -2,7 +2,7 @@
   "hero": {
     "title": "{{gradient:Aplicaciones Móviles}} Que Conectan y Cautivan",
     "subtitle": "Desarrollo Nativo iOS y Android",
-    "description": "Crea aplicaciones móviles potentes y fáciles de usar que cautiven a tu audiencia e impulsen el crecimiento empresarial. Nuestro equipo experto entrega apps nativas para iOS y Android con rendimiento excepcional y diseño intuitivo.",
+    "description": "El trabajo de aplicaciones móviles puede incluir planificación del producto, diseño de interfaz y desarrollo para iOS, Android o soluciones multiplataforma. La selección de plataformas y funciones depende de los requisitos del proyecto.",
     "image": "/src/assets/services/mobile-applications-hero.svg",
     "textPosition": "right"
   },
@@ -87,27 +87,8 @@
     ]
   },
   "portfolio": {
-    "title": "Historias de Éxito en Apps Móviles",
-    "projects": [
-      {
-        "title": "App Móvil de E-commerce",
-        "description": "App de compras multiplataforma con 50K+ descargas y calificación de 4.8 estrellas",
-        "image": "/images/portfolio/mobile-ecommerce.jpg",
-        "technologies": ["React Native", "Firebase", "Stripe"]
-      },
-      {
-        "title": "App de Seguimiento Fitness",
-        "description": "App nativa iOS con integración de salud y características sociales",
-        "image": "/images/portfolio/fitness-app.jpg",
-        "technologies": ["Swift", "HealthKit", "Core Data"]
-      },
-      {
-        "title": "App de Gestión Empresarial",
-        "description": "App empresarial Android para gestión de inventario y equipos",
-        "image": "/images/portfolio/business-app.jpg",
-        "technologies": ["Kotlin", "Room", "Retrofit"]
-      }
-    ]
+    "title": "Casos de estudio públicos",
+    "projects": []
   },
   "cta": {
     "title": "¿Listo para Lanzar Tu App Móvil?",

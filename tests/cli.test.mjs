@@ -26,8 +26,8 @@ test('CLI help and docs are available without network access', async () => {
   assert.match(help.stdout, /--dry-run/);
 
   const docs = await execFileAsync(process.execPath, [cliPath, 'docs'], { cwd: root });
-  assert.match(docs.stdout, /https:\/\/antiguatechlabs\.com\/developers/);
-  assert.match(docs.stdout, /https:\/\/antiguatechlabs\.com\/openapi\.json/);
+  assert.match(docs.stdout, /https:\/\/www\.antiguatechlabs\.com\/developers/);
+  assert.match(docs.stdout, /https:\/\/www\.antiguatechlabs\.com\/openapi\.json/);
 });
 
 test('CLI contact dry-run sends the documented JSON request', async () => {

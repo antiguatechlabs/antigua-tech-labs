@@ -106,20 +106,23 @@ export function OurStory({ content, lang: _lang }: OurStoryProps) {
           >
             {content.summary.title}
           </Typography> */}
-          <Typography
-            variant="body1"
-            sx={{
-              textAlign: 'center',
-              color: 'text.secondary',
-              lineHeight: 1.8,
-              fontSize: '1.1rem',
-              maxWidth: 900,
-              mx: 'auto',
-              fontWeight: 400,
-            }}
-          >
-            {content.summary.description}
-          </Typography>
+          {content.summary.paragraphs.map(paragraph => (
+            <Typography
+              key={paragraph}
+              variant="body1"
+              sx={{
+                textAlign: 'center',
+                color: 'text.secondary',
+                lineHeight: 1.8,
+                fontSize: '1.1rem',
+                maxWidth: 900,
+                mx: 'auto',
+                fontWeight: 400,
+              }}
+            >
+              {paragraph}
+            </Typography>
+          ))}
         </MotionBox>
 
         {/* Values Grid */}

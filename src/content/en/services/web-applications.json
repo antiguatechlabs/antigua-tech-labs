@@ -2,7 +2,7 @@
   "hero": {
     "title": "Custom {{gradient:Web Solutions}} That Drive Business Growth",
     "subtitle": "Professional Web Development",
-    "description": "We build modern, scalable web applications tailored to your business needs. From concept to deployment, our expert team delivers high-performance solutions that engage users and drive results.",
+    "description": "Web application work can include planning, interface design, frontend and backend development, and deployment coordination. The architecture and deliverables are shaped around the project's requirements.",
     "image": "/src/assets/services/web-applications-hero.svg",
     "textPosition": "left"
   },
@@ -89,27 +89,8 @@
     ]
   },
   "portfolio": {
-    "title": "Our Web Application Projects",
-    "projects": [
-      {
-        "title": "E-commerce Platform",
-        "description": "A full-featured online store with payment processing, inventory management, and customer analytics.",
-        "image": "ecommerce-project.jpg",
-        "technologies": ["React", "Node.js", "MongoDB", "Stripe"]
-      },
-      {
-        "title": "Business Dashboard",
-        "description": "Real-time analytics dashboard for tracking business metrics and performance indicators.",
-        "image": "dashboard-project.jpg",
-        "technologies": ["Next.js", "TypeScript", "PostgreSQL", "Chart.js"]
-      },
-      {
-        "title": "Learning Management System",
-        "description": "Educational platform with course management, student tracking, and interactive content delivery.",
-        "image": "lms-project.jpg",
-        "technologies": ["React", "GraphQL", "Node.js", "AWS"]
-      }
-    ]
+    "title": "Public case studies",
+    "projects": []
   },
   "cta": {
     "title": "Ready to Build Your Web Application?",

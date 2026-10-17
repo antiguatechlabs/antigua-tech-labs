@@ -1,0 +1,23 @@
+[
+  {
+    "id": "ignacio",
+    "name": "Ignacio Martínez",
+    "image": "ignacio",
+    "handle": "@ignaciomc_",
+    "url": "https://www.linkedin.com/in/ignaciomc20/"
+  },
+  {
+    "id": "marcos",
+    "name": "Marcos Ovando",
+    "image": "marcos",
+    "handle": "@marcospoder",
+    "url": "https://www.linkedin.com/in/marcos-ovando-a90608225/"
+  },
+  {
+    "id": "carlos",
+    "name": "Carlos Pamech",
+    "image": "carlos",
+    "handle": "@carlospamech",
+    "url": "https://www.linkedin.com/in/carlos-pamech-41920b283/"
+  }
+]

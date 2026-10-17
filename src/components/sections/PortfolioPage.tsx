@@ -338,7 +338,7 @@ export function PortfolioPage({ content }: PortfolioPageProps) {
                 p: { xs: 2.5, md: 3 },
               }}
             >
-              <Stack spacing={2}>
+              {content.projects.length > 0 ? <Stack spacing={2}>
                 {content.projects.map((project, index) => (
                   <Box
                     key={`${project.title}-preview`}
@@ -378,13 +378,17 @@ export function PortfolioPage({ content }: PortfolioPageProps) {
                     </Box>
                   </Box>
                 ))}
-              </Stack>
+              </Stack> : (
+                <Typography color="text.secondary" role="status" sx={{ lineHeight: 1.7 }}>
+                  {content.emptyState}
+                </Typography>
+              )}
             </Box>
           </Box>
         </Container>
       </Box>
 
-      <Box
+      {content.projects.length > 0 && <Box
         component="section"
         sx={{ bgcolor: 'background.paper', overflow: 'hidden', position: 'relative', py: { xs: 7, md: 11 } }}
       >
@@ -442,7 +446,7 @@ export function PortfolioPage({ content }: PortfolioPageProps) {
             ))}
           </Box>
         </Container>
-      </Box>
+      </Box>}
     </Box>
   );
 }

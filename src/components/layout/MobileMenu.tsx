@@ -131,7 +131,7 @@ export const MobileMenu = ({ isOpen, onClose, content, activeHref }: MobileMenuP
 
         <Box sx={{ position: 'relative', zIndex: 1, display: 'flex', alignItems: 'center', justifyContent: 'space-between', px: 2.25, py: 1.5, borderTop: '1px solid', borderColor: 'divider' }}>
           <Typography variant="caption" sx={{ color: 'text.secondary', fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.08em' }}>
-            LANGUAGE
+            {content.mobileMenu.languageLabel}
           </Typography>
           <Box sx={{
             display: 'flex', alignItems: 'center', gap: 1,

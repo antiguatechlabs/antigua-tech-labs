@@ -2,7 +2,7 @@
   "hero": {
     "title": "{{gradient:Modelado 3D}} y Visualización",
     "subtitle": "Visualización 3D Inmersiva y Experiencias Interactivas",
-    "description": "Da vida a tus ideas con modelos 3D impresionantes, animaciones y experiencias interactivas. Desde visualización de productos hasta renders arquitectónicos y aplicaciones web 3D, creamos experiencias digitales inmersivas.",
+    "description": "El trabajo de modelado 3D puede incluir visualizaciones de productos, renders arquitectónicos, animaciones y experiencias interactivas para web. Los entregables y el enfoque técnico dependen del alcance de cada proyecto.",
     "image": "/src/assets/services/3d-modeling-hero.svg",
     "textPosition": "right"
   },
@@ -87,27 +87,8 @@
     ]
   },
   "portfolio": {
-    "title": "Historias de Éxito en Modelado 3D",
-    "projects": [
-      {
-        "title": "Configurador Interactivo de Productos",
-        "description": "Configurador 3D de autos con personalización en tiempo real y funcionalidad de vista previa AR",
-        "image": "/images/portfolio/3d-car-configurator.jpg",
-        "technologies": ["Three.js", "WebGL", "AR.js"]
-      },
-      {
-        "title": "Visualización Arquitectónica",
-        "description": "Renders fotorrealistas y tour virtual para desarrollo inmobiliario de lujo",
-        "image": "/images/portfolio/architectural-viz.jpg",
-        "technologies": ["Blender", "Cycles", "Tours Virtuales"]
-      },
-      {
-        "title": "Animación de Dispositivo Médico",
-        "description": "Animación 3D educativa explicando funcionalidad compleja de dispositivo médico",
-        "image": "/images/portfolio/medical-animation.jpg",
-        "technologies": ["Maya", "Arnold", "After Effects"]
-      }
-    ]
+    "title": "Casos de estudio públicos",
+    "projects": []
   },
   "cta": {
     "title": "¿Listo para Crear Experiencias 3D Impresionantes?",

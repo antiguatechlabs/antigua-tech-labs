@@ -2,7 +2,7 @@
   "hero": {
     "title": "{{gradient:Diseño UX}} y Experiencia de Usuario",
     "subtitle": "Diseño Centrado en el Usuario y Optimización de Experiencia",
-    "description": "Crea experiencias de usuario intuitivas y atractivas que deleiten a tus clientes e impulsen resultados empresariales. Nuestro equipo de diseño UX combina investigación, estrategia y diseño creativo para construir productos que los usuarios aman.",
+    "description": "El diseño UX puede incluir revisión de flujos de usuario, conceptos de interfaz, prototipos y consideraciones de usabilidad. Las actividades y los entregables se acuerdan según el producto y el alcance del proyecto.",
     "image": "/src/assets/services/ux-design-hero.svg",
     "textPosition": "left"
   },
@@ -87,27 +87,8 @@
     ]
   },
   "portfolio": {
-    "title": "Historias de Éxito en Diseño UX",
-    "projects": [
-      {
-        "title": "Rediseño de Dashboard SaaS",
-        "description": "Aumentó el engagement del usuario en 85% y redujo tickets de soporte en 60%",
-        "image": "/images/portfolio/saas-dashboard.jpg",
-        "technologies": ["Figma", "Pruebas de Usuario", "Analytics"]
-      },
-      {
-        "title": "App Móvil de E-commerce",
-        "description": "Mejoró la tasa de conversión en 40% con proceso de checkout optimizado",
-        "image": "/images/portfolio/ecommerce-mobile-ux.jpg",
-        "technologies": ["Sketch", "Prototipado", "Pruebas A/B"]
-      },
-      {
-        "title": "Portal de Pacientes de Salud",
-        "description": "Mejoró accesibilidad y redujo tiempo de completar tareas en 50%",
-        "image": "/images/portfolio/healthcare-portal.jpg",
-        "technologies": ["Adobe XD", "Accesibilidad", "Investigación de Usuario"]
-      }
-    ]
+    "title": "Casos de estudio públicos",
+    "projects": []
   },
   "cta": {
     "title": "¿Listo para Mejorar Tu Experiencia de Usuario?",

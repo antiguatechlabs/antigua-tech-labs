@@ -1,47 +1,15 @@
 {
   "hero": {
     "eyebrow": "Portfolio",
-    "title": "Delivered work, ready to explore",
-    "subtitle": "A growing look at projects our team has already shipped.",
-    "description": "These spots are set up for real delivered projects. Add the public link and image when each case study is cleared to share."
+    "title": "Project work",
+    "subtitle": "Selected software development capabilities",
+    "description": "Public case studies will be listed here when they are available and approved for sharing."
   },
-  "projectsTitle": "Delivered project highlights",
-  "projectsSubtitle": "Use these four cards for client work that has already launched. Keep the summary short, add proof, and publish the link when it is ready.",
+  "projectsTitle": "Project case studies",
+  "projectsSubtitle": "Only work approved for public sharing will be presented here.",
+  "emptyState": "There are no public case studies available at this time.",
   "ctaLabel": "Open project",
   "comingSoonLabel": "Link coming soon",
-  "statusLabel": "Delivered",
-  "projects": [
-    {
-      "title": "Client web platform",
-      "description": "A delivered web app for managing complex workflows with a clean interface and reliable data flows.",
-      "image": "",
-      "imageAlt": "",
-      "href": "",
-      "tags": ["Web App", "UX", "API"]
-    },
-    {
-      "title": "Mobile product experience",
-      "description": "A shipped mobile-first experience designed to make key actions faster, clearer, and easier to use.",
-      "image": "",
-      "imageAlt": "",
-      "href": "",
-      "tags": ["Mobile", "Design", "Frontend"]
-    },
-    {
-      "title": "Operations platform",
-      "description": "A backend and integration project delivered to reduce manual work and keep business data connected.",
-      "image": "",
-      "imageAlt": "",
-      "href": "",
-      "tags": ["Platform", "Cloud", "Backend"]
-    },
-    {
-      "title": "Interactive product experience",
-      "description": "A polished interactive build created to help users explore a product, service, or idea more naturally.",
-      "image": "",
-      "imageAlt": "",
-      "href": "",
-      "tags": ["3D", "Interactive", "WebGL"]
-    }
-  ]
+  "statusLabel": "Public case study",
+  "projects": []
 }

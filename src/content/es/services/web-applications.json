@@ -2,7 +2,7 @@
   "hero": {
     "title": "{{gradient:Aplicaciones Web}} Personalizadas Que Impulsan el Crecimiento",
     "subtitle": "Desarrollo Web Profesional",
-    "description": "Construimos aplicaciones web modernas y escalables adaptadas a las necesidades de tu negocio. Desde el concepto hasta el despliegue, nuestro equipo experto entrega soluciones de alto rendimiento que involucran a los usuarios y generan resultados.",
+    "description": "El trabajo de aplicaciones web puede incluir planificación, diseño de interfaz, desarrollo frontend y backend, y coordinación del despliegue. La arquitectura y los entregables se definen según los requisitos del proyecto.",
     "image": "/src/assets/services/web-applications-hero.svg",
     "textPosition": "left"
   },
@@ -89,27 +89,8 @@
     ]
   },
   "portfolio": {
-    "title": "Nuestros Proyectos de Aplicaciones Web",
-    "projects": [
-      {
-        "title": "Plataforma de E-commerce",
-        "description": "Una tienda en línea completa con procesamiento de pagos, gestión de inventario y análisis de clientes.",
-        "image": "ecommerce-project.jpg",
-        "technologies": ["React", "Node.js", "MongoDB", "Stripe"]
-      },
-      {
-        "title": "Dashboard Empresarial",
-        "description": "Dashboard de análisis en tiempo real para rastrear métricas empresariales e indicadores de rendimiento.",
-        "image": "dashboard-project.jpg",
-        "technologies": ["Next.js", "TypeScript", "PostgreSQL", "Chart.js"]
-      },
-      {
-        "title": "Sistema de Gestión de Aprendizaje",
-        "description": "Plataforma educativa con gestión de cursos, seguimiento de estudiantes y entrega de contenido interactivo.",
-        "image": "lms-project.jpg",
-        "technologies": ["React", "GraphQL", "Node.js", "AWS"]
-      }
-    ]
+    "title": "Casos de estudio públicos",
+    "projects": []
   },
   "cta": {
     "title": "¿Listo para Construir Tu Aplicación Web?",

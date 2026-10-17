@@ -308,7 +308,7 @@ export function Navbar({ content }: { content: NavbarContent }) {
               </Box>
 
               <IconButton
-                aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
+                aria-label={isMobileMenuOpen ? content.mobileMenu.closeMenuLabel : content.mobileMenu.openMenuLabel}
                 aria-controls="mobile-navigation"
                 aria-expanded={isMobileMenuOpen}
                 onClick={() => setIsMobileMenuOpen(isOpen => !isOpen)}

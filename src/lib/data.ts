@@ -28,6 +28,8 @@ import enTermsOfService from '../content/en/terms-of-service.json';
 import enTestimonials from '../content/en/testimonials.json';
 import enWhyChoose from '../content/en/whyChoose.json';
 import enWhyChooseTwo from '../content/en/whyChooseTwo.json';
+import company from '../content/shared/company.json';
+import teamIdentity from '../content/shared/team.json';
 import esAboutApproach from '../content/es/about-approach.json';
 import esAboutCta from '../content/es/about-cta.json';
 import esAboutHero from '../content/es/about-hero.json';
@@ -57,6 +59,22 @@ import esTermsOfService from '../content/es/terms-of-service.json';
 import esTestimonials from '../content/es/testimonials.json';
 import esWhyChoose from '../content/es/whyChoose.json';
 import esWhyChooseTwo from '../content/es/whyChooseTwo.json';
+
+export const COMPANY_FACTS = company;
+
+function formatCompanyText(value: string): string {
+  return value
+    .replaceAll('{{companyName}}', company.name)
+    .replaceAll('{{foundingYear}}', company.foundingYear)
+    .replaceAll('{{companyEmail}}', company.email)
+    .replaceAll('{{companyLocality}}', company.locality)
+    .replaceAll('{{companyCountry}}', company.country);
+}
+
+function formatCompanyUrl(value: string): string {
+  const formatted = formatCompanyText(value);
+  return formatted.startsWith('/') ? new URL(formatted, company.url).toString() : formatted;
+}
 
 // Define content types
 export interface HeroContent {
@@ -120,7 +138,6 @@ export interface FooterContent {
   companyDescription: string;
   email: string;
   address: string;
-  phone: string;
   logo: string;
   sections: {
     product: {
@@ -136,7 +153,10 @@ export interface FooterContent {
     };
     legal: {
       title: string;
-      links: string[];
+      links: Array<{
+        id: 'privacy' | 'terms';
+        title: string;
+      }>;
     };
     developers: {
       title: string;
@@ -229,6 +249,9 @@ export interface NavbarContent {
     contactTitle: string;
     followTitle: string;
     contactFormButton: string;
+    languageLabel: string;
+    openMenuLabel: string;
+    closeMenuLabel: string;
   };
 }
 
@@ -240,6 +263,7 @@ export interface WhyChooseContent {
   buttonText: string;
   buttonLink: string;
   imageSrc: 'cold';
+  imageAlt: string;
   yearEstablished: string;
   tagline: string;
 }
@@ -251,7 +275,6 @@ export interface WhyChooseTwoContent {
   buttonText: string;
   buttonLink: string;
   backgroundImage: string;
-  phoneNumber: string;
   yearEstablished: string;
 }
 
@@ -275,6 +298,7 @@ export interface SliderContent {
 }
 
 export interface TeamMember {
+  id: string;
   image: string;
   title: string;
   subtitle: string;
@@ -282,6 +306,19 @@ export interface TeamMember {
   borderColor: string;
   gradient: string;
   url: string;
+}
+
+interface LocalizedTeamMember {
+  id: string;
+  role: string;
+  borderColor: string;
+  gradient: string;
+}
+
+interface LocalizedOurTeamContent {
+  title: string;
+  subtitle: string;
+  teamMembers: LocalizedTeamMember[];
 }
 
 export interface OurTeamContent {
@@ -308,6 +345,7 @@ export interface PortfolioContent {
   };
   projectsTitle: string;
   projectsSubtitle: string;
+  emptyState: string;
   ctaLabel: string;
   comingSoonLabel: string;
   statusLabel: string;
@@ -357,7 +395,6 @@ export interface AboutCTAContent {
   contactPreview: {
     heading: string;
     email: string;
-    phone: string;
     location: string;
   };
 }
@@ -381,7 +418,7 @@ export interface AboutStoryContent {
   subtitle: string;
   summary: {
     title: string;
-    description: string;
+    paragraphs: string[];
   };
   timeline: AboutStoryTimelineItem[];
   values: {
@@ -407,6 +444,7 @@ export interface LegalSection {
 
 export interface LegalContent {
   title: string;
+  closeLabel: string;
   lastUpdated: string;
   sections: LegalSection[];
 }
@@ -549,7 +587,7 @@ const contentMap = {
     whyChooseTwo: enWhyChooseTwo as WhyChooseTwoContent,
     faq: enFaq as FAQContent,
     slider: enSlider as SliderContent,
-    ourTeam: enOurTeam as OurTeamContent,
+    ourTeam: enOurTeam as LocalizedOurTeamContent,
     portfolio: enPortfolio as PortfolioContent,
     aboutHero: enAboutHero as AboutHeroContent,
     aboutStory: enAboutStory as AboutStoryContent,
@@ -580,7 +618,7 @@ const contentMap = {
     whyChooseTwo: esWhyChooseTwo as WhyChooseTwoContent,
     faq: esFaq as FAQContent,
     slider: esSlider as SliderContent,
-    ourTeam: esOurTeam as OurTeamContent,
+    ourTeam: esOurTeam as LocalizedOurTeamContent,
     portfolio: esPortfolio as PortfolioContent,
     aboutHero: esAboutHero as AboutHeroContent,
     aboutStory: esAboutStory as AboutStoryContent,
@@ -635,19 +673,36 @@ export function getDeveloperPortalContent(language: string = 'en'): DeveloperPor
 }
 
 export function getFooterContent(language: string = 'en'): FooterContent {
-  return getContent<FooterContent>('footer', language);
+  const content = getContent<FooterContent>('footer', language);
+  return {
+    ...content,
+    companyName: company.name,
+    email: formatCompanyText(content.email),
+    address: `${company.locality}, ${company.country}`,
+  };
 }
 
 export function getNavbarContent(language: string = 'en'): NavbarContent {
-  return getContent<NavbarContent>('navbar', language);
+  const content = getContent<NavbarContent>('navbar', language);
+  return {
+    ...content,
+    companyName: company.name,
+    contactInfo: { ...content.contactInfo, email: formatCompanyText(content.contactInfo.email) },
+  };
 }
 
 export function getWhyChooseContent(language: string = 'en'): WhyChooseContent {
-  return getContent<WhyChooseContent>('whyChoose', language);
+  const content = getContent<WhyChooseContent>('whyChoose', language);
+  return {
+    ...content,
+    yearEstablished: formatCompanyText(content.yearEstablished),
+    tagline: formatCompanyText(content.tagline),
+  };
 }
 
 export function getWhyChooseTwoContent(language: string = 'en'): WhyChooseTwoContent {
-  return getContent<WhyChooseTwoContent>('whyChooseTwo', language);
+  const content = getContent<WhyChooseTwoContent>('whyChooseTwo', language);
+  return { ...content, yearEstablished: formatCompanyText(content.yearEstablished) };
 }
 
 export function getFAQContent(language: string = 'en'): FAQContent {
@@ -659,7 +714,27 @@ export function getSliderContent(language: string = 'en'): SliderContent {
 }
 
 export function getOurTeamContent(language: string = 'en'): OurTeamContent {
-  return getContent<OurTeamContent>('ourTeam', language);
+  const content = getContent<LocalizedOurTeamContent>('ourTeam', language);
+
+  return {
+    ...content,
+    subtitle: formatCompanyText(content.subtitle),
+    teamMembers: content.teamMembers.map(member => {
+      const identity = teamIdentity.find(teamMember => teamMember.id === member.id);
+      if (!identity) throw new Error(`Missing shared team identity: ${member.id}`);
+
+      return {
+        id: identity.id,
+        image: identity.image,
+        title: identity.name,
+        subtitle: member.role,
+        handle: identity.handle,
+        borderColor: member.borderColor,
+        gradient: member.gradient,
+        url: identity.url,
+      };
+    }),
+  };
 }
 
 export function getPortfolioContent(language: string = 'en'): PortfolioContent {
@@ -720,23 +795,68 @@ export function getUnifiedServicesPageContent(language: string = 'en'): UnifiedS
 
 // About page content loading function
 export function getAboutPageContent(language: string = 'en'): AboutPageContent {
+  const story = getContent<AboutStoryContent>('aboutStory', language);
+  const cta = getContent<AboutCTAContent>('aboutCta', language);
+  const hero = getContent<AboutHeroContent>('aboutHero', language);
+
   return {
-    hero: getContent<AboutHeroContent>('aboutHero', language),
-    story: getContent<AboutStoryContent>('aboutStory', language),
+    hero: {
+      ...hero,
+      subheading: formatCompanyText(hero.subheading),
+    },
+    story: {
+      ...story,
+      subtitle: formatCompanyText(story.subtitle),
+      summary: {
+        ...story.summary,
+        paragraphs: story.summary.paragraphs.map(formatCompanyText),
+      },
+      timeline: story.timeline.map(item => ({
+        ...item,
+        year: formatCompanyText(item.year),
+        title: formatCompanyText(item.title),
+        description: formatCompanyText(item.description),
+        milestone: formatCompanyText(item.milestone),
+      })),
+      values: {
+        ...story.values,
+        items: story.values.items.map(item => ({
+          ...item,
+          title: formatCompanyText(item.title),
+          description: formatCompanyText(item.description),
+        })),
+      },
+    },
     approach: getContent<AboutApproachContent>('aboutApproach', language),
-    cta: getContent<AboutCTAContent>('aboutCta', language),
+    cta: {
+      ...cta,
+      contactPreview: {
+        ...cta.contactPreview,
+        email: formatCompanyText(cta.contactPreview.email),
+        location: formatCompanyText(cta.contactPreview.location),
+      },
+    },
   };
 }
 
 // Legal content loading functions
 export function getTermsOfServiceContent(language: string = 'en'): LegalContent {
-  return getContent<LegalContent>('termsOfService', language);
+  return formatLegalContent(getContent<LegalContent>('termsOfService', language));
 }
 
 export function getPrivacyPolicyContent(language: string = 'en'): LegalContent {
-  return getContent<LegalContent>('privacyPolicy', language);
+  return formatLegalContent(getContent<LegalContent>('privacyPolicy', language));
 }
 
+function formatLegalContent(content: LegalContent): LegalContent {
+  return {
+    ...content,
+    sections: content.sections.map(section => ({
+      ...section,
+      content: section.content.map(formatCompanyText),
+    })),
+  };
+}
 
 // SEO content loading functions
 export function getSEOContent(language: string = 'en'): SEOContent {
@@ -745,7 +865,18 @@ export function getSEOContent(language: string = 'en'): SEOContent {
 
 export function getPageSEOContent(page: keyof SEOContent, language: string = 'en'): SEOPageContent {
   const seoContent = getSEOContent(language);
-  return seoContent[page];
+  const content = seoContent[page];
+  return {
+    ...content,
+    title: formatCompanyText(content.title),
+    description: formatCompanyText(content.description),
+    ogTitle: content.ogTitle ? formatCompanyText(content.ogTitle) : undefined,
+    ogDescription: content.ogDescription ? formatCompanyText(content.ogDescription) : undefined,
+    ogImage: content.ogImage ? formatCompanyUrl(content.ogImage) : undefined,
+    twitterTitle: content.twitterTitle ? formatCompanyText(content.twitterTitle) : undefined,
+    twitterDescription: content.twitterDescription ? formatCompanyText(content.twitterDescription) : undefined,
+    twitterImage: content.twitterImage ? formatCompanyUrl(content.twitterImage) : undefined,
+  };
 }
 
 export function getHomeSEOContent(language: string = 'en'): SEOPageContent {

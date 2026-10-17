@@ -1,5 +1,6 @@
 {
   "title": "Política de Privacidad",
+  "closeLabel": "Cerrar política de privacidad",
   "lastUpdated": "Última actualización: Enero 2025",
   "sections": [
     {
@@ -93,8 +94,8 @@
     {
       "title": "12. Contáctenos",
       "content": [
-        "Si tiene alguna pregunta sobre esta Política de Privacidad o nuestras prácticas de datos, por favor contáctenos en info@antiguatechlabs.com.",
-        "También puede contactarnos por teléfono al +1 (234) 567-8901 o por correo en nuestra dirección en Antigua Guatemala, Guatemala."
+        "Si tiene alguna pregunta sobre esta Política de Privacidad o nuestras prácticas de datos, puede contactarnos en {{companyEmail}}.",
+        "{{companyName}} tiene su sede en {{companyLocality}}, {{companyCountry}}."
       ]
     }
   ]

@@ -1,3 +1,5 @@
+import { COMPANY, SITE_CONFIG } from '@/lib/seo/config';
+
 export const THANK_YOU_EMAIL_TEMPLATE_ES = (name: string) => `
   <div style="margin:0; padding:0; background-color:#f2f4f7; font-family: Arial, Helvetica, sans-serif;">
     <div style="max-width:600px; margin:0 auto; background:#ffffff; border-radius:12px; overflow:hidden; box-shadow:0 4px 18px rgba(0,0,0,0.06);">
@@ -22,16 +24,16 @@ export const THANK_YOU_EMAIL_TEMPLATE_ES = (name: string) => `
             Gracias por comunicarte con Antigua Tech Labs. Hemos recibido tu mensaje y apreciamos tu interés en nuestros servicios.
           </p>
           <p style="margin:0 0 12px 0; font-size:16px; line-height:24px; color:#333;">
-            Nuestro equipo revisará tu solicitud y nos pondremos en contacto contigo en breve. Generalmente respondemos dentro de las 24 horas en días hábiles.
+            Nuestro equipo revisará tu solicitud y te responderá cuando sea posible.
           </p>
           <p style="margin:0 0 16px 0; font-size:16px; line-height:24px; color:#333;">
             Si tienes alguna consulta urgente, no dudes en escribirnos directamente a
-            <a href="mailto:info@antiguatechlabs.com" style="color:#007bff; text-decoration:none;">info@antiguatechlabs.com</a>.
+            <a href="mailto:${COMPANY.email}" style="color:#007bff; text-decoration:none;">${COMPANY.email}</a>.
           </p>
 
           <!-- CTA -->
           <div style="margin-top:8px;">
-            <a href="mailto:info@antiguatechlabs.com?subject=Seguimiento%20de%20mi%20consulta"
+            <a href="mailto:${COMPANY.email}?subject=Seguimiento%20de%20mi%20consulta"
               style="background-color:#007bff; color:#ffffff; font-size:15px; text-decoration:none; padding:12px 18px; border-radius:8px; display:inline-block;">
               Responder a este correo
             </a>
@@ -51,7 +53,7 @@ export const THANK_YOU_EMAIL_TEMPLATE_ES = (name: string) => `
           Este es un mensaje automático de Antigua Tech Labs. Por favor, no respondas a este correo.
         </p>
         <p style="margin:6px 0 0 0; font-size:12px; line-height:18px; color:#666;">
-          Antigua Guatemala • <a target="_blank" href="https://www.antiguatechlabs.com/es" style="color:#007bff; text-decoration:none;">antiguatechlabs.com</a>
+          Antigua Guatemala • <a target="_blank" href="${SITE_CONFIG.url}/es" style="color:#007bff; text-decoration:none;">antiguatechlabs.com</a>
         </p>
       </div>
     </div>
@@ -86,19 +88,19 @@ export const THANK_YOU_EMAIL_TEMPLATE = (name: string) => `
         <div style="background-color:#f8f9fa; border-radius:10px; padding:24px;">
           <p style="margin:0 0 12px 0; font-size:16px; line-height:24px; color:#333;">Dear ${name},</p>
           <p style="margin:0 0 12px 0; font-size:16px; line-height:24px; color:#333;">
-            Thank you for reaching out to Antigua Tech Labs. We have received your message and appreciate your interest in our services.
+            Thank you for reaching out to Antigua Tech Labs. We have received your message.
           </p>
           <p style="margin:0 0 12px 0; font-size:16px; line-height:24px; color:#333;">
-            Our team will review your inquiry and get back to you shortly. We typically respond within 24 hours during business days.
+            Our team will review your inquiry and respond when possible.
           </p>
           <p style="margin:0 0 16px 0; font-size:16px; line-height:24px; color:#333;">
             If you have any urgent questions, please feel free to contact us directly at
-            <a href="mailto:info@antiguatechlabs.com" style="color:#007bff; text-decoration:none;">info@antiguatechlabs.com</a>.
+            <a href="mailto:${COMPANY.email}" style="color:#007bff; text-decoration:none;">${COMPANY.email}</a>.
           </p>
 
           <!-- CTA -->
           <div style="margin-top:8px;">
-            <a href="mailto:info@antiguatechlabs.com?subject=Follow-up%20on%20my%20inquiry"
+            <a href="mailto:${COMPANY.email}?subject=Follow-up%20on%20my%20inquiry"
               style="background-color:#007bff; color:#ffffff; font-size:15px; text-decoration:none; padding:12px 18px; border-radius:8px; display:inline-block;">
               Reply to this email
             </a>
@@ -118,7 +120,7 @@ export const THANK_YOU_EMAIL_TEMPLATE = (name: string) => `
           This is an automated response from Antigua Tech Labs. Please do not reply to this email.
         </p>
         <p style="margin:6px 0 0 0; font-size:12px; line-height:18px; color:#666;">
-          Antigua Guatemala • <a target="_blank" href="https://www.antiguatechlabs.com/en">antiguatechlabs.com</a>
+          Antigua Guatemala • <a target="_blank" href="${SITE_CONFIG.url}/en">antiguatechlabs.com</a>
         </p>
       </div>
     </div>
@@ -198,9 +200,9 @@ Dear ${name},
 
 Thank you for reaching out to Antigua Tech Labs. We have received your message and appreciate your interest in our services.
 
-Our team will review your inquiry and get back to you shortly. We typically respond within 24 hours during business days.
+Our team will review your inquiry and respond when possible.
 
-If you have any urgent questions, please feel free to contact us directly at info@antiguatechlabs.com.
+If you have any urgent questions, please contact us at ${COMPANY.email}.
 
 Best regards,
 The Antigua Tech Labs Team
@@ -211,9 +213,9 @@ Estimado/a ${name},
 
 Gracias por comunicarte con Antigua Tech Labs. Hemos recibido tu mensaje y apreciamos tu interés en nuestros servicios.
 
-Nuestro equipo revisará tu solicitud y nos pondremos en contacto contigo en breve. Generalmente respondemos dentro de las 24 horas en días hábiles.
+Nuestro equipo revisará tu solicitud y responderá cuando sea posible.
 
-Si tienes alguna consulta urgente, no dudes en escribirnos directamente a info@antiguatechlabs.com.
+Si tienes alguna consulta urgente, puedes escribirnos a ${COMPANY.email}.
 
 Atentamente,
 El equipo de Antigua Tech Labs

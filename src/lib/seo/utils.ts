@@ -4,7 +4,7 @@ import { join } from 'node:path';
 import { Metadata } from 'next';
 
 import atlIcon from '@/assets/atl-ico-dark.png';
-import { SITE_CONFIG, LANGUAGE_CONFIGS } from './config';
+import { COMPANY, SITE_CONFIG, LANGUAGE_CONFIGS } from './config';
 import { SEOConfig, PageSEOContent, LanguageAlternates } from './types';
 
 /**
@@ -179,9 +179,10 @@ export function generateOrganizationStructuredData(lang: string = 'en') {
   return {
     '@context': 'https://schema.org',
     '@type': 'Organization',
-    name: 'Antigua Tech Labs',
+    name: COMPANY.name,
     url: SITE_CONFIG.url,
     logo: new URL(atlIcon.src, SITE_CONFIG.url).toString(),
+    foundingDate: COMPANY.foundingYear,
     description:
       LANGUAGE_CONFIGS[lang as keyof typeof LANGUAGE_CONFIGS]?.description ||
       LANGUAGE_CONFIGS.en.description,
@@ -192,14 +193,14 @@ export function generateOrganizationStructuredData(lang: string = 'en') {
     ],
     contactPoint: {
       '@type': 'ContactPoint',
-      telephone: '+502-1234-5678',
+      email: COMPANY.email,
       contactType: 'customer service',
       availableLanguage: ['English', 'Spanish'],
     },
     address: {
       '@type': 'PostalAddress',
-      addressCountry: 'GT',
-      addressLocality: 'Antigua Guatemala',
+      addressCountry: COMPANY.countryCode,
+      addressLocality: COMPANY.locality,
     },
   };
 }
@@ -211,14 +212,14 @@ export function generateWebsiteStructuredData(lang: string = 'en') {
   return {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
-    name: 'Antigua Tech Labs',
+    name: COMPANY.name,
     url: SITE_CONFIG.url,
     description:
       LANGUAGE_CONFIGS[lang as keyof typeof LANGUAGE_CONFIGS]?.description ||
       LANGUAGE_CONFIGS.en.description,
     publisher: {
       '@type': 'Organization',
-      name: 'Antigua Tech Labs',
+      name: COMPANY.name,
     },
     potentialAction: {
       '@type': 'SearchAction',
@@ -235,14 +236,14 @@ export function generatePortfolioStructuredData(lang: string = 'en') {
   const portfolioName = isSpanish ? 'Portafolio' : 'Portfolio';
   const homeName = isSpanish ? 'Inicio' : 'Home';
   const description = isSpanish
-    ? 'Proyectos entregados por Antigua Tech Labs.'
-    : 'Delivered projects by Antigua Tech Labs.';
+    ? `Casos de estudio públicos de ${COMPANY.name}, cuando estén disponibles.`
+    : `Public case studies from ${COMPANY.name} when available.`;
 
   return [
     {
       '@context': 'https://schema.org',
       '@type': 'CollectionPage',
-      name: `${portfolioName} - Antigua Tech Labs`,
+      name: `${portfolioName} - ${COMPANY.name}`,
       description,
       url: portfolioUrl,
       inLanguage: isSpanish ? 'es' : 'en',

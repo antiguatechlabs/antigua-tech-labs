@@ -7,7 +7,7 @@
   "faqs": [
     {
       "question": "¿Cuánto tiempo suele tardar el desarrollo de una aplicación web?",
-      "answer": "Depende del alcance del proyecto. Una aplicación sencilla puede tardar entre 2 y 5 semanas, mientras que una solución más compleja puede tomar de 1 a 4 meses. Durante la fase inicial te daremos un cronograma claro adaptado a tus necesidades."
+      "answer": "El plazo depende del alcance, las integraciones y los requisitos de la aplicación. Podemos conversar sobre una estimación después de revisar los detalles del proyecto."
     },
     {
       "question": "¿Desarrollan aplicaciones móviles tanto para iOS como para Android?",
@@ -15,7 +15,7 @@
     },
     {
       "question": "¿Qué incluye su servicio de desarrollo de APIs?",
-      "answer": "Nuestro desarrollo de APIs incluye APIs RESTful y GraphQL, diseño de bases de datos, sistemas de autenticación, documentación, pruebas y despliegue. Garantizamos que tus APIs sean seguras, escalables y bien documentadas para fácil integración."
+      "answer": "Según el proyecto, el trabajo de API puede incluir endpoints REST o GraphQL, modelado de datos, autenticación, documentación, pruebas y despliegue. Los requisitos de seguridad y rendimiento se definen durante la planificación."
     },
     {
       "question": "¿Proporcionan soporte continuo después del lanzamiento?",
@@ -31,7 +31,7 @@
     },
     {
       "question": "¿Pueden ayudar con la migración de una aplicación existente?",
-      "answer": "Claro. Tenemos experiencia en migrar desde sistemas heredados a plataformas modernas, incluyendo aplicaciones web, móviles y APIs. Evaluamos tu sistema actual y planificamos una transición por fases para minimizar cualquier interrupción."
+      "answer": "Podemos revisar una aplicación existente, conversar sobre opciones de migración y definir un plan de transición que se ajuste al sistema y a los requisitos del proyecto."
     },
     {
       "question": "¿Cuánto cuesta desarrollar una aplicación móvil?",
@@ -43,7 +43,7 @@
     },
     {
       "question": "¿Pueden crear experiencias 3D interactivas para sitios web?",
-      "answer": "Sí, nos especializamos en experiencias 3D web usando WebGL y Three.js. Estas pueden incluir configuradores de productos, tours virtuales, modelos interactivos y visualizaciones inmersivas que funcionan sin problemas en todos los navegadores modernos."
+      "answer": "El trabajo 3D web puede incluir configuradores de productos, tours virtuales, modelos interactivos y visualizaciones. Las tecnologías y dispositivos compatibles dependen de los requisitos del proyecto."
     },
     {
       "question": "¿Cómo manejan los cambios durante el proyecto?",

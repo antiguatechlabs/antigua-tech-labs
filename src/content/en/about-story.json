@@ -1,79 +1,54 @@
 {
   "title": "Our {{gradient:Story}}",
-  "subtitle": "From a vision to transform Guatemala's digital landscape to becoming a trusted partner for businesses worldwide",
+  "subtitle": "A software development startup founded in {{companyLocality}}",
   "summary": {
-    "title": "Our Journey",
-    "description": "Since our founding in 2020 in the historic city of Antigua Guatemala, we've grown from a passionate team of local developers into a recognized leader in software development across Central America. Our journey spans from delivering our first enterprise applications for local tourism businesses to serving international clients with cutting-edge AI integrations and cloud architectures. With over 50 successful projects completed and a commitment to innovation, quality, and cultural pride, we continue to bridge the gap between world-class technology and meaningful business impact. Today, we stand as a testament to Guatemala's growing tech ecosystem, proudly representing our heritage while building solutions that compete on the global stage."
+    "title": "Our Story",
+    "paragraphs": [
+      "Founded in {{foundingYear}} in {{companyLocality}}, {{companyCountry}}, {{companyName}} is a software development startup created by a team of technology professionals with experience gained before the company's launch.",
+      "We design and build web and mobile applications, custom software platforms, backend integrations, and AI-assisted workflows tailored to different business needs. Our approach combines practical engineering, clear communication, and continuous learning, with a focus on delivering reliable and maintainable digital solutions."
+    ]
   },
   "timeline": [
     {
-      "year": "2020",
-      "title": "The Beginning",
-      "description": "Founded in Antigua Guatemala with a mission to bridge the gap between innovative technology and local businesses. We started as a small team of passionate developers with big dreams.",
-      "milestone": "Company Founded",
+      "year": "{{foundingYear}}",
+      "title": "Company launch",
+      "description": "{{companyName}} was created in {{companyLocality}} by technology professionals with experience gained before the company's launch.",
+      "milestone": "{{companyName}} founded",
       "icon": "RocketLaunchIcon"
-    },
-    {
-      "year": "2021",
-      "title": "First Major Projects",
-      "description": "Delivered our first enterprise-level web applications for local tourism and retail businesses, establishing our reputation for quality and reliability in the Guatemalan market.",
-      "milestone": "10+ Projects Completed",
-      "icon": "BusinessCenterIcon"
-    },
-    {
-      "year": "2022",
-      "title": "International Expansion",
-      "description": "Expanded our services to serve clients across Central America and North America, building a diverse portfolio of mobile applications and API integrations.",
-      "milestone": "International Clients",
-      "icon": "PublicIcon"
-    },
-    {
-      "year": "2023",
-      "title": "Technology Innovation",
-      "description": "Invested heavily in cutting-edge technologies including AI integration, cloud architecture, and modern development frameworks to stay ahead of industry trends.",
-      "milestone": "Tech Stack Modernization",
-      "icon": "AutoAwesomeIcon"
-    },
-    {
-      "year": "2024",
-      "title": "Growth & Recognition",
-      "description": "Achieved significant growth with 50+ successful projects and recognition as a leading software development company in Guatemala, serving clients from startups to enterprises.",
-      "milestone": "50+ Projects Delivered",
-      "icon": "EmojiEventsIcon"
     }
   ],
   "values": {
     "title": "Antigua Tech Labs {{gradient:Core Values}}",
-    "subtitle": "The principles that guide everything we do",
+    "subtitle": "The principles that guide our work",
     "items": [
       {
-        "title": "Innovation First",
-        "description": "We embrace cutting-edge technologies and creative solutions to solve complex problems.",
+        "title": "Practical Innovation",
+        "description": "We consider technologies and approaches that fit each project's needs.",
         "icon": "LightbulbIcon"
       },
       {
-        "title": "Quality Excellence",
-        "description": "Every line of code, every design element, and every user interaction is crafted with meticulous attention to detail.",
+        "title": "Maintainable Quality",
+        "description": "We value clear code, thoughtful design, and testing appropriate to the project scope.",
         "icon": "StarIcon"
       },
       {
-        "title": "Client Partnership",
-        "description": "We build long-term relationships based on trust, transparency, and mutual success.",
+        "title": "Clear Collaboration",
+        "description": "We aim to build working relationships through clear communication and shared expectations.",
         "icon": "HandshakeIcon"
       },
       {
-        "title": "Cultural Pride",
-        "description": "Proudly representing Guatemala on the global stage while supporting our local community.",
+        "title": "Local Roots",
+        "description": "We are based in {{companyCountry}} and bring that perspective to the work we do.",
         "icon": "FavoriteIcon"
       }
     ]
   },
   "mission": {
     "title": "Our Mission",
-    "description": "To empower businesses with innovative digital solutions that drive growth, enhance user experiences, and create lasting value in an increasingly connected world.",
+    "description": "To help businesses address practical needs through reliable, maintainable software and clear collaboration.",
     "vision": {
       "title": "Our Vision",
-      "description": "To be the leading software development company in Central America, known for exceptional quality, innovation, and the positive impact we create for our clients and community."
+      "description": "To grow as a trusted software development startup from Guatemala through responsible engineering and continuous learning."
     }
   }
 }

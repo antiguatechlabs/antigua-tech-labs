@@ -18,6 +18,7 @@ interface LegalModalProps {
   onClose: () => void;
   title: string;
   content: {
+    closeLabel: string;
     sections: Array<{
       title: string;
       content: string[];
@@ -52,6 +53,7 @@ export const LegalModal: React.FC<LegalModalProps> = ({
     <Dialog
       open={open}
       onClose={onClose}
+      aria-labelledby="legal-modal-title"
       fullScreen={fullScreen}
       maxWidth="md"
       fullWidth
@@ -63,6 +65,7 @@ export const LegalModal: React.FC<LegalModalProps> = ({
       }}
     >
       <DialogTitle
+        id="legal-modal-title"
         sx={{
           display: 'flex',
           justifyContent: 'space-between',
@@ -88,6 +91,7 @@ export const LegalModal: React.FC<LegalModalProps> = ({
         </Typography>
         <IconButton
           onClick={onClose}
+          aria-label={content.closeLabel}
           sx={{
             color: 'text.secondary',
             '&:hover': {

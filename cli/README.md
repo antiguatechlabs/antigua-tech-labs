@@ -29,4 +29,4 @@ Use `--base-url http://localhost:3000` or set `ATL_API_BASE_URL` when testing a 
 - `atl openapi`: retrieves the current `/openapi.json` document.
 - `atl contact`: submits a contact request to `/api/contact`.
 
-The public contact API does not require an API key. See [the developer portal](https://antiguatechlabs.com/developers) for the current contract.
+The public contact API does not require an API key. See [the developer portal](https://www.antiguatechlabs.com/developers) for the current contract.

@@ -2,7 +2,7 @@
   "hero": {
     "title": "{{gradient:Mobile Applications}} That Connect and Engage",
     "subtitle": "Native iOS & Android Development",
-    "description": "Create powerful, user-friendly mobile applications that engage your audience and drive business growth. Our expert team delivers native iOS and Android apps with exceptional performance and intuitive design.",
+    "description": "Mobile application work can include product planning, interface design, and development for iOS, Android, or cross-platform use. Platform choices and functionality depend on the project's requirements.",
     "image": "/src/assets/services/mobile-applications-hero.svg",
     "textPosition": "right"
   },
@@ -87,27 +87,8 @@
     ]
   },
   "portfolio": {
-    "title": "Mobile App Success Stories",
-    "projects": [
-      {
-        "title": "E-commerce Mobile App",
-        "description": "Cross-platform shopping app with 50K+ downloads and 4.8-star rating",
-        "image": "/images/portfolio/mobile-ecommerce.jpg",
-        "technologies": ["React Native", "Firebase", "Stripe"]
-      },
-      {
-        "title": "Fitness Tracking App",
-        "description": "Native iOS app with health integration and social features",
-        "image": "/images/portfolio/fitness-app.jpg",
-        "technologies": ["Swift", "HealthKit", "Core Data"]
-      },
-      {
-        "title": "Business Management App",
-        "description": "Enterprise Android app for inventory and team management",
-        "image": "/images/portfolio/business-app.jpg",
-        "technologies": ["Kotlin", "Room", "Retrofit"]
-      }
-    ]
+    "title": "Public case studies",
+    "projects": []
   },
   "cta": {
     "title": "Ready to Launch Your Mobile App?",

@@ -93,22 +93,23 @@ export function ContactForm({ content }: { content: ContactContent }) {
       >
         <MotionStack spacing={{ xs: 2, sm: 3 }} padding={{ xs: 3, sm: 6 }}>
           {status === 'success' && (
-            <Alert severity="success" sx={{ mb: 2 }}>
+            <Alert severity="success" role="status" sx={{ mb: 2 }}>
               {content.feedback.success}
             </Alert>
           )}
 
           {status === 'error' && (
-            <Alert severity="error" sx={{ mb: 2 }}>
+            <Alert severity="error" role="alert" sx={{ mb: 2 }}>
               {errorMessage || content.feedback.error.general}
             </Alert>
           )}
           <MotionDiv {...fadeVariant} style={{ width: '100%' }}>
             <FormControl fullWidth required>
-              <FormLabel sx={{ fontSize: { xs: '0.875rem', md: '1rem' } }}>
+              <FormLabel htmlFor="contact-name" sx={{ fontSize: { xs: '0.875rem', md: '1rem' } }}>
                 {content.formLabels.name}
               </FormLabel>
               <TextField
+                id="contact-name"
                 name="name"
                 value={formData.name}
                 onChange={handleChange}
@@ -136,10 +137,11 @@ export function ContactForm({ content }: { content: ContactContent }) {
 
           <MotionDiv {...fadeVariant} style={{ width: '100%' }}>
             <FormControl fullWidth required>
-              <FormLabel sx={{ fontSize: { xs: '0.875rem', md: '1rem' } }}>
+              <FormLabel htmlFor="contact-email" sx={{ fontSize: { xs: '0.875rem', md: '1rem' } }}>
                 {content.formLabels.email}
               </FormLabel>
               <TextField
+                id="contact-email"
                 name="email"
                 type="email"
                 value={formData.email}
@@ -168,11 +170,12 @@ export function ContactForm({ content }: { content: ContactContent }) {
 
           <MotionDiv {...fadeVariant} style={{ width: '100%' }}>
             <FormControl fullWidth required>
-              <FormLabel sx={{ fontSize: { xs: '0.875rem', md: '1rem' } }}>
+              <FormLabel htmlFor="contact-message" sx={{ fontSize: { xs: '0.875rem', md: '1rem' } }}>
                 {content.formLabels.message}
               </FormLabel>
               <Box
                 component="textarea"
+                id="contact-message"
                 name="message"
                 value={formData.message}
                 onChange={handleChange}

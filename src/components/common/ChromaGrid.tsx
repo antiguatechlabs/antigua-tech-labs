@@ -82,10 +82,6 @@ const ChromaGrid: React.FC<ChromaGridProps> = ({
     });
   };
 
-  const handleCardClick = (url?: string) => {
-    if (url) window.open(url, '_blank', 'noopener,noreferrer');
-  };
-
   const handleCardMove: React.MouseEventHandler<HTMLElement> = e => {
     const card = e.currentTarget as HTMLElement;
     const rect = card.getBoundingClientRect();
@@ -123,8 +119,11 @@ const ChromaGrid: React.FC<ChromaGridProps> = ({
       {items.map((c, i) => (
         <Box
           key={i}
+          component={c.url ? 'a' : 'article'}
+          href={c.url || undefined}
+          target={c.url ? '_blank' : undefined}
+          rel={c.url ? 'noopener noreferrer' : undefined}
           onMouseMove={handleCardMove}
-          onClick={() => handleCardClick(c.url)}
           sx={{
             position: 'relative',
             display: 'flex',
@@ -137,6 +136,13 @@ const ChromaGrid: React.FC<ChromaGridProps> = ({
             border: '1px solid #333',
             background: c.gradient,
             cursor: c.url ? 'pointer' : 'default',
+            color: 'inherit',
+            textDecoration: 'none',
+            '&:focus-visible': {
+              outline: '2px solid',
+              outlineColor: 'primary.main',
+              outlineOffset: 3,
+            },
             transition: 'border-color 0.3s ease',
             '&:hover': {
               borderColor: c.borderColor,
@@ -219,4 +225,3 @@ const ChromaGrid: React.FC<ChromaGridProps> = ({
 };
 
 export default ChromaGrid;
-

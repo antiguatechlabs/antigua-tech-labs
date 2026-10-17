@@ -1,9 +1,10 @@
 import { NextResponse } from 'next/server';
 
 import { methodNotAllowed, optionsResponse } from '@/lib/api/errors';
+import { SITE_CONFIG } from '@/lib/seo/config';
 
 export async function GET() {
-  const baseUrl = 'https://antiguatechlabs.com';
+  const baseUrl = SITE_CONFIG.url;
 
   const staticRoutes = [
     '',
